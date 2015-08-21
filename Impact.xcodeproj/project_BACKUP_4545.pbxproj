@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5522991B870EB700F9E5CA /* ServerRequest.swift */; };
 		4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */; };
+<<<<<<< HEAD
 		4E515AB7A3CD6CED1BBE3ABB /* Pods_Impact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+=======
+		4DE669351B86CE44005CB0AF /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE669341B86CE44005CB0AF /* ServerRequest.swift */; };
+>>>>>>> ServerRequestClass
 		B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8585C181B8642E900AB091A /* AppDelegate.swift */; };
 		B8585C1C1B8642E900AB091A /* Impact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8585C1A1B8642E900AB091A /* Impact.xcdatamodeld */; };
 		B8585C1E1B8642E900AB091A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8585C1D1B8642E900AB091A /* ViewController.swift */; };
@@ -31,9 +34,12 @@
 
 /* Begin PBXFileReference section */
 		1280A710DB7E095180D81B15 /* Pods-Impact.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impact.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Impact/Pods-Impact.debug.xcconfig"; sourceTree = "<group>"; };
-		4D5522991B870EB700F9E5CA /* ServerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
 		4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ImpactColors.swift"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+=======
+		4DE669341B86CE44005CB0AF /* ServerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
+>>>>>>> ServerRequestClass
 		B8585C131B8642E800AB091A /* Impact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8585C171B8642E800AB091A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8585C181B8642E900AB091A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +89,7 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
 		5FDB813D32490678FE722628 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +97,14 @@
 				ED45840C4AA33A9113487D60 /* Pods-Impact.release.xcconfig */,
 			);
 			name = Pods;
+=======
+		4DE669361B86D063005CB0AF /* Server Request */ = {
+			isa = PBXGroup;
+			children = (
+				4DE669341B86CE44005CB0AF /* ServerRequest.swift */,
+			);
+			name = "Server Request";
+>>>>>>> ServerRequestClass
 			sourceTree = "<group>";
 		};
 		B8585C0A1B8642E800AB091A = {
@@ -117,7 +132,7 @@
 			children = (
 				B8585C181B8642E900AB091A /* AppDelegate.swift */,
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
-				4D5522991B870EB700F9E5CA /* ServerRequest.swift */,
+				4DE669361B86D063005CB0AF /* Server Request */,
 				4DE6692F1B86C8C4005CB0AF /* Extensions */,
 				B8585C1F1B8642E900AB091A /* Main.storyboard */,
 				B8585C221B8642E900AB091A /* Images.xcassets */,
@@ -306,7 +321,7 @@
 			files = (
 				B8585C1E1B8642E900AB091A /* ViewController.swift in Sources */,
 				4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */,
-				4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */,
+				4DE669351B86CE44005CB0AF /* ServerRequest.swift in Sources */,
 				B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */,
 				B8585C1C1B8642E900AB091A /* Impact.xcdatamodeld in Sources */,
 			);
