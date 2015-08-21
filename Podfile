@@ -2,7 +2,8 @@
 # platform :ios, '6.0'
 
 target 'Impact' do
-
+pod 'Alamofire', '~> 1.3'
+use_frameworks!
 end
 
 target 'ImpactTests' do
