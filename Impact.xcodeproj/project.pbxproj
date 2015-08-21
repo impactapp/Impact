@@ -75,6 +75,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4D55229B1B8714E500F9E5CA /* Server Request */ = {
+			isa = PBXGroup;
+			children = (
+				4D5522991B870EB700F9E5CA /* ServerRequest.swift */,
+			);
+			name = "Server Request";
+			sourceTree = "<group>";
+		};
 		4DE6692F1B86C8C4005CB0AF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,7 +125,7 @@
 			children = (
 				B8585C181B8642E900AB091A /* AppDelegate.swift */,
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
-				4D5522991B870EB700F9E5CA /* ServerRequest.swift */,
+				4D55229B1B8714E500F9E5CA /* Server Request */,
 				4DE6692F1B86C8C4005CB0AF /* Extensions */,
 				B8585C1F1B8642E900AB091A /* Main.storyboard */,
 				B8585C221B8642E900AB091A /* Images.xcassets */,

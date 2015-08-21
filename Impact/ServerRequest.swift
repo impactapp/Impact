@@ -56,8 +56,10 @@ class ServerRequest: NSObject {
     private func getRequestManager(authenticated:Bool) -> Manager {
         var manager = Manager.sharedInstance
         manager.session.configuration.HTTPAdditionalHeaders = ["Content-Type" : "application/json", "Accept": "application/json"];
-        if (authenticated && let api_token = getAuthenticationToken()) {
-            manager.session.configuration.HTTPAdditionalHeaders = ["Content-Type" : "application/json", "Accept" : "application/json", "API-TOKEN" : api_token];
+        if (authenticated) {
+            if let api_token = getAuthenticationToken() {
+                manager.session.configuration.HTTPAdditionalHeaders = ["Content-Type" : "application/json", "Accept" : "application/json", "API-TOKEN" : api_token];
+            }
         }
         return manager;
     }
