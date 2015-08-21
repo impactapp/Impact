@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */; };
 		B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8585C181B8642E900AB091A /* AppDelegate.swift */; };
 		B8585C1C1B8642E900AB091A /* Impact.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8585C1A1B8642E900AB091A /* Impact.xcdatamodeld */; };
 		B8585C1E1B8642E900AB091A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8585C1D1B8642E900AB091A /* ViewController.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ImpactColors.swift"; sourceTree = "<group>"; };
 		B8585C131B8642E800AB091A /* Impact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8585C171B8642E800AB091A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8585C181B8642E900AB091A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4DE6692F1B86C8C4005CB0AF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		B8585C0A1B8642E800AB091A = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +91,7 @@
 			children = (
 				B8585C181B8642E900AB091A /* AppDelegate.swift */,
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
+				4DE6692F1B86C8C4005CB0AF /* Extensions */,
 				B8585C1F1B8642E900AB091A /* Main.storyboard */,
 				B8585C221B8642E900AB091A /* Images.xcassets */,
 				B8585C241B8642E900AB091A /* LaunchScreen.xib */,
@@ -216,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8585C1E1B8642E900AB091A /* ViewController.swift in Sources */,
+				4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */,
 				B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */,
 				B8585C1C1B8642E900AB091A /* Impact.xcdatamodeld in Sources */,
 			);
@@ -415,6 +427,7 @@
 				B8585C371B8642E900AB091A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8585C381B8642E900AB091A /* Build configuration list for PBXNativeTarget "ImpactTests" */ = {
 			isa = XCConfigurationList;
@@ -423,6 +436,7 @@
 				B8585C3A1B8642E900AB091A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
