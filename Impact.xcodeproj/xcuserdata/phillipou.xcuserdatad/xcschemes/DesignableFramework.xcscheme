@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0510"
+   LastUpgradeVersion = "0640"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7236783D8CF8FB2CC6597C06"
-               BuildableName = "Alamofire.framework"
-               BlueprintName = "Pods-Impact-Alamofire"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "4DCA86FC1B89B57B008F95CB"
+               BuildableName = "DesignableFramework.framework"
+               BlueprintName = "DesignableFramework"
+               ReferencedContainer = "container:Impact.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -39,6 +39,15 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4DCA86FC1B89B57B008F95CB"
+            BuildableName = "DesignableFramework.framework"
+            BlueprintName = "DesignableFramework"
+            ReferencedContainer = "container:Impact.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -48,6 +57,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "4DCA86FC1B89B57B008F95CB"
+            BuildableName = "DesignableFramework.framework"
+            BlueprintName = "DesignableFramework"
+            ReferencedContainer = "container:Impact.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
