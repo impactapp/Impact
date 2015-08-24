@@ -19,6 +19,12 @@
 		B8585C231B8642E900AB091A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8585C221B8642E900AB091A /* Images.xcassets */; };
 		B8585C261B8642E900AB091A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8585C241B8642E900AB091A /* LaunchScreen.xib */; };
 		B8585C321B8642E900AB091A /* ImpactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8585C311B8642E900AB091A /* ImpactTests.swift */; };
+		B8C77E131B8ABEFA00000927 /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */; };
+		B8C77E141B8ABEFA00000927 /* InitialScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */; };
+		B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E181B8AC2E700000927 /* SignInViewController.swift */; };
+		B8C77E1B1B8AC2E700000927 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C77E191B8AC2E700000927 /* SignInViewController.xib */; };
+		B8C77E1E1B8AC2FF00000927 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E1C1B8AC2FF00000927 /* SignUpViewController.swift */; };
+		B8C77E1F1B8AC2FF00000927 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C77E1D1B8AC2FF00000927 /* SignUpViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +55,12 @@
 		B8585C2B1B8642E900AB091A /* ImpactTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImpactTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8585C301B8642E900AB091A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8585C311B8642E900AB091A /* ImpactTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactTests.swift; sourceTree = "<group>"; };
+		B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
+		B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialScreenViewController.xib; sourceTree = "<group>"; };
+		B8C77E181B8AC2E700000927 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B8C77E191B8AC2E700000927 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		B8C77E1C1B8AC2FF00000927 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B8C77E1D1B8AC2FF00000927 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		ED45840C4AA33A9113487D60 /* Pods-Impact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impact.release.xcconfig"; path = "Pods/Target Support Files/Pods-Impact/Pods-Impact.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,6 +150,7 @@
 				B8585C181B8642E900AB091A /* AppDelegate.swift */,
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
 				4D2256E81B8A8E5E00727A4C /* TabBarController.swift */,
+				B8C77E151B8ABF2B00000927 /* Initial Screens */,
 				4D2256B51B8A530800727A4C /* IBDesignables */,
 				4D55229B1B8714E500F9E5CA /* Server Request */,
 				4DE6692F1B86C8C4005CB0AF /* Extensions */,
@@ -173,6 +186,19 @@
 				B8585C301B8642E900AB091A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8C77E151B8ABF2B00000927 /* Initial Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B8C77E181B8AC2E700000927 /* SignInViewController.swift */,
+				B8C77E191B8AC2E700000927 /* SignInViewController.xib */,
+				B8C77E1C1B8AC2FF00000927 /* SignUpViewController.swift */,
+				B8C77E1D1B8AC2FF00000927 /* SignUpViewController.xib */,
+				B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */,
+				B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */,
+			);
+			name = "Initial Screens";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +284,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C77E1B1B8AC2E700000927 /* SignInViewController.xib in Resources */,
 				B8585C211B8642E900AB091A /* Main.storyboard in Resources */,
+				B8C77E141B8ABEFA00000927 /* InitialScreenViewController.xib in Resources */,
 				B8585C261B8642E900AB091A /* LaunchScreen.xib in Resources */,
+				B8C77E1F1B8AC2FF00000927 /* SignUpViewController.xib in Resources */,
 				B8585C231B8642E900AB091A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,9 +359,12 @@
 				4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */,
 				4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */,
 				4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */,
+				B8C77E1E1B8AC2FF00000927 /* SignUpViewController.swift in Sources */,
 				4D2256E91B8A8E5E00727A4C /* TabBarController.swift in Sources */,
+				B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */,
 				B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */,
 				B8585C1C1B8642E900AB091A /* Impact.xcdatamodeld in Sources */,
+				B8C77E131B8ABEFA00000927 /* InitialScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
