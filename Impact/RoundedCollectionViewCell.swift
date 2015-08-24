@@ -19,7 +19,6 @@ class RoundedCollectionViewCell: UICollectionViewCell {
         self.layer.masksToBounds = true;
         self.layer.borderColor = UIColor.customGrey().CGColor;
         self.layer.borderWidth = 2.0;
-        // Initialization code
     }
 
 }

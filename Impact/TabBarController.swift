@@ -29,7 +29,7 @@ class TabBarViewController: UITabBarController {
     }
     
     func setUpViewControllers() {
-        let causesViewController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil);
+        let causesViewController = UIViewController();
         causesViewController.view.backgroundColor = UIColor.customGrey();
         causesViewController.title = "Causes";
         causesViewController.tabBarItem.image = UIImage(named: "CausesIcon");

@@ -16,6 +16,7 @@
 		4D2256FA1B8AD62300727A4C /* RoundedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2256F81B8AD62300727A4C /* RoundedCollectionViewCell.swift */; };
 		4D2256FB1B8AD62300727A4C /* RoundedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2256F91B8AD62300727A4C /* RoundedCollectionViewCell.xib */; };
 		4D2257021B8ADD1000727A4C /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2257011B8ADD1000727A4C /* Bank.swift */; };
+		4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2256EC1B8AC40E00727A4C /* RoundedButton.swift */; };
 		4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5522991B870EB700F9E5CA /* ServerRequest.swift */; };
 		4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */; };
 		4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */; };
@@ -50,6 +51,7 @@
 		4D2256F81B8AD62300727A4C /* RoundedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCollectionViewCell.swift; sourceTree = "<group>"; };
 		4D2256F91B8AD62300727A4C /* RoundedCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundedCollectionViewCell.xib; sourceTree = "<group>"; };
 		4D2257011B8ADD1000727A4C /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		4D2256EC1B8AC40E00727A4C /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		4D5522991B870EB700F9E5CA /* ServerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
 		4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBorderedTextField.swift; sourceTree = "<group>"; };
 		4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ImpactColors.swift"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */,
+				4D2256EC1B8AC40E00727A4C /* RoundedButton.swift */,
 			);
 			name = IBDesignables;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				B8585C181B8642E900AB091A /* AppDelegate.swift */,
+				4D2256EA1B8A90FF00727A4C /* BangViewController.swift */,
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
 				4D2256E81B8A8E5E00727A4C /* TabBarController.swift */,
 				4D2256FE1B8ADC5D00727A4C /* Bank */,
@@ -395,7 +399,9 @@
 			files = (
 				B8585C1E1B8642E900AB091A /* ViewController.swift in Sources */,
 				4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */,
+				4D2256EB1B8A90FF00727A4C /* BangViewController.swift in Sources */,
 				4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */,
+				4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */,
 				4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */,
 				4D0FDE441B8B77C3002877CE /* UIImageView+AsynchronousLoading.swift in Sources */,
 				4D0FDE491B8B8620002877CE /* UIView+Nib.swift in Sources */,
