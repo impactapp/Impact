@@ -44,7 +44,6 @@ class TabBarViewController: UITabBarController {
         profileViewController.tabBarItem.image = UIImage(named: "ProfileIcon");
         self.viewControllers = [causesViewController,blank,profileViewController];
         self.selectedViewController = causesViewController;
-        
     }
     
     //MARK: Contribute Button
