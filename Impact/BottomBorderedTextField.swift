@@ -78,7 +78,8 @@ public class BottomBorderedTextField: UITextField {
         self.leftViewMode = .Always;
         if let image = thumbnail {
             let thumbnailImageView = UIImageView(image: image);
-            thumbnailImageView.contentMode = .ScaleToFill;
+            thumbnailImageView.frame = CGRectMake(0, 0, self.frame.size.height, self.frame.size.height)
+            thumbnailImageView.contentMode = .Center;
             self.textAlignment = .Left;
             self.leftView = thumbnailImageView
         }
