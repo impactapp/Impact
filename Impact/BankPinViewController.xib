@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XbN-Wg-VFG" customClass="BottomBorderedTextField" customModule="Impact" customModuleProvider="target">
-                    <rect key="frame" x="41" y="120" width="518" height="42"/>
+                    <rect key="frame" x="22" y="120" width="556" height="42"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="kBc-9S-d7j"/>
                     </constraints>
@@ -39,7 +39,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" constant="63" id="2a0-f5-lVa"/>
                             </constraints>
-                            <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="50" maxY="10"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="10" maxX="40" maxY="10"/>
                             <state key="normal" image="BackButton">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -71,11 +71,11 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="XbN-Wg-VFG" firstAttribute="leading" secondItem="CFt-J3-maC" secondAttribute="leading" constant="41" id="5xQ-RW-8RB"/>
+                <constraint firstItem="XbN-Wg-VFG" firstAttribute="leading" secondItem="CFt-J3-maC" secondAttribute="leading" constant="22" id="5xQ-RW-8RB"/>
                 <constraint firstAttribute="trailing" secondItem="FsH-0C-DIQ" secondAttribute="trailing" id="Mz8-r5-EYb"/>
                 <constraint firstItem="FsH-0C-DIQ" firstAttribute="leading" secondItem="CFt-J3-maC" secondAttribute="leading" id="q0K-Kr-Pe9"/>
                 <constraint firstItem="FsH-0C-DIQ" firstAttribute="top" secondItem="CFt-J3-maC" secondAttribute="top" id="rRN-bU-q6I"/>
-                <constraint firstAttribute="trailing" secondItem="XbN-Wg-VFG" secondAttribute="trailing" constant="41" id="sde-7f-SSm"/>
+                <constraint firstAttribute="trailing" secondItem="XbN-Wg-VFG" secondAttribute="trailing" constant="22" id="sde-7f-SSm"/>
                 <constraint firstItem="XbN-Wg-VFG" firstAttribute="top" secondItem="FsH-0C-DIQ" secondAttribute="bottom" constant="52" id="vv8-Uj-qmS"/>
             </constraints>
         </view>
