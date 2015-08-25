@@ -24,6 +24,8 @@
 		4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6DC35E1B8BEBAC0017BF29 /* BankPinViewController.xib */; };
 		4D6DC3641B8BED330017BF29 /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DC3631B8BED330017BF29 /* DoneButton.swift */; };
 		4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */; };
+		4D962E9D1B8BFB780026E84D /* BankSecurityQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D962E9B1B8BFB780026E84D /* BankSecurityQuestionViewController.swift */; };
+		4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */; };
 		4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */; };
 		4E515AB7A3CD6CED1BBE3ABB /* Pods_Impact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8585C181B8642E900AB091A /* AppDelegate.swift */; };
@@ -64,6 +66,8 @@
 		4D6DC35E1B8BEBAC0017BF29 /* BankPinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankPinViewController.xib; sourceTree = "<group>"; };
 		4D6DC3631B8BED330017BF29 /* DoneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 		4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBorderedTextField.swift; sourceTree = "<group>"; };
+		4D962E9B1B8BFB780026E84D /* BankSecurityQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankSecurityQuestionViewController.swift; sourceTree = "<group>"; };
+		4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankSecurityQuestionViewController.xib; sourceTree = "<group>"; };
 		4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ImpactColors.swift"; sourceTree = "<group>"; };
 		7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8585C131B8642E800AB091A /* Impact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impact.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,6 +151,8 @@
 		4D2256FF1B8ADC8500727A4C /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				4D962E9B1B8BFB780026E84D /* BankSecurityQuestionViewController.swift */,
+				4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */,
 				4D6DC35D1B8BEBAC0017BF29 /* BankPinViewController.swift */,
 				4D6DC35E1B8BEBAC0017BF29 /* BankPinViewController.xib */,
 				4D0FDE4B1B8BB646002877CE /* BankSignInViewController.swift */,
@@ -343,6 +349,7 @@
 				4D2256FB1B8AD62300727A4C /* RoundedCollectionViewCell.xib in Resources */,
 				4D2256F31B8ACBD500727A4C /* ChooseBankHeaderView.xib in Resources */,
 				B8585C211B8642E900AB091A /* Main.storyboard in Resources */,
+				4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */,
 				4D2256F11B8AC7C900727A4C /* ChooseBankViewController.xib in Resources */,
 				4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */,
 				B8585C261B8642E900AB091A /* LaunchScreen.xib in Resources */,
@@ -425,6 +432,7 @@
 				4D2256F01B8AC7C900727A4C /* ChooseBankViewController.swift in Sources */,
 				B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */,
 				4D2257021B8ADD1000727A4C /* Bank.swift in Sources */,
+				4D962E9D1B8BFB780026E84D /* BankSecurityQuestionViewController.swift in Sources */,
 				B8585C1C1B8642E900AB091A /* Impact.xcdatamodeld in Sources */,
 				4D0FDE4D1B8BB646002877CE /* BankSignInViewController.swift in Sources */,
 				4D6DC35F1B8BEBAC0017BF29 /* BankPinViewController.swift in Sources */,
