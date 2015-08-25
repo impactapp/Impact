@@ -13,6 +13,7 @@ class ChooseBankViewController: UIViewController, UICollectionViewDelegate, UICo
     let headerViewIdentifier = "ChooseBankHeaderView";
     let cellIdentifier = "RoundedCollectionViewCell";
     var banks : [Bank] = [];
+    var selectedBank : Bank? = nil;
 
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -67,6 +68,13 @@ class ChooseBankViewController: UIViewController, UICollectionViewDelegate, UICo
             cell.imageView.setImageWithUrl(NSURL(string: imageURL), placeHolderImage: nil);
         }
         return cell;
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        self.selectedBank = banks[indexPath.row];
+        var bsvc : BankSignInViewController = BankSignInViewController(nibName: "BankSignInViewController", bundle: nil);
+        bsvc.bank = self.selectedBank;
+        self.navigationController?.pushViewController(bsvc, animated: true);
     }
 
 }

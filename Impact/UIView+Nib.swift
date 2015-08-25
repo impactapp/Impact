@@ -15,4 +15,10 @@ extension UIView {
                 bundle: bundle
             ).instantiateWithOwner(nil, options: nil)[0] as? UIView
     }
+    
+    func addBottomBorder(color : UIColor) {
+        var lineView = UIView(frame: CGRectMake(0, self.frame.size.height - 1.0, self.frame.size.width, 1))
+        lineView.backgroundColor=color;
+        self.addSubview(lineView);
+    }
 }

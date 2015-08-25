@@ -16,11 +16,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        var initialViewController = TabBarViewController();
-        self.window?.rootViewController = initialViewController
-        self.window?.makeKeyAndVisible()
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
+        //we'll change the initial view controller based on whether the user is logged in or not
+        var initialViewController = UIViewController();
+        if (isLoggedIn()) {
+            initialViewController = TabBarViewController();
+        } else {
+            initialViewController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil);
+        }
+        let navigationController = UINavigationController(rootViewController: initialViewController);
+        navigationController.navigationBarHidden = true;
+        self.window?.rootViewController =  navigationController;
+        self.window?.makeKeyAndVisible();
+        
         return true
+    }
+    
+    private func isLoggedIn() -> Bool {
+        return false;
     }
 
     func applicationWillResignActive(application: UIApplication) {
