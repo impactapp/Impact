@@ -16,11 +16,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        var initialViewController = TabBarViewController();
+        //self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        //var initialViewController = TabBarViewController();
         
+        //self.window?.rootViewController = initialViewController
+        //self.window?.makeKeyAndVisible()
+        
+        
+        
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        var initialViewController = InitialScreenViewController(nibName: "InitialScreenViewController", bundle: nil);
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
+        
+        
+        
+        
         return true
     }
 

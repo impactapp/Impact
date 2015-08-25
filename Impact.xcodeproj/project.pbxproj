@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		4D2256E91B8A8E5E00727A4C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2256E81B8A8E5E00727A4C /* TabBarController.swift */; };
+		4D2256EB1B8A90FF00727A4C /* BangViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2256EA1B8A90FF00727A4C /* BangViewController.swift */; };
+		4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2256EC1B8AC40E00727A4C /* RoundedButton.swift */; };
 		4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5522991B870EB700F9E5CA /* ServerRequest.swift */; };
 		4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */; };
 		4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */; };
@@ -19,6 +21,12 @@
 		B8585C231B8642E900AB091A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8585C221B8642E900AB091A /* Images.xcassets */; };
 		B8585C261B8642E900AB091A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8585C241B8642E900AB091A /* LaunchScreen.xib */; };
 		B8585C321B8642E900AB091A /* ImpactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8585C311B8642E900AB091A /* ImpactTests.swift */; };
+		B8C77E131B8ABEFA00000927 /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */; };
+		B8C77E141B8ABEFA00000927 /* InitialScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */; };
+		B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E181B8AC2E700000927 /* SignInViewController.swift */; };
+		B8C77E1B1B8AC2E700000927 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C77E191B8AC2E700000927 /* SignInViewController.xib */; };
+		B8C77E1E1B8AC2FF00000927 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E1C1B8AC2FF00000927 /* SignUpViewController.swift */; };
+		B8C77E1F1B8AC2FF00000927 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C77E1D1B8AC2FF00000927 /* SignUpViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +42,8 @@
 /* Begin PBXFileReference section */
 		1280A710DB7E095180D81B15 /* Pods-Impact.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impact.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Impact/Pods-Impact.debug.xcconfig"; sourceTree = "<group>"; };
 		4D2256E81B8A8E5E00727A4C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		4D2256EA1B8A90FF00727A4C /* BangViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BangViewController.swift; sourceTree = "<group>"; };
+		4D2256EC1B8AC40E00727A4C /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		4D5522991B870EB700F9E5CA /* ServerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
 		4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBorderedTextField.swift; sourceTree = "<group>"; };
 		4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ImpactColors.swift"; sourceTree = "<group>"; };
@@ -49,6 +59,12 @@
 		B8585C2B1B8642E900AB091A /* ImpactTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImpactTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8585C301B8642E900AB091A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8585C311B8642E900AB091A /* ImpactTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactTests.swift; sourceTree = "<group>"; };
+		B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
+		B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialScreenViewController.xib; sourceTree = "<group>"; };
+		B8C77E181B8AC2E700000927 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B8C77E191B8AC2E700000927 /* SignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		B8C77E1C1B8AC2FF00000927 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B8C77E1D1B8AC2FF00000927 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		ED45840C4AA33A9113487D60 /* Pods-Impact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impact.release.xcconfig"; path = "Pods/Target Support Files/Pods-Impact/Pods-Impact.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */,
+				4D2256EC1B8AC40E00727A4C /* RoundedButton.swift */,
 			);
 			name = IBDesignables;
 			sourceTree = "<group>";
@@ -136,8 +153,10 @@
 			isa = PBXGroup;
 			children = (
 				B8585C181B8642E900AB091A /* AppDelegate.swift */,
+				4D2256EA1B8A90FF00727A4C /* BangViewController.swift */,
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
 				4D2256E81B8A8E5E00727A4C /* TabBarController.swift */,
+				B8C77E151B8ABF2B00000927 /* Initial Screens */,
 				4D2256B51B8A530800727A4C /* IBDesignables */,
 				4D55229B1B8714E500F9E5CA /* Server Request */,
 				4DE6692F1B86C8C4005CB0AF /* Extensions */,
@@ -173,6 +192,19 @@
 				B8585C301B8642E900AB091A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B8C77E151B8ABF2B00000927 /* Initial Screens */ = {
+			isa = PBXGroup;
+			children = (
+				B8C77E181B8AC2E700000927 /* SignInViewController.swift */,
+				B8C77E191B8AC2E700000927 /* SignInViewController.xib */,
+				B8C77E1C1B8AC2FF00000927 /* SignUpViewController.swift */,
+				B8C77E1D1B8AC2FF00000927 /* SignUpViewController.xib */,
+				B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */,
+				B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */,
+			);
+			name = "Initial Screens";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +290,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C77E1B1B8AC2E700000927 /* SignInViewController.xib in Resources */,
 				B8585C211B8642E900AB091A /* Main.storyboard in Resources */,
+				B8C77E141B8ABEFA00000927 /* InitialScreenViewController.xib in Resources */,
 				B8585C261B8642E900AB091A /* LaunchScreen.xib in Resources */,
+				B8C77E1F1B8AC2FF00000927 /* SignUpViewController.xib in Resources */,
 				B8585C231B8642E900AB091A /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,11 +363,16 @@
 			files = (
 				B8585C1E1B8642E900AB091A /* ViewController.swift in Sources */,
 				4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */,
+				4D2256EB1B8A90FF00727A4C /* BangViewController.swift in Sources */,
 				4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */,
+				4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */,
 				4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */,
+				B8C77E1E1B8AC2FF00000927 /* SignUpViewController.swift in Sources */,
 				4D2256E91B8A8E5E00727A4C /* TabBarController.swift in Sources */,
+				B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */,
 				B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */,
 				B8585C1C1B8642E900AB091A /* Impact.xcdatamodeld in Sources */,
+				B8C77E131B8ABEFA00000927 /* InitialScreenViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
