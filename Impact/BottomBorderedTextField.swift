@@ -74,7 +74,6 @@ public class BottomBorderedTextField: UITextField {
         self.borderStyle = .None;
         setPlaceHolder(placeHolderText)
         setBorderColor(borderColor);
-        self.textAlignment = .Center;
         self.leftViewMode = .Always;
         if let image = thumbnail {
             let thumbnailImageView = UIImageView(image: image);

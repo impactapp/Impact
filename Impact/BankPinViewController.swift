@@ -47,7 +47,9 @@ class BankPinViewController: UIViewController {
     }
     
     func donePressed() {
-        
+        let bsqvc = BankSecurityQuestionViewController(nibName: "BankSecurityQuestionViewController", bundle: nil);
+        bsqvc.bank = self.bank;
+        self.navigationController?.pushViewController(bsqvc, animated: true);
     }
 
     
