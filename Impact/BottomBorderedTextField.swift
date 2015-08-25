@@ -14,9 +14,9 @@ public class BottomBorderedTextField: UITextField {
     
     //MARK : Inspectables
     @IBInspectable
-    var color : UIColor = UIColor.whiteColor() {
+    var bottomBorderColor : UIColor = UIColor.whiteColor() {
         didSet {
-            setTextFieldColor(color);
+            setBorderColor(bottomBorderColor);
         }
     }
     
@@ -24,6 +24,13 @@ public class BottomBorderedTextField: UITextField {
     var needsBottomBorder = true {
         didSet {
             self.bottomBorder.hidden = !needsBottomBorder;
+        }
+    }
+    
+    @IBInspectable
+    var placeHolderColor : UIColor = UIColor.customGrey() {
+        didSet {
+            setPlaceHolder(placeHolderText);
         }
     }
     
@@ -44,6 +51,7 @@ public class BottomBorderedTextField: UITextField {
     //MARK : Initializers
     override init(frame: CGRect) {
         super.init(frame: frame);
+        self.borderStyle = .None;
         setDefaultAttributes();
     }
     
@@ -53,24 +61,24 @@ public class BottomBorderedTextField: UITextField {
         setDefaultAttributes();
     }
     
-    init(frame: CGRect, placeHolderText : String, color : UIColor, thumbnail :UIImage?) {
+    init(frame: CGRect, placeHolderText : String, borderColor : UIColor, thumbnail :UIImage?) {
         super.init(frame:frame);
-        setAttributes(placeHolderText, color: color, thumbnail: thumbnail);
+        setAttributes(placeHolderText, borderColor: borderColor, thumbnail: thumbnail);
     }
     
     private func setDefaultAttributes() {
-        setAttributes(self.placeHolderText, color: self.color, thumbnail: self.thumbnail);
+        setAttributes(self.placeHolderText, borderColor: self.bottomBorderColor, thumbnail: self.thumbnail);
     }
     
-    private func setAttributes(placeHolderText : String, color : UIColor, thumbnail : UIImage?) {
+    private func setAttributes(placeHolderText : String, borderColor : UIColor, thumbnail : UIImage?) {
         self.borderStyle = .None;
         setPlaceHolder(placeHolderText)
-        setTextFieldColor(color);
-        self.textAlignment = .Center;
+        setBorderColor(borderColor);
         self.leftViewMode = .Always;
         if let image = thumbnail {
             let thumbnailImageView = UIImageView(image: image);
-            thumbnailImageView.contentMode = .ScaleToFill;
+            thumbnailImageView.frame = CGRectMake(0, 0, self.frame.size.height, self.frame.size.height)
+            thumbnailImageView.contentMode = .Center;
             self.textAlignment = .Left;
             self.leftView = thumbnailImageView
         }
@@ -79,13 +87,12 @@ public class BottomBorderedTextField: UITextField {
     // MARK : Setters
     
     func setPlaceHolder(placeHolderText : String) {
-        self.attributedPlaceholder = NSAttributedString(string: placeHolderText, attributes: [NSForegroundColorAttributeName:self.color]);
+        self.attributedPlaceholder = NSAttributedString(string: placeHolderText, attributes: [NSForegroundColorAttributeName:self.placeHolderColor]);
     }
     
-    func setTextFieldColor(color : UIColor) {
-        self.textColor = color;
+    func setBorderColor(borderColor: UIColor) {
         let width = CGFloat(2.0)
-        self.bottomBorder.borderColor = color.CGColor
+        self.bottomBorder.borderColor = borderColor.CGColor
         self.bottomBorder.frame = CGRect(x: 0, y: self.frame.size.height - width, width:  self.frame.size.width, height: self.frame.size.height)
         self.bottomBorder.borderWidth = width
         self.layer.addSublayer(self.bottomBorder)

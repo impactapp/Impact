@@ -29,8 +29,8 @@ class TabBarViewController: UITabBarController {
     }
     
     func setUpViewControllers() {
+        
         let causesViewController = UIViewController();
-        causesViewController.view.backgroundColor = UIColor.customGrey();
         causesViewController.title = "Causes";
         causesViewController.tabBarItem.image = UIImage(named: "CausesIcon");
         
@@ -44,7 +44,6 @@ class TabBarViewController: UITabBarController {
         profileViewController.tabBarItem.image = UIImage(named: "ProfileIcon");
         self.viewControllers = [causesViewController,blank,profileViewController];
         self.selectedViewController = causesViewController;
-        
     }
     
     //MARK: Contribute Button

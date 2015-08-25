@@ -63,4 +63,15 @@ class ServerRequest: NSObject {
         }
         return manager;
     }
+    
+    //MARK: Banks
+    
+    //TODO: load real banks from server
+    func getAllBanks(completion:(banks:[Bank]) -> Void) {
+        var banks : [Bank] = [];
+        let BOA =  Bank(name: "Bank of America", logoURL: "http://about.bankofamerica.com/assets/images/common/bank_logo_256x256.png",bankId:"BOA");
+        let citi = Bank(name: "Citi Bank", logoURL: "http://images.all-free-download.com/images/graphicthumb/citibank_0_62794.jpg", bankId: "citi");
+        banks = [BOA, citi,BOA, citi,BOA, citi];
+        completion(banks: banks)
+    }
 }
