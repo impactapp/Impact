@@ -14,7 +14,7 @@ class BankSecurityQuestionViewController: UIViewController {
     var currentIndex = 0;
     var question : String = "";
     var bank : Bank? = nil;
-    var doneButton : DoneButton = DoneButton();
+    var nextButton : DoneButton = DoneButton();
     var keyboardFrame = CGRectZero;
     
     @IBOutlet var navigationHeaderView: UIView!
@@ -32,7 +32,7 @@ class BankSecurityQuestionViewController: UIViewController {
     
     func textFieldDidChange() {
         let validInputs = self.answerTextField.text != "";
-        self.doneButton.animateDoneButton(validInputs);
+        self.nextButton.animateDoneButton(validInputs);
     }
     
     func keyboardWasShown(notification: NSNotification) {
@@ -41,12 +41,12 @@ class BankSecurityQuestionViewController: UIViewController {
     }
     
     private func initDoneButton() {
-        self.doneButton = DoneButton(keyboardFrame: self.keyboardFrame, hidden: true);
-        self.doneButton.backgroundColor = UIColor.customRed();
-        self.doneButton.setTitle("Next", forState: .Normal);
-        self.doneButton.titleLabel?.textColor = UIColor.whiteColor();
-        self.view.addSubview(self.doneButton);
-        self.doneButton.addTarget(self, action: "buttonPressed", forControlEvents: .TouchUpInside);
+        self.nextButton = DoneButton(keyboardFrame: self.keyboardFrame, hidden: true);
+        self.nextButton.backgroundColor = UIColor.customRed();
+        self.nextButton.setTitle("Next", forState: .Normal);
+        self.nextButton.titleLabel?.textColor = UIColor.whiteColor();
+        self.view.addSubview(self.nextButton);
+        self.nextButton.addTarget(self, action: "nextButtonPressed", forControlEvents: .TouchUpInside);
     }
     
     func updateSecurityQuestion() {
@@ -55,12 +55,12 @@ class BankSecurityQuestionViewController: UIViewController {
             self.questionIndexLabel.text = "\(currentIndex+1) / \(securityQuestions.count)";
             self.questionLabel.text = self.question;
             if (currentIndex + 1 == securityQuestions.count) {
-                self.doneButton.setTitle("Done", forState: .Normal);
+                self.nextButton.setTitle("Done", forState: .Normal);
             }
         }
     }
     
-    func buttonPressed() {
+    func nextButtonPressed() {
         currentIndex++;
         if (currentIndex < securityQuestions!.count) {
             let answer = self.answerTextField.text;
@@ -70,6 +70,10 @@ class BankSecurityQuestionViewController: UIViewController {
         } else {
             
         }
+    }
+    
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true);
     }
 
 }
