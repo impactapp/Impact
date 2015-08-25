@@ -28,6 +28,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTextField.needsBottomBorder = false
+        
         // Do any additional setup after loading the view.
     }
 
