@@ -10,6 +10,18 @@ import UIKit
 
 class InitialScreenViewController: UIViewController {
 
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+        
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+
+    }
+    
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,5 +45,20 @@ class InitialScreenViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    @IBAction func facebookButtonPressed(sender: AnyObject) {
+        
+    }
+    @IBAction func signInButtonPressed(sender: AnyObject) {
+        var signInViewController = SignInViewController(nibName: "SignInViewController", bundle: nil);
+        self.presentViewController(signInViewController, animated: true, completion: nil)
+
+    }
+    
+    @IBAction func signUpButtonPressed(sender: AnyObject) {
+        var signUpViewController = SignUpViewController(nibName: "SignUpViewController", bundle: nil);
+        self.presentViewController(signUpViewController, animated: true, completion: nil)
+
+    }
+    
 
 }

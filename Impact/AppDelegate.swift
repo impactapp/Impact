@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        var initialViewController = TabBarViewController();
+        var initialViewController = InitialScreenViewController(nibName: "InitialScreenViewController", bundle: nil);
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
         
