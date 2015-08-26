@@ -12,8 +12,6 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
     var bank : Bank? = nil;
     var doneButton : DoneButton = DoneButton();
     var keyboardFrame : CGRect = CGRectZero;
-    let bankUsernameTextFieldTag = 1
-    let bankPasswordTextFieldTag = 2
     
     
     @IBOutlet var titleLabel: UILabel!
@@ -38,12 +36,10 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
     
     private func initTextFields() {
         self.bankUserNameTextField.delegate = self;
-        self.bankUserNameTextField.tag = bankUsernameTextFieldTag
         self.bankUserNameTextField.returnKeyType = .Next
         self.bankUserNameTextField.autocorrectionType = .No;
         self.bankPasswordTextField.delegate = self;
         self.bankPasswordTextField.returnKeyType = .Done
-        self.bankPasswordTextField.tag = bankPasswordTextFieldTag
         if let bankName = self.bank?.name {
             self.bankUserNameTextField.placeHolderText = "\(bankName) username";
             self.bankPasswordTextField.placeHolderText = "\(bankName) password";
@@ -60,9 +56,9 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         let validInputs = self.bankPasswordTextField.text != "" && self.bankUserNameTextField.text != "";
-        if textField.tag == 1 {
+        if textField == bankUserNameTextField {
             self.bankPasswordTextField.becomeFirstResponder()
-        }else if textField.tag == 2 && validInputs{
+        }else if textField == bankPasswordTextField && validInputs{
             let bpvc = BankPinViewController(nibName: "BankPinViewController", bundle: nil);
             bpvc.bank = self.bank;
             self.navigationController?.pushViewController(bpvc, animated: true);

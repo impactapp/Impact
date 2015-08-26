@@ -17,8 +17,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var forgotButton: UIButton!
     @IBOutlet var signInButton: RoundedButton!
     
-    let emailTextFieldTag = 1
-    let passwordTextFieldTag = 2
     
     
     
@@ -56,10 +54,10 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField.tag == 1{
+        if textField == emailTextField{
             passwordTextField.becomeFirstResponder()
             
-        }else if textField.tag == 2{
+        }else if textFiel == passwordTextField{
             
             textField.resignFirstResponder()
 
@@ -71,11 +69,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.needsBottomBorder = false
         passwordTextField.delegate = self
         passwordTextField.returnKeyType = .Done
-        passwordTextField.tag = passwordTextFieldTag
         
         emailTextField.delegate = self
         emailTextField.returnKeyType = .Next
-        emailTextField.tag = emailTextFieldTag
         
     }
     

@@ -16,9 +16,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var createAccountButton: RoundedButton!
     @IBOutlet var logoImageView: UIImageView!
     
-    let nameTextFieldTag = 1
-    let emailTextFieldTag = 2
-    let passwordTextFieldTag = 3
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,28 +54,25 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     func initTextFields(){
         fullNameTextField.delegate = self
         fullNameTextField.returnKeyType = .Next
-        fullNameTextField.tag = nameTextFieldTag
         
         emailTextField.delegate = self
         emailTextField.returnKeyType = .Next
-        emailTextField.tag = emailTextFieldTag
         
         
         passwordTextField.needsBottomBorder = false
         passwordTextField.delegate = self
         passwordTextField.returnKeyType = .Done
-        passwordTextField.tag = passwordTextFieldTag
         
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField.tag == 1{
+        if textField == fullNameTextField{
             emailTextField.becomeFirstResponder()
             
-        }else if textField.tag == 2{
+        }else if textField == emailTextField{
             passwordTextField.becomeFirstResponder()
         }
-        else if textField.tag == 3{
+        else if textField == passwordTextField{
             textField.resignFirstResponder()
 
         }
