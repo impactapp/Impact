@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BankSecurityQuestionViewController: UIViewController {
+class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate {
     var securityQuestions : [String]? = ["What is your dog's name?", "What is your mother's maiden name?", "Where is your hometown?"];
     var responses : [String] = [];
     var currentIndex = 0;
@@ -27,13 +27,35 @@ class BankSecurityQuestionViewController: UIViewController {
         updateSecurityQuestion();
         self.navigationHeaderView.addBottomBorder(UIColor.customGrey());
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil);
+        self.answerTextField.returnKeyType = .Next
+        self.answerTextField.delegate = self
         self.answerTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged);
     }
     
     func textFieldDidChange() {
         let validInputs = self.answerTextField.text != "";
         self.nextButton.animateDoneButton(validInputs);
+        if (currentIndex == securityQuestions!.count) {
+            self.answerTextField.returnKeyType = .Done
+        }
     }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        let validInputs = self.answerTextField.text != ""
+         if validInputs{
+            currentIndex++;
+            if (currentIndex < securityQuestions!.count) {
+                let answer = self.answerTextField.text;
+                responses.append(answer);
+                self.answerTextField.text = "";
+                updateSecurityQuestion();
+            } else {
+                
+            }
+        }
+        return true
+    }
+    
     
     func keyboardWasShown(notification: NSNotification) {
         self.keyboardFrame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue();

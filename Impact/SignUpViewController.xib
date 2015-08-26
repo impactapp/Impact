@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -7,8 +7,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignUpViewController" customModule="Impact" customModuleProvider="target">
             <connections>
+                <outlet property="createAccountButton" destination="own-KW-kVN" id="kIH-VL-6Oo"/>
                 <outlet property="emailTextField" destination="9nV-E9-jJz" id="24D-0U-gsZ"/>
                 <outlet property="fullNameTextField" destination="asb-P1-WjT" id="BQb-Fu-Sp8"/>
+                <outlet property="logoImageView" destination="aOG-t6-3ez" id="sHd-8s-0Ia"/>
                 <outlet property="passwordTextField" destination="KmT-tZ-8or" id="a4T-Y0-WHL"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -102,7 +104,6 @@
                             <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
-
                 </textField>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>

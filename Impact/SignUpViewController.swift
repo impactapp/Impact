@@ -8,28 +8,27 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var emailTextField: BottomBorderedTextField!
     @IBOutlet var fullNameTextField: BottomBorderedTextField!
     @IBOutlet var passwordTextField: BottomBorderedTextField!
+    @IBOutlet var createAccountButton: RoundedButton!
+    @IBOutlet var logoImageView: UIImageView!
     
-    
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-    }
-    
-    
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    let nameTextFieldTag = 1
+    let emailTextFieldTag = 2
+    let passwordTextFieldTag = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTextField.needsBottomBorder = false
         // Do any additional setup after loading the view.
+        
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
+        initTextFields()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +46,46 @@ class SignUpViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //MARK: TextFieldMethods
+    
+    func DismissKeyboard(){
+        view.endEditing(true)
+    }
+    
+    func initTextFields(){
+        fullNameTextField.delegate = self
+        fullNameTextField.returnKeyType = .Next
+        fullNameTextField.tag = nameTextFieldTag
+        
+        emailTextField.delegate = self
+        emailTextField.returnKeyType = .Next
+        emailTextField.tag = emailTextFieldTag
+        
+        
+        passwordTextField.needsBottomBorder = false
+        passwordTextField.delegate = self
+        passwordTextField.returnKeyType = .Done
+        passwordTextField.tag = passwordTextFieldTag
+        
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField.tag == 1{
+            emailTextField.becomeFirstResponder()
+            
+        }else if textField.tag == 2{
+            passwordTextField.becomeFirstResponder()
+        }
+        else if textField.tag == 3{
+            textField.resignFirstResponder()
+
+        }
+        return true
+    }
+    
+    
+    //MARK: IBActions
     @IBAction func closeButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }

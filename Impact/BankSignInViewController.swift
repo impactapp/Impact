@@ -12,11 +12,15 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
     var bank : Bank? = nil;
     var doneButton : DoneButton = DoneButton();
     var keyboardFrame : CGRect = CGRectZero;
-
+    let bankUsernameTextFieldTag = 1
+    let bankPasswordTextFieldTag = 2
+    
+    
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var navigationHeaderView: UIView!
     @IBOutlet var bankPasswordTextField: BottomBorderedTextField!
     @IBOutlet var bankUserNameTextField: BottomBorderedTextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -34,8 +38,12 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
     
     private func initTextFields() {
         self.bankUserNameTextField.delegate = self;
+        self.bankUserNameTextField.tag = bankUsernameTextFieldTag
+        self.bankUserNameTextField.returnKeyType = .Next
         self.bankUserNameTextField.autocorrectionType = .No;
         self.bankPasswordTextField.delegate = self;
+        self.bankPasswordTextField.returnKeyType = .Done
+        self.bankPasswordTextField.tag = bankPasswordTextFieldTag
         if let bankName = self.bank?.name {
             self.bankUserNameTextField.placeHolderText = "\(bankName) username";
             self.bankPasswordTextField.placeHolderText = "\(bankName) password";
@@ -43,9 +51,24 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
         self.bankPasswordTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged);
     }
     
+    //MARK: UITextFieldDelegate methods
+    
     func textFieldDidChange() {
         let validInputs = self.bankPasswordTextField.text != "" && self.bankUserNameTextField.text != "";
         self.doneButton.animateDoneButton(validInputs);
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        let validInputs = self.bankPasswordTextField.text != "" && self.bankUserNameTextField.text != "";
+        if textField.tag == 1 {
+            self.bankPasswordTextField.becomeFirstResponder()
+        }else if textField.tag == 2 && validInputs{
+            let bpvc = BankPinViewController(nibName: "BankPinViewController", bundle: nil);
+            bpvc.bank = self.bank;
+            self.navigationController?.pushViewController(bpvc, animated: true);
+            
+        }
+        return true
     }
     
     func keyboardWasShown(notification: NSNotification) {
