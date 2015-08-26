@@ -10,6 +10,8 @@ import UIKit
 
 class SignUpViewController: UIViewController {
 
+    @IBOutlet var emailTextField: BottomBorderedTextField!
+    @IBOutlet var fullNameTextField: BottomBorderedTextField!
     @IBOutlet var passwordTextField: BottomBorderedTextField!
     
     
@@ -52,8 +54,10 @@ class SignUpViewController: UIViewController {
     
     @IBAction func createAccountButtonPressed(sender: AnyObject) {
         
-        var tabBarController = TabBarViewController()
-        self.presentViewController(tabBarController, animated: true, completion: nil)
+        var chooseBankViewController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil);
+        let navigationController = UINavigationController(rootViewController: chooseBankViewController);
+        navigationController.navigationBarHidden = true;
+        self.presentViewController(navigationController, animated: true, completion: nil)
         
     }
 

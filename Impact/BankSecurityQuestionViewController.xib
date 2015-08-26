@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qFc-Fe-Cud" customClass="BottomBorderedTextField" customModule="Impact" customModuleProvider="target">
-                    <rect key="frame" x="41" y="152" width="518" height="42"/>
+                    <rect key="frame" x="26" y="152" width="548" height="42"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="J51-YX-zEu"/>
                     </constraints>
@@ -40,7 +40,7 @@
                             <constraints>
                                 <constraint firstAttribute="width" constant="63" id="nXU-X8-fTO"/>
                             </constraints>
-                            <inset key="contentEdgeInsets" minX="0.0" minY="10" maxX="50" maxY="10"/>
+                            <inset key="contentEdgeInsets" minX="10" minY="10" maxX="40" maxY="10"/>
                             <state key="normal" image="BackButton">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -89,9 +89,9 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="SdT-7d-RjI" firstAttribute="top" secondItem="YVf-zB-uuv" secondAttribute="bottom" constant="20" id="0bJ-Ei-s7O"/>
-                <constraint firstItem="qFc-Fe-Cud" firstAttribute="leading" secondItem="xBc-97-nzH" secondAttribute="leading" constant="41" id="JGb-Yt-T2F"/>
+                <constraint firstItem="qFc-Fe-Cud" firstAttribute="leading" secondItem="xBc-97-nzH" secondAttribute="leading" constant="26" id="JGb-Yt-T2F"/>
                 <constraint firstAttribute="centerY" secondItem="SdT-7d-RjI" secondAttribute="centerY" constant="185" id="K1u-17-fKo"/>
-                <constraint firstAttribute="trailing" secondItem="qFc-Fe-Cud" secondAttribute="trailing" constant="41" id="Oo0-Zl-lyd"/>
+                <constraint firstAttribute="trailing" secondItem="qFc-Fe-Cud" secondAttribute="trailing" constant="26" id="Oo0-Zl-lyd"/>
                 <constraint firstAttribute="trailing" secondItem="YVf-zB-uuv" secondAttribute="trailing" id="RHT-55-4t2"/>
                 <constraint firstItem="YVf-zB-uuv" firstAttribute="leading" secondItem="xBc-97-nzH" secondAttribute="leading" id="Rfc-xh-lWf"/>
                 <constraint firstItem="YVf-zB-uuv" firstAttribute="top" secondItem="xBc-97-nzH" secondAttribute="top" id="Rlz-9w-ecn"/>

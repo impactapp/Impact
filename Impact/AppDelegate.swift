@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if (isLoggedIn()) {
             initialViewController = TabBarViewController();
         } else {
-            initialViewController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil);
+            initialViewController = InitialScreenViewController(nibName: "InitialScreenViewController", bundle: nil);
         }
         let navigationController = UINavigationController(rootViewController: initialViewController);
         navigationController.navigationBarHidden = true;

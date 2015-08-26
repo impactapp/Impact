@@ -10,6 +10,7 @@ import UIKit
 
 class SignInViewController: UIViewController {
 
+    @IBOutlet var emailTextField: BottomBorderedTextField!
     @IBOutlet var passwordTextField: BottomBorderedTextField!
     
     
