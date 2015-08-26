@@ -8,28 +8,28 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var emailTextField: BottomBorderedTextField!
     @IBOutlet var passwordTextField: BottomBorderedTextField!
     
+    @IBOutlet var logoImageView: UIImageView!
+    @IBOutlet var forgotButton: UIButton!
+    @IBOutlet var signInButton: RoundedButton!
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-    }
+    let emailTextFieldTag = 1
+    let passwordTextFieldTag = 2
     
-    
-    required init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        passwordTextField.needsBottomBorder = false
-        
+    
+        //tap gesture recognizer
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        view.addGestureRecognizer(tap)
+       
+        initTextFields()
         // Do any additional setup after loading the view.
     }
 
@@ -48,6 +48,42 @@ class SignInViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    //MARK: text field actions
+    func DismissKeyboard(){
+        view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField.tag == 1{
+            passwordTextField.becomeFirstResponder()
+            
+        }else if textField.tag == 2{
+            
+            textField.resignFirstResponder()
+
+        }
+        return true
+    }
+    
+    func initTextFields(){
+        passwordTextField.needsBottomBorder = false
+        passwordTextField.delegate = self
+        passwordTextField.returnKeyType = .Done
+        passwordTextField.tag = passwordTextFieldTag
+        
+        emailTextField.delegate = self
+        emailTextField.returnKeyType = .Next
+        emailTextField.tag = emailTextFieldTag
+        
+    }
+    
+    
+    
+    
+    
+    //IB actions
     @IBAction func forgotPasswordButtonPressed(sender: AnyObject) {
         
     }
