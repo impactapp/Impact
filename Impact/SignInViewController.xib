@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Impact" customModuleProvider="target">
             <connections>
-                <outlet property="emailTextField" destination="M6m-5r-sXy" id="qB8-L3-jPW"/>
+                <outlet property="emailTextField" destination="dZ6-IP-0B9" id="KhK-gR-c4N"/>
                 <outlet property="forgotButton" destination="f2d-Er-Y4O" id="D7l-bI-fGi"/>
-                <outlet property="logoImageView" destination="ygK-nr-2QR" id="jAI-Lh-Dzz"/>
-                <outlet property="passwordTextField" destination="mkB-9G-8oj" id="wLL-Ol-fLq"/>
+                <outlet property="passwordTextField" destination="hc3-ZP-jZv" id="bNy-Qt-9bK"/>
                 <outlet property="signInButton" destination="7cm-L3-WIs" id="WOc-MO-OWk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -21,27 +18,22 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9X-3q-6jw">
-                    <rect key="frame" x="23" y="16" width="40" height="30"/>
-                    <state key="normal" title="Close">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="REk-Fo-dpc">
+                    <rect key="frame" x="0.0" y="-5" width="600" height="605"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cm-L3-WIs" customClass="RoundedButton" customModule="Impact" customModuleProvider="target">
+                    <rect key="frame" x="49" y="269" width="502" height="45"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="XYK-vt-2KS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="17"/>
+                    <state key="normal" title="LOG IN">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="closeButtonPressed:" destination="-1" eventType="touchUpInside" id="CA3-be-ycR"/>
-                    </connections>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cm-L3-WIs" customClass="RoundedButton" customModule="Impact" customModuleProvider="target">
-                    <rect key="frame" x="162" y="361" width="277" height="36"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="36" id="c0F-Lt-hAQ"/>
-                        <constraint firstAttribute="width" constant="277" id="o9r-bt-48z"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                    <state key="normal" title="Sign In">
-                        <color key="titleColor" red="0.92941176469999998" green="0.4823529412" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    <state key="disabled">
+                        <color key="titleColor" red="0.39215686274509803" green="0.39215686274509803" blue="0.39215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -53,14 +45,15 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f2d-Er-Y4O">
-                    <rect key="frame" x="273" y="405" width="54" height="30"/>
+                    <rect key="frame" x="239" y="326" width="123" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="54" id="IqR-fj-MFC"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="WqZ-q1-hzq"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="123" id="lgz-AS-5C1"/>
                         <constraint firstAttribute="height" constant="30" id="yah-dk-6aI"/>
                     </constraints>
                     <state key="normal">
                         <attributedString key="attributedTitle">
-                            <fragment content="Forgot?">
+                            <fragment content="Forgot Password?">
                                 <attributes>
                                     <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <font key="NSFont" size="15" name="HelveticaNeue"/>
@@ -73,61 +66,91 @@
                         <action selector="forgotPasswordButtonPressed:" destination="-1" eventType="touchUpInside" id="4Ex-z8-y3b"/>
                     </connections>
                 </button>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M6m-5r-sXy" customClass="BottomBorderedTextField" customModule="Impact" customModuleProvider="target">
-                    <rect key="frame" x="200" y="231" width="200" height="40"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOG IN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SoA-6h-BaH">
+                    <rect key="frame" x="216" y="50" width="169" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="DuE-Xw-Fpx"/>
+                        <constraint firstAttribute="width" constant="169" id="Q5Z-dn-cxq"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="23"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dZ6-IP-0B9" customClass="BottomBorderedTextField" customModule="Impact" customModuleProvider="target">
+                    <rect key="frame" x="49" y="129" width="502" height="45"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="s3m-Aw-1Bn"/>
+                    </constraints>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="bottomBorderColor">
-                            <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="value" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="placeHolderText" value="Email"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mkB-9G-8oj" customClass="BottomBorderedTextField" customModule="Impact" customModuleProvider="target">
-                    <rect key="frame" x="200" y="279" width="200" height="40"/>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hc3-ZP-jZv" customClass="BottomBorderedTextField" customModule="Impact" customModuleProvider="target">
+                    <rect key="frame" x="49" y="182" width="502" height="45"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="40" id="YrD-V7-9fm"/>
+                        <constraint firstAttribute="height" constant="45" id="g1F-RK-ceb"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="zfa-bt-UGO"/>
                     </constraints>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                     <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="bottomBorderColor">
-                            <color key="value" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="value" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="string" keyPath="placeHolderText" value="Password"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                            <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ygK-nr-2QR">
-                    <rect key="frame" x="266" y="139" width="69" height="68"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="68" id="63n-jz-0Wd"/>
-                        <constraint firstAttribute="width" constant="69" id="FZK-HL-LU8"/>
-                    </constraints>
-                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k9X-3q-6jw">
+                    <rect key="frame" x="8" y="8" width="41" height="41"/>
+                    <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                    <state key="normal" image="xButton">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="closeButtonPressed:" destination="-1" eventType="touchUpInside" id="CA3-be-ycR"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="7cm-L3-WIs" firstAttribute="top" secondItem="mkB-9G-8oj" secondAttribute="bottom" constant="42" id="27O-rT-HN9"/>
-                <constraint firstItem="f2d-Er-Y4O" firstAttribute="centerX" secondItem="7cm-L3-WIs" secondAttribute="centerX" id="371-lC-XLR"/>
-                <constraint firstItem="ygK-nr-2QR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="139" id="5Ka-KS-w53"/>
-                <constraint firstItem="M6m-5r-sXy" firstAttribute="height" secondItem="mkB-9G-8oj" secondAttribute="height" id="HH6-fO-997"/>
+                <constraint firstItem="dZ6-IP-0B9" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="49" id="6TZ-Ev-y60"/>
+                <constraint firstItem="SoA-6h-BaH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="50" id="7ip-bm-2eH"/>
+                <constraint firstItem="dZ6-IP-0B9" firstAttribute="top" secondItem="SoA-6h-BaH" secondAttribute="bottom" constant="37" id="9qh-0f-RsL"/>
+                <constraint firstAttribute="bottom" secondItem="REk-Fo-dpc" secondAttribute="bottom" id="Hob-Ns-6in"/>
                 <constraint firstAttribute="centerX" secondItem="f2d-Er-Y4O" secondAttribute="centerX" id="Hu2-BG-0Dz"/>
-                <constraint firstItem="M6m-5r-sXy" firstAttribute="width" secondItem="mkB-9G-8oj" secondAttribute="width" id="JbR-4s-3OP"/>
-                <constraint firstAttribute="centerX" secondItem="mkB-9G-8oj" secondAttribute="centerX" id="RA5-MP-Z9K"/>
-                <constraint firstItem="k9X-3q-6jw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" constant="15" id="Siy-jM-LrW"/>
-                <constraint firstItem="mkB-9G-8oj" firstAttribute="top" secondItem="M6m-5r-sXy" secondAttribute="bottom" constant="8" id="UO7-l3-7AS"/>
-                <constraint firstItem="k9X-3q-6jw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="8" id="VD9-Zq-wo3"/>
-                <constraint firstItem="M6m-5r-sXy" firstAttribute="top" secondItem="ygK-nr-2QR" secondAttribute="bottom" constant="24" id="dFa-ex-mW0"/>
-                <constraint firstAttribute="centerX" secondItem="M6m-5r-sXy" secondAttribute="centerX" id="kW1-LU-Nf3"/>
-                <constraint firstAttribute="centerX" secondItem="ygK-nr-2QR" secondAttribute="centerX" id="pE0-ES-SYZ"/>
-                <constraint firstAttribute="centerX" secondItem="7cm-L3-WIs" secondAttribute="centerX" id="vOQ-yi-5WX"/>
-                <constraint firstItem="M6m-5r-sXy" firstAttribute="width" secondItem="mkB-9G-8oj" secondAttribute="height" multiplier="250:40" constant="-49.459459459459481" id="xZo-OS-e6e"/>
-                <constraint firstItem="f2d-Er-Y4O" firstAttribute="top" secondItem="7cm-L3-WIs" secondAttribute="bottom" constant="8" symbolic="YES" id="yzK-7Z-Zcc"/>
+                <constraint firstAttribute="centerX" secondItem="SoA-6h-BaH" secondAttribute="centerX" id="Jw9-6L-LA6"/>
+                <constraint firstItem="f2d-Er-Y4O" firstAttribute="top" secondItem="7cm-L3-WIs" secondAttribute="bottom" constant="12" id="LxQ-dE-yyT"/>
+                <constraint firstItem="REk-Fo-dpc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-5" id="O6q-ES-TQA"/>
+                <constraint firstAttribute="trailing" secondItem="REk-Fo-dpc" secondAttribute="trailing" id="Yox-Cx-Z84"/>
+                <constraint firstAttribute="trailing" secondItem="hc3-ZP-jZv" secondAttribute="trailing" constant="49" id="dUT-Ov-hHV"/>
+                <constraint firstItem="hc3-ZP-jZv" firstAttribute="top" secondItem="dZ6-IP-0B9" secondAttribute="bottom" constant="8" id="dnM-Qy-JDY"/>
+                <constraint firstAttribute="trailing" secondItem="7cm-L3-WIs" secondAttribute="trailing" constant="49" id="eBk-Jz-uWb"/>
+                <constraint firstItem="hc3-ZP-jZv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="49" id="gKS-J8-2w6"/>
+                <constraint firstAttribute="trailing" secondItem="dZ6-IP-0B9" secondAttribute="trailing" constant="49" id="iaR-RI-ujV"/>
+                <constraint firstItem="REk-Fo-dpc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jbC-3b-0kL"/>
+                <constraint firstItem="k9X-3q-6jw" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="pa7-a4-RgF"/>
+                <constraint firstItem="k9X-3q-6jw" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="sez-Od-0Qm"/>
+                <constraint firstItem="7cm-L3-WIs" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="49" id="uz4-Uc-7Mu"/>
+                <constraint firstItem="7cm-L3-WIs" firstAttribute="top" secondItem="hc3-ZP-jZv" secondAttribute="bottom" constant="42" id="ygM-Gk-rNS"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="background" width="750" height="1334"/>
+        <image name="xButton" width="31" height="31"/>
+    </resources>
 </document>

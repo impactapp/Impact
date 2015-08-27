@@ -26,6 +26,12 @@
 		4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */; };
 		4D962E9D1B8BFB780026E84D /* BankSecurityQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D962E9B1B8BFB780026E84D /* BankSecurityQuestionViewController.swift */; };
 		4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */; };
+		4DB8CB171B8ED5CE00A6031D /* ForgetLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */; };
+		4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB8CB161B8ED5CE00A6031D /* ForgetLoginViewController.xib */; };
+		4DC8A7C51B8D6D0800F3A9ED /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8A7C41B8D6D0800F3A9ED /* AVFoundation.framework */; };
+		4DC8A7C71B8D6D0D00F3A9ED /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8A7C61B8D6D0D00F3A9ED /* AudioToolbox.framework */; };
+		4DC8A7C91B8D6D1700F3A9ED /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8A7C81B8D6D1700F3A9ED /* CoreMedia.framework */; };
+		4DC8A7CB1B8D6D1E00F3A9ED /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8A7CA1B8D6D1E00F3A9ED /* MobileCoreServices.framework */; };
 		4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */; };
 		4E515AB7A3CD6CED1BBE3ABB /* Pods_Impact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8585C181B8642E900AB091A /* AppDelegate.swift */; };
@@ -74,6 +80,12 @@
 		4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBorderedTextField.swift; sourceTree = "<group>"; };
 		4D962E9B1B8BFB780026E84D /* BankSecurityQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankSecurityQuestionViewController.swift; sourceTree = "<group>"; };
 		4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankSecurityQuestionViewController.xib; sourceTree = "<group>"; };
+		4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetLoginViewController.swift; sourceTree = "<group>"; };
+		4DB8CB161B8ED5CE00A6031D /* ForgetLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetLoginViewController.xib; sourceTree = "<group>"; };
+		4DC8A7C41B8D6D0800F3A9ED /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		4DC8A7C61B8D6D0D00F3A9ED /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		4DC8A7C81B8D6D1700F3A9ED /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		4DC8A7CA1B8D6D1E00F3A9ED /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ImpactColors.swift"; sourceTree = "<group>"; };
 		7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8585C131B8642E800AB091A /* Impact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impact.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +113,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DC8A7CB1B8D6D1E00F3A9ED /* MobileCoreServices.framework in Frameworks */,
+				4DC8A7C91B8D6D1700F3A9ED /* CoreMedia.framework in Frameworks */,
+				4DC8A7C71B8D6D0D00F3A9ED /* AudioToolbox.framework in Frameworks */,
+				4DC8A7C51B8D6D0800F3A9ED /* AVFoundation.framework in Frameworks */,
 				4E515AB7A3CD6CED1BBE3ABB /* Pods_Impact.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +134,10 @@
 		0BA9FE90527541997B5C35A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4DC8A7CA1B8D6D1E00F3A9ED /* MobileCoreServices.framework */,
+				4DC8A7C81B8D6D1700F3A9ED /* CoreMedia.framework */,
+				4DC8A7C61B8D6D0D00F3A9ED /* AudioToolbox.framework */,
+				4DC8A7C41B8D6D0800F3A9ED /* AVFoundation.framework */,
 				7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */,
 			);
 			name = Frameworks;
@@ -279,6 +299,8 @@
 		B8C77E151B8ABF2B00000927 /* Initial Screens */ = {
 			isa = PBXGroup;
 			children = (
+				4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */,
+				4DB8CB161B8ED5CE00A6031D /* ForgetLoginViewController.xib */,
 				B8C77E181B8AC2E700000927 /* SignInViewController.swift */,
 				B8C77E191B8AC2E700000927 /* SignInViewController.xib */,
 				B8C77E1C1B8AC2FF00000927 /* SignUpViewController.swift */,
@@ -382,6 +404,7 @@
 				B8585C211B8642E900AB091A /* Main.storyboard in Resources */,
 				4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */,
 				4D2256F11B8AC7C900727A4C /* ChooseBankViewController.xib in Resources */,
+				4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */,
 				4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */,
 				B8585C261B8642E900AB091A /* LaunchScreen.xib in Resources */,
 				4D0FDE4E1B8BB646002877CE /* BankSignInViewController.xib in Resources */,
@@ -465,6 +488,7 @@
 				4D2256F01B8AC7C900727A4C /* ChooseBankViewController.swift in Sources */,
 				B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */,
 				4D2257021B8ADD1000727A4C /* Bank.swift in Sources */,
+				4DB8CB171B8ED5CE00A6031D /* ForgetLoginViewController.swift in Sources */,
 				4D962E9D1B8BFB780026E84D /* BankSecurityQuestionViewController.swift in Sources */,
 				B8585C1C1B8642E900AB091A /* Impact.xcdatamodeld in Sources */,
 				B8C77E131B8ABEFA00000927 /* InitialScreenViewController.swift in Sources */,
@@ -590,6 +614,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -603,6 +628,7 @@
 				INFOPLIST_FILE = Impact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Debug;
 		};
@@ -614,6 +640,7 @@
 				INFOPLIST_FILE = Impact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;
 		};

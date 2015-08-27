@@ -22,34 +22,25 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        UIApplication.sharedApplication().statusBarHidden = true;
         //tap gesture recognizer
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
        
         initTextFields()
+        shouldEnableSignInButton(false)
+        
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func shouldEnableSignInButton(enable:Bool) {
+        self.signInButton.enabled = enable
+        self.signInButton.backgroundColor = enable ? UIColor.customRed() : UIColor(red: 175/255.0, green: 175/255.0, blue: 175/255.0, alpha: 1)
     }
-    */
     
     
     //MARK: text field actions
-    func DismissKeyboard(){
+    func dismissKeyboard(){
         view.endEditing(true)
     }
     
@@ -66,22 +57,25 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func initTextFields(){
-        passwordTextField.needsBottomBorder = false
         passwordTextField.delegate = self
         passwordTextField.returnKeyType = .Done
+        passwordTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged)
         
         emailTextField.delegate = self
         emailTextField.returnKeyType = .Next
+        emailTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged)
         
     }
     
-    
-    
-    
+    func textFieldDidChange() {
+        let enable = emailTextField.text != "" && count(passwordTextField.text) >= 6;
+        shouldEnableSignInButton(enable)
+    }
     
     //IB actions
     @IBAction func forgotPasswordButtonPressed(sender: AnyObject) {
-        
+       let flvc = ForgetLoginViewController(nibName: "ForgetLoginViewController", bundle: nil);
+        self.presentViewController(flvc, animated: true, completion: nil)
     }
     @IBAction func signInButtonPressed(sender: AnyObject) {
         var tabBarController = TabBarViewController()

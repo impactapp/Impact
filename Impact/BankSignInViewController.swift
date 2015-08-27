@@ -45,6 +45,7 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
             self.bankPasswordTextField.placeHolderText = "\(bankName) password";
         }
         self.bankPasswordTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged);
+        self.bankUserNameTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged);
     }
     
     //MARK: UITextFieldDelegate methods

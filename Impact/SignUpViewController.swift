@@ -20,49 +20,44 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        passwordTextField.needsBottomBorder = false
-        // Do any additional setup after loading the view.
-        
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "DismissKeyboard")
+        UIApplication.sharedApplication().statusBarHidden = true;
+        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
         initTextFields()
+        shouldEnableSignUpButton(false)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func shouldEnableSignUpButton(enable:Bool) {
+        self.createAccountButton.enabled = enable
+        self.createAccountButton.backgroundColor = enable ? UIColor.customRed() : UIColor(red: 175/255.0, green: 175/255.0, blue: 175/255.0, alpha: 1)
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     //MARK: TextFieldMethods
     
-    func DismissKeyboard(){
+    func dismissKeyboard(){
         view.endEditing(true)
     }
     
     func initTextFields(){
         fullNameTextField.delegate = self
         fullNameTextField.returnKeyType = .Next
+        fullNameTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged)
         
         emailTextField.delegate = self
         emailTextField.returnKeyType = .Next
+        passwordTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged)
         
-        
-        passwordTextField.needsBottomBorder = false
         passwordTextField.delegate = self
         passwordTextField.returnKeyType = .Done
+        emailTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged)
         
+    }
+    
+    func textFieldDidChange() {
+        let enable = emailTextField.text != "" && fullNameTextField.text != "" && count(passwordTextField.text) >= 6;
+        shouldEnableSignUpButton(enable)
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
