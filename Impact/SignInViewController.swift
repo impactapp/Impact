@@ -57,7 +57,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         if textField == emailTextField{
             passwordTextField.becomeFirstResponder()
             
-        }else if textFiel == passwordTextField{
+        }else if textField == passwordTextField{
             
             textField.resignFirstResponder()
 
