@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FirstIntroViewController" customModule="Impact" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now it is the time to round up and make an impact" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fci-7i-sF5">
+                    <rect key="frame" x="183" y="306" width="234" height="73"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="234" id="TvG-sY-21v"/>
+                        <constraint firstAttribute="height" constant="73" id="Zka-bZ-l5S"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="21"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BRING CHANGE WITH CHANGE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LhH-40-yL3">
+                    <rect key="frame" x="179" y="196" width="242" height="120"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="242" id="B7b-L2-J5L"/>
+                        <constraint firstAttribute="height" constant="120" id="t0F-qI-87Y"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="38"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="LhH-40-yL3" firstAttribute="centerX" secondItem="Fci-7i-sF5" secondAttribute="centerX" id="373-Wf-Jtg"/>
+                <constraint firstItem="LhH-40-yL3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="196" id="9sK-7J-gRh"/>
+                <constraint firstItem="Fci-7i-sF5" firstAttribute="top" secondItem="LhH-40-yL3" secondAttribute="bottom" constant="-10" id="KVD-oK-yLB"/>
+                <constraint firstItem="Fci-7i-sF5" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ocb-Ja-7Ht"/>
+            </constraints>
+            <point key="canvasLocation" x="319" y="414"/>
+        </view>
+    </objects>
+</document>
