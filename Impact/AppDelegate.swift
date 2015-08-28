@@ -17,12 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
+        
         //we'll change the initial view controller based on whether the user is logged in or not
         var initialViewController = UIViewController();
         if (isLoggedIn()) {
             initialViewController = TabBarViewController();
         } else {
-            initialViewController = InitialScreenViewController(nibName: "InitialScreenViewController", bundle: nil);
+            initialViewController = PageViewController(nibName:"PageViewController", bundle: nil);
         }
         let navigationController = UINavigationController(rootViewController: initialViewController);
         navigationController.navigationBarHidden = true;
