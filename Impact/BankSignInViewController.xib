@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BankSignInViewController" customModule="Impact" customModuleProvider="target">
             <connections>
-                <outlet property="bankPasswordTextField" destination="h0A-Di-3j4" id="izF-dp-NJU"/>
-                <outlet property="bankUserNameTextField" destination="Jr4-sj-En0" id="gD5-DH-O8x"/>
+                <outlet property="bankPasswordLabel" destination="z9m-lu-Hd1" id="ehF-50-q5j"/>
+                <outlet property="bankPasswordTextfield" destination="jDd-kM-kea" id="9mX-YZ-v7E"/>
+                <outlet property="bankUserNameLabel" destination="8i4-Qq-czM" id="eq3-s1-wQL"/>
+                <outlet property="bankUsernameTextField" destination="Jr4-sj-En0" id="eZW-sB-Q5R"/>
                 <outlet property="navigationHeaderView" destination="MhW-x8-fqK" id="2xL-fU-9IS"/>
                 <outlet property="titleLabel" destination="Jbg-pR-zWt" id="5wX-4c-Qoy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -18,35 +21,13 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jr4-sj-En0" customClass="BottomBorderedTextField" customModule="Impact" customModuleProvider="target">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jr4-sj-En0">
                     <rect key="frame" x="21" y="120" width="559" height="42"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="r6g-50-2IJ"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
                     <textInputTraits key="textInputTraits"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="bottomBorderColor">
-                            <color key="value" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="string" keyPath="placeHolderText" value="Bank of America Username"/>
-                        <userDefinedRuntimeAttribute type="image" keyPath="thumbnail" value="ChainIcon"/>
-                    </userDefinedRuntimeAttributes>
-                </textField>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h0A-Di-3j4" customClass="BottomBorderedTextField" customModule="Impact" customModuleProvider="target">
-                    <rect key="frame" x="21" y="176" width="559" height="42"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="42" id="1XA-IG-uL3"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="bottomBorderColor">
-                            <color key="value" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="string" keyPath="placeHolderText" value="Bank of America Password"/>
-                        <userDefinedRuntimeAttribute type="image" keyPath="thumbnail" value="SafeIcon"/>
-                    </userDefinedRuntimeAttributes>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MhW-x8-fqK">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="68"/>
@@ -85,17 +66,68 @@
                         <constraint firstAttribute="centerX" secondItem="Jbg-pR-zWt" secondAttribute="centerX" id="zXv-Rq-pQS"/>
                     </constraints>
                 </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i4-Qq-czM">
+                    <rect key="frame" x="49" y="96" width="531" height="20.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Sh5-pM-EjC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChainIcon" translatesAutoresizingMaskIntoConstraints="NO" id="XXc-YV-rDm">
+                    <rect key="frame" x="21" y="96" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="XXc-YV-rDm" secondAttribute="height" multiplier="1:1" id="8Sz-tT-F2G"/>
+                    </constraints>
+                </imageView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDd-kM-kea">
+                    <rect key="frame" x="21" y="194" width="559" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="PaG-Ka-oEe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9m-lu-Hd1">
+                    <rect key="frame" x="49" y="170" width="531" height="20.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Tt0-aJ-roH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-2w-iM8">
+                    <rect key="frame" x="21" y="170" width="20" height="20"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="KpU-2w-iM8" secondAttribute="height" multiplier="1:1" id="bqU-ha-Gua"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="h0A-Di-3j4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="5vG-c7-z14"/>
+                <constraint firstAttribute="trailing" secondItem="8i4-Qq-czM" secondAttribute="trailing" constant="20" id="1oY-PM-RQS"/>
+                <constraint firstItem="8i4-Qq-czM" firstAttribute="height" secondItem="XXc-YV-rDm" secondAttribute="height" id="2FF-pJ-fLB"/>
                 <constraint firstItem="Jr4-sj-En0" firstAttribute="top" secondItem="MhW-x8-fqK" secondAttribute="bottom" constant="52" id="64Z-4Q-BKg"/>
                 <constraint firstItem="MhW-x8-fqK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ETe-Do-ipx"/>
-                <constraint firstItem="h0A-Di-3j4" firstAttribute="top" secondItem="Jr4-sj-En0" secondAttribute="bottom" constant="14" id="Hb1-v8-ceK"/>
+                <constraint firstItem="jDd-kM-kea" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="KRk-Vi-yZG"/>
+                <constraint firstItem="Jr4-sj-En0" firstAttribute="top" secondItem="XXc-YV-rDm" secondAttribute="bottom" constant="4" id="PWp-K8-bb7"/>
                 <constraint firstItem="Jr4-sj-En0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="Prz-cW-oXp"/>
+                <constraint firstItem="z9m-lu-Hd1" firstAttribute="leading" secondItem="KpU-2w-iM8" secondAttribute="trailing" constant="8" id="QHE-oq-9Hk"/>
+                <constraint firstItem="XXc-YV-rDm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="Qoe-4k-CX8"/>
+                <constraint firstAttribute="trailing" secondItem="jDd-kM-kea" secondAttribute="trailing" constant="20" id="Ts1-AQ-gaX"/>
                 <constraint firstAttribute="trailing" secondItem="MhW-x8-fqK" secondAttribute="trailing" id="UK2-PT-4pr"/>
-                <constraint firstAttribute="trailing" secondItem="h0A-Di-3j4" secondAttribute="trailing" constant="20" id="bJf-RA-iBn"/>
+                <constraint firstItem="z9m-lu-Hd1" firstAttribute="height" secondItem="KpU-2w-iM8" secondAttribute="height" id="cHp-Zh-A7q"/>
+                <constraint firstItem="z9m-lu-Hd1" firstAttribute="top" secondItem="Jr4-sj-En0" secondAttribute="bottom" constant="8.5" id="dVh-GI-s2H"/>
+                <constraint firstItem="KpU-2w-iM8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="21" id="gdU-Ao-q6D"/>
+                <constraint firstItem="jDd-kM-kea" firstAttribute="top" secondItem="KpU-2w-iM8" secondAttribute="bottom" constant="4" id="h42-xD-hcz"/>
+                <constraint firstItem="Jr4-sj-En0" firstAttribute="top" secondItem="8i4-Qq-czM" secondAttribute="bottom" constant="3" id="hfP-gB-8Yl"/>
+                <constraint firstItem="8i4-Qq-czM" firstAttribute="leading" secondItem="XXc-YV-rDm" secondAttribute="trailing" constant="8" id="jH1-hM-Tdv"/>
+                <constraint firstItem="jDd-kM-kea" firstAttribute="top" secondItem="z9m-lu-Hd1" secondAttribute="bottom" constant="3" id="m2M-G2-Nj6"/>
+                <constraint firstItem="KpU-2w-iM8" firstAttribute="width" secondItem="KpU-2w-iM8" secondAttribute="height" multiplier="1:1" id="seR-aT-md9"/>
                 <constraint firstItem="MhW-x8-fqK" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="tO8-hl-1sE"/>
+                <constraint firstAttribute="trailing" secondItem="z9m-lu-Hd1" secondAttribute="trailing" constant="20" id="wtN-7Y-PpY"/>
                 <constraint firstAttribute="trailing" secondItem="Jr4-sj-En0" secondAttribute="trailing" constant="20" id="zYk-sk-101"/>
             </constraints>
         </view>
@@ -103,6 +135,6 @@
     <resources>
         <image name="BackButton" width="26" height="45"/>
         <image name="ChainIcon" width="31" height="30"/>
-        <image name="SafeIcon" width="30" height="30"/>
+        <image name="LockIcon" width="20" height="30"/>
     </resources>
 </document>

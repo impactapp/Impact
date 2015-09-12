@@ -16,9 +16,10 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var titleLabel: UILabel!
     @IBOutlet var navigationHeaderView: UIView!
-    @IBOutlet var bankPasswordTextField: BottomBorderedTextField!
-    @IBOutlet var bankUserNameTextField: BottomBorderedTextField!
-    
+    @IBOutlet weak var bankPasswordTextfield: UITextField!
+    @IBOutlet weak var bankUsernameTextField: UITextField!
+    @IBOutlet weak var bankPasswordLabel: UILabel!
+    @IBOutlet weak var bankUserNameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -35,31 +36,39 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
     };
     
     private func initTextFields() {
-        self.bankUserNameTextField.delegate = self;
-        self.bankUserNameTextField.returnKeyType = .Next
-        self.bankUserNameTextField.autocorrectionType = .No;
-        self.bankPasswordTextField.delegate = self;
-        self.bankPasswordTextField.returnKeyType = .Done
+        self.bankUsernameTextField.delegate = self;
+        self.bankUsernameTextField.returnKeyType = .Next
+        self.bankUsernameTextField.autocorrectionType = .No;
+        self.bankUsernameTextField.autocorrectionType = .No;
+        self.bankUsernameTextField.delegate = self;
+        self.bankUsernameTextField.returnKeyType = .Done
         if let bankName = self.bank?.name {
-            self.bankUserNameTextField.placeHolderText = "\(bankName) username";
-            self.bankPasswordTextField.placeHolderText = "\(bankName) password";
+            self.bankUserNameLabel.text = "\(bankName) Username";
+            self.bankPasswordLabel.text = "\(bankName) Password";
         }
-        self.bankPasswordTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged);
-        self.bankUserNameTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged);
+        self.bankUsernameTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged);
+        self.bankPasswordTextfield.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged);
+        let padding = CGFloat(15);
+        let usernamePaddingView = UIView(frame: CGRectMake(0, 0, padding, self.bankUsernameTextField.frame.height))
+        self.bankUsernameTextField.leftView = usernamePaddingView
+        let passwordPaddingView = UIView(frame: CGRectMake(0, 0, padding, self.bankPasswordTextfield.frame.height))
+        self.bankPasswordTextfield.leftView = passwordPaddingView
+        self.bankPasswordTextfield.leftViewMode = UITextFieldViewMode.Always
+        self.bankUsernameTextField.leftViewMode = UITextFieldViewMode.Always
     }
     
     //MARK: UITextFieldDelegate methods
     
     func textFieldDidChange() {
-        let validInputs = self.bankPasswordTextField.text != "" && self.bankUserNameTextField.text != "";
+        let validInputs = self.bankPasswordTextfield.text != "" && self.bankUsernameTextField.text != "";
         self.doneButton.animateDoneButton(validInputs);
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        let validInputs = self.bankPasswordTextField.text != "" && self.bankUserNameTextField.text != "";
-        if textField == bankUserNameTextField {
-            self.bankPasswordTextField.becomeFirstResponder()
-        }else if textField == bankPasswordTextField && validInputs{
+        let validInputs = self.bankUsernameTextField.text != "" && self.bankUsernameTextField.text != "";
+        if textField == bankUsernameTextField {
+            self.bankUsernameTextField.becomeFirstResponder()
+        }else if textField == bankUsernameTextField && validInputs{
             let bpvc = BankPinViewController(nibName: "BankPinViewController", bundle: nil);
             bpvc.bank = self.bank;
             self.navigationController?.pushViewController(bpvc, animated: true);
@@ -76,7 +85,7 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
     private func initDoneButton() {
         self.doneButton = DoneButton(keyboardFrame: self.keyboardFrame, hidden: true);
         self.doneButton.backgroundColor = UIColor.customRed();
-        self.doneButton.setTitle("Done", forState: .Normal);
+        self.doneButton.setTitle("Continue", forState: .Normal);
         self.doneButton.titleLabel?.textColor = UIColor.whiteColor();
         self.view.addSubview(self.doneButton);
         self.doneButton.addTarget(self, action: "donePressed", forControlEvents: .TouchUpInside);
@@ -87,8 +96,8 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func donePressed() {
-        let bpvc = BankPinViewController(nibName: "BankPinViewController", bundle: nil);
-        bpvc.bank = self.bank;
-        self.navigationController?.pushViewController(bpvc, animated: true);
+        let bsqvc = BankSecurityQuestionViewController(nibName: "BankSecurityQuestionViewController", bundle: nil);
+        bsqvc.bank = self.bank;
+        self.navigationController?.pushViewController(bsqvc, animated: true);
     }
 }
