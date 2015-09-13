@@ -18,7 +18,7 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
     var keyboardFrame = CGRectZero;
     
     @IBOutlet var navigationHeaderView: UIView!
-    @IBOutlet var answerTextField: BottomBorderedTextField!
+    @IBOutlet var answerTextField: UITextField!
     @IBOutlet var questionLabel: UILabel!
     @IBOutlet var questionIndexLabel: UILabel!
 
@@ -27,9 +27,18 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
         updateSecurityQuestion();
         self.navigationHeaderView.addBottomBorder(UIColor.customGrey());
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil);
+        setUpTextField()
+    }
+    
+    func setUpTextField() {
         self.answerTextField.returnKeyType = .Next
         self.answerTextField.delegate = self
         self.answerTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged);
+        self.answerTextField.autocorrectionType = .No
+        let padding = CGFloat(15)
+        let answerPaddingView = UIView(frame: CGRectMake(0, 0, padding, self.answerTextField.frame.height))
+        self.answerTextField.leftView = answerPaddingView
+        self.answerTextField.leftViewMode = UITextFieldViewMode.Always
     }
     
     func textFieldDidChange() {
@@ -49,8 +58,6 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
                 responses.append(answer);
                 self.answerTextField.text = "";
                 updateSecurityQuestion();
-            } else {
-                
             }
         }
         return true
