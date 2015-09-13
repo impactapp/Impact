@@ -50,8 +50,8 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
         self.bankPasswordTextfield.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged);
         let padding = CGFloat(15);
         let usernamePaddingView = UIView(frame: CGRectMake(0, 0, padding, self.bankUsernameTextField.frame.height))
-        self.bankUsernameTextField.leftView = usernamePaddingView
         let passwordPaddingView = UIView(frame: CGRectMake(0, 0, padding, self.bankPasswordTextfield.frame.height))
+        self.bankUsernameTextField.leftView = usernamePaddingView
         self.bankPasswordTextfield.leftView = passwordPaddingView
         self.bankPasswordTextfield.leftViewMode = UITextFieldViewMode.Always
         self.bankUsernameTextField.leftViewMode = UITextFieldViewMode.Always

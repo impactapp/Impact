@@ -78,8 +78,12 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         self.presentViewController(flvc, animated: true, completion: nil)
     }
     @IBAction func signInButtonPressed(sender: AnyObject) {
-        var tabBarController = TabBarViewController()
-        self.presentViewController(tabBarController, animated: true, completion: nil)
+        ServerRequest.shared.loginWithEmail(emailTextField.text, password: passwordTextField.text, success: { (json) -> Void in
+            var tabBarController = TabBarViewController()
+            self.presentViewController(tabBarController, animated: true, completion: nil)
+            },failure: { (errorMessage) -> Void in
+            //TODO : Display error
+        })
     }
     @IBAction func closeButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
