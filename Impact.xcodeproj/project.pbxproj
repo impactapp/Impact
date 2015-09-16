@@ -19,7 +19,10 @@
 		4D2256FA1B8AD62300727A4C /* RoundedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2256F81B8AD62300727A4C /* RoundedCollectionViewCell.swift */; };
 		4D2256FB1B8AD62300727A4C /* RoundedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2256F91B8AD62300727A4C /* RoundedCollectionViewCell.xib */; };
 		4D2257021B8ADD1000727A4C /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2257011B8ADD1000727A4C /* Bank.swift */; };
+		4D2265841BA7937000A51908 /* CreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2265821BA7937000A51908 /* CreditCardViewController.swift */; };
+		4D2265851BA7937000A51908 /* CreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2265831BA7937000A51908 /* CreditCardViewController.xib */; };
 		4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5522991B870EB700F9E5CA /* ServerRequest.swift */; };
+		4D5C805A1BA8F2F0001DEDAF /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C80591BA8F2F0001DEDAF /* UITextField+Padding.swift */; };
 		4D6DC35F1B8BEBAC0017BF29 /* BankPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DC35D1B8BEBAC0017BF29 /* BankPinViewController.swift */; };
 		4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6DC35E1B8BEBAC0017BF29 /* BankPinViewController.xib */; };
 		4D6DC3641B8BED330017BF29 /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DC3631B8BED330017BF29 /* DoneButton.swift */; };
@@ -85,7 +88,11 @@
 		4D2256F81B8AD62300727A4C /* RoundedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCollectionViewCell.swift; sourceTree = "<group>"; };
 		4D2256F91B8AD62300727A4C /* RoundedCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RoundedCollectionViewCell.xib; sourceTree = "<group>"; };
 		4D2257011B8ADD1000727A4C /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
+		4D2265821BA7937000A51908 /* CreditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardViewController.swift; sourceTree = "<group>"; };
+		4D2265831BA7937000A51908 /* CreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditCardViewController.xib; sourceTree = "<group>"; };
+		4D2265861BA7979300A51908 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		4D5522991B870EB700F9E5CA /* ServerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
+		4D5C80591BA8F2F0001DEDAF /* UITextField+Padding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
 		4D6DC35D1B8BEBAC0017BF29 /* BankPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankPinViewController.swift; sourceTree = "<group>"; };
 		4D6DC35E1B8BEBAC0017BF29 /* BankPinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankPinViewController.xib; sourceTree = "<group>"; };
 		4D6DC3631B8BED330017BF29 /* DoneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
@@ -241,6 +248,7 @@
 				4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */,
 				4D0FDE431B8B77C3002877CE /* UIImageView+AsynchronousLoading.swift */,
 				4D0FDE481B8B8620002877CE /* UIView+Nib.swift */,
+				4D5C80591BA8F2F0001DEDAF /* UITextField+Padding.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -279,7 +287,10 @@
 			children = (
 				B8585C181B8642E900AB091A /* AppDelegate.swift */,
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
+				4D2265861BA7979300A51908 /* Bridging-Header.h */,
 				4D2256E81B8A8E5E00727A4C /* TabBarController.swift */,
+				4D2265821BA7937000A51908 /* CreditCardViewController.swift */,
+				4D2265831BA7937000A51908 /* CreditCardViewController.xib */,
 				B8D459F81B8FE0A400877310 /* Intro Screens */,
 				B8C77E151B8ABF2B00000927 /* Initial Screens */,
 				4D2256FE1B8ADC5D00727A4C /* Bank */,
@@ -441,6 +452,7 @@
 				B8C77E1B1B8AC2E700000927 /* SignInViewController.xib in Resources */,
 				B8585C211B8642E900AB091A /* Main.storyboard in Resources */,
 				B8B8AA711B8FFBD1006E689C /* ContentViewController.xib in Resources */,
+				4D2265851BA7937000A51908 /* CreditCardViewController.xib in Resources */,
 				B8C77E141B8ABEFA00000927 /* InitialScreenViewController.xib in Resources */,
 				B8585C261B8642E900AB091A /* LaunchScreen.xib in Resources */,
 				B8A5CF501B8FF48600D71D2C /* FirstIntroViewController.xib in Resources */,
@@ -529,6 +541,7 @@
 				4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */,
 				4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */,
 				4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */,
+				4D2265841BA7937000A51908 /* CreditCardViewController.swift in Sources */,
 				B8C77E1E1B8AC2FF00000927 /* SignUpViewController.swift in Sources */,
 				B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */,
 				B8A5CF531B8FF49A00D71D2C /* ThirdIntroViewController.swift in Sources */,
@@ -537,6 +550,7 @@
 				4D6DC3641B8BED330017BF29 /* DoneButton.swift in Sources */,
 				4D2256E91B8A8E5E00727A4C /* TabBarController.swift in Sources */,
 				4D2256F01B8AC7C900727A4C /* ChooseBankViewController.swift in Sources */,
+				4D5C805A1BA8F2F0001DEDAF /* UITextField+Padding.swift in Sources */,
 				B8B8AA701B8FFBD1006E689C /* ContentViewController.swift in Sources */,
 				B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */,
 				4D2257021B8ADD1000727A4C /* Bank.swift in Sources */,
@@ -684,7 +698,7 @@
 				INFOPLIST_FILE = Impact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Impact/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -696,7 +710,7 @@
 				INFOPLIST_FILE = Impact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Impact/Bridging-Header.h";
 			};
 			name = Release;
 		};

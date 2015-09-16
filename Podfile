@@ -5,6 +5,7 @@ target 'Impact' do
 	pod 'Alamofire', '~> 1.3'
 	pod 'CardIO'
     pod 'SwiftyJSON', '~> 2.2.1'
+    pod 'Stripe'
 	use_frameworks!
 end
 

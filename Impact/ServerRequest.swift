@@ -9,10 +9,12 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import Stripe
 
 class ServerRequest: NSObject {
-    let baseURL = "https://murmuring-coast-1876.herokuapp.com/api/";
-    let kUserRequestKey = "user"
+    private let baseURL = "https://murmuring-coast-1876.herokuapp.com/api/";
+    private let kUserRequestKey = "user"
+    private let kStripePublishableKey = "pk_test_xxr45bpY3r0T5MZ4dGbeTQ7L"
     static let shared = ServerRequest();
     
     //MARK :  Helper Methods
@@ -121,6 +123,27 @@ class ServerRequest: NSObject {
             success(json: json)
             }, failure: { (error) -> Void in
                 failure(errorMessage: "Invalid Email and Password")
+        })
+    }
+    
+    //MARK: Stripe and Credit Card Info
+    
+    func createStripeCustomer(card:STPCard,success:(json:JSON) -> Void, failure:(errorMessage:String) -> Void) {
+        let apiClient = STPAPIClient(publishableKey: kStripePublishableKey)
+        apiClient.createTokenWithCard(card, completion: { (stripeToken, error) -> Void in
+            if let token = stripeToken?.tokenId {
+                let parameters = ["contribution": ["stripe_generated_token":token]]
+                let endpoint = "contributions/add_card"
+                self.postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+                    
+                    }, failure: { (error) -> Void in
+                        
+                })
+
+            } else {
+                
+            }
+            
         })
     }
     
