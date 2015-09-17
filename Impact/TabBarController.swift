@@ -67,7 +67,6 @@ class TabBarViewController: UITabBarController {
         buttonLabel.textAlignment = .Center;
         buttonLabel.textColor = UIColor.customDarkGrey();
         self.contributeButton.addSubview(buttonLabel);
-        var titleLabel = self.contributeButton.titleLabel;
         
         self.tabBar.addSubview(contributeButton);
     }

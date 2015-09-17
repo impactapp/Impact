@@ -35,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private func isLoggedIn() -> Bool {
         let authenticationToken = UserCredentials.shared.getUserToken()
-        
         return false;
     }
 

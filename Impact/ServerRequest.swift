@@ -65,7 +65,6 @@ class ServerRequest: NSObject {
             case .Success(let data):
                 let json = JSON(data)
                 let status = response?.statusCode
-                
                 if(status == 200 || status == 201) {
                     success(json: json)
                 } else {
@@ -97,13 +96,19 @@ class ServerRequest: NSObject {
     }
     
     private func getAuthenticationToken() -> String? {
-        return "";
+        return UserCredentials.shared.getUserToken()
+    }
+    
+    private func updateAuthenticationToken(token:String?) {
+        if let authToken = token {
+            UserCredentials.shared.updateUserToken(authToken)
+        }
     }
     
     private func getRequestHeaders(authenticated:Bool) -> [String:String] {
         if (authenticated) {
             if let api_token = getAuthenticationToken() {
-                return ["Content-Type" : "application/json", "Accept" : "application/json", "API-TOKEN" : api_token];
+                return ["Content-Type" : "application/json", "Accept" : "application/json", "AUTHENTICATION-TOKEN" : api_token];
             }
         }
         return ["Content-Type" : "application/json", "Accept": "application/json"];
@@ -113,24 +118,23 @@ class ServerRequest: NSObject {
     func signUpWithPayload(payload:NSDictionary, success:(json:JSON) -> Void, failure:(errorMessage:String) -> Void) {
         let parameters = [kUserRequestKey : payload]
         
-        postWithEndpoint("signup", parameters: parameters, authenticated: false, success: { (json) -> Void in
-            //TODO : UPDATE CORE DATA
-            success(json: json)
-            }, failure: { (error) -> Void in
-                let errorObject = error.object as! NSDictionary
-                let reasons = errorObject["email"] as! NSArray
-                let errorMessage = "Email "+(reasons[0] as! String)
-                failure(errorMessage: errorMessage)
+        postWithEndpoint("signup", parameters: parameters, authenticated: false,
+            success: { (json) -> Void in
+                self.updateAuthenticationToken(json["authentication_token"].string)
+                success(json: json)
+            }, failure: { (errorJson) -> Void in
+                let errors = errorJson["errors"][0]
+                if let reasons = errors["email"].array {
+                    let errorMessage = "Email "+(reasons[0].string)!
+                    failure(errorMessage: errorMessage)
+                }
         })
     }
     
     func loginWithEmail(email:String, password:String, success:(json:JSON) -> Void, failure:(errorMessage:String) -> Void) {
         let parameters = [kUserRequestKey:["email":email, "password":password]]
         postWithEndpoint("login", parameters: parameters, authenticated: false, success: { (json) -> Void in
-            //TODO : UPDATE CORE DATA
-            if let authenticationToken = json["authentication_token"].string {
-                UserCredentials.shared.updateUserToken(authenticationToken)
-            }
+            self.updateAuthenticationToken(json["authentication_token"].string)
             success(json: json)
             }, failure: { (error) -> Void in
                 failure(errorMessage: "Invalid Email and Password")
@@ -146,9 +150,14 @@ class ServerRequest: NSObject {
                 let parameters = ["contribution": ["stripe_generated_token":token]]
                 let endpoint = "contributions/add_card"
                 
+                self.postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+                    
+                    }, failure: { (error) -> Void in
+                })
+                
                 
             } else {
-                
+                failure(errorMessage: "Invalid Credit Card Credentials")
             }
             
         })
