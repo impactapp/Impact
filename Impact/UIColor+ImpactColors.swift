@@ -75,12 +75,12 @@ extension UIColor {
         
         if let hex = hexString {
             if hex.hasPrefix("#") {
-                let index   = advance(hex.startIndex, 1)
+                let index   = hex.startIndex.advancedBy(1)
                 let hex     = hex.substringFromIndex(index)
                 let scanner = NSScanner(string: hex)
                 var hexValue: CUnsignedLongLong = 0
                 if scanner.scanHexLongLong(&hexValue) {
-                    switch (count(hex)) {
+                    switch (hex.characters.count) {
                     case 3:
                         red   = CGFloat((hexValue & 0xF00) >> 8)       / 15.0
                         green = CGFloat((hexValue & 0x0F0) >> 4)       / 15.0
@@ -100,7 +100,7 @@ extension UIColor {
                         blue  = CGFloat((hexValue & 0x0000FF00) >> 8)  / 255.0
                         alpha = CGFloat(hexValue & 0x000000FF)         / 255.0
                     default:
-                        print("Invalid Hex String")
+                        print("Invalid Hex String", terminator: "")
                     }
                 }
             }

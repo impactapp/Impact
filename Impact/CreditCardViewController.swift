@@ -48,25 +48,25 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
     
     private func allowEditting(textField:UITextField, newString:String, range:NSRange) -> Bool {
         var validInput = true
-        var deletePressed = range.length==1 && count(newString)==0
+        let deletePressed = range.length==1 && newString.characters.count==0
         if textField == self.creditCardTextField {
-            if count(self.creditCardTextField.text) % 5 == 0 && count(self.creditCardTextField.text) < 15 && !deletePressed {
+            if self.creditCardTextField.text!.characters.count % 5 == 0 && self.creditCardTextField.text!.characters.count < 15 && !deletePressed {
                 var cardString = self.creditCardTextField.text
-                cardString = cardString + String(" ")
+                cardString = cardString! + String(" ")
                 self.creditCardTextField.text = cardString
             }
-            validInput =  count(self.creditCardTextField.text) < 15
+            validInput =  self.creditCardTextField.text!.characters.count < 15
             
         } else if textField == self.expirationDateTextField {
-            if count(self.expirationDateTextField.text) == 2 && !deletePressed {
+            if self.expirationDateTextField.text!.characters.count == 2 && !deletePressed {
                 var dateString = self.expirationDateTextField.text
-                dateString = dateString + String("/")
+                dateString = dateString! + String("/")
                 self.expirationDateTextField.text = dateString
             }
-            validInput = count(self.expirationDateTextField.text) < 5
+            validInput = self.expirationDateTextField.text!.characters.count < 5
             
         } else if textField == self.securityCodeTextField {
-            validInput = count(self.securityCodeTextField.text) < 4
+            validInput = self.securityCodeTextField.text!.characters.count < 4
         }
         let allowEditting = validInput || deletePressed
         return allowEditting
@@ -74,7 +74,7 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
     }
     
     private func checkAllFormsFilled() {
-        let finishedFillingForm = count(self.creditCardTextField.text) == 15 && count(self.expirationDateTextField.text) > 4 && count(self.securityCodeTextField.text) >= 2
+        let finishedFillingForm = self.creditCardTextField.text!.characters.count == 15 && self.expirationDateTextField.text!.characters.count > 4 && self.securityCodeTextField.text!.characters.count >= 2
         self.doneButton.animateDoneButton(finishedFillingForm)
     }
     
@@ -121,14 +121,15 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
             stripeCard.number = cardInfo.cardNumber;
             
         } else {
-            var creditCardString = self.creditCardTextField.text
-            stripeCard.number = creditCardString.stringByReplacingOccurrencesOfString(" ", withString: "")
+            if let creditCardString = self.creditCardTextField.text {
+                stripeCard.number = creditCardString.stringByReplacingOccurrencesOfString(" ", withString: "")
+            }
             stripeCard.cvc = self.securityCodeTextField.text
             if let dateString = self.expirationDateTextField.text {
-                let month = dateString[dateString.startIndex ..< find(dateString, "/")!]
-                let year = dropFirst(dateString.substringFromIndex(dateString.rangeOfString("/")!.startIndex))
-                stripeCard.expMonth = UInt(month.toInt()!)
-                stripeCard.expYear = UInt(year.toInt()!)
+                let month = dateString[dateString.startIndex ..< dateString.characters.indexOf("/")!]
+                let year = String(dateString.substringFromIndex(dateString.rangeOfString("/")!.startIndex).characters.dropFirst())
+                stripeCard.expMonth = UInt(Int(month)!)
+                stripeCard.expYear = UInt(Int(year)!)
             }
         }
         

@@ -27,6 +27,7 @@
 		4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6DC35E1B8BEBAC0017BF29 /* BankPinViewController.xib */; };
 		4D6DC3641B8BED330017BF29 /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DC3631B8BED330017BF29 /* DoneButton.swift */; };
 		4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */; };
+		4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9621F31BA9A16F005EBCDD /* UserCredentials.swift */; };
 		4D962E9D1B8BFB780026E84D /* BankSecurityQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D962E9B1B8BFB780026E84D /* BankSecurityQuestionViewController.swift */; };
 		4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */; };
 		4DB8CB171B8ED5CE00A6031D /* ForgetLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */; };
@@ -97,6 +98,7 @@
 		4D6DC35E1B8BEBAC0017BF29 /* BankPinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankPinViewController.xib; sourceTree = "<group>"; };
 		4D6DC3631B8BED330017BF29 /* DoneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 		4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBorderedTextField.swift; sourceTree = "<group>"; };
+		4D9621F31BA9A16F005EBCDD /* UserCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		4D962E9B1B8BFB780026E84D /* BankSecurityQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankSecurityQuestionViewController.swift; sourceTree = "<group>"; };
 		4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankSecurityQuestionViewController.xib; sourceTree = "<group>"; };
 		4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetLoginViewController.swift; sourceTree = "<group>"; };
@@ -242,6 +244,15 @@
 			name = "Server Request";
 			sourceTree = "<group>";
 		};
+		4D9621F21BA9A151005EBCDD /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				4D2265821BA7937000A51908 /* CreditCardViewController.swift */,
+				4D2265831BA7937000A51908 /* CreditCardViewController.xib */,
+			);
+			name = Card;
+			sourceTree = "<group>";
+		};
 		4DE6692F1B86C8C4005CB0AF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,12 +296,12 @@
 		B8585C151B8642E800AB091A /* Impact */ = {
 			isa = PBXGroup;
 			children = (
+				4D9621F31BA9A16F005EBCDD /* UserCredentials.swift */,
 				B8585C181B8642E900AB091A /* AppDelegate.swift */,
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
 				4D2265861BA7979300A51908 /* Bridging-Header.h */,
 				4D2256E81B8A8E5E00727A4C /* TabBarController.swift */,
-				4D2265821BA7937000A51908 /* CreditCardViewController.swift */,
-				4D2265831BA7937000A51908 /* CreditCardViewController.xib */,
+				4D9621F21BA9A151005EBCDD /* Card */,
 				B8D459F81B8FE0A400877310 /* Intro Screens */,
 				B8C77E151B8ABF2B00000927 /* Initial Screens */,
 				4D2256FE1B8ADC5D00727A4C /* Bank */,
@@ -413,6 +424,8 @@
 		B8585C0B1B8642E800AB091A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = Impact;
 				TargetAttributes = {
@@ -565,6 +578,7 @@
 				B8B8AA6C1B8FF69D006E689C /* PageViewController.swift in Sources */,
 				B8A5CF571B8FF4A500D71D2C /* FinalIntroViewController.swift in Sources */,
 				4D2256FA1B8AD62300727A4C /* RoundedCollectionViewCell.swift in Sources */,
+				4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

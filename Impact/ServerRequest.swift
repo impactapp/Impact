@@ -20,26 +20,29 @@ class ServerRequest: NSObject {
     //MARK :  Helper Methods
     private func getWithEndpoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
         let path : String = baseURL + endpoint;
-        let manager = getRequestManager(authenticated);
-        Alamofire.request(.GET, path, parameters: parameters).responseJSON{ (request, response, dataResponse, error) -> Void in
-            if let data: AnyObject = dataResponse {
-                let json = JSON(data)
-                let status = response?.statusCode
-                if(status == 200 || status == 201) {
-                    success(json: json)
-                } else {
-                    println("Error: \(json)")
-                    failure(error: json["errors"])
+        let headers = getRequestHeaders(authenticated)
+        Alamofire.request(.GET, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON{ (request,response, result) -> Void in
+            switch result {
+                case .Success(let data):
+                    let json = JSON(data)
+                    let status = response?.statusCode
+                    if(status == 200 || status == 201) {
+                        success(json: json)
+                    } else {
+                        failure(error: json)
                 }
+                case .Failure(let errorData):
+                    print("Error: \(errorData)")
             }
         }
     }
     
     private func updateWithEndpoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
         let path : String = baseURL + endpoint;
-        let manager = getRequestManager(authenticated);
-        Alamofire.request(.PUT, path, parameters: parameters).responseJSON{ (request, response, dataResponse, error) -> Void in
-            if let data: AnyObject = dataResponse {
+        let headers = getRequestHeaders(authenticated)
+        Alamofire.request(.PUT, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON{ (request,response, result) -> Void in
+            switch result {
+            case .Success(let data):
                 let json = JSON(data)
                 let status = response?.statusCode
                 if(status == 200 || status == 201) {
@@ -47,33 +50,39 @@ class ServerRequest: NSObject {
                 } else {
                     failure(error: json)
                 }
+            case .Failure(let errorData):
+                print("Error: \(errorData)")
             }
-
         }
         
     }
     
     private func postWithEndpoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
         let path : String = baseURL + endpoint;
-        let manager = getRequestManager(authenticated);
-        Alamofire.request(.POST, path, parameters: parameters).responseJSON{ (request, response, dataResponse, error) -> Void in
-            if let data: AnyObject = dataResponse {
+        let headers = getRequestHeaders(authenticated)
+        Alamofire.request(.POST, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON{ (request,response, result) -> Void in
+            switch result {
+            case .Success(let data):
                 let json = JSON(data)
                 let status = response?.statusCode
+                
                 if(status == 200 || status == 201) {
                     success(json: json)
                 } else {
-                    failure(error: json["errors"])
+                    failure(error: json)
                 }
+            case .Failure(let errorData):
+                print("Error: \(errorData)")
             }
         }
     }
     
     private func deleteWithEndoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
         let path : String = baseURL + endpoint;
-        let manager = getRequestManager(authenticated);
-        Alamofire.request(.DELETE, path, parameters: parameters).responseJSON{ (request, response, dataResponse, error) -> Void in
-            if let data: AnyObject = dataResponse {
+        let headers = getRequestHeaders(authenticated)
+        Alamofire.request(.DELETE, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON{ (request,response, result) -> Void in
+            switch result {
+            case .Success(let data):
                 let json = JSON(data)
                 let status = response?.statusCode
                 if(status == 200 || status == 201) {
@@ -81,36 +90,35 @@ class ServerRequest: NSObject {
                 } else {
                     failure(error: json)
                 }
+            case .Failure(let errorData):
+                print("Error: \(errorData)")
             }
         }
-        
     }
     
     private func getAuthenticationToken() -> String? {
         return "";
     }
     
-    private func getRequestManager(authenticated:Bool) -> Manager {
-        var manager = Manager.sharedInstance
-        manager.session.configuration.HTTPAdditionalHeaders = ["Content-Type" : "application/json", "Accept": "application/json"];
+    private func getRequestHeaders(authenticated:Bool) -> [String:String] {
         if (authenticated) {
             if let api_token = getAuthenticationToken() {
-                manager.session.configuration.HTTPAdditionalHeaders = ["Content-Type" : "application/json", "Accept" : "application/json", "API-TOKEN" : api_token];
+                return ["Content-Type" : "application/json", "Accept" : "application/json", "API-TOKEN" : api_token];
             }
         }
-        return manager;
+        return ["Content-Type" : "application/json", "Accept": "application/json"];
     }
     
     //MARK: UserAuthentication
     func signUpWithPayload(payload:NSDictionary, success:(json:JSON) -> Void, failure:(errorMessage:String) -> Void) {
         let parameters = [kUserRequestKey : payload]
+        
         postWithEndpoint("signup", parameters: parameters, authenticated: false, success: { (json) -> Void in
             //TODO : UPDATE CORE DATA
             success(json: json)
             }, failure: { (error) -> Void in
-                let errorObject = error.object as! NSMutableArray
-                let error = errorObject[0] as! NSDictionary
-                let reasons = error["email"] as! NSArray
+                let errorObject = error.object as! NSDictionary
+                let reasons = errorObject["email"] as! NSArray
                 let errorMessage = "Email "+(reasons[0] as! String)
                 failure(errorMessage: errorMessage)
         })
@@ -120,6 +128,9 @@ class ServerRequest: NSObject {
         let parameters = [kUserRequestKey:["email":email, "password":password]]
         postWithEndpoint("login", parameters: parameters, authenticated: false, success: { (json) -> Void in
             //TODO : UPDATE CORE DATA
+            if let authenticationToken = json["authentication_token"].string {
+                UserCredentials.shared.updateUserToken(authenticationToken)
+            }
             success(json: json)
             }, failure: { (error) -> Void in
                 failure(errorMessage: "Invalid Email and Password")
@@ -134,18 +145,15 @@ class ServerRequest: NSObject {
             if let token = stripeToken?.tokenId {
                 let parameters = ["contribution": ["stripe_generated_token":token]]
                 let endpoint = "contributions/add_card"
-                self.postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
-                    
-                    }, failure: { (error) -> Void in
-                        
-                })
-
+                
+                
             } else {
                 
             }
             
         })
     }
+    
     
     //MARK: Banks
     
@@ -155,6 +163,6 @@ class ServerRequest: NSObject {
         let BOA =  Bank(name: "Bank of America", logoURL: "http://about.bankofamerica.com/assets/images/common/bank_logo_256x256.png",bankId:"BOA");
         let citi = Bank(name: "Citi Bank", logoURL: "http://images.all-free-download.com/images/graphicthumb/citibank_0_62794.jpg", bankId: "citi");
         banks = [BOA, citi,BOA, citi,BOA, citi];
-        completion(banks: banks)
+        completion(banks:banks)
     }
 }

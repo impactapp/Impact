@@ -17,8 +17,8 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         super.viewDidLoad()
         addViewControllers()
         self.pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
-        var startVC = viewControllers[0]
-        var startViewControllers :[UIViewController] = [startVC]
+        let startVC = viewControllers[0]
+        let startViewControllers :[UIViewController] = [startVC]
 
         self.pageViewController.setViewControllers(startViewControllers, direction: .Forward, animated: true, completion: nil)
         self.pageViewController.dataSource = self
@@ -30,7 +30,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         self.pageViewController.didMoveToParentViewController(self)
         
         
-        var pageControl = UIPageControl.appearance()
+        let pageControl = UIPageControl.appearance()
         
         pageControl.pageIndicatorTintColor = UIColor.customRed()
         
@@ -49,10 +49,10 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     func addViewControllers(){
-        var firstIntroViewController = FirstIntroViewController(nibName: "FirstIntroViewController", bundle: nil)
-        var secondIntroViewController = SecondIntroViewController(nibName: "SecondIntroViewController", bundle: nil)
-        var thirdIntroViewController = ThirdIntroViewController(nibName: "ThirdIntroViewController",bundle: nil)
-        var finalIntroViewController = FinalIntroViewController(nibName: "FinalIntroViewController",bundle: nil)
+        let firstIntroViewController = FirstIntroViewController(nibName: "FirstIntroViewController", bundle: nil)
+        let secondIntroViewController = SecondIntroViewController(nibName: "SecondIntroViewController", bundle: nil)
+        let thirdIntroViewController = ThirdIntroViewController(nibName: "ThirdIntroViewController",bundle: nil)
+        let finalIntroViewController = FinalIntroViewController(nibName: "FinalIntroViewController",bundle: nil)
         
         viewControllers = [firstIntroViewController,secondIntroViewController,thirdIntroViewController,finalIntroViewController];
         
@@ -71,7 +71,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController?
         
     {
-        let index = find(viewControllers, viewController)
+        let index = viewControllers.indexOf(viewController)
         
         
         
@@ -105,7 +105,7 @@ class PageViewController: UIViewController, UIPageViewControllerDataSource {
         
         
         
-        let index = find(viewControllers, viewController)
+        let index = viewControllers.indexOf(viewController)
         
         
         

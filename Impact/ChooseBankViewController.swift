@@ -53,7 +53,7 @@ class ChooseBankViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        return collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: headerViewIdentifier, forIndexPath: indexPath) as! UICollectionReusableView;
+        return collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: headerViewIdentifier, forIndexPath: indexPath) ;
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -72,7 +72,7 @@ class ChooseBankViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.selectedBank = banks[indexPath.row];
-        var bsvc : BankSignInViewController = BankSignInViewController(nibName: "BankSignInViewController", bundle: nil);
+        let bsvc : BankSignInViewController = BankSignInViewController(nibName: "BankSignInViewController", bundle: nil);
         bsvc.bank = self.selectedBank;
         self.navigationController?.pushViewController(bsvc, animated: true);
     }

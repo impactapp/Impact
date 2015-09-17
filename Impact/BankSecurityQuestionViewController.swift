@@ -52,7 +52,7 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
             currentIndex++;
             if (currentIndex < securityQuestions!.count) {
                 let answer = self.answerTextField.text;
-                responses.append(answer);
+                responses.append(answer!);
                 self.answerTextField.text = "";
                 updateSecurityQuestion();
             }
@@ -90,7 +90,7 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
         currentIndex++;
         if (currentIndex < securityQuestions!.count) {
             let answer = self.answerTextField.text;
-            responses.append(answer);
+            responses.append(answer!);
             self.answerTextField.text = "";
             updateSecurityQuestion();
         } else { //done

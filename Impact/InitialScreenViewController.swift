@@ -20,13 +20,13 @@ class InitialScreenViewController: UIViewController {
         
     }
     @IBAction func signInButtonPressed(sender: AnyObject) {
-        var signInViewController = SignInViewController(nibName: "SignInViewController", bundle: nil);
+        let signInViewController = SignInViewController(nibName: "SignInViewController", bundle: nil);
         self.presentViewController(signInViewController, animated: true, completion: nil)
 
     }
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {
-        var signUpViewController = SignUpViewController(nibName: "SignUpViewController", bundle: nil);
+        let signUpViewController = SignUpViewController(nibName: "SignUpViewController", bundle: nil);
         self.presentViewController(signUpViewController, animated: true, completion: nil)
 
     }
