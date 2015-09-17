@@ -24,7 +24,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         UIApplication.sharedApplication().statusBarHidden = true;
         //tap gesture recognizer
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
        
         initTextFields()
@@ -68,7 +68,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidChange() {
-        let enable = emailTextField.text != "" && count(passwordTextField.text) >= 6;
+        let enable = emailTextField.text != "" && passwordTextField.text!.characters.count >= 6;
         shouldEnableSignInButton(enable)
     }
     
@@ -78,8 +78,8 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         self.presentViewController(flvc, animated: true, completion: nil)
     }
     @IBAction func signInButtonPressed(sender: AnyObject) {
-        ServerRequest.shared.loginWithEmail(emailTextField.text, password: passwordTextField.text, success: { (json) -> Void in
-            var tabBarController = TabBarViewController()
+        ServerRequest.shared.loginWithEmail(emailTextField.text!, password: passwordTextField.text!, success: { (json) -> Void in
+            let tabBarController = TabBarViewController()
             self.presentViewController(tabBarController, animated: true, completion: nil)
             },failure: { (errorMessage) -> Void in
             //TODO : Display error

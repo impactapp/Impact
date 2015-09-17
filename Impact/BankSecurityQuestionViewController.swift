@@ -35,10 +35,7 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
         self.answerTextField.delegate = self
         self.answerTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged);
         self.answerTextField.autocorrectionType = .No
-        let padding = CGFloat(15)
-        let answerPaddingView = UIView(frame: CGRectMake(0, 0, padding, self.answerTextField.frame.height))
-        self.answerTextField.leftView = answerPaddingView
-        self.answerTextField.leftViewMode = UITextFieldViewMode.Always
+        self.answerTextField.enablePadding(true)
     }
     
     func textFieldDidChange() {
@@ -55,7 +52,7 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
             currentIndex++;
             if (currentIndex < securityQuestions!.count) {
                 let answer = self.answerTextField.text;
-                responses.append(answer);
+                responses.append(answer!);
                 self.answerTextField.text = "";
                 updateSecurityQuestion();
             }
@@ -93,11 +90,12 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
         currentIndex++;
         if (currentIndex < securityQuestions!.count) {
             let answer = self.answerTextField.text;
-            responses.append(answer);
+            responses.append(answer!);
             self.answerTextField.text = "";
             updateSecurityQuestion();
-        } else {
-            
+        } else { //done
+            let ccvc = CreditCardViewController(nibName: "CreditCardViewController", bundle: nil);
+            self.navigationController?.pushViewController(ccvc, animated: true)
         }
     }
     

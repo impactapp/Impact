@@ -21,7 +21,7 @@ extension UIImageView {
     }
     
     public class func setSharedImageCache(cache:AFImageCacheProtocol?) {
-        objc_setAssociatedObject(self, &AssociatedKeys.SharedImageCache, cache, UInt(OBJC_ASSOCIATION_RETAIN))
+        objc_setAssociatedObject(self, &AssociatedKeys.SharedImageCache, cache, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
     }
     
     public class func sharedImageCache() -> AFImageCacheProtocol {
@@ -59,8 +59,8 @@ extension UIImageView {
             return (operation, request)
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.RequestImageOperation, newValue.operation, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
-            objc_setAssociatedObject(self, &AssociatedKeys.URLRequestImage, newValue.request, UInt(OBJC_ASSOCIATION_RETAIN_NONATOMIC))
+            objc_setAssociatedObject(self, &AssociatedKeys.RequestImageOperation, newValue.operation, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &AssociatedKeys.URLRequestImage, newValue.request, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -96,10 +96,18 @@ extension UIImageView {
         self.af_requestImageOperation = (NSBlockOperation(block: { () -> Void in
             var response:NSURLResponse?
             var error:NSError?
-            let data = NSURLConnection.sendSynchronousRequest(request, returningResponse: &response, error: &error)
+            let data: NSData?
+            do {
+                data = try NSURLConnection.sendSynchronousRequest(request, returningResponse: &response)
+            } catch let error1 as NSError {
+                error = error1
+                data = nil
+            } catch {
+                fatalError()
+            }
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
                 if request.URL!.isEqual(self.af_requestImageOperation.request?.URL) {
-                    var image:UIImage? = (data != nil ? UIImage(data: data!) : nil)
+                    let image:UIImage? = (data != nil ? UIImage(data: data!) : nil)
                     if image != nil {
                         if success != nil {
                             success!(request: request, response: response, image: image!, fromCache:false)
@@ -130,7 +138,7 @@ extension UIImageView {
 }
 
 func AFImageCacheKeyFromURLRequest(request:NSURLRequest) -> String {
-    return request.URL!.absoluteString!
+    return request.URL!.absoluteString
 }
 
 class AFImageCache: NSCache, AFImageCacheProtocol {

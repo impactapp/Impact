@@ -17,7 +17,7 @@ class ForgetLoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         UIApplication.sharedApplication().statusBarHidden = true;
         //tap gesture recognizer
-        var tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
         
         initTextFields()

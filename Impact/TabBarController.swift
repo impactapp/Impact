@@ -61,7 +61,7 @@ class TabBarViewController: UITabBarController {
         self.contributeButton.setImage(UIImage(named:"ContributeIcon"), forState: .Normal);
         self.contributeButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 5, 0);
         
-        var buttonLabel = UILabel(frame: CGRectMake(0,contributeButtonWidth-25,contributeButtonWidth,15));
+        let buttonLabel = UILabel(frame: CGRectMake(0,contributeButtonWidth-25,contributeButtonWidth,15));
         buttonLabel.font = UIFont.systemFontOfSize(10);
         buttonLabel.text = "Contribute";
         buttonLabel.textAlignment = .Center;
