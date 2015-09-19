@@ -50,12 +50,12 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
         var validInput = true
         let deletePressed = range.length==1 && newString.characters.count==0
         if textField == self.creditCardTextField {
-            if self.creditCardTextField.text!.characters.count % 5 == 0 && self.creditCardTextField.text!.characters.count < 19 && !deletePressed {
+            if self.creditCardTextField.text!.characters.count % 5 == 0 && self.creditCardTextField.text!.characters.count < 20 && !deletePressed {
                 var cardString = self.creditCardTextField.text
                 cardString = cardString! + String(" ")
                 self.creditCardTextField.text = cardString
             }
-            validInput =  self.creditCardTextField.text!.characters.count < 19
+            validInput =  self.creditCardTextField.text!.characters.count < 20
             
         } else if textField == self.expirationDateTextField {
             if self.expirationDateTextField.text!.characters.count == 2 && !deletePressed {
@@ -74,7 +74,7 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
     }
     
     private func checkAllFormsFilled() {
-        let finishedFillingForm = self.creditCardTextField.text!.characters.count == 19 && self.expirationDateTextField.text!.characters.count > 4 && self.securityCodeTextField.text!.characters.count >= 2
+        let finishedFillingForm = self.creditCardTextField.text!.characters.count == 20 && self.expirationDateTextField.text!.characters.count > 4 && self.securityCodeTextField.text!.characters.count >= 2
         self.doneButton.animateDoneButton(finishedFillingForm)
     }
     
