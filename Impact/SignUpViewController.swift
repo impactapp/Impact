@@ -88,7 +88,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
             }, failure: { (errorMessage) -> Void in
             //TODO : Display error
         })
-        //self.navigateToBankViewController()
     }
     
     func navigateToBankViewController() {

@@ -11,6 +11,22 @@ import Alamofire
 import SwiftyJSON
 import Stripe
 
+enum BankType:String {
+    case BankOfAmerica = "bofa"
+    case AmericanExpress = "amex"
+    case CapitalOne = "capone360"
+    case CharlesSchwab = "schwab"
+    case Chase = "chase"
+    case Citi = "citi"
+    case Fidelity = "fidelity"
+    case PNC = "pnc"
+    case SiliconValleyBank = "svb"
+    case TDBank = "td"
+    case USBank = "us"
+    case USAA = "usaa"
+    case WellsFargo = "wells"
+}
+
 class ServerRequest: NSObject {
     private let baseURL = "https://murmuring-coast-1876.herokuapp.com/api/";
     private let kUserRequestKey = "user"
@@ -74,6 +90,27 @@ class ServerRequest: NSObject {
                 print("Error: \(errorData)")
             }
         }
+    }
+    
+    private func stagedPostWithEndpoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON,completed:Bool) -> Void, failure:(error:JSON) -> Void) {
+        let path : String = baseURL + endpoint;
+        let headers = getRequestHeaders(authenticated)
+        Alamofire.request(.POST, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON{ (request,response, result) -> Void in
+            switch result {
+            case .Success(let data):
+                let json = JSON(data)
+                let status = response?.statusCode
+                if(status == 200 || status == 201) {
+                    success(json: json, completed: status == 200)
+                } else {
+                    failure(error: json)
+                }
+            case .Failure(let errorData):
+                print("Error: \(errorData)")
+            }
+        }
+
+        
     }
     
     private func deleteWithEndoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
@@ -149,13 +186,9 @@ class ServerRequest: NSObject {
             if let token = stripeToken?.tokenId {
                 let parameters = ["contribution": ["stripe_generated_token":token]]
                 let endpoint = "contributions/add_card"
-                
                 self.postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
-                    
                     }, failure: { (error) -> Void in
                 })
-                
-                
             } else {
                 failure(errorMessage: "Invalid Credit Card Credentials")
             }
@@ -163,14 +196,30 @@ class ServerRequest: NSObject {
         })
     }
     
-    
     //MARK: Banks
+    
+    func submitBankAccountInfo(bankUserName:String, bankPassword:String, bankType:String, pin: String?,success:(isFinished:Bool, json:JSON) -> Void, failure:(errorMessage:String) -> Void) {
+        let endpoint = "plaid/create"
+        var payload = ["username":bankUserName, "password":bankPassword, "bank_type":bankType]
+        if let bankPin = pin {
+            payload["pin"] = bankPin
+        }
+        let parameters = ["plaid":payload]
+        stagedPostWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json,completed) -> Void in
+            success(isFinished: completed, json: json)
+            
+            }, failure: { (error) -> Void in
+                
+                
+                
+        })
+    }
     
     //TODO: load real banks from server
     func getAllBanks(completion:(banks:[Bank]) -> Void) {
         var banks : [Bank] = [];
-        let BOA =  Bank(name: "Bank of America", logoURL: "http://about.bankofamerica.com/assets/images/common/bank_logo_256x256.png",bankId:"BOA");
-        let citi = Bank(name: "Citi Bank", logoURL: "http://images.all-free-download.com/images/graphicthumb/citibank_0_62794.jpg", bankId: "citi");
+        let BOA =  Bank(name: "Bank of America", logoURL: "http://about.bankofamerica.com/assets/images/common/bank_logo_256x256.png",bankId:BankType.BankOfAmerica.rawValue);
+        let citi = Bank(name: "Citi Bank", logoURL: "http://images.all-free-download.com/images/graphicthumb/citibank_0_62794.jpg", bankId: BankType.Citi.rawValue);
         banks = [BOA, citi,BOA, citi,BOA, citi];
         completion(banks:banks)
     }
