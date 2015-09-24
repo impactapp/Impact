@@ -96,8 +96,29 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
     }
     
     func donePressed() {
+        if let bank = self.bank {
+            let bankUserName = self.bankUsernameTextField.text
+            let bankPassword = self.bankPasswordTextfield.text
+            ServerRequest.shared.submitBankAccountInfo(bankUserName!, bankPassword: bankPassword!, bankType: bank.bankId, pin: nil, success: { (isFinished, json) -> Void in
+                if isFinished {
+                    self.navigateToCreditCard()
+                } else {
+                    self.navigateToBankSecurityQuestions()
+                }
+                }, failure: { (errorMessage) -> Void in
+                    
+            })
+        }
+    }
+    
+    func navigateToBankSecurityQuestions() {
         let bsqvc = BankSecurityQuestionViewController(nibName: "BankSecurityQuestionViewController", bundle: nil);
         bsqvc.bank = self.bank;
         self.navigationController?.pushViewController(bsqvc, animated: true);
+    }
+    
+    func navigateToCreditCard() {
+        let ccvc = CreditCardViewController(nibName: "CreditCardViewController", bundle: nil);
+        self.navigationController?.pushViewController(ccvc, animated: true)
     }
 }
