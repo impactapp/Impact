@@ -21,6 +21,8 @@
 		4D2257021B8ADD1000727A4C /* Bank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2257011B8ADD1000727A4C /* Bank.swift */; };
 		4D2265841BA7937000A51908 /* CreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2265821BA7937000A51908 /* CreditCardViewController.swift */; };
 		4D2265851BA7937000A51908 /* CreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2265831BA7937000A51908 /* CreditCardViewController.xib */; };
+		4D2B0FD91BBF324A00482FF4 /* AlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2B0FD81BBF324A00482FF4 /* AlertView.xib */; settings = {ASSET_TAGS = (); }; };
+		4D2B0FDD1BBF43FA00482FF4 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2B0FDC1BBF43FA00482FF4 /* AlertView.swift */; settings = {ASSET_TAGS = (); }; };
 		4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5522991B870EB700F9E5CA /* ServerRequest.swift */; };
 		4D5C805A1BA8F2F0001DEDAF /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C80591BA8F2F0001DEDAF /* UITextField+Padding.swift */; };
 		4D6DC35F1B8BEBAC0017BF29 /* BankPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DC35D1B8BEBAC0017BF29 /* BankPinViewController.swift */; };
@@ -92,6 +94,8 @@
 		4D2265821BA7937000A51908 /* CreditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardViewController.swift; sourceTree = "<group>"; };
 		4D2265831BA7937000A51908 /* CreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditCardViewController.xib; sourceTree = "<group>"; };
 		4D2265861BA7979300A51908 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		4D2B0FD81BBF324A00482FF4 /* AlertView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertView.xib; sourceTree = "<group>"; };
+		4D2B0FDC1BBF43FA00482FF4 /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		4D5522991B870EB700F9E5CA /* ServerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
 		4D5C80591BA8F2F0001DEDAF /* UITextField+Padding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
 		4D6DC35D1B8BEBAC0017BF29 /* BankPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankPinViewController.swift; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				4D2256F81B8AD62300727A4C /* RoundedCollectionViewCell.swift */,
+				4D2B0FD81BBF324A00482FF4 /* AlertView.xib */,
+				4D2B0FDC1BBF43FA00482FF4 /* AlertView.swift */,
 				4D6DC3631B8BED330017BF29 /* DoneButton.swift */,
 				4D2256F91B8AD62300727A4C /* RoundedCollectionViewCell.xib */,
 			);
@@ -483,6 +489,7 @@
 				B8585C261B8642E900AB091A /* LaunchScreen.xib in Resources */,
 				4D0FDE4E1B8BB646002877CE /* BankSignInViewController.xib in Resources */,
 				B8585C231B8642E900AB091A /* Images.xcassets in Resources */,
+				4D2B0FD91BBF324A00482FF4 /* AlertView.xib in Resources */,
 				B8D45A061B8FF3E000877310 /* SecondIntroViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -553,6 +560,7 @@
 				4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */,
 				4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */,
 				4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */,
+				4D2B0FDD1BBF43FA00482FF4 /* AlertView.swift in Sources */,
 				4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */,
 				4D2265841BA7937000A51908 /* CreditCardViewController.swift in Sources */,
 				B8C77E1E1B8AC2FF00000927 /* SignUpViewController.swift in Sources */,

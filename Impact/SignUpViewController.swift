@@ -86,7 +86,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         ServerRequest.shared.signUpWithPayload(payload, success: { (json) -> Void in
             self.navigateToBankViewController()
             }, failure: { (errorMessage) -> Void in
-            //TODO : Display error
+                if let alertView:AlertView = NSBundle.mainBundle().loadNibNamed("AlertView", owner: nil, options: nil).first as! AlertView {
+                    
+                    alertView.setUpViews(self)
+                    alertView.show()
+                }
+            
         })
     }
     
