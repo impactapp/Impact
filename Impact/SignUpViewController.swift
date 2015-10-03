@@ -52,7 +52,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
         passwordTextField.returnKeyType = .Done
         emailTextField.addTarget(self, action: "textFieldDidChange", forControlEvents: .EditingChanged)
-        
     }
     
     func textFieldDidChange() {

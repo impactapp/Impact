@@ -133,12 +133,19 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
             }
         }
         
-        ServerRequest.shared.createStripeCustomer(stripeCard, success: { (json) -> Void in
-            
+        ServerRequest.shared.createStripeCustomer(stripeCard, success: { (success) -> Void in
+            self.navigateToApp()
             }, failure: { (errorMessage) -> Void in
-            
+                let alertController = AlertViewController()
+                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                alertController.show()
         })
         
+    }
+    
+    func navigateToApp() {
+        let tabBarController = TabBarViewController()
+        self.navigationController?.presentViewController(tabBarController, animated: true, completion: nil)
     }
 
     @IBAction func backPressed(sender: AnyObject) {
