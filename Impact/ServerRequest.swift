@@ -180,25 +180,30 @@ class ServerRequest: NSObject {
     
     //MARK: Stripe and Credit Card Info
     
-    func createStripeCustomer(card:STPCard,success:(json:JSON) -> Void, failure:(errorMessage:String) -> Void) {
+    func createStripeCustomer(card:STPCard,success:(success:Bool) -> Void, failure:(errorMessage:String) -> Void) {
         let apiClient = STPAPIClient(publishableKey: kStripePublishableKey)
         apiClient.createTokenWithCard(card, completion: { (stripeToken, error) -> Void in
             if let token = stripeToken?.tokenId {
                 let parameters = ["contribution": ["stripe_generated_token":token]]
                 let endpoint = "contributions/add_card"
                 self.postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+                    success(success: true)
                     }, failure: { (error) -> Void in
+                    failure(errorMessage: "Invalid Credit Card Credentials")
                 })
             } else {
-                failure(errorMessage: "Invalid Credit Card Credentials")
+                var errorMessage = "Invalid Credit Card Credentials"
+                if let reason = error?.localizedDescription {
+                    errorMessage = reason
+                }
+                failure(errorMessage: errorMessage)
             }
-            
         })
     }
     
     //MARK: Banks
     
-    func submitBankAccountInfo(bankUserName:String, bankPassword:String, bankType:String, pin: String?,success:(isFinished:Bool, json:JSON) -> Void, failure:(errorMessage:String) -> Void) {
+    func submitBankAccountInfo(bankUserName:String, bankPassword:String, bankType:String, pin: String?,success:(isFinished:Bool, question:String?, plaidToken:String?) -> Void, failure:(errorMessage:String) -> Void) {
         let endpoint = "plaid/create"
         var payload = ["username":bankUserName, "password":bankPassword, "bank_type":bankType]
         if let bankPin = pin {
@@ -206,12 +211,34 @@ class ServerRequest: NSObject {
         }
         let parameters = ["plaid":payload]
         stagedPostWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json,completed) -> Void in
-            success(isFinished: completed, json: json)
-            
+            var question:String? = nil
+            var plaidToken:String? = nil
+            if let questions = json["questions"]["mfa"].array {
+                if let questionObject = questions[0].dictionary {
+                    question = questionObject["question"]!.string
+                }
+                plaidToken = json["questions"]["access_token"].string
+            }
+            success(isFinished: completed, question:question, plaidToken:plaidToken)
             }, failure: { (error) -> Void in
-                
-                
-                
+                failure(errorMessage: "Invalid Credentials")
+        })
+    }
+    
+    func answerMFA(answer:String,plaidToken:String, success:(isFinished:Bool, question:String?, plaidToken:String?) -> Void, failure:(errorMessage:String) -> Void) {
+        let endpoint = "plaid/answer"
+        let parameters = ["plaid": ["plaid_access_token": plaidToken,
+            "answer":answer] ]
+        stagedPostWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json, completed) -> Void in
+            var question:String? = nil
+            if let questions = json["mfa"].array {
+                if let questionObject = questions[0].dictionary {
+                    question = questionObject["question"]!.string
+                }
+            }
+            success(isFinished: completed, question:question, plaidToken:plaidToken)
+            }, failure: { (error) -> Void in
+                failure(errorMessage: "That answer is incorrect")
         })
     }
     

@@ -9,9 +9,11 @@
 import UIKit
 
 class BankSignInViewController: UIViewController, UITextFieldDelegate {
-    var bank : Bank? = nil;
-    var doneButton : DoneButton = DoneButton();
-    var keyboardFrame : CGRect = CGRectZero;
+    var bank : Bank? = nil
+    var doneButton : DoneButton = DoneButton()
+    var keyboardFrame : CGRect = CGRectZero
+    var question:String? = nil
+    var plaidToken:String? = nil
     
     
     @IBOutlet var titleLabel: UILabel!
@@ -99,14 +101,18 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
         if let bank = self.bank {
             let bankUserName = self.bankUsernameTextField.text
             let bankPassword = self.bankPasswordTextfield.text
-            ServerRequest.shared.submitBankAccountInfo(bankUserName!, bankPassword: bankPassword!, bankType: bank.bankId, pin: nil, success: { (isFinished, json) -> Void in
+            ServerRequest.shared.submitBankAccountInfo(bankUserName!, bankPassword: bankPassword!, bankType: bank.bankId, pin: nil, success: { (isFinished, question,plaidToken) -> Void in
                 if isFinished {
                     self.navigateToCreditCard()
                 } else {
+                    self.plaidToken = plaidToken
+                    self.question = question
                     self.navigateToBankSecurityQuestions()
                 }
                 }, failure: { (errorMessage) -> Void in
-                    
+                    let alertController = AlertViewController()
+                    alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                    alertController.show()
             })
         }
     }
@@ -114,6 +120,13 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
     func navigateToBankSecurityQuestions() {
         let bsqvc = BankSecurityQuestionViewController(nibName: "BankSecurityQuestionViewController", bundle: nil);
         bsqvc.bank = self.bank;
+        
+        if let question = self.question {
+            bsqvc.question = question
+        }
+        if let plaidToken = self.plaidToken {
+            bsqvc.plaidToken = plaidToken
+        }
         self.navigationController?.pushViewController(bsqvc, animated: true);
     }
     

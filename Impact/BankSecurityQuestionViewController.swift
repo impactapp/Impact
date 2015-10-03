@@ -9,13 +9,12 @@
 import UIKit
 
 class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate {
-    var securityQuestions : [String]? = ["What is your dog's name?", "What is your mother's maiden name?", "Where is your hometown?"];
-    var responses : [String] = [];
-    var currentIndex = 0;
-    var question : String = "";
-    var bank : Bank? = nil;
-    var nextButton : DoneButton = DoneButton();
-    var keyboardFrame = CGRectZero;
+    var responses : [String] = []
+    var question : String = ""
+    var plaidToken : String = ""
+    var bank : Bank? = nil
+    var nextButton : DoneButton = DoneButton()
+    var keyboardFrame = CGRectZero
     
     @IBOutlet var navigationHeaderView: UIView!
     @IBOutlet var answerTextField: UITextField!
@@ -24,9 +23,9 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateSecurityQuestion();
         self.navigationHeaderView.addBottomBorder(UIColor.customGrey());
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil);
+        self.questionLabel.text = question
         setUpTextField()
     }
     
@@ -41,21 +40,12 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
     func textFieldDidChange() {
         let validInputs = self.answerTextField.text != "";
         self.nextButton.animateDoneButton(validInputs);
-        if (currentIndex == securityQuestions!.count) {
-            self.answerTextField.returnKeyType = .Done
-        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         let validInputs = self.answerTextField.text != ""
          if validInputs{
-            currentIndex++;
-            if (currentIndex < securityQuestions!.count) {
-                let answer = self.answerTextField.text;
-                responses.append(answer!);
-                self.answerTextField.text = "";
-                updateSecurityQuestion();
-            }
+            updateSecurityQuestion();
         }
         return true
     }
@@ -76,27 +66,30 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
     }
     
     func updateSecurityQuestion() {
-        if let securityQuestions = self.securityQuestions {
-            self.question = securityQuestions[currentIndex];
-            self.questionIndexLabel.text = "\(currentIndex+1) / \(securityQuestions.count)";
-            self.questionLabel.text = self.question;
-            if (currentIndex + 1 == securityQuestions.count) {
-                self.nextButton.setTitle("Done", forState: .Normal);
-            }
+        if let answer = self.answerTextField.text {
+            ServerRequest.shared.answerMFA(answer, plaidToken: self.plaidToken, success: { (isFinished, question, plaidToken) -> Void in
+                if isFinished {
+                    self.navigateToCreditCard()
+                } else {
+                    self.questionLabel.text = question
+                }
+                self.answerTextField.text = "";
+                }, failure: { (errorMessage) -> Void in
+                    let alertController = AlertViewController()
+                    alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                    alertController.show()
+            })
         }
+        
     }
     
     func nextButtonPressed() {
-        currentIndex++;
-        if (currentIndex < securityQuestions!.count) {
-            let answer = self.answerTextField.text;
-            responses.append(answer!);
-            self.answerTextField.text = "";
-            updateSecurityQuestion();
-        } else { //done
-            let ccvc = CreditCardViewController(nibName: "CreditCardViewController", bundle: nil);
-            self.navigationController?.pushViewController(ccvc, animated: true)
-        }
+        updateSecurityQuestion();
+    }
+    
+    func navigateToCreditCard() {
+        let ccvc = CreditCardViewController(nibName: "CreditCardViewController", bundle: nil);
+        self.navigationController?.pushViewController(ccvc, animated: true)
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
