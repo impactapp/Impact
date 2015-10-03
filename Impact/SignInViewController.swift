@@ -82,7 +82,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             let tabBarController = TabBarViewController()
             self.presentViewController(tabBarController, animated: true, completion: nil)
             },failure: { (errorMessage) -> Void in
-            //TODO : Display error
+                let alertViewController = AlertViewController()
+                alertViewController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                alertViewController.show()
         })
     }
     @IBAction func closeButtonPressed(sender: AnyObject) {
