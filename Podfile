@@ -7,6 +7,8 @@ target 'Impact' do
     pod 'SwiftyJSON', '~> 2.2.1'
     pod 'Stripe'
     pod 'Locksmith'
+    pod 'FBSDKCoreKit'
+    pod 'FBSDKLoginKit'
 	use_frameworks!
 end
 

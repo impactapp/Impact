@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import FBSDKCoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -62,6 +63,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.saveContext()
     }
 
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool
+    {
+        return FBSDKApplicationDelegate.sharedInstance().application(
+            app,
+            openURL: url,
+            sourceApplication: options["UIApplicationOpenURLOptionsSourceApplicationKey"] as! String,
+            annotation: nil)
+    }
+    
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {

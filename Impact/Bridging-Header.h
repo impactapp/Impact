@@ -10,6 +10,7 @@
 #define Impact_Bridging_Header_h
 
 #import <CardIO/CardIO.h>
+
 @import AudioToolbox;
 @import AVFoundation;
 @import CoreMedia;
