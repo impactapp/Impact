@@ -30,6 +30,7 @@ enum BankType:String {
 class ServerRequest: NSObject {
     private let baseURL = "https://murmuring-coast-1876.herokuapp.com/api/";
     private let kUserRequestKey = "user"
+    private let kFacebookRequestKey = "facebook"
     private let kStripePublishableKey = "pk_test_xxr45bpY3r0T5MZ4dGbeTQ7L"
     static let shared = ServerRequest();
     
@@ -176,6 +177,23 @@ class ServerRequest: NSObject {
             }, failure: { (error) -> Void in
                 failure(errorMessage: "Invalid Email and Password")
         })
+    }
+    
+    
+    func loginWithFacebook(email:String, facebookAccessToken:String, facebookID:String, success:(json:JSON) -> Void, failure:(errorMessage:String)->Void){
+        let parameters = [kFacebookRequestKey:["email":email, "facebook_id":facebookID, "facebook_access_token":facebookAccessToken]]
+        
+        postWithEndpoint("facebook_auth", parameters: parameters, authenticated: false, success: { (json) -> Void in
+            self.updateAuthenticationToken(json["facebook_access_token"].string)
+            success(json: json)
+            }, failure: { (error) -> Void in
+                if let errorArray = error["errors"].array {
+                    let errorMessage = errorArray[0]
+                    failure(errorMessage: errorMessage.string!)
+                }
+        })
+        
+    
     }
     
     //MARK: Stripe and Credit Card Info

@@ -2,19 +2,46 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+	    <string>fbapi</string>
+	    <string>fbapi20130214</string>
+	    <string>fbapi20130410</string>
+	    <string>fbapi20130702</string>
+	    <string>fbapi20131010</string>
+	    <string>fbapi20131219</string>    
+	    <string>fbapi20140410</string>
+	    <string>fbapi20140116</string>
+	    <string>fbapi20150313</string>
+	    <string>fbapi20150629</string>
+	    <string>fbauth</string>
+	    <string>fbauth2</string>
+	    <string>fb-messenger-api20140430</string>
+	</array>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb399713306903274</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>399713306903274</string>
+	<key>FacebookDisplayName</key>
+	<string>Impact</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.Impact.$(PRODUCT_NAME:rfc1034identifier)</string>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -50,5 +77,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
