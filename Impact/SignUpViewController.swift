@@ -82,14 +82,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func createAccountButtonPressed(sender: AnyObject) {
         let payload = ["name":fullNameTextField.text!, "password": passwordTextField.text!, "email": emailTextField.text!]
-//        ServerRequest.shared.signUpWithPayload(payload, success: { (json) -> Void in
-//
-//            },failure: { (errorMessage) -> Void in
-//                let alertController = AlertViewController()
-//                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
-//                alertController.show()
-//        })
-        self.navigateToBankViewController()
+        ServerRequest.shared.signUpWithPayload(payload, success: { (json) -> Void in
+            self.navigateToBankViewController()
+            },failure: { (errorMessage) -> Void in
+                let alertController = AlertViewController()
+                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                alertController.show()
+        })
     }
     
     func navigateToBankViewController() {

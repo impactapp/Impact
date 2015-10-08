@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -15,11 +14,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uK6-np-Rj4">
-                        <rect key="frame" x="22" y="8" width="157" height="157"/>
+                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                         <animations/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="uK6-np-Rj4" secondAttribute="height" multiplier="1:1" id="RNB-kn-yuS"/>
-                        </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="emg-Fk-XPB">
                         <rect key="frame" x="8" y="168" width="184" height="24"/>
@@ -34,14 +30,13 @@
             </view>
             <animations/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="uK6-np-Rj4" secondAttribute="trailing" constant="21" id="66G-EM-pje"/>
                 <constraint firstAttribute="trailing" secondItem="emg-Fk-XPB" secondAttribute="trailing" constant="8" id="8GL-Nz-l6b"/>
-                <constraint firstItem="emg-Fk-XPB" firstAttribute="top" secondItem="uK6-np-Rj4" secondAttribute="bottom" constant="3" id="GqC-nG-t1E"/>
-                <constraint firstItem="uK6-np-Rj4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="IQy-9v-KRt"/>
-                <constraint firstItem="uK6-np-Rj4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="22" id="ONz-4T-YYp"/>
+                <constraint firstAttribute="trailing" secondItem="uK6-np-Rj4" secondAttribute="trailing" id="EeR-Ma-zvN"/>
                 <constraint firstAttribute="bottom" secondItem="emg-Fk-XPB" secondAttribute="bottom" constant="8" id="SCl-fI-Md3"/>
-                <constraint firstAttribute="centerX" secondItem="uK6-np-Rj4" secondAttribute="centerX" id="Z4J-e8-RGV"/>
+                <constraint firstAttribute="bottom" secondItem="uK6-np-Rj4" secondAttribute="bottom" id="bNZ-GS-rKj"/>
                 <constraint firstItem="emg-Fk-XPB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="gde-6E-Xad"/>
+                <constraint firstItem="uK6-np-Rj4" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mGd-YK-lFi"/>
+                <constraint firstItem="uK6-np-Rj4" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="rbq-hj-LZx"/>
             </constraints>
             <size key="customSize" width="99" height="91"/>
             <connections>
