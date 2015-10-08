@@ -64,6 +64,7 @@ class ChooseBankViewController: UIViewController, UICollectionViewDelegate, UICo
     private func cellWithBank(bank : Bank, indexPath:NSIndexPath) -> RoundedCollectionViewCell {
         let cell : RoundedCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! RoundedCollectionViewCell;
         cell.titleLabel.text = bank.name;
+        cell.titleLabel.hidden = true //TODO: ASK VAL WHAT HER THOUGHTS ARE ON THIS
         if let imageURL = bank.logoURL {
             cell.imageView.setImageWithUrl(NSURL(string: imageURL), placeHolderImage: nil);
         }

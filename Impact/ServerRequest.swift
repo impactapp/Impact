@@ -263,9 +263,17 @@ class ServerRequest: NSObject {
     //TODO: load real banks from server
     func getAllBanks(completion:(banks:[Bank]) -> Void) {
         var banks : [Bank] = [];
-        let BOA =  Bank(name: "Bank of America", logoURL: "http://about.bankofamerica.com/assets/images/common/bank_logo_256x256.png",bankId:BankType.BankOfAmerica.rawValue);
-        let citi = Bank(name: "Citi Bank", logoURL: "http://images.all-free-download.com/images/graphicthumb/citibank_0_62794.jpg", bankId: BankType.Citi.rawValue);
-        banks = [BOA, citi,BOA, citi,BOA, citi];
-        completion(banks:banks)
+        let endpoint = "plaid/banks"
+        getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            if let banksResponse = json.array {
+                for bankJSON in banksResponse {
+                    banks.append(Bank(json: bankJSON))
+                }
+            }
+            completion(banks:banks)
+            }, failure: { (error) -> Void in
+                
+        })
+        
     }
 }
