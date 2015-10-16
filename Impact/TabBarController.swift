@@ -9,95 +9,59 @@
 import UIKit
 
 class TabBarViewController: UITabBarController {
-    var contributeButton : UIButton = UIButton();
-    let contributeButtonWidth = CGFloat(80);
+    var underlineView = UIView()
+    let underlineHeight = CGFloat(4.0)
+    let tabBarImageInsets = UIEdgeInsetsMake(3, 0, -3, 0)
     
     //MARK: Initialization
-    
     override func viewDidLoad() {
         super.viewDidLoad();
         initTabBarAttributes();
         setUpViewControllers();
-        setUpContributeButton();
+        initUnderLine()
     }
     
     func initTabBarAttributes() {
         self.selectedIndex = 0;
-        self.tabBar.barTintColor = UIColor.whiteColor()
-        self.tabBar.tintColor = UIColor.customRed();
+        self.tabBar.barTintColor = UIColor.blackColor()
+        self.tabBar.tintColor = UIColor.whiteColor();
         self.tabBar.opaque = true;
     }
     
     func setUpViewControllers() {
-        
         let causesViewController = UIViewController();
-        causesViewController.title = "Causes";
         causesViewController.tabBarItem.image = UIImage(named: "CausesIcon");
         
-        //add blank viewcontroller here to improve spacing of tabbar
-        let blank = UIViewController();
-        blank.tabBarItem.enabled = false;
-        
         let profileViewController = UIViewController();
-        profileViewController.view.backgroundColor = UIColor.customRed();
-        profileViewController.title = "Profile";
         profileViewController.tabBarItem.image = UIImage(named: "ProfileIcon");
-        self.viewControllers = [causesViewController,blank,profileViewController];
+        let test1 = UIViewController()
+        test1.tabBarItem.image = UIImage(named:"CausesIcon")
+        let test2 = UIViewController()
+        test2.tabBarItem.image = UIImage(named: "ProfileIcon");
+        self.viewControllers = [causesViewController,profileViewController,test1,test2];
+        for item:UITabBarItem in self.tabBar.items! {
+            item.imageInsets = self.tabBarImageInsets
+        }
         self.selectedViewController = causesViewController;
     }
     
-    //MARK: Contribute Button
-    
-    //TODO: Need to figure out why button is always slightly transparent
-    private func setUpContributeButton() {
-        let buttonFrame = CGRectMake(self.tabBar.frame.size.width/2 - contributeButtonWidth/2, -30.0, contributeButtonWidth, contributeButtonWidth);
-        self.contributeButton = UIButton(frame: buttonFrame);
-        self.contributeButton.addTarget(self, action: "didPressContributeButton:", forControlEvents: .TouchUpInside);
-        self.contributeButton.backgroundColor = UIColor.whiteColor();
-        self.contributeButton.layer.cornerRadius = contributeButtonWidth/2;
-        self.contributeButton.layer.masksToBounds = true;
-        self.contributeButton.layer.borderColor = UIColor.customDarkGrey().CGColor;
-        self.contributeButton.layer.borderWidth = 1.0;
-        self.contributeButton.setImage(UIImage(named:"ContributeIcon"), forState: .Normal);
-        self.contributeButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 5, 0);
-        
-        let buttonLabel = UILabel(frame: CGRectMake(0,contributeButtonWidth-25,contributeButtonWidth,15));
-        buttonLabel.font = UIFont.systemFontOfSize(10);
-        buttonLabel.text = "Contribute";
-        buttonLabel.textAlignment = .Center;
-        buttonLabel.textColor = UIColor.customDarkGrey();
-        self.contributeButton.addSubview(buttonLabel);
-        
-        self.tabBar.addSubview(contributeButton);
+    func initUnderLine() {
+        let tabBarFrame = self.tabBar.frame
+        let underlineWidth = tabBarFrame.width / CGFloat(self.tabBar.items!.count)
+        let underlineXOrigin = underlineWidth * CGFloat(self.selectedIndex)
+        let underlineFrame = CGRectMake(underlineXOrigin, CGRectGetMaxY(tabBarFrame) - underlineHeight, underlineWidth, underlineHeight)
+        self.underlineView = UIView(frame: underlineFrame)
+        self.underlineView.backgroundColor = UIColor.customDarkRed()
+        self.view.addSubview(self.underlineView)
     }
     
-    func didPressContributeButton(sender:UIButton!) {
-        animateContributeButton { () -> Void in
-            self.presentContributionViewController();
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        let underlineFrame = self.underlineView.frame
+        if let newIndex = self.tabBar.items?.indexOf(item) {
+            let newXOrigin = underlineFrame.size.width * CGFloat(newIndex)
+            UIView.animateWithDuration(0.25, animations: { () -> Void in
+                self.underlineView.frame = CGRectMake(newXOrigin, underlineFrame.origin.y, underlineFrame.width, underlineFrame.height)
+                }, completion: nil)
         }
-    }
-    
-    private func animateContributeButton(completion:() -> Void) {
-        UIView.animateWithDuration(0.1, delay: 0.0, options: .CurveEaseInOut, animations: {
-            //shrink button
-            var shrinkTransformation = CATransform3DIdentity;
-            shrinkTransformation = CATransform3DMakeScale(0.3, 0.3, 1.0);
-            self.contributeButton.layer.transform = shrinkTransformation;
-            }, completion: { finished in
-                UIView.animateWithDuration(0.1, delay: 0.0, options: .CurveEaseInOut, animations: {
-                    //enlarge button
-                    var enlargeTransformation = CATransform3DIdentity;
-                    enlargeTransformation = CATransform3DMakeScale(1.0, 1.0, 1.0);
-                    self.contributeButton.layer.transform = enlargeTransformation;
-                    }, completion: { finished in
-                        completion();
-                });
-        });
-    }
-    
-    //MARK: Navigation
-    
-    private func presentContributionViewController() {
-        
     }
 }
