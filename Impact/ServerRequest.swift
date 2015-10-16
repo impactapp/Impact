@@ -38,18 +38,15 @@ class ServerRequest: NSObject {
     private func getWithEndpoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
         let path : String = baseURL + endpoint;
         let headers = getRequestHeaders(authenticated)
-        Alamofire.request(.GET, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON{ (request,response, result) -> Void in
-            switch result {
-                case .Success(let data):
-                    let json = JSON(data)
-                    let status = response?.statusCode
-                    if(status == 200 || status == 201) {
-                        success(json: json)
-                    } else {
-                        failure(error: json)
+        Alamofire.request(.GET, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { response in
+            let status = response.response?.statusCode
+            if let data = response.data {
+                let json = JSON(data:data)
+                if(status == 200 || status == 201) {
+                    success(json: json)
+                } else {
+                    failure(error: json)
                 }
-                case .Failure(let errorData):
-                    print("Error: \(errorData)")
             }
         }
     }
@@ -57,38 +54,31 @@ class ServerRequest: NSObject {
     private func updateWithEndpoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
         let path : String = baseURL + endpoint;
         let headers = getRequestHeaders(authenticated)
-        Alamofire.request(.PUT, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON{ (request,response, result) -> Void in
-            switch result {
-            case .Success(let data):
-                let json = JSON(data)
-                let status = response?.statusCode
+        Alamofire.request(.PUT, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { response in
+            let status = response.response?.statusCode
+            if let data = response.data {
+                let json = JSON(data:data)
                 if(status == 200 || status == 201) {
                     success(json: json)
                 } else {
                     failure(error: json)
                 }
-            case .Failure(let errorData):
-                print("Error: \(errorData)")
             }
         }
-        
     }
     
     private func postWithEndpoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
         let path : String = baseURL + endpoint;
         let headers = getRequestHeaders(authenticated)
-        Alamofire.request(.POST, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON{ (request,response, result) -> Void in
-            switch result {
-            case .Success(let data):
-                let json = JSON(data)
-                let status = response?.statusCode
+        Alamofire.request(.POST, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { response in
+            let status = response.response?.statusCode
+            if let data = response.data {
+                let json = JSON(data:data)
                 if(status == 200 || status == 201) {
                     success(json: json)
                 } else {
                     failure(error: json)
                 }
-            case .Failure(let errorData):
-                print("Error: \(errorData)")
             }
         }
     }
@@ -96,39 +86,33 @@ class ServerRequest: NSObject {
     private func stagedPostWithEndpoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON,completed:Bool) -> Void, failure:(error:JSON) -> Void) {
         let path : String = baseURL + endpoint;
         let headers = getRequestHeaders(authenticated)
-        Alamofire.request(.POST, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON{ (request,response, result) -> Void in
-            switch result {
-            case .Success(let data):
-                let json = JSON(data)
-                let status = response?.statusCode
+        Alamofire.request(.POST, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { (response) -> Void in
+            let status = response.response?.statusCode
+            if let data = response.data {
+                let json = JSON(data:data)
                 if(status == 200 || status == 201) {
-                    success(json: json, completed: status == 200)
+                    success(json: json, completed: (status == 200))
                 } else {
                     failure(error: json)
                 }
-            case .Failure(let errorData):
-                print("Error: \(errorData)")
             }
-        }
 
-        
+            
+        }
     }
     
     private func deleteWithEndoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
         let path : String = baseURL + endpoint;
         let headers = getRequestHeaders(authenticated)
-        Alamofire.request(.DELETE, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON{ (request,response, result) -> Void in
-            switch result {
-            case .Success(let data):
-                let json = JSON(data)
-                let status = response?.statusCode
+        Alamofire.request(.DELETE, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { (response) -> Void in
+            let status = response.response?.statusCode
+            if let data = response.data {
+                let json = JSON(data:data)
                 if(status == 200 || status == 201) {
                     success(json: json)
                 } else {
                     failure(error: json)
                 }
-            case .Failure(let errorData):
-                print("Error: \(errorData)")
             }
         }
     }
@@ -192,7 +176,6 @@ class ServerRequest: NSObject {
                     failure(errorMessage: errorMessage.string!)
                 }
         })
-        
     
     }
     
@@ -217,6 +200,23 @@ class ServerRequest: NSObject {
                 failure(errorMessage: errorMessage)
             }
         })
+    }
+    
+    //MARK : Causes
+    
+    func getAllCauses(completion:(causes:[Cause]) -> Void) {
+        let endpoint = "causes/all"
+        getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            var result: [Cause] = []
+            if let array = json.array {
+                for jsonObject in array {
+                    result.append(Cause(fromJson: jsonObject))
+                }
+            }
+            completion(causes: result)
+            },failure: { (error) -> Void in
+        })
+        
     }
     
     //MARK: Banks

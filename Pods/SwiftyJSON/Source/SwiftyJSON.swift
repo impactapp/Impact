@@ -1348,7 +1348,7 @@ extension JSON {
             return self.numberValue.integerValue
         }
     }
-    
+    /*
     @available(*, unavailable, renamed="uInt")
     public var unsignedInteger: Int? {
         get {
@@ -1362,4 +1362,5 @@ extension JSON {
             return self.numberValue.unsignedIntegerValue
         }
     }
+*/
 }

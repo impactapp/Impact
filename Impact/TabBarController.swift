@@ -29,8 +29,8 @@ class TabBarViewController: UITabBarController {
     }
     
     func setUpViewControllers() {
-        let causesViewController = UIViewController();
-        causesViewController.tabBarItem.image = UIImage(named: "CausesIcon");
+        let exploreViewController = ExploreViewController();
+        exploreViewController.tabBarItem.image = UIImage(named: "CausesIcon");
         
         let profileViewController = UIViewController();
         profileViewController.tabBarItem.image = UIImage(named: "ProfileIcon");
@@ -38,11 +38,11 @@ class TabBarViewController: UITabBarController {
         test1.tabBarItem.image = UIImage(named:"CausesIcon")
         let test2 = UIViewController()
         test2.tabBarItem.image = UIImage(named: "ProfileIcon");
-        self.viewControllers = [causesViewController,profileViewController,test1,test2];
+        self.viewControllers = [exploreViewController,profileViewController,test1,test2];
         for item:UITabBarItem in self.tabBar.items! {
             item.imageInsets = self.tabBarImageInsets
         }
-        self.selectedViewController = causesViewController;
+        self.selectedViewController = exploreViewController;
     }
     
     func initUnderLine() {

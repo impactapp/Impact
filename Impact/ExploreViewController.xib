@@ -16,19 +16,32 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EmL-P3-XCe">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="EmL-P3-XCe">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
+                <tabBar hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2V-Er-3bE">
+                    <rect key="frame" x="0.0" y="551" width="600" height="49"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <items>
+                        <tabBarItem systemItem="favorites" id="239-dI-lAS"/>
+                        <tabBarItem systemItem="more" id="Cfd-EG-8Nv"/>
+                    </items>
+                </tabBar>
             </subviews>
             <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="f2V-Er-3bE" firstAttribute="top" secondItem="EmL-P3-XCe" secondAttribute="bottom" id="4jo-WD-hEH"/>
                 <constraint firstItem="EmL-P3-XCe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="5WP-5V-xFu"/>
                 <constraint firstAttribute="trailing" secondItem="EmL-P3-XCe" secondAttribute="trailing" id="6Y4-U5-L90"/>
+                <constraint firstAttribute="trailing" secondItem="f2V-Er-3bE" secondAttribute="trailing" id="GlU-OC-zXa"/>
+                <constraint firstItem="f2V-Er-3bE" firstAttribute="top" secondItem="EmL-P3-XCe" secondAttribute="bottom" id="MjY-Rg-IIr"/>
+                <constraint firstItem="f2V-Er-3bE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="eXa-cl-7qM"/>
+                <constraint firstAttribute="bottom" secondItem="f2V-Er-3bE" secondAttribute="bottom" id="ech-Rw-txN"/>
                 <constraint firstItem="EmL-P3-XCe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="oqL-bb-hzH"/>
-                <constraint firstAttribute="bottom" secondItem="EmL-P3-XCe" secondAttribute="bottom" id="psB-IK-CKB"/>
             </constraints>
         </view>
     </objects>
