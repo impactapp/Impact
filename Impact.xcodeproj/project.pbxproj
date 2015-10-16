@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D02EC171BD0887200701C75 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D02EC151BD0887200701C75 /* ExploreViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		4D02EC181BD0887200701C75 /* ExploreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D02EC161BD0887200701C75 /* ExploreViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		4D02EC1C1BD08A0400701C75 /* CausesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D02EC1A1BD08A0400701C75 /* CausesTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		4D02EC1D1BD08A0400701C75 /* CausesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D02EC1B1BD08A0400701C75 /* CausesTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		4D0FDE441B8B77C3002877CE /* UIImageView+AsynchronousLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDE431B8B77C3002877CE /* UIImageView+AsynchronousLoading.swift */; };
 		4D0FDE491B8B8620002877CE /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDE481B8B8620002877CE /* UIView+Nib.swift */; };
 		4D0FDE4D1B8BB646002877CE /* BankSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDE4B1B8BB646002877CE /* BankSignInViewController.swift */; };
@@ -79,6 +83,10 @@
 
 /* Begin PBXFileReference section */
 		1280A710DB7E095180D81B15 /* Pods-Impact.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impact.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Impact/Pods-Impact.debug.xcconfig"; sourceTree = "<group>"; };
+		4D02EC151BD0887200701C75 /* ExploreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		4D02EC161BD0887200701C75 /* ExploreViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExploreViewController.xib; sourceTree = "<group>"; };
+		4D02EC1A1BD08A0400701C75 /* CausesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CausesTableViewCell.swift; sourceTree = "<group>"; };
+		4D02EC1B1BD08A0400701C75 /* CausesTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CausesTableViewCell.xib; sourceTree = "<group>"; };
 		4D0FDE431B8B77C3002877CE /* UIImageView+AsynchronousLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+AsynchronousLoading.swift"; sourceTree = "<group>"; };
 		4D0FDE481B8B8620002877CE /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		4D0FDE4B1B8BB646002877CE /* BankSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankSignInViewController.swift; sourceTree = "<group>"; };
@@ -180,13 +188,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4D02EC191BD0887900701C75 /* Explore */ = {
+			isa = PBXGroup;
+			children = (
+				4D02EC151BD0887200701C75 /* ExploreViewController.swift */,
+				4D02EC1A1BD08A0400701C75 /* CausesTableViewCell.swift */,
+				4D02EC1B1BD08A0400701C75 /* CausesTableViewCell.xib */,
+				4D02EC161BD0887200701C75 /* ExploreViewController.xib */,
+			);
+			name = Explore;
+			sourceTree = "<group>";
+		};
 		4D0FDE451B8B82A1002877CE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				4D2256F81B8AD62300727A4C /* RoundedCollectionViewCell.swift */,
 				4D2B0FE21BBF4B8100482FF4 /* AlertViewController.swift */,
 				4D2B0FE81BBF5ADD00482FF4 /* AlertPopupView.xib */,
 				4D6DC3631B8BED330017BF29 /* DoneButton.swift */,
+				4D2256F81B8AD62300727A4C /* RoundedCollectionViewCell.swift */,
 				4D2256F91B8AD62300727A4C /* RoundedCollectionViewCell.xib */,
 			);
 			name = CustomViews;
@@ -305,8 +324,8 @@
 				4D9621F31BA9A16F005EBCDD /* UserCredentials.swift */,
 				B8585C181B8642E900AB091A /* AppDelegate.swift */,
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
-				4D2265861BA7979300A51908 /* Bridging-Header.h */,
 				4D2256E81B8A8E5E00727A4C /* TabBarController.swift */,
+				4D02EC191BD0887900701C75 /* Explore */,
 				4D9621F21BA9A151005EBCDD /* Card */,
 				B8D459F81B8FE0A400877310 /* Intro Screens */,
 				B8C77E151B8ABF2B00000927 /* Initial Screens */,
@@ -327,6 +346,7 @@
 		B8585C161B8642E800AB091A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4D2265861BA7979300A51908 /* Bridging-Header.h */,
 				B8585C171B8642E800AB091A /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -480,8 +500,9 @@
 				4D2256FB1B8AD62300727A4C /* RoundedCollectionViewCell.xib in Resources */,
 				4D2256F31B8ACBD500727A4C /* ChooseBankHeaderView.xib in Resources */,
 				4D2B0FE91BBF5ADD00482FF4 /* AlertPopupView.xib in Resources */,
-				B8585C211B8642E900AB091A /* Main.storyboard in Resources */,
 				4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */,
+				4D02EC1D1BD08A0400701C75 /* CausesTableViewCell.xib in Resources */,
+				4D02EC181BD0887200701C75 /* ExploreViewController.xib in Resources */,
 				4D2256F11B8AC7C900727A4C /* ChooseBankViewController.xib in Resources */,
 				B8A5CF541B8FF49A00D71D2C /* ThirdIntroViewController.xib in Resources */,
 				4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */,
@@ -561,6 +582,7 @@
 				4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */,
 				4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */,
 				4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */,
+				4D02EC1C1BD08A0400701C75 /* CausesTableViewCell.swift in Sources */,
 				4D2265841BA7937000A51908 /* CreditCardViewController.swift in Sources */,
 				B8C77E1E1B8AC2FF00000927 /* SignUpViewController.swift in Sources */,
 				B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */,
@@ -576,6 +598,7 @@
 				B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */,
 				4D2257021B8ADD1000727A4C /* Bank.swift in Sources */,
 				4DB8CB171B8ED5CE00A6031D /* ForgetLoginViewController.swift in Sources */,
+				4D02EC171BD0887200701C75 /* ExploreViewController.swift in Sources */,
 				4D962E9D1B8BFB780026E84D /* BankSecurityQuestionViewController.swift in Sources */,
 				B8585C1C1B8642E900AB091A /* Impact.xcdatamodeld in Sources */,
 				B8D45A051B8FF3E000877310 /* SecondIntroViewController.swift in Sources */,

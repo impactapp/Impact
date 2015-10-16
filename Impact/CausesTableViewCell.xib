@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="140" id="KGk-i7-Jjw" customClass="CausesTableViewCell" customModule="Impact" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="139.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3hl-Cw-sBS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="139.5"/>
+                        <animations/>
+                        <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mikey Stolzenberg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fq-Ar-F8l">
+                        <rect key="frame" x="8" y="8" width="192" height="40"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="jkN-ow-pe9"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="18"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CausesIcon" translatesAutoresizingMaskIntoConstraints="NO" id="QvC-1y-reA">
+                        <rect key="frame" x="220" y="4" width="100" height="50"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="idU-nr-RGg"/>
+                            <constraint firstAttribute="height" constant="50" id="swk-7l-9rB"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <animations/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="QvC-1y-reA" secondAttribute="trailing" id="1uN-gn-ZQv"/>
+                    <constraint firstItem="2fq-Ar-F8l" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="2Zg-R9-mLD"/>
+                    <constraint firstAttribute="trailing" secondItem="3hl-Cw-sBS" secondAttribute="trailing" id="Ls4-m4-CNM"/>
+                    <constraint firstItem="2fq-Ar-F8l" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="OyY-aR-1bj"/>
+                    <constraint firstItem="3hl-Cw-sBS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZUb-WA-3dt"/>
+                    <constraint firstAttribute="bottom" secondItem="3hl-Cw-sBS" secondAttribute="bottom" id="cCK-Yt-X7n"/>
+                    <constraint firstItem="2fq-Ar-F8l" firstAttribute="width" secondItem="3hl-Cw-sBS" secondAttribute="width" multiplier="0.6" id="eRr-iW-b9j"/>
+                    <constraint firstItem="QvC-1y-reA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="ovD-Wd-NjP"/>
+                    <constraint firstItem="3hl-Cw-sBS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="p7s-gV-rgp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <animations/>
+            <point key="canvasLocation" x="245" y="391"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="CausesIcon" width="30" height="30"/>
+    </resources>
+</document>
