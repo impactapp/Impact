@@ -437,7 +437,7 @@
 				TargetAttributes = {
 					B8585C121B8642E800AB091A = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 343S9MWD74;
+						DevelopmentTeam = F6J9Z7FPQB;
 					};
 					B8585C2A1B8642E900AB091A = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -480,7 +480,6 @@
 				4D2256FB1B8AD62300727A4C /* RoundedCollectionViewCell.xib in Resources */,
 				4D2256F31B8ACBD500727A4C /* ChooseBankHeaderView.xib in Resources */,
 				4D2B0FE91BBF5ADD00482FF4 /* AlertPopupView.xib in Resources */,
-				B8585C211B8642E900AB091A /* Main.storyboard in Resources */,
 				4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */,
 				4D2256F11B8AC7C900727A4C /* ChooseBankViewController.xib in Resources */,
 				B8A5CF541B8FF49A00D71D2C /* ThirdIntroViewController.xib in Resources */,
@@ -649,6 +648,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -696,6 +696,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
