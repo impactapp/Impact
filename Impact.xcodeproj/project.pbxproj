@@ -457,7 +457,7 @@
 				TargetAttributes = {
 					B8585C121B8642E800AB091A = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 343S9MWD74;
+						DevelopmentTeam = F6J9Z7FPQB;
 					};
 					B8585C2A1B8642E900AB091A = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -672,6 +672,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -719,6 +720,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
