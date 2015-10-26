@@ -20,19 +20,7 @@ class InitialScreenViewController: UIViewController {
     }
 
     @IBAction func facebookButtonPressed(sender: AnyObject) {
-        //if facebook login is present, login.. otherwise sign up with facebook
-//        FBSDKLoginManager *login = [[FBSDKLoginManager alloc] init];
-//        [login
-//        logInWithReadPermissions: @[@"public_profile"]
-//        handler:^(FBSDKLoginManagerLoginResult *result, NSError *error) {
-//        if (error) {
-//        NSLog(@"Process error");
-//        } else if (result.isCancelled) {
-//        NSLog(@"Cancelled");
-//        } else {
-//        NSLog(@"Logged in");
-//        }
-//        }];
+
         
         let fbLoginManager : FBSDKLoginManager = FBSDKLoginManager()
         fbLoginManager.logInWithReadPermissions(["email", "public_profile"],fromViewController:self, handler: { (result, error) -> Void in
@@ -59,8 +47,8 @@ class InitialScreenViewController: UIViewController {
                     print(self.dict)
                     NSLog(self.dict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as! String)
                     ServerRequest.shared.loginWithFacebook(self.dict["email"] as! String, facebookAccessToken: fbLoginResult.token.tokenString, facebookID: self.dict["id"] as! String, success: { (json) -> Void in
-                        let tabBarController = TabBarViewController()
-                        self.presentViewController(tabBarController, animated: true, completion: nil)
+                        let bankController = ChooseBankViewController()
+                        self.presentViewController(bankController, animated: true, completion: nil)
                         },failure: { (errorMessage) -> Void in
                             //TODO : Display error
                             

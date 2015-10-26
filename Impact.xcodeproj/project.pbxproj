@@ -47,6 +47,10 @@
 		B8585C1E1B8642E900AB091A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8585C1D1B8642E900AB091A /* ViewController.swift */; };
 		B8585C231B8642E900AB091A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8585C221B8642E900AB091A /* Images.xcassets */; };
 		B8585C321B8642E900AB091A /* ImpactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8585C311B8642E900AB091A /* ImpactTests.swift */; };
+		B85F3F601BDD656C0029F83E /* ContributionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F3F5E1BDD656C0029F83E /* ContributionsCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		B85F3F611BDD656C0029F83E /* ContributionsCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85F3F5F1BDD656C0029F83E /* ContributionsCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		B85F3F641BDD6C130029F83E /* ContributionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F3F621BDD6C130029F83E /* ContributionsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		B85F3F651BDD6C130029F83E /* ContributionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85F3F631BDD6C130029F83E /* ContributionsViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		B8A5CF4F1B8FF48600D71D2C /* FirstIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5CF4D1B8FF48600D71D2C /* FirstIntroViewController.swift */; };
 		B8A5CF501B8FF48600D71D2C /* FirstIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8A5CF4E1B8FF48600D71D2C /* FirstIntroViewController.xib */; };
 		B8A5CF531B8FF49A00D71D2C /* ThirdIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5CF511B8FF49A00D71D2C /* ThirdIntroViewController.swift */; };
@@ -124,6 +128,10 @@
 		B8585C2B1B8642E900AB091A /* ImpactTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ImpactTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8585C301B8642E900AB091A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8585C311B8642E900AB091A /* ImpactTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactTests.swift; sourceTree = "<group>"; };
+		B85F3F5E1BDD656C0029F83E /* ContributionsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionsCollectionViewCell.swift; sourceTree = "<group>"; };
+		B85F3F5F1BDD656C0029F83E /* ContributionsCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContributionsCollectionViewCell.xib; sourceTree = "<group>"; };
+		B85F3F621BDD6C130029F83E /* ContributionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContributionsViewController.swift; sourceTree = "<group>"; };
+		B85F3F631BDD6C130029F83E /* ContributionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContributionsViewController.xib; sourceTree = "<group>"; };
 		B8A5CF4D1B8FF48600D71D2C /* FirstIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstIntroViewController.swift; sourceTree = "<group>"; };
 		B8A5CF4E1B8FF48600D71D2C /* FirstIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstIntroViewController.xib; sourceTree = "<group>"; };
 		B8A5CF511B8FF49A00D71D2C /* ThirdIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdIntroViewController.swift; sourceTree = "<group>"; };
@@ -183,11 +191,13 @@
 		4D0FDE451B8B82A1002877CE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				B85F3F5E1BDD656C0029F83E /* ContributionsCollectionViewCell.swift */,
+				B85F3F5F1BDD656C0029F83E /* ContributionsCollectionViewCell.xib */,
 				4D2256F81B8AD62300727A4C /* RoundedCollectionViewCell.swift */,
+				4D2256F91B8AD62300727A4C /* RoundedCollectionViewCell.xib */,
 				4D2B0FE21BBF4B8100482FF4 /* AlertViewController.swift */,
 				4D2B0FE81BBF5ADD00482FF4 /* AlertPopupView.xib */,
 				4D6DC3631B8BED330017BF29 /* DoneButton.swift */,
-				4D2256F91B8AD62300727A4C /* RoundedCollectionViewCell.xib */,
 			);
 			name = CustomViews;
 			sourceTree = "<group>";
@@ -307,6 +317,7 @@
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
 				4D2265861BA7979300A51908 /* Bridging-Header.h */,
 				4D2256E81B8A8E5E00727A4C /* TabBarController.swift */,
+				B85F3F661BDD6C180029F83E /* Contributions */,
 				4D9621F21BA9A151005EBCDD /* Card */,
 				B8D459F81B8FE0A400877310 /* Intro Screens */,
 				B8C77E151B8ABF2B00000927 /* Initial Screens */,
@@ -347,6 +358,15 @@
 				B8585C301B8642E900AB091A /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B85F3F661BDD6C180029F83E /* Contributions */ = {
+			isa = PBXGroup;
+			children = (
+				B85F3F621BDD6C130029F83E /* ContributionsViewController.swift */,
+				B85F3F631BDD6C130029F83E /* ContributionsViewController.xib */,
+			);
+			name = Contributions;
 			sourceTree = "<group>";
 		};
 		B8C77E151B8ABF2B00000927 /* Initial Screens */ = {
@@ -475,6 +495,7 @@
 				4D2265851BA7937000A51908 /* CreditCardViewController.xib in Resources */,
 				B8C77E141B8ABEFA00000927 /* InitialScreenViewController.xib in Resources */,
 				B82E47821BB747E600D3C90B /* LaunchScreen.xib in Resources */,
+				B85F3F611BDD656C0029F83E /* ContributionsCollectionViewCell.xib in Resources */,
 				B8A5CF501B8FF48600D71D2C /* FirstIntroViewController.xib in Resources */,
 				B8C77E1F1B8AC2FF00000927 /* SignUpViewController.xib in Resources */,
 				4D2256FB1B8AD62300727A4C /* RoundedCollectionViewCell.xib in Resources */,
@@ -488,6 +509,7 @@
 				4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */,
 				B8B8AA6D1B8FF69D006E689C /* PageViewController.xib in Resources */,
 				4D0FDE4E1B8BB646002877CE /* BankSignInViewController.xib in Resources */,
+				B85F3F651BDD6C130029F83E /* ContributionsViewController.xib in Resources */,
 				B8585C231B8642E900AB091A /* Images.xcassets in Resources */,
 				B8D45A061B8FF3E000877310 /* SecondIntroViewController.xib in Resources */,
 			);
@@ -581,9 +603,11 @@
 				B8C77E131B8ABEFA00000927 /* InitialScreenViewController.swift in Sources */,
 				B8A5CF4F1B8FF48600D71D2C /* FirstIntroViewController.swift in Sources */,
 				4D0FDE4D1B8BB646002877CE /* BankSignInViewController.swift in Sources */,
+				B85F3F601BDD656C0029F83E /* ContributionsCollectionViewCell.swift in Sources */,
 				4D6DC35F1B8BEBAC0017BF29 /* BankPinViewController.swift in Sources */,
 				B8B8AA6C1B8FF69D006E689C /* PageViewController.swift in Sources */,
 				B8A5CF571B8FF4A500D71D2C /* FinalIntroViewController.swift in Sources */,
+				B85F3F641BDD6C130029F83E /* ContributionsViewController.swift in Sources */,
 				4D2256FA1B8AD62300727A4C /* RoundedCollectionViewCell.swift in Sources */,
 				4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */,
 			);
