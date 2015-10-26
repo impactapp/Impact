@@ -1,11 +1,15 @@
 #import <UIKit/UIKit.h>
 
 #import "STPAPIClient.h"
+#import "STPAPIResponseDecodable.h"
 #import "STPBankAccount.h"
+#import "STPBankAccountParams.h"
 #import "STPCard.h"
 #import "STPCardBrand.h"
+#import "STPCardParams.h"
 #import "STPCardValidationState.h"
 #import "STPCardValidator.h"
+#import "STPFormEncodable.h"
 #import "STPToken.h"
 #import "Stripe.h"
 #import "StripeError.h"
