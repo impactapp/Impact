@@ -24,16 +24,16 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXZ-tC-uKw">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="197"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CausesIcon" translatesAutoresizingMaskIntoConstraints="NO" id="5yu-HN-ali">
-                                <rect key="frame" x="8" y="148" width="30" height="37"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Location" translatesAutoresizingMaskIntoConstraints="NO" id="5yu-HN-ali">
+                                <rect key="frame" x="8" y="148" width="20" height="37"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="rcN-tD-WdJ"/>
+                                    <constraint firstAttribute="width" constant="20" id="rcN-tD-WdJ"/>
                                     <constraint firstAttribute="height" constant="37" id="yaf-Y0-7ru"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boston, MA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXN-fe-nCi">
-                                <rect key="frame" x="46" y="148" width="179" height="28"/>
+                                <rect key="frame" x="36" y="148" width="179" height="28"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="179" id="HqA-M3-w3x"/>
@@ -46,7 +46,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="350 miles away" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVZ-vF-riQ">
-                                <rect key="frame" x="46" y="167" width="179" height="28"/>
+                                <rect key="frame" x="36" y="167" width="179" height="28"/>
                                 <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="0oz-OD-YdO"/>
@@ -105,7 +105,7 @@
                             <constraint firstAttribute="bottom" secondItem="5yu-HN-ali" secondAttribute="bottom" constant="12" id="ry5-7R-1K7"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mikey Stolzenberg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2fq-Ar-F8l">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mikey Stolzenberg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fq-Ar-F8l">
                         <rect key="frame" x="8" y="8" width="270" height="40"/>
                         <animations/>
                         <constraints>
@@ -166,5 +166,6 @@
     </objects>
     <resources>
         <image name="CausesIcon" width="30" height="30"/>
+        <image name="Location" width="38" height="48"/>
     </resources>
 </document>
