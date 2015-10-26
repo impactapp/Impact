@@ -3,7 +3,7 @@
 
 target 'Impact' do
 	pod 'Alamofire'
-	pod 'CardIO'
+	pod 'CardIO', '~> 5.1.0'
     pod 'SwiftyJSON', '~> 2.2.1'
     pod 'Stripe'
     pod 'Locksmith'
