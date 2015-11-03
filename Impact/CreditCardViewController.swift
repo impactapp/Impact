@@ -128,13 +128,17 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
             if let dateString = self.expirationDateTextField.text {
                 let month = dateString[dateString.startIndex ..< dateString.characters.indexOf("/")!]
                 let year = String(dateString.substringFromIndex(dateString.rangeOfString("/")!.startIndex).characters.dropFirst())
-                stripeCard.expMonth = UInt(Int(month)!)
-                stripeCard.expYear = UInt(Int(year)!)
+                if let monthInt = Int(month) {
+                     stripeCard.expMonth = UInt(monthInt)
+                }
+                if let yearInt = Int(year) {
+                    stripeCard.expYear = UInt(yearInt)
+                }
             }
         }
         
-        ServerRequest.shared.createStripeCustomer(stripeCard, success: { (success) -> Void in
-            self.navigateToApp()
+        ServerRequest.shared.updateStripeCustomer(stripeCard, success: { (success) -> Void in
+            self.navigateToCategories()
             }, failure: { (errorMessage) -> Void in
                 let alertController = AlertViewController()
                 alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
@@ -144,8 +148,16 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
     }
     
     func navigateToApp() {
-        let tabBarController = TabBarViewController()
-        self.navigationController?.presentViewController(tabBarController, animated: true, completion: nil)
+        let tbc = TabBarViewController()
+        self.navigationController?.presentViewController(tbc, animated: true, completion: nil)
+    }
+    
+    func navigateToCategories() {
+        let cvc = CategoriesViewController(nibName:"CategoriesViewController", bundle:nil)
+        let nvc = UINavigationController(rootViewController: cvc)
+        nvc.navigationBarHidden = true
+        self.presentViewController(nvc, animated: true, completion: nil)
+
     }
 
     @IBAction func backPressed(sender: AnyObject) {

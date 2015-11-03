@@ -17,9 +17,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var forgotButton: UIButton!
     @IBOutlet var signInButton: RoundedButton!
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         UIApplication.sharedApplication().statusBarHidden = true;
@@ -80,7 +77,9 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func signInButtonPressed(sender: AnyObject) {
         ServerRequest.shared.loginWithEmail(emailTextField.text!, password: passwordTextField.text!, success: { (json) -> Void in
             let tabBarController = TabBarViewController()
-            self.presentViewController(tabBarController, animated: true, completion: nil)
+            let nvc = UINavigationController(rootViewController: tabBarController)
+            nvc.navigationBarHidden = true
+            self.presentViewController(nvc, animated: true, completion: nil)
             },failure: { (errorMessage) -> Void in
                 let alertViewController = AlertViewController()
                 alertViewController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")

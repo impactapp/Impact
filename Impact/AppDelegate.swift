@@ -15,14 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
         
         //we'll change the initial view controller based on whether the user is logged in or not
         var initialViewController = UIViewController();
         if (isLoggedIn()) {
-            initialViewController = TabBarViewController();
+            initialViewController = TabBarViewController()
         } else {
             initialViewController = PageViewController(nibName:"PageViewController", bundle: nil);
         }

@@ -16,6 +16,7 @@ class TabBarViewController: UITabBarController {
     //MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad();
+        UIApplication.sharedApplication().statusBarHidden = false
         initTabBarAttributes();
         setUpViewControllers();
         initUnderLine()
@@ -31,7 +32,6 @@ class TabBarViewController: UITabBarController {
     func setUpViewControllers() {
         let exploreViewController = ExploreViewController();
         exploreViewController.tabBarItem.image = UIImage(named: "Earth");
-        
         let profileViewController = UIViewController();
         profileViewController.tabBarItem.image = UIImage(named: "Heart");
         let test1 = UIViewController()
