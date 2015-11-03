@@ -10,6 +10,7 @@ import UIKit
 import SwiftyJSON
 
 class Category: NSObject {
+    var id: Int!
     var name : String!
     var icon_url : String!
     var selected_icon_url : String!
@@ -23,9 +24,11 @@ class Category: NSObject {
         if json == nil{
             return
         }
-        name = json["attributes"]["name"].stringValue
-        icon_url = json["attributes"]["icon_url"].stringValue
-        selected_icon_url = json["attributes"]["selected_icon_url"].stringValue
+        
+        id = json["id"].intValue
+        name = json["name"].stringValue
+        icon_url = json["icon_url"].stringValue
+        selected_icon_url = json["selected_icon_url"].stringValue
     }
     
     /**
@@ -34,6 +37,9 @@ class Category: NSObject {
     func toDictionary() -> NSDictionary
     {
         let dictionary = NSMutableDictionary()
+        if id != nil {
+            dictionary["id"] = id
+        }
         if name != nil {
             dictionary["name"] = name
         }

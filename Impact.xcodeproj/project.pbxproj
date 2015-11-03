@@ -294,15 +294,39 @@
 			name = "Server Request";
 			sourceTree = "<group>";
 		};
-		4D6BC9921BE4FF59000C89C8 /* Categories */ = {
+		4D5674931BE932F10019D95C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4D6BC98E1BE4FED6000C89C8 /* CategoriesViewController.swift */,
-				4D147D341BE6B1AC0040CF0E /* Category.swift */,
 				4D6BC9971BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib */,
 				4D6BC98F1BE4FED6000C89C8 /* CategoriesViewController.xib */,
 				4D6BC9931BE4FF8D000C89C8 /* CategoriesCollectionViewCell.swift */,
 				4D6BC9941BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4D5674941BE932F60019D95C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D147D341BE6B1AC0040CF0E /* Category.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4D5674951BE932FD0019D95C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4D6BC98E1BE4FED6000C89C8 /* CategoriesViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4D6BC9921BE4FF59000C89C8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4D5674951BE932FD0019D95C /* Controller */,
+				4D5674941BE932F60019D95C /* Model */,
+				4D5674931BE932F10019D95C /* View */,
 			);
 			name = Categories;
 			sourceTree = "<group>";

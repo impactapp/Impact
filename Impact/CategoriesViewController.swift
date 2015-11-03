@@ -13,7 +13,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     let headerViewIdentifier = "ChooseCategoryHeaderView";
     let cellIdentifier = "CategoriesCollectionViewCell";
     var categories : [Category] = []
-    var selectedRows: [Int] = []
+    var selectedCategories: [Category] = []
     var continueButton:DoneButton = DoneButton()
 
     override func viewDidLoad() {
@@ -22,6 +22,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
         ServerRequest.shared.getCategories { (categories) -> Void in
             self.categories = categories
+            
             self.collectionView.reloadData()
         }
         
@@ -73,8 +74,8 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! CategoriesCollectionViewCell
-        let isSelectedCell = self.selectedRows.contains(indexPath.row)
         let category = self.categories[indexPath.row]
+        let isSelectedCell = self.selectedCategories.contains(category)
         cell.categoryLabel.text = category.name
         cell.categoryLabel.textColor = isSelectedCell ? UIColor.customRed() : UIColor.whiteColor()
         return cell
@@ -83,12 +84,13 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as!CategoriesCollectionViewCell
         cell.categoryLabel.textColor = cell.selected ? UIColor.customRed() : UIColor.whiteColor()
-        if self.selectedRows.contains(indexPath.row) {
-            self.selectedRows = self.selectedRows.filter({ $0 != indexPath.row })
+        let category = self.categories[indexPath.row]
+        if self.selectedCategories.contains(category) {
+            self.selectedCategories = self.selectedCategories.filter({ $0 != category })
         } else {
-            self.selectedRows.append(indexPath.row)
+            self.selectedCategories.append(category)
         }
-        self.continueButton.animateDoneButton(self.selectedRows.count >= 4)
+        self.continueButton.animateDoneButton(self.selectedCategories.count >= 4)
         collectionView.reloadData()
     }
     
@@ -109,7 +111,14 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         let tabBarController = TabBarViewController()
         let nvc = UINavigationController(rootViewController: tabBarController)
         nvc.navigationBarHidden = true
-        self.presentViewController(nvc, animated: true, completion: nil)
+        ServerRequest.shared.chooseCategories(self.selectedCategories) { (success) -> Void in
+            if success {
+                self.presentViewController(nvc, animated: true, completion: nil)
+            } else {
+                
+            }
+        }
+        
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

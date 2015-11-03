@@ -136,15 +136,14 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
                 }
             }
         }
-        navigateToCategories()
         
-//        ServerRequest.shared.createStripeCustomer(stripeCard, success: { (success) -> Void in
-//            self.navigateToCategories()
-//            }, failure: { (errorMessage) -> Void in
-//                let alertController = AlertViewController()
-//                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
-//                alertController.show()
-//        })
+        ServerRequest.shared.updateStripeCustomer(stripeCard, success: { (success) -> Void in
+            self.navigateToCategories()
+            }, failure: { (errorMessage) -> Void in
+                let alertController = AlertViewController()
+                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                alertController.show()
+        })
         
     }
     
@@ -155,7 +154,9 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
     
     func navigateToCategories() {
         let cvc = CategoriesViewController(nibName:"CategoriesViewController", bundle:nil)
-        self.navigationController?.presentViewController(cvc, animated: true, completion: nil)
+        let nvc = UINavigationController(rootViewController: cvc)
+        nvc.navigationBarHidden = true
+        self.presentViewController(nvc, animated: true, completion: nil)
 
     }
 

@@ -181,7 +181,7 @@ class ServerRequest: NSObject {
     
     //MARK: Stripe and Credit Card Info
     
-    func createStripeCustomer(card:STPCard,success:(success:Bool) -> Void, failure:(errorMessage:String) -> Void) {
+    func updateStripeCustomer(card:STPCard,success:(success:Bool) -> Void, failure:(errorMessage:String) -> Void) {
         let apiClient = STPAPIClient(publishableKey: kStripePublishableKey)
         apiClient.createTokenWithCard(card, completion: { (stripeToken, error) -> Void in
             if let token = stripeToken?.tokenId {
@@ -206,6 +206,7 @@ class ServerRequest: NSObject {
     
     func getCategories(completion:(categories:[Category]) -> Void) {
         let endpoint = "categories"
+        
         getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
             var result: [Category] = []
             if let array = json.array {
@@ -216,6 +217,17 @@ class ServerRequest: NSObject {
             completion(categories: result)
             },failure: { (error) -> Void in
                 
+        })
+    }
+    
+    func chooseCategories(categories:[Category], completion:(success:Bool) -> Void) {
+        let endpoint = "categories/choose"
+        let parameters = ["categories":["category_ids":categories.map{$0.id}]]
+        postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+            
+            completion(success:true)
+            },failure: { (error) -> Void in
+                completion(success:false)
         })
     }
     

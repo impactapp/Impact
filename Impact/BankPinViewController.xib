@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BankPinViewController" customModule="Impact" customModuleProvider="target">
@@ -16,26 +17,12 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XbN-Wg-VFG" customClass="BottomBorderedTextField" customModule="Impact" customModuleProvider="target">
-                    <rect key="frame" x="22" y="120" width="556" height="42"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="42" id="kBc-9S-d7j"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
-                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="bottomBorderColor">
-                            <color key="value" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="string" keyPath="placeHolderText" value="Enter Pin"/>
-                        <userDefinedRuntimeAttribute type="image" keyPath="thumbnail" value="LockIcon"/>
-                    </userDefinedRuntimeAttributes>
-                </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FsH-0C-DIQ">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="68"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jD1-9Y-K2K">
                             <rect key="frame" x="8" y="19" width="63" height="42"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="63" id="2a0-f5-lVa"/>
                             </constraints>
@@ -49,6 +36,7 @@
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Pin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdG-3T-Zme">
                             <rect key="frame" x="150" y="19" width="300" height="42"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="O1i-J3-5AC"/>
                                 <constraint firstAttribute="width" constant="300" id="WaF-vo-8cy"/>
@@ -58,6 +46,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="jD1-9Y-K2K" secondAttribute="bottom" constant="7" id="5hW-GT-Eh6"/>
@@ -68,7 +57,24 @@
                         <constraint firstAttribute="height" constant="68" id="z5z-gF-miy"/>
                     </constraints>
                 </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XbN-Wg-VFG" customClass="BottomBorderedTextField" customModule="Impact" customModuleProvider="target">
+                    <rect key="frame" x="22" y="120" width="556" height="42"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="42" id="kBc-9S-d7j"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="bottomBorderColor">
+                            <color key="value" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="placeHolderText" value="Enter Pin"/>
+                        <userDefinedRuntimeAttribute type="image" keyPath="thumbnail" value="LockIcon"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="XbN-Wg-VFG" firstAttribute="leading" secondItem="CFt-J3-maC" secondAttribute="leading" constant="22" id="5xQ-RW-8RB"/>
