@@ -20,7 +20,6 @@ class HeaderView: UIView {
     
     func addHeaderToView(view:UIView) {
         if let parentView = self.parentView {
-            
             parentView.addSubview(self)
         }
     }

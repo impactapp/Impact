@@ -202,7 +202,24 @@ class ServerRequest: NSObject {
         })
     }
     
-    //MARK : Causes
+    //MARK: Categories
+    
+    func getCategories(completion:(categories:[Category]) -> Void) {
+        let endpoint = "categories"
+        getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            var result: [Category] = []
+            if let array = json.array {
+                for jsonObject in array {
+                    result.append(Category(fromJson: jsonObject))
+                }
+            }
+            completion(categories: result)
+            },failure: { (error) -> Void in
+                
+        })
+    }
+    
+    //MARK: Causes
     
     func getAllCauses(completion:(causes:[Cause]) -> Void) {
         let endpoint = "causes/all"

@@ -43,6 +43,8 @@
                 <constraint firstAttribute="bottom" secondItem="f2V-Er-3bE" secondAttribute="bottom" id="ech-Rw-txN"/>
                 <constraint firstItem="EmL-P3-XCe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="oqL-bb-hzH"/>
             </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <nil key="simulatedTopBarMetrics"/>
         </view>
     </objects>
 </document>

@@ -17,6 +17,7 @@
 		4D0FDE491B8B8620002877CE /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDE481B8B8620002877CE /* UIView+Nib.swift */; };
 		4D0FDE4D1B8BB646002877CE /* BankSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDE4B1B8BB646002877CE /* BankSignInViewController.swift */; };
 		4D0FDE4E1B8BB646002877CE /* BankSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0FDE4C1B8BB646002877CE /* BankSignInViewController.xib */; };
+		4D147D351BE6B1AC0040CF0E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D147D341BE6B1AC0040CF0E /* Category.swift */; };
 		4D2256E91B8A8E5E00727A4C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2256E81B8A8E5E00727A4C /* TabBarController.swift */; };
 		4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2256EC1B8AC40E00727A4C /* RoundedButton.swift */; };
 		4D2256F01B8AC7C900727A4C /* ChooseBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2256EE1B8AC7C900727A4C /* ChooseBankViewController.swift */; };
@@ -31,6 +32,11 @@
 		4D2B0FE91BBF5ADD00482FF4 /* AlertPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2B0FE81BBF5ADD00482FF4 /* AlertPopupView.xib */; };
 		4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5522991B870EB700F9E5CA /* ServerRequest.swift */; };
 		4D5C805A1BA8F2F0001DEDAF /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C80591BA8F2F0001DEDAF /* UITextField+Padding.swift */; };
+		4D6BC9901BE4FED6000C89C8 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6BC98E1BE4FED6000C89C8 /* CategoriesViewController.swift */; };
+		4D6BC9911BE4FED6000C89C8 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6BC98F1BE4FED6000C89C8 /* CategoriesViewController.xib */; };
+		4D6BC9951BE4FF8D000C89C8 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6BC9931BE4FF8D000C89C8 /* CategoriesCollectionViewCell.swift */; };
+		4D6BC9961BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6BC9941BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib */; };
+		4D6BC9981BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6BC9971BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib */; };
 		4D6DC35F1B8BEBAC0017BF29 /* BankPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DC35D1B8BEBAC0017BF29 /* BankPinViewController.swift */; };
 		4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6DC35E1B8BEBAC0017BF29 /* BankPinViewController.xib */; };
 		4D6DC3641B8BED330017BF29 /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DC3631B8BED330017BF29 /* DoneButton.swift */; };
@@ -98,6 +104,7 @@
 		4D0FDE481B8B8620002877CE /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		4D0FDE4B1B8BB646002877CE /* BankSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankSignInViewController.swift; sourceTree = "<group>"; };
 		4D0FDE4C1B8BB646002877CE /* BankSignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankSignInViewController.xib; sourceTree = "<group>"; };
+		4D147D341BE6B1AC0040CF0E /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4D2256E81B8A8E5E00727A4C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		4D2256EC1B8AC40E00727A4C /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		4D2256EE1B8AC7C900727A4C /* ChooseBankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBankViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +120,11 @@
 		4D2B0FE81BBF5ADD00482FF4 /* AlertPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertPopupView.xib; sourceTree = "<group>"; };
 		4D5522991B870EB700F9E5CA /* ServerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
 		4D5C80591BA8F2F0001DEDAF /* UITextField+Padding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
+		4D6BC98E1BE4FED6000C89C8 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		4D6BC98F1BE4FED6000C89C8 /* CategoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
+		4D6BC9931BE4FF8D000C89C8 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		4D6BC9941BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesCollectionViewCell.xib; sourceTree = "<group>"; };
+		4D6BC9971BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseCategoryHeaderView.xib; sourceTree = "<group>"; };
 		4D6DC35D1B8BEBAC0017BF29 /* BankPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankPinViewController.swift; sourceTree = "<group>"; };
 		4D6DC35E1B8BEBAC0017BF29 /* BankPinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankPinViewController.xib; sourceTree = "<group>"; };
 		4D6DC3631B8BED330017BF29 /* DoneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
@@ -282,6 +294,19 @@
 			name = "Server Request";
 			sourceTree = "<group>";
 		};
+		4D6BC9921BE4FF59000C89C8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4D6BC98E1BE4FED6000C89C8 /* CategoriesViewController.swift */,
+				4D147D341BE6B1AC0040CF0E /* Category.swift */,
+				4D6BC9971BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib */,
+				4D6BC98F1BE4FED6000C89C8 /* CategoriesViewController.xib */,
+				4D6BC9931BE4FF8D000C89C8 /* CategoriesCollectionViewCell.swift */,
+				4D6BC9941BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		4D9621F21BA9A151005EBCDD /* Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +365,7 @@
 				B8585C181B8642E900AB091A /* AppDelegate.swift */,
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
 				4D2256E81B8A8E5E00727A4C /* TabBarController.swift */,
+				4D6BC9921BE4FF59000C89C8 /* Categories */,
 				4D02EC191BD0887900701C75 /* Causes */,
 				4D9621F21BA9A151005EBCDD /* Card */,
 				B8D459F81B8FE0A400877310 /* Intro Screens */,
@@ -506,6 +532,8 @@
 			files = (
 				B8C77E1B1B8AC2E700000927 /* SignInViewController.xib in Resources */,
 				B82E47831BB747E600D3C90B /* Main.storyboard in Resources */,
+				4D6BC9981BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib in Resources */,
+				4D6BC9911BE4FED6000C89C8 /* CategoriesViewController.xib in Resources */,
 				B8B8AA711B8FFBD1006E689C /* ContentViewController.xib in Resources */,
 				4D2265851BA7937000A51908 /* CreditCardViewController.xib in Resources */,
 				B8C77E141B8ABEFA00000927 /* InitialScreenViewController.xib in Resources */,
@@ -524,6 +552,7 @@
 				B8A5CF581B8FF4A500D71D2C /* FinalIntroViewController.xib in Resources */,
 				4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */,
 				B8B8AA6D1B8FF69D006E689C /* PageViewController.xib in Resources */,
+				4D6BC9961BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib in Resources */,
 				4D0FDE4E1B8BB646002877CE /* BankSignInViewController.xib in Resources */,
 				B8585C231B8642E900AB091A /* Images.xcassets in Resources */,
 				B8D45A061B8FF3E000877310 /* SecondIntroViewController.xib in Resources */,
@@ -601,6 +630,7 @@
 				4D02EC1C1BD08A0400701C75 /* CausesTableViewCell.swift in Sources */,
 				4D2265841BA7937000A51908 /* CreditCardViewController.swift in Sources */,
 				4D8210281BD291F30032DA07 /* CircleGraph.swift in Sources */,
+				4D147D351BE6B1AC0040CF0E /* Category.swift in Sources */,
 				B8C77E1E1B8AC2FF00000927 /* SignUpViewController.swift in Sources */,
 				B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */,
 				B8A5CF531B8FF49A00D71D2C /* ThirdIntroViewController.swift in Sources */,
@@ -626,10 +656,12 @@
 				4D0FDE4D1B8BB646002877CE /* BankSignInViewController.swift in Sources */,
 				4D6DC35F1B8BEBAC0017BF29 /* BankPinViewController.swift in Sources */,
 				4DE85F691BD18CC5002AE4C5 /* Cause.swift in Sources */,
+				4D6BC9951BE4FF8D000C89C8 /* CategoriesCollectionViewCell.swift in Sources */,
 				B8B8AA6C1B8FF69D006E689C /* PageViewController.swift in Sources */,
 				B8A5CF571B8FF4A500D71D2C /* FinalIntroViewController.swift in Sources */,
 				4D2256FA1B8AD62300727A4C /* RoundedCollectionViewCell.swift in Sources */,
 				4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */,
+				4D6BC9901BE4FED6000C89C8 /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
