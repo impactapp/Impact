@@ -11,12 +11,18 @@ import UIKit
 class CategoriesCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var backgroundColorView: UIView!
     let cornerRadius = CGFloat(5)
     override func awakeFromNib() {
         super.awakeFromNib()
         self.layer.cornerRadius = self.cornerRadius;
         self.layer.masksToBounds = true;
-        // Initialization code
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.backgroundColorView.layer.cornerRadius = self.backgroundColorView.frame.size.width/2
+        self.backgroundColorView.layer.masksToBounds = true
     }
 
 }

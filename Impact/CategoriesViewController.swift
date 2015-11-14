@@ -12,7 +12,10 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     @IBOutlet weak var collectionView: UICollectionView!
     let headerViewIdentifier = "ChooseCategoryHeaderView";
     let cellIdentifier = "CategoriesCollectionViewCell";
-    var categories : [Category] = []
+    let headerViewHeight = CGFloat(180)
+    var fullRowCategories : [Category] = []
+    var notFullRowCategories : [Category] = []
+    let cellsPerRow = 3
     var selectedCategories: [Category] = []
     var continueButton:DoneButton = DoneButton()
 
@@ -21,7 +24,13 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         setUpCollectionView()
         self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
         ServerRequest.shared.getCategories { (categories) -> Void in
-            self.categories = categories
+            let categories = Array(categories[0...10])
+            let lastIndex = categories.count - 1
+            let leftOverCells = categories.count % self.cellsPerRow
+            self.fullRowCategories = Array(categories[0...(lastIndex-leftOverCells)])
+            if leftOverCells != 0 {
+                self.notFullRowCategories = Array(categories[(lastIndex-leftOverCells+1)...lastIndex])
+            }
             
             self.collectionView.reloadData()
         }
@@ -46,7 +55,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     private func setUpCollectionView() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout();
         layout.sectionInset = UIEdgeInsets(top: 3, left: 8, bottom: 3, right: 8);
-        layout.headerReferenceSize = CGSize(width: self.view.frame.size.width, height: 180);
+        layout.headerReferenceSize = CGSize(width: self.view.frame.size.width, height: self.headerViewHeight);
         self.collectionView.backgroundColor = UIColor.whiteColor()
         self.collectionView.collectionViewLayout = layout;
         self.collectionView.delegate = self;
@@ -65,38 +74,82 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
-        return 1
+        return 2
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.categories.count
+        return section == 0 ? self.fullRowCategories.count : self.notFullRowCategories.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! CategoriesCollectionViewCell
-        let category = self.categories[indexPath.row]
-        let isSelectedCell = self.selectedCategories.contains(category)
+        let categories = indexPath.section == 0 ? self.fullRowCategories : self.notFullRowCategories
+        let category = categories[indexPath.row]
         cell.categoryLabel.text = category.name
-        cell.categoryLabel.textColor = isSelectedCell ? UIColor.customRed() : UIColor.whiteColor()
+        cell.imageView.setImageWithUrl(NSURL(string: category.icon_url))
         return cell
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let cell = collectionView.cellForItemAtIndexPath(indexPath) as!CategoriesCollectionViewCell
         cell.categoryLabel.textColor = cell.selected ? UIColor.customRed() : UIColor.whiteColor()
-        let category = self.categories[indexPath.row]
+        let categories = indexPath.section == 0 ? self.fullRowCategories : self.notFullRowCategories
+        let category = categories[indexPath.row]
         if self.selectedCategories.contains(category) {
             self.selectedCategories = self.selectedCategories.filter({ $0 != category })
         } else {
             self.selectedCategories.append(category)
         }
         self.continueButton.animateDoneButton(self.selectedCategories.count >= 4)
-        collectionView.reloadData()
+        let isSelectedCell =  self.selectedCategories.contains(category)
+        cell.categoryLabel.textColor = isSelectedCell ? UIColor.customRed() : UIColor.whiteColor()
+        cell.backgroundColorView.backgroundColor = isSelectedCell ? UIColor.customRed() : UIColor.whiteColor()
+        let iconUrl = isSelectedCell ? category.selected_icon_url : category.icon_url
+        cell.imageView.setImageWithUrl(NSURL(string: iconUrl))
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let width = self.collectionView.frame.size.width / 3 - 8;
+        
         return CGSizeMake(width, width);
+    }
+    
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        if section == 0 {
+            return UIEdgeInsets(top: 3, left: 8, bottom: 3, right: 8)
+        } else {
+            return getEdgeInsetByDevice()
+        }
+    }
+    
+    func getEdgeInsetByDevice() -> UIEdgeInsets {
+        
+        let numberOfCells = self.notFullRowCategories.count
+        if DeviceType.IS_IPHONE_4_OR_LESS {
+            let edgeInsets = (self.view.frame.size.width - (CGFloat(numberOfCells) * 50) - (CGFloat(numberOfCells) * 50)) / 2
+            return UIEdgeInsetsMake(1, edgeInsets, 3, edgeInsets);
+        } else {
+            var offset : CGFloat = 0
+            if DeviceType.IS_IPHONE_5 {
+                offset = 40
+            }
+            if DeviceType.IS_IPHONE_6 {
+                offset = 60
+            }
+            if DeviceType.IS_IPHONE_6P {
+                offset = 72
+            }
+            let edgeInsets = (self.view.frame.size.width - (CGFloat(numberOfCells) * 50) - (CGFloat(numberOfCells) * 10)) / 2 - offset
+            return UIEdgeInsetsMake(1, edgeInsets, 3, edgeInsets);
+
+        }
+    }
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            return CGSize(width: self.view.frame.size.width, height: self.headerViewHeight)
+        } else {
+            return CGSize(width: 0, height: 0)
+        }
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
@@ -115,7 +168,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
             if success {
                 self.presentViewController(nvc, animated: true, completion: nil)
             } else {
-                
+                //TODO: Display Error Message
             }
         }
         

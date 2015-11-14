@@ -14,13 +14,6 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CausesIcon" translatesAutoresizingMaskIntoConstraints="NO" id="D1d-8L-coA">
-                        <rect key="frame" x="25" y="8" width="100" height="100"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="D1d-8L-coA" secondAttribute="height" multiplier="1:1" id="tYn-ZN-rGX"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d34-Kw-9Gf">
                         <rect key="frame" x="8" y="115" width="134" height="27"/>
                         <animations/>
@@ -31,6 +24,30 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yec-B8-2v3">
+                        <rect key="frame" x="25" y="15" width="100" height="100"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CausesIcon" translatesAutoresizingMaskIntoConstraints="NO" id="FQc-8Z-Vnw">
+                                <rect key="frame" x="10" y="10" width="80" height="80"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="FQc-8Z-Vnw" secondAttribute="height" multiplier="1:1" id="C0S-il-dMR"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="2iH-0m-tAo"/>
+                            <constraint firstItem="FQc-8Z-Vnw" firstAttribute="centerX" secondItem="yec-B8-2v3" secondAttribute="centerX" id="81x-m0-BPZ"/>
+                            <constraint firstItem="FQc-8Z-Vnw" firstAttribute="centerY" secondItem="yec-B8-2v3" secondAttribute="centerY" id="FHY-Y0-wMG"/>
+                            <constraint firstAttribute="width" secondItem="yec-B8-2v3" secondAttribute="height" multiplier="1:1" id="P3Y-UJ-qHK"/>
+                            <constraint firstAttribute="trailing" secondItem="FQc-8Z-Vnw" secondAttribute="trailing" constant="10" id="RDZ-M5-AxQ"/>
+                            <constraint firstItem="FQc-8Z-Vnw" firstAttribute="top" secondItem="yec-B8-2v3" secondAttribute="top" constant="10" id="S1A-V8-tTa"/>
+                            <constraint firstItem="FQc-8Z-Vnw" firstAttribute="leading" secondItem="yec-B8-2v3" secondAttribute="leading" constant="10" id="SQR-Fo-IMA"/>
+                            <constraint firstAttribute="bottom" secondItem="FQc-8Z-Vnw" secondAttribute="bottom" constant="10" id="V5F-Ue-Gd3"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -38,18 +55,20 @@
             <animations/>
             <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="D1d-8L-coA" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="7NX-4b-bTx"/>
-                <constraint firstItem="D1d-8L-coA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="25" id="F8U-8b-ns9"/>
+                <constraint firstItem="yec-B8-2v3" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="0K7-HR-K7q"/>
                 <constraint firstAttribute="bottom" secondItem="d34-Kw-9Gf" secondAttribute="bottom" constant="8" id="JXs-cY-N6D"/>
-                <constraint firstAttribute="trailing" secondItem="D1d-8L-coA" secondAttribute="trailing" constant="25" id="Kfl-He-bMQ"/>
-                <constraint firstItem="D1d-8L-coA" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="8" id="LqK-xH-986"/>
+                <constraint firstAttribute="trailing" secondItem="yec-B8-2v3" secondAttribute="trailing" constant="25" id="aJb-jH-cG4"/>
+                <constraint firstItem="d34-Kw-9Gf" firstAttribute="top" secondItem="yec-B8-2v3" secondAttribute="bottom" id="aS8-Zu-pZt"/>
                 <constraint firstAttribute="trailing" secondItem="d34-Kw-9Gf" secondAttribute="trailing" constant="8" id="pnB-ag-4pw"/>
+                <constraint firstItem="yec-B8-2v3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="25" id="rql-zJ-Glq"/>
                 <constraint firstItem="d34-Kw-9Gf" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="v4n-Zl-095"/>
+                <constraint firstItem="yec-B8-2v3" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="w5H-vt-DLt"/>
             </constraints>
             <size key="customSize" width="126" height="140"/>
             <connections>
+                <outlet property="backgroundColorView" destination="yec-B8-2v3" id="EMy-Cv-pYb"/>
                 <outlet property="categoryLabel" destination="d34-Kw-9Gf" id="UY4-Uc-bnb"/>
-                <outlet property="imageView" destination="D1d-8L-coA" id="h7D-Nm-cIc"/>
+                <outlet property="imageView" destination="FQc-8Z-Vnw" id="YVi-2a-7Rx"/>
             </connections>
             <point key="canvasLocation" x="382" y="384"/>
         </collectionViewCell>
