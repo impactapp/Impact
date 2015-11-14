@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //we'll change the initial view controller based on whether the user is logged in or not
         var initialViewController = UIViewController();
         if (isLoggedIn()) {
-            initialViewController = TabBarViewController()
+            initialViewController = CategoriesViewController()
         } else {
             initialViewController = PageViewController(nibName:"PageViewController", bundle: nil);
         }

@@ -75,9 +75,8 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! CategoriesCollectionViewCell
         let category = self.categories[indexPath.row]
-        let isSelectedCell = self.selectedCategories.contains(category)
         cell.categoryLabel.text = category.name
-        cell.categoryLabel.textColor = isSelectedCell ? UIColor.customRed() : UIColor.whiteColor()
+        cell.imageView.setImageWithUrl(NSURL(string: category.icon_url))
         return cell
     }
     
@@ -91,7 +90,11 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
             self.selectedCategories.append(category)
         }
         self.continueButton.animateDoneButton(self.selectedCategories.count >= 4)
-        collectionView.reloadData()
+        let isSelectedCell =  self.selectedCategories.contains(category)
+        cell.categoryLabel.textColor = isSelectedCell ? UIColor.customRed() : UIColor.whiteColor()
+        cell.backgroundColorView.backgroundColor = isSelectedCell ? UIColor.customRed() : UIColor.whiteColor()
+        let iconUrl = isSelectedCell ? category.selected_icon_url : category.icon_url
+        cell.imageView.setImageWithUrl(NSURL(string: iconUrl))
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
