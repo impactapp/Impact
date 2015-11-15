@@ -43,6 +43,9 @@
 		4D6DC3641B8BED330017BF29 /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DC3631B8BED330017BF29 /* DoneButton.swift */; };
 		4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */; };
 		4D8210281BD291F30032DA07 /* CircleGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8210271BD291F30032DA07 /* CircleGraph.swift */; };
+		4D92199D1BF815D700A326A8 /* CausePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D92199B1BF815D700A326A8 /* CausePageViewController.swift */; };
+		4D92199E1BF815D700A326A8 /* CausePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D92199C1BF815D700A326A8 /* CausePageViewController.xib */; };
+		4D9219A01BF8190E00A326A8 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D92199F1BF8190E00A326A8 /* CustomSegmentControl.swift */; };
 		4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9621F31BA9A16F005EBCDD /* UserCredentials.swift */; };
 		4D962E9D1B8BFB780026E84D /* BankSecurityQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D962E9B1B8BFB780026E84D /* BankSecurityQuestionViewController.swift */; };
 		4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */; };
@@ -132,6 +135,9 @@
 		4D6DC3631B8BED330017BF29 /* DoneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 		4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBorderedTextField.swift; sourceTree = "<group>"; };
 		4D8210271BD291F30032DA07 /* CircleGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleGraph.swift; sourceTree = "<group>"; };
+		4D92199B1BF815D700A326A8 /* CausePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CausePageViewController.swift; sourceTree = "<group>"; };
+		4D92199C1BF815D700A326A8 /* CausePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CausePageViewController.xib; sourceTree = "<group>"; };
+		4D92199F1BF8190E00A326A8 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
 		4D9621F31BA9A16F005EBCDD /* UserCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		4D962E9B1B8BFB780026E84D /* BankSecurityQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankSecurityQuestionViewController.swift; sourceTree = "<group>"; };
 		4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankSecurityQuestionViewController.xib; sourceTree = "<group>"; };
@@ -215,6 +221,8 @@
 		4D02EC191BD0887900701C75 /* Causes */ = {
 			isa = PBXGroup;
 			children = (
+				4D92199B1BF815D700A326A8 /* CausePageViewController.swift */,
+				4D92199C1BF815D700A326A8 /* CausePageViewController.xib */,
 				4D02EC151BD0887200701C75 /* ExploreViewController.swift */,
 				4D02EC1A1BD08A0400701C75 /* CausesTableViewCell.swift */,
 				4D02EC1B1BD08A0400701C75 /* CausesTableViewCell.xib */,
@@ -249,6 +257,7 @@
 		4D2256B51B8A530800727A4C /* IBDesignables */ = {
 			isa = PBXGroup;
 			children = (
+				4D92199F1BF8190E00A326A8 /* CustomSegmentControl.swift */,
 				4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */,
 				4D2256EC1B8AC40E00727A4C /* RoundedButton.swift */,
 			);
@@ -576,6 +585,7 @@
 				4D2256F11B8AC7C900727A4C /* ChooseBankViewController.xib in Resources */,
 				B8A5CF541B8FF49A00D71D2C /* ThirdIntroViewController.xib in Resources */,
 				4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */,
+				4D92199E1BF815D700A326A8 /* CausePageViewController.xib in Resources */,
 				B8A5CF581B8FF4A500D71D2C /* FinalIntroViewController.xib in Resources */,
 				4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */,
 				B8B8AA6D1B8FF69D006E689C /* PageViewController.xib in Resources */,
@@ -663,6 +673,8 @@
 				B8A5CF531B8FF49A00D71D2C /* ThirdIntroViewController.swift in Sources */,
 				4D0FDE441B8B77C3002877CE /* UIImageView+AsynchronousLoading.swift in Sources */,
 				4D2B0FE41BBF4B8100482FF4 /* AlertViewController.swift in Sources */,
+				4D92199D1BF815D700A326A8 /* CausePageViewController.swift in Sources */,
+				4D9219A01BF8190E00A326A8 /* CustomSegmentControl.swift in Sources */,
 				4D0FDE491B8B8620002877CE /* UIView+Nib.swift in Sources */,
 				4D6DC3641B8BED330017BF29 /* DoneButton.swift in Sources */,
 				4D2256E91B8A8E5E00727A4C /* TabBarController.swift in Sources */,

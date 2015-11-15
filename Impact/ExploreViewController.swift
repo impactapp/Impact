@@ -89,6 +89,13 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         return cell
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedCause = self.causes[indexPath.row]
+        
+        let cpvc = CausePageViewController(nibName: "CausePageViewController", bundle: nil)
+        //cpvc.cause = selectedCause
+        self.navigationController?.pushViewController(cpvc, animated: true)
+    }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         animateHeaderView(scrollView)

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D131" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ThirdIntroViewController" customModule="Impact" customModuleProvider="target">
@@ -16,6 +17,7 @@
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BRING CHANGE WITH CHANGE" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dRg-th-fej">
                     <rect key="frame" x="179" y="196" width="242" height="120"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="120" id="45X-QC-nHE"/>
                         <constraint firstAttribute="width" constant="242" id="mpD-hx-cIA"/>
@@ -26,6 +28,7 @@
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now it is the time to round up and make an impact" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cZ-eH-S1L">
                     <rect key="frame" x="183" y="306" width="234" height="73"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" constant="234" id="AIF-mq-Yq1"/>
                         <constraint firstAttribute="height" constant="73" id="Qvr-WK-9JR"/>
@@ -35,6 +38,7 @@
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
+            <animations/>
             <constraints>
                 <constraint firstItem="dRg-th-fej" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="196" id="BOV-OM-nAg"/>
                 <constraint firstItem="7cZ-eH-S1L" firstAttribute="top" secondItem="dRg-th-fej" secondAttribute="bottom" constant="-10" id="C90-5I-fbj"/>
