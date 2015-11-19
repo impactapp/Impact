@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Stripe
+import FBSDKCoreKit
 
 enum BankType:String {
     case BankOfAmerica = "bofa"
@@ -163,14 +164,19 @@ class ServerRequest: NSObject {
         })
     }
     
+    //MARK: Facebook
+    
     
     func loginWithFacebook(email:String, facebookAccessToken:String, facebookID:String, success:(json:JSON) -> Void, failure:(errorMessage:String)->Void){
         let parameters = [kFacebookRequestKey:["email":email, "facebook_id":facebookID, "facebook_access_token":facebookAccessToken]]
         
         postWithEndpoint("facebook_auth", parameters: parameters, authenticated: false, success: { (json) -> Void in
-            self.updateAuthenticationToken(json["facebook_access_token"].string)
+            
+            self.updateAuthenticationToken(json["authentication_token"].string)
             success(json: json)
+            
             }, failure: { (error) -> Void in
+                
                 if let errorArray = error["errors"].array {
                     let errorMessage = errorArray[0]
                     failure(errorMessage: errorMessage.string!)
@@ -178,6 +184,19 @@ class ServerRequest: NSObject {
         })
     
     }
+    
+    func getFacebookFriends(friends:(friends:[AnyObject]) -> Void) {
+        if FBSDKAccessToken.currentAccessToken() != nil {
+            let params = ["fields":"name,id"]
+            let request = FBSDKGraphRequest(graphPath: "/me/friends", parameters: params, HTTPMethod: "GET")
+            request.startWithCompletionHandler({ (connection, result, error) -> Void in
+                
+            })
+        }
+
+    }
+    
+    
     
     //MARK: Stripe and Credit Card Info
     
@@ -222,6 +241,7 @@ class ServerRequest: NSObject {
     
     func chooseCategories(categories:[Category], completion:(success:Bool) -> Void) {
         let endpoint = "categories/choose"
+        
         let parameters = ["categories":["category_ids":categories.map{$0.id}]]
         postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
             

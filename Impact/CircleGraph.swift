@@ -46,6 +46,10 @@ public class CircleGraph: UIControl {
         layer.addSublayer(circleLayer)
     }
     
+    func setThickeness(thickness:CGFloat) {
+        outerCircleLayer.lineWidth = thickness
+    }
+    
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

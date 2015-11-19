@@ -21,6 +21,7 @@ protocol CustomSegmentControlDelegate{
     //didSet is triggered once the property has changed
     var selectedIndex : Int = 0 {
         didSet {
+            
             displayNewSelectedIndex()
         }
     }
@@ -47,14 +48,8 @@ protocol CustomSegmentControlDelegate{
         let labelWidth = self.bounds.width / CGFloat(labels.count)
         for index in 0..<labels.count {
             var label = labels[index]
-            if index == 0 {
-                label.textAlignment = .Right
-            } else if index == labels.count - 1 {
-                label.textAlignment = .Left
-            } else {
-                label.textAlignment = .Center
-            }
-            let xPosition = index == 0 ? -10 : CGFloat(index)*labelWidth + 10
+            label.textAlignment = .Center
+            let xPosition = CGFloat(index)*labelWidth
             
             label.frame = CGRectMake(xPosition,0,labelWidth,labelHeight)
         }

@@ -51,6 +51,10 @@
 		4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */; };
 		4DB8CB171B8ED5CE00A6031D /* ForgetLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */; };
 		4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB8CB161B8ED5CE00A6031D /* ForgetLoginViewController.xib */; };
+		4DC0C9891BF8D37100E2A468 /* CauseUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0C9871BF8D37100E2A468 /* CauseUpdateViewController.swift */; };
+		4DC0C98A1BF8D37100E2A468 /* CauseUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC0C9881BF8D37100E2A468 /* CauseUpdateViewController.xib */; };
+		4DC0C98C1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0C98B1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift */; };
+		4DC0C98E1BF8D57600E2A468 /* AmountDonatedHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC0C98D1BF8D57600E2A468 /* AmountDonatedHeaderView.xib */; };
 		4DC8A7C51B8D6D0800F3A9ED /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8A7C41B8D6D0800F3A9ED /* AVFoundation.framework */; };
 		4DC8A7C71B8D6D0D00F3A9ED /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8A7C61B8D6D0D00F3A9ED /* AudioToolbox.framework */; };
 		4DC8A7C91B8D6D1700F3A9ED /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8A7C81B8D6D1700F3A9ED /* CoreMedia.framework */; };
@@ -58,7 +62,7 @@
 		4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */; };
 		4DE85F671BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE85F661BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift */; };
 		4DE85F691BD18CC5002AE4C5 /* Cause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE85F681BD18CC5002AE4C5 /* Cause.swift */; };
-		4E515AB7A3CD6CED1BBE3ABB /* Pods_Impact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4E515AB7A3CD6CED1BBE3ABB /* Pods_Impact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */; };
 		B82E47821BB747E600D3C90B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8585C241B8642E900AB091A /* LaunchScreen.xib */; };
 		B82E47831BB747E600D3C90B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8585C1F1B8642E900AB091A /* Main.storyboard */; };
 		B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8585C181B8642E900AB091A /* AppDelegate.swift */; };
@@ -143,6 +147,10 @@
 		4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankSecurityQuestionViewController.xib; sourceTree = "<group>"; };
 		4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetLoginViewController.swift; sourceTree = "<group>"; };
 		4DB8CB161B8ED5CE00A6031D /* ForgetLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetLoginViewController.xib; sourceTree = "<group>"; };
+		4DC0C9871BF8D37100E2A468 /* CauseUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CauseUpdateViewController.swift; sourceTree = "<group>"; };
+		4DC0C9881BF8D37100E2A468 /* CauseUpdateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CauseUpdateViewController.xib; sourceTree = "<group>"; };
+		4DC0C98B1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountDonatedHeaderView.swift; sourceTree = "<group>"; };
+		4DC0C98D1BF8D57600E2A468 /* AmountDonatedHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AmountDonatedHeaderView.xib; sourceTree = "<group>"; };
 		4DC8A7C41B8D6D0800F3A9ED /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4DC8A7C61B8D6D0D00F3A9ED /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4DC8A7C81B8D6D1700F3A9ED /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
@@ -221,6 +229,10 @@
 		4D02EC191BD0887900701C75 /* Causes */ = {
 			isa = PBXGroup;
 			children = (
+				4DC0C98B1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift */,
+				4DC0C98D1BF8D57600E2A468 /* AmountDonatedHeaderView.xib */,
+				4DC0C9871BF8D37100E2A468 /* CauseUpdateViewController.swift */,
+				4DC0C9881BF8D37100E2A468 /* CauseUpdateViewController.xib */,
 				4D92199B1BF815D700A326A8 /* CausePageViewController.swift */,
 				4D92199C1BF815D700A326A8 /* CausePageViewController.xib */,
 				4D02EC151BD0887200701C75 /* ExploreViewController.swift */,
@@ -309,7 +321,6 @@
 			isa = PBXGroup;
 			children = (
 				4D6BC9971BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib */,
-				4D6BC98F1BE4FED6000C89C8 /* CategoriesViewController.xib */,
 				4D6BC9931BE4FF8D000C89C8 /* CategoriesCollectionViewCell.swift */,
 				4D6BC9941BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib */,
 			);
@@ -328,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				4D6BC98E1BE4FED6000C89C8 /* CategoriesViewController.swift */,
+				4D6BC98F1BE4FED6000C89C8 /* CategoriesViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -571,6 +583,7 @@
 				4D6BC9981BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib in Resources */,
 				4D6BC9911BE4FED6000C89C8 /* CategoriesViewController.xib in Resources */,
 				B8B8AA711B8FFBD1006E689C /* ContentViewController.xib in Resources */,
+				4DC0C98A1BF8D37100E2A468 /* CauseUpdateViewController.xib in Resources */,
 				4D2265851BA7937000A51908 /* CreditCardViewController.xib in Resources */,
 				B8C77E141B8ABEFA00000927 /* InitialScreenViewController.xib in Resources */,
 				B82E47821BB747E600D3C90B /* LaunchScreen.xib in Resources */,
@@ -586,6 +599,7 @@
 				B8A5CF541B8FF49A00D71D2C /* ThirdIntroViewController.xib in Resources */,
 				4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */,
 				4D92199E1BF815D700A326A8 /* CausePageViewController.xib in Resources */,
+				4DC0C98E1BF8D57600E2A468 /* AmountDonatedHeaderView.xib in Resources */,
 				B8A5CF581B8FF4A500D71D2C /* FinalIntroViewController.xib in Resources */,
 				4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */,
 				B8B8AA6D1B8FF69D006E689C /* PageViewController.xib in Resources */,
@@ -673,6 +687,7 @@
 				B8A5CF531B8FF49A00D71D2C /* ThirdIntroViewController.swift in Sources */,
 				4D0FDE441B8B77C3002877CE /* UIImageView+AsynchronousLoading.swift in Sources */,
 				4D2B0FE41BBF4B8100482FF4 /* AlertViewController.swift in Sources */,
+				4DC0C9891BF8D37100E2A468 /* CauseUpdateViewController.swift in Sources */,
 				4D92199D1BF815D700A326A8 /* CausePageViewController.swift in Sources */,
 				4D9219A01BF8190E00A326A8 /* CustomSegmentControl.swift in Sources */,
 				4D0FDE491B8B8620002877CE /* UIView+Nib.swift in Sources */,
@@ -682,6 +697,7 @@
 				4D2256F01B8AC7C900727A4C /* ChooseBankViewController.swift in Sources */,
 				4D5C805A1BA8F2F0001DEDAF /* UITextField+Padding.swift in Sources */,
 				B8B8AA701B8FFBD1006E689C /* ContentViewController.swift in Sources */,
+				4DC0C98C1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift in Sources */,
 				B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */,
 				4D2257021B8ADD1000727A4C /* Bank.swift in Sources */,
 				4DB8CB171B8ED5CE00A6031D /* ForgetLoginViewController.swift in Sources */,

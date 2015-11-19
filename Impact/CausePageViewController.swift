@@ -11,15 +11,13 @@ import UIKit
 class CausePageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, CustomSegmentControlDelegate {
     var pageViewController: UIPageViewController!
     var viewControllers : [UIViewController] = []
-    
     @IBOutlet weak var segmentControl: CustomSegmentControl!
     var cause : Cause? = nil
-    var viewControllerIndex = 0
     override func viewDidLoad() {
         super.viewDidLoad()
         addViewControllers()
         self.pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
-        let startVC = viewControllers[viewControllerIndex]
+        let startVC = viewControllers[0]
         let startViewControllers :[UIViewController] = [startVC]
         
         self.pageViewController.setViewControllers(startViewControllers, direction: .Forward, animated: true, completion: nil)
@@ -33,16 +31,14 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
         self.view.addSubview(self.pageViewController.view)
         self.view.sendSubviewToBack(self.pageViewController.view)
         self.pageViewController.didMoveToParentViewController(self)
-        
-        
-
     }
     
     func addViewControllers(){
         let firstIntroViewController = FirstIntroViewController(nibName: "FirstIntroViewController", bundle: nil)
-        let secondIntroViewController = SecondIntroViewController(nibName: "SecondIntroViewController", bundle: nil)
+        let cuvc = CauseUpdateViewController(nibName: "CauseUpdateViewController", bundle: nil)
+        cuvc.cause = self.cause
         
-        viewControllers = [firstIntroViewController,secondIntroViewController];
+        viewControllers = [firstIntroViewController,cuvc];
         
     }
     
@@ -56,6 +52,7 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
             return nil
         } else {
             return viewControllers[index! - 1]
+            
         }
     }
     
@@ -78,19 +75,24 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
     func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
         if let viewController = pendingViewControllers.last {
             if let index = viewControllers.indexOf(viewController) {
-                self.viewControllerIndex = index
                 self.segmentControl.selectedIndex = index
             }
         }
     }
     
     func segmentControlDidChange() {
-        self.viewControllerIndex = self.viewControllerIndex == 0 ? 1 : 0
-        let animationDirection : UIPageViewControllerNavigationDirection = self.viewControllerIndex == 0 ? .Reverse: .Forward
-        let vc = viewControllers [viewControllerIndex]
+        let index = self.segmentControl.selectedIndex
+        let vc = viewControllers[index]
+        
+        let animationDirection : UIPageViewControllerNavigationDirection = index == 0 ? .Reverse: .Forward
+        
         self.pageViewController.setViewControllers([vc], direction: animationDirection, animated: true, completion: nil)
+        
     }
     
+    @IBAction func backPressed(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
     
     /*
     // MARK: - Navigation
