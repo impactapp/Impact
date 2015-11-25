@@ -49,6 +49,12 @@
 		4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9621F31BA9A16F005EBCDD /* UserCredentials.swift */; };
 		4D962E9D1B8BFB780026E84D /* BankSecurityQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D962E9B1B8BFB780026E84D /* BankSecurityQuestionViewController.swift */; };
 		4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */; };
+		4D96D1511BFE282500CDE687 /* FriendsCollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D96D1501BFE282500CDE687 /* FriendsCollectionViewHeader.xib */; };
+		4D96D1561BFE299000CDE687 /* FriendsCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96D1551BFE299000CDE687 /* FriendsCollectionViewHeader.swift */; };
+		4D9BB1151BFFD00300E5000A /* BlogPostTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D9BB1141BFFD00300E5000A /* BlogPostTableViewHeader.xib */; };
+		4D9BB1171BFFD32200E5000A /* BlogPostTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BB1161BFFD32200E5000A /* BlogPostTableViewHeader.swift */; };
+		4D9BB11A1BFFD40700E5000A /* CauseStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BB1181BFFD40700E5000A /* CauseStoryViewController.swift */; };
+		4D9BB11B1BFFD40700E5000A /* CauseStoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D9BB1191BFFD40700E5000A /* CauseStoryViewController.xib */; };
 		4DB8CB171B8ED5CE00A6031D /* ForgetLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */; };
 		4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB8CB161B8ED5CE00A6031D /* ForgetLoginViewController.xib */; };
 		4DC0C9891BF8D37100E2A468 /* CauseUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0C9871BF8D37100E2A468 /* CauseUpdateViewController.swift */; };
@@ -145,6 +151,12 @@
 		4D9621F31BA9A16F005EBCDD /* UserCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		4D962E9B1B8BFB780026E84D /* BankSecurityQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankSecurityQuestionViewController.swift; sourceTree = "<group>"; };
 		4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankSecurityQuestionViewController.xib; sourceTree = "<group>"; };
+		4D96D1501BFE282500CDE687 /* FriendsCollectionViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsCollectionViewHeader.xib; sourceTree = "<group>"; };
+		4D96D1551BFE299000CDE687 /* FriendsCollectionViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsCollectionViewHeader.swift; sourceTree = "<group>"; };
+		4D9BB1141BFFD00300E5000A /* BlogPostTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogPostTableViewHeader.xib; sourceTree = "<group>"; };
+		4D9BB1161BFFD32200E5000A /* BlogPostTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostTableViewHeader.swift; sourceTree = "<group>"; };
+		4D9BB1181BFFD40700E5000A /* CauseStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CauseStoryViewController.swift; sourceTree = "<group>"; };
+		4D9BB1191BFFD40700E5000A /* CauseStoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CauseStoryViewController.xib; sourceTree = "<group>"; };
 		4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetLoginViewController.swift; sourceTree = "<group>"; };
 		4DB8CB161B8ED5CE00A6031D /* ForgetLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetLoginViewController.xib; sourceTree = "<group>"; };
 		4DC0C9871BF8D37100E2A468 /* CauseUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CauseUpdateViewController.swift; sourceTree = "<group>"; };
@@ -229,17 +241,9 @@
 		4D02EC191BD0887900701C75 /* Causes */ = {
 			isa = PBXGroup;
 			children = (
-				4DC0C98B1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift */,
-				4DC0C98D1BF8D57600E2A468 /* AmountDonatedHeaderView.xib */,
-				4DC0C9871BF8D37100E2A468 /* CauseUpdateViewController.swift */,
-				4DC0C9881BF8D37100E2A468 /* CauseUpdateViewController.xib */,
-				4D92199B1BF815D700A326A8 /* CausePageViewController.swift */,
-				4D92199C1BF815D700A326A8 /* CausePageViewController.xib */,
-				4D02EC151BD0887200701C75 /* ExploreViewController.swift */,
-				4D02EC1A1BD08A0400701C75 /* CausesTableViewCell.swift */,
-				4D02EC1B1BD08A0400701C75 /* CausesTableViewCell.xib */,
-				4D02EC161BD0887200701C75 /* ExploreViewController.xib */,
-				4DE85F681BD18CC5002AE4C5 /* Cause.swift */,
+				4D96D1541BFE291900CDE687 /* Controller */,
+				4D96D1531BFE290A00CDE687 /* Views */,
+				4D96D1521BFE28F300CDE687 /* Model */,
 			);
 			name = Causes;
 			sourceTree = "<group>";
@@ -361,6 +365,44 @@
 				4D2265831BA7937000A51908 /* CreditCardViewController.xib */,
 			);
 			name = Card;
+			sourceTree = "<group>";
+		};
+		4D96D1521BFE28F300CDE687 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DE85F681BD18CC5002AE4C5 /* Cause.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4D96D1531BFE290A00CDE687 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4DC0C98B1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift */,
+				4DC0C98D1BF8D57600E2A468 /* AmountDonatedHeaderView.xib */,
+				4D9BB1161BFFD32200E5000A /* BlogPostTableViewHeader.swift */,
+				4D9BB1141BFFD00300E5000A /* BlogPostTableViewHeader.xib */,
+				4D96D1501BFE282500CDE687 /* FriendsCollectionViewHeader.xib */,
+				4D96D1551BFE299000CDE687 /* FriendsCollectionViewHeader.swift */,
+				4D02EC1A1BD08A0400701C75 /* CausesTableViewCell.swift */,
+				4D02EC1B1BD08A0400701C75 /* CausesTableViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4D96D1541BFE291900CDE687 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4D92199B1BF815D700A326A8 /* CausePageViewController.swift */,
+				4D92199C1BF815D700A326A8 /* CausePageViewController.xib */,
+				4D9BB1181BFFD40700E5000A /* CauseStoryViewController.swift */,
+				4D9BB1191BFFD40700E5000A /* CauseStoryViewController.xib */,
+				4DC0C9871BF8D37100E2A468 /* CauseUpdateViewController.swift */,
+				4DC0C9881BF8D37100E2A468 /* CauseUpdateViewController.xib */,
+				4D02EC151BD0887200701C75 /* ExploreViewController.swift */,
+				4D02EC161BD0887200701C75 /* ExploreViewController.xib */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		4DE6692F1B86C8C4005CB0AF /* Extensions */ = {
@@ -589,6 +631,8 @@
 				B82E47821BB747E600D3C90B /* LaunchScreen.xib in Resources */,
 				B8A5CF501B8FF48600D71D2C /* FirstIntroViewController.xib in Resources */,
 				B8C77E1F1B8AC2FF00000927 /* SignUpViewController.xib in Resources */,
+				4D9BB1151BFFD00300E5000A /* BlogPostTableViewHeader.xib in Resources */,
+				4D96D1511BFE282500CDE687 /* FriendsCollectionViewHeader.xib in Resources */,
 				4D2256FB1B8AD62300727A4C /* RoundedCollectionViewCell.xib in Resources */,
 				4D2256F31B8ACBD500727A4C /* ChooseBankHeaderView.xib in Resources */,
 				4D2B0FE91BBF5ADD00482FF4 /* AlertPopupView.xib in Resources */,
@@ -606,6 +650,7 @@
 				4D6BC9961BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib in Resources */,
 				4D0FDE4E1B8BB646002877CE /* BankSignInViewController.xib in Resources */,
 				B8585C231B8642E900AB091A /* Images.xcassets in Resources */,
+				4D9BB11B1BFFD40700E5000A /* CauseStoryViewController.xib in Resources */,
 				B8D45A061B8FF3E000877310 /* SecondIntroViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -686,6 +731,8 @@
 				B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */,
 				B8A5CF531B8FF49A00D71D2C /* ThirdIntroViewController.swift in Sources */,
 				4D0FDE441B8B77C3002877CE /* UIImageView+AsynchronousLoading.swift in Sources */,
+				4D9BB1171BFFD32200E5000A /* BlogPostTableViewHeader.swift in Sources */,
+				4D9BB11A1BFFD40700E5000A /* CauseStoryViewController.swift in Sources */,
 				4D2B0FE41BBF4B8100482FF4 /* AlertViewController.swift in Sources */,
 				4DC0C9891BF8D37100E2A468 /* CauseUpdateViewController.swift in Sources */,
 				4D92199D1BF815D700A326A8 /* CausePageViewController.swift in Sources */,
@@ -699,6 +746,7 @@
 				B8B8AA701B8FFBD1006E689C /* ContentViewController.swift in Sources */,
 				4DC0C98C1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift in Sources */,
 				B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */,
+				4D96D1561BFE299000CDE687 /* FriendsCollectionViewHeader.swift in Sources */,
 				4D2257021B8ADD1000727A4C /* Bank.swift in Sources */,
 				4DB8CB171B8ED5CE00A6031D /* ForgetLoginViewController.swift in Sources */,
 				4D02EC171BD0887200701C75 /* ExploreViewController.swift in Sources */,

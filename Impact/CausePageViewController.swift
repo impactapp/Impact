@@ -12,10 +12,16 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
     var pageViewController: UIPageViewController!
     var viewControllers : [UIViewController] = []
     @IBOutlet weak var segmentControl: CustomSegmentControl!
+    
+    var csvc = CauseStoryViewController(nibName: "CauseStoryViewController", bundle: nil)
+    let cuvc = CauseUpdateViewController(nibName: "CauseUpdateViewController", bundle: nil)
+    
     var cause : Cause? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        addViewControllers()
+        cuvc.cause = self.cause
+        viewControllers = [csvc,cuvc];
+        
         self.pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
         let startVC = viewControllers[0]
         let startViewControllers :[UIViewController] = [startVC]
@@ -32,16 +38,6 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
         self.view.sendSubviewToBack(self.pageViewController.view)
         self.pageViewController.didMoveToParentViewController(self)
     }
-    
-    func addViewControllers(){
-        let firstIntroViewController = FirstIntroViewController(nibName: "FirstIntroViewController", bundle: nil)
-        let cuvc = CauseUpdateViewController(nibName: "CauseUpdateViewController", bundle: nil)
-        cuvc.cause = self.cause
-        
-        viewControllers = [firstIntroViewController,cuvc];
-        
-    }
-    
     // MARK: data source
     
     
@@ -52,7 +48,6 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
             return nil
         } else {
             return viewControllers[index! - 1]
-            
         }
     }
     
@@ -67,16 +62,25 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
             
         }else{
             return viewControllers[index!+1]
-            
         }
         
     }
+    
     
     func pageViewController(pageViewController: UIPageViewController, willTransitionToViewControllers pendingViewControllers: [UIViewController]) {
         if let viewController = pendingViewControllers.last {
             if let index = viewControllers.indexOf(viewController) {
                 self.segmentControl.selectedIndex = index
             }
+        }
+    }
+    
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
+        
+        if previousViewControllers.contains(csvc) {
+            self.segmentControl.selectedIndex = 1
+        } else {
+            self.segmentControl.selectedIndex = 0
         }
     }
     

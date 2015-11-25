@@ -23,7 +23,7 @@ class AmountDonatedHeaderView: UIView {
         self.backgroundColor = UIColor.blackColor()
         self.addSubview(xibView)
         self.cause = cause
-        initGraphView()
+        
         self.titleLabel.text = cause.name
         let currentTotal = cause.currentTotal/100
         let goal = cause.goal/100
@@ -38,11 +38,14 @@ class AmountDonatedHeaderView: UIView {
 
     }
     
+    override func layoutSubviews() {
+        initGraphView()
+    }
+    
     func initGraphView() {
         self.graphView.backgroundColor = UIColor.clearColor()
 
-        let circleWidth = self.graphView.frame.width
-        let circleHeight = circleWidth
+        let circleDiameter = self.graphView.frame.width
         var percentage = CGFloat(0)
         if let goal = self.cause.goal {
             let amount = cause.currentTotal
@@ -50,7 +53,8 @@ class AmountDonatedHeaderView: UIView {
                 percentage = CGFloat(amount)/CGFloat(goal)
             }
         }
-        let circleView = CircleGraph(frame: CGRectMake(0, 0, circleWidth, circleHeight), percentage: 1.0-percentage)
+        
+        let circleView = CircleGraph(frame: CGRectMake(0, 0, circleDiameter, circleDiameter), percentage: 1.0-percentage)
         circleView.setThickeness(10.0)
         self.graphView.addSubview(circleView)
     }

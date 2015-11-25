@@ -16,4 +16,11 @@ extension String {
         dateFor.dateFormat = apiDateFormat
         return dateFor.dateFromString(self)
     }
+    
+    func sizeForText(font: UIFont, maxSize: CGSize) -> CGSize {
+        let attrString = NSAttributedString.init(string: self, attributes: [NSFontAttributeName:font])
+        let rect = attrString.boundingRectWithSize(maxSize, options: NSStringDrawingOptions.UsesLineFragmentOrigin, context: nil)
+        let size = CGSizeMake(rect.size.width, rect.size.height)
+        return size
+    }
 }

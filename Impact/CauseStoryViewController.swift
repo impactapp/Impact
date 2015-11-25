@@ -1,47 +1,44 @@
 //
-//  CauseUpdateViewController.swift
+//  CauseStoryViewController.swift
 //  Impact
 //
-//  Created by Phillip Ou on 11/15/15.
+//  Created by Phillip Ou on 11/20/15.
 //  Copyright © 2015 Impact. All rights reserved.
 //
 
 import UIKit
 
-class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var cause : Cause? = nil
+class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        ServerRequest.shared.getFacebookFriends { (friends) -> Void in
-            
-        }
-        let frame = CGRectMake(0,0,self.tableView.frame.size.width,150)
-        let amountDonatedHeaderView = AmountDonatedHeaderView(frame:frame,cause:cause!) as AmountDonatedHeaderView
+        let frame = CGRectMake(0,0,self.tableView.frame.size.width,self.tableView.frame.size.height)
+        let amountDonatedHeaderView = BlogPostTableViewHeader(frame:frame)
         
+
+        let newHeight = amountDonatedHeaderView.blogPostLabel.frame.origin.y + amountDonatedHeaderView.blogPostLabel.frame.size.height
+        amountDonatedHeaderView.frame.size.height = newHeight
         self.tableView.tableHeaderView = amountDonatedHeaderView
-        self.tableView.tableHeaderView!.frame = frame
-        
-        //self.tableView.registerNib(UINib(nibName: "AmountDonatedHeaderView", bundle: nil), forHeaderFooterViewReuseIdentifier: "AmountDonatedHeaderView")
-        // Do any additional setup after loading the view.
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 0
-    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
+    
+    
+    
 
     /*
     // MARK: - Navigation
