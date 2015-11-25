@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var collectionView: UICollectionView!
     let headerViewIdentifier = "ChooseCategoryHeaderView";

@@ -37,6 +37,10 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
         return UITableViewCell()
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+    }
+    
     
     
 

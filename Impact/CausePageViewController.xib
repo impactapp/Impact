@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CausePageViewController" customModule="Impact" customModuleProvider="target">
             <connections>
+                <outlet property="headerView" destination="qkk-3H-kjU" id="YIp-Lz-Naj"/>
                 <outlet property="segmentControl" destination="SJd-N8-utD" id="W6P-fR-3g3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

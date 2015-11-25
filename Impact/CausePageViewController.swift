@@ -8,11 +8,12 @@
 
 import UIKit
 
-class CausePageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, CustomSegmentControlDelegate {
+class CausePageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, CustomSegmentControlDelegate, CauseUpdateScrollableDelegate {
     var pageViewController: UIPageViewController!
     var viewControllers : [UIViewController] = []
     @IBOutlet weak var segmentControl: CustomSegmentControl!
     
+    @IBOutlet weak var headerView: UIView!
     var csvc = CauseStoryViewController(nibName: "CauseStoryViewController", bundle: nil)
     let cuvc = CauseUpdateViewController(nibName: "CauseUpdateViewController", bundle: nil)
     
@@ -20,6 +21,7 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         cuvc.cause = self.cause
+        cuvc.scrollDelegate = self
         viewControllers = [csvc,cuvc];
         
         self.pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
@@ -96,6 +98,10 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
     
     @IBAction func backPressed(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    func causeUpdateControllerIsScrolling() {
+        
     }
     
     /*

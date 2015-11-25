@@ -8,8 +8,13 @@
 
 import UIKit
 
+protocol CauseUpdateScrollableDelegate {
+    func causeUpdateControllerIsScrolling()
+}
+
 class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var cause : Cause? = nil
+    var scrollDelegate : CauseUpdateScrollableDelegate? = nil
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -41,6 +46,12 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         return UITableViewCell()
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        if let scrollDelegate = self.scrollDelegate {
+            scrollDelegate.causeUpdateControllerIsScrolling()
+        }
     }
 
     /*
