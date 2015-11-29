@@ -9,7 +9,7 @@
 import UIKit
 
 protocol CauseUpdateScrollableDelegate {
-    func causeUpdateControllerIsScrolling()
+    func causeUpdateControllerIsScrolling(scrollView:UIScrollView)
 }
 
 class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -50,7 +50,7 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         if let scrollDelegate = self.scrollDelegate {
-            scrollDelegate.causeUpdateControllerIsScrolling()
+            scrollDelegate.causeUpdateControllerIsScrolling(scrollView)
         }
     }
 

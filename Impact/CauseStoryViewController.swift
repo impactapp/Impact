@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol CauseStoryScrollableDelegate {
+    func causeStoryControllerIsScrolling(scrollView:UIScrollView)
+}
+
 class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
+    var scrollDelegate : CauseStoryScrollableDelegate? = nil
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -38,7 +44,7 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        
+        self.scrollDelegate?.causeStoryControllerIsScrolling(scrollView)
     }
     
     

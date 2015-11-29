@@ -8,12 +8,16 @@
 
 import UIKit
 
-class CausePageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, CustomSegmentControlDelegate, CauseUpdateScrollableDelegate {
+class CausePageViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, CustomSegmentControlDelegate, CauseUpdateScrollableDelegate, CauseStoryScrollableDelegate {
     var pageViewController: UIPageViewController!
     var viewControllers : [UIViewController] = []
     @IBOutlet weak var segmentControl: CustomSegmentControl!
     
     @IBOutlet weak var headerView: UIView!
+    var previousBarYOrigin = CGFloat(0)
+    var previousScrollViewOffset = CGFloat(0)
+    let statusBarHeight = CGFloat(0)
+    
     var csvc = CauseStoryViewController(nibName: "CauseStoryViewController", bundle: nil)
     let cuvc = CauseUpdateViewController(nibName: "CauseUpdateViewController", bundle: nil)
     
@@ -22,6 +26,7 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
         super.viewDidLoad()
         cuvc.cause = self.cause
         cuvc.scrollDelegate = self
+        csvc.scrollDelegate = self
         viewControllers = [csvc,cuvc];
         
         self.pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)
@@ -100,9 +105,57 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
-    func causeUpdateControllerIsScrolling() {
+    func causeStoryControllerIsScrolling(scrollView: UIScrollView) {
+        animateHeaderView(scrollView)
+    }
+    
+    func causeUpdateControllerIsScrolling(scrollView: UIScrollView) {
+        animateHeaderView(scrollView)
+    }
+    
+    func animateHeaderView(scrollView:UIScrollView) {
+        
+        var frame = self.headerView.frame
+        let size = self.headerView.frame.size.height
+        let framePercentageHiden = ((20 - frame.origin.y) / (frame.size.height - 1))
+        let scrollOffset = scrollView.contentOffset.y
+        let scrollDiff = scrollOffset - self.previousScrollViewOffset
+        let scrollHeight = scrollView.frame.size.height
+        let scrollContentSizeHeight = scrollView.contentSize.height + scrollView.contentInset.bottom //+ statusBarHeight
+        var segmentControlFrame = self.segmentControl.frame
+        
+        if (scrollOffset <= -scrollView.contentInset.top) {
+            frame.origin.y = statusBarHeight;
+        } else if ((scrollOffset + scrollHeight) >= scrollContentSizeHeight && scrollContentSizeHeight > self.view.frame.size.height){
+            frame.origin.y = -size
+        } else {
+            frame.origin.y = min(statusBarHeight, max(-size, frame.origin.y - scrollDiff));
+        }
+        
+        segmentControlFrame.origin.y = frame.origin.y + frame.size.height
+        self.headerView.frame = frame
+        self.segmentControl.frame = segmentControlFrame
+        self.previousScrollViewOffset = scrollOffset
         
     }
+    
+    func stoppedScrolling() {
+        let frame = self.headerView.frame
+        if frame.origin.y < 20 {
+            let newY = -(frame.size.height - 21)
+            self.transateHeaderTo(newY)
+        }
+    }
+    
+    func transateHeaderTo(y:CGFloat) {
+        UIView.animateWithDuration(0.2) { () -> Void in
+            var frame = self.headerView.frame
+            let alpha = CGFloat((frame.origin.y >= y ? 0 : 1))
+            frame.origin.y = y
+            self.headerView.frame = frame
+        }
+    }
+
     
     /*
     // MARK: - Navigation
