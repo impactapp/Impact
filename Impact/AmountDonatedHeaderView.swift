@@ -21,6 +21,7 @@ class AmountDonatedHeaderView: UIView {
     @IBOutlet weak var amountLeftLabel: UILabel!
     var cause : Cause!
     
+    @IBOutlet weak var joinCauseButton: UIButton!
     var joinCauseDelegate : AmountDonatedHeaderViewCauseDelegate? = nil
     
     init(frame:CGRect, cause:Cause) {
@@ -46,6 +47,11 @@ class AmountDonatedHeaderView: UIView {
     
     override func layoutSubviews() {
         initGraphView()
+        joinCauseButton.clipsToBounds = true;
+        //half of the width
+        joinCauseButton.layer.cornerRadius = joinCauseButton.frame.size.width/2.0;
+        joinCauseButton.layer.borderColor = UIColor.customGrey().CGColor
+        joinCauseButton.layer.borderWidth=2.0;
     }
     
     func initGraphView() {
@@ -65,10 +71,17 @@ class AmountDonatedHeaderView: UIView {
         self.graphView.addSubview(circleView)
     }
 
-    @IBAction func contributeButtonPressed(sender: AnyObject) {
+    @IBAction func joinCausePressed(sender: AnyObject) {
+        //animate button press
+        self.joinCauseButton.transform = CGAffineTransformMakeScale(0.5,0.5)
+        UIView .animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.joinCauseButton.transform = CGAffineTransformIdentity
+        }, completion: nil)
+        
         if let delegate = self.joinCauseDelegate {
             delegate.joinCause()
         }
+        
     }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)

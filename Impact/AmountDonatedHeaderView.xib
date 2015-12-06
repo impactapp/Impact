@@ -12,6 +12,7 @@
                 <outlet property="amountLeftLabel" destination="1Z9-eF-7zo" id="JDa-0w-zCF"/>
                 <outlet property="amountRaisedLabel" destination="790-8M-Fon" id="gQL-xK-yP5"/>
                 <outlet property="graphView" destination="RSZ-W8-ggt" id="u2U-Zc-9qc"/>
+                <outlet property="joinCauseButton" destination="1EN-99-zm0" id="nc5-Ce-SLJ"/>
                 <outlet property="percentageLabel" destination="A0u-Mx-Slt" id="5cR-V8-qH4"/>
                 <outlet property="titleLabel" destination="PdX-yR-Int" id="SlQ-ZJ-8Rw"/>
             </connections>
@@ -86,16 +87,16 @@
                         <constraint firstItem="1Z9-eF-7zo" firstAttribute="leading" secondItem="RSZ-W8-ggt" secondAttribute="leading" constant="-139" id="kBi-17-eUI"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EN-99-zm0">
-                    <rect key="frame" x="398" y="92" width="60" height="60"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1EN-99-zm0">
+                    <rect key="frame" x="416" y="108" width="45" height="45"/>
                     <animations/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="60" id="7Y5-gB-Uuc"/>
-                        <constraint firstAttribute="width" constant="60" id="img-B9-9Dt"/>
+                        <constraint firstAttribute="height" constant="45" id="7Y5-gB-Uuc"/>
+                        <constraint firstAttribute="width" constant="45" id="img-B9-9Dt"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" image="Heart"/>
                     <connections>
-                        <action selector="contributeButtonPressed:" destination="-1" eventType="touchUpInside" id="ZfV-nz-b5Q"/>
+                        <action selector="joinCausePressed:" destination="-1" eventType="touchUpInside" id="OlK-8k-0zC"/>
                     </connections>
                 </button>
             </subviews>
@@ -104,7 +105,7 @@
             <constraints>
                 <constraint firstItem="RSZ-W8-ggt" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="132" id="B6X-N1-Vb6"/>
                 <constraint firstItem="RSZ-W8-ggt" firstAttribute="centerX" secondItem="PdX-yR-Int" secondAttribute="centerX" constant="2.5" id="Dhp-GW-gyT"/>
-                <constraint firstItem="1EN-99-zm0" firstAttribute="top" secondItem="PdX-yR-Int" secondAttribute="top" id="EYx-Dv-DTb"/>
+                <constraint firstItem="1EN-99-zm0" firstAttribute="top" secondItem="PdX-yR-Int" secondAttribute="top" constant="16" id="EYx-Dv-DTb"/>
                 <constraint firstAttribute="bottom" secondItem="RSZ-W8-ggt" secondAttribute="bottom" constant="20" id="Eby-dY-I5v"/>
                 <constraint firstItem="YfA-fE-4CE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="EzW-op-6F9"/>
                 <constraint firstItem="RSZ-W8-ggt" firstAttribute="centerX" secondItem="YfA-fE-4CE" secondAttribute="centerX" constant="2.5" id="J9M-Bs-WoY"/>
@@ -113,11 +114,14 @@
                 <constraint firstItem="PdX-yR-Int" firstAttribute="top" secondItem="YfA-fE-4CE" secondAttribute="bottom" constant="28" id="OPe-cK-4AB"/>
                 <constraint firstItem="YfA-fE-4CE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="QyS-zB-qva"/>
                 <constraint firstItem="RSZ-W8-ggt" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="2.5" id="VFs-ZS-C0j"/>
-                <constraint firstItem="1EN-99-zm0" firstAttribute="leading" secondItem="RSZ-W8-ggt" secondAttribute="trailing" constant="8" id="gcJ-MB-FgT"/>
+                <constraint firstItem="1EN-99-zm0" firstAttribute="leading" secondItem="RSZ-W8-ggt" secondAttribute="trailing" constant="26" id="gcJ-MB-FgT"/>
                 <constraint firstItem="PdX-yR-Int" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="lTE-U0-WrR"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="206" y="22.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="Heart" width="25" height="21"/>
+    </resources>
 </document>
