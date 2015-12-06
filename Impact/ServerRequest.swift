@@ -268,6 +268,15 @@ class ServerRequest: NSObject {
         
     }
     
+    func joinCause(cause:Cause, success:(successful:Bool) -> Void, failure:(errorMessage:String)->Void) {
+        let endpoint = "causes/\(cause.id)/join"
+        postWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            success(successful: true)
+            }, failure: { (error) -> Void in
+                failure(errorMessage: "Unable to join cause")
+        })
+    }
+    
     //MARK: Banks
     
     func submitBankAccountInfo(bankUserName:String, bankPassword:String, bankType:String, pin: String?,success:(isFinished:Bool, question:String?, plaidToken:String?) -> Void, failure:(errorMessage:String) -> Void) {

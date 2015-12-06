@@ -12,7 +12,7 @@ protocol CauseUpdateScrollableDelegate {
     func causeUpdateControllerIsScrolling(scrollView:UIScrollView)
 }
 
-class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AmountDonatedHeaderViewCauseDelegate {
     var cause : Cause? = nil
     var scrollDelegate : CauseUpdateScrollableDelegate? = nil
 
@@ -26,6 +26,7 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
         }
         let frame = CGRectMake(0,0,self.tableView.frame.size.width,150)
         let amountDonatedHeaderView = AmountDonatedHeaderView(frame:frame,cause:cause!) as AmountDonatedHeaderView
+        amountDonatedHeaderView.joinCauseDelegate = self
         
         self.tableView.tableHeaderView = amountDonatedHeaderView
         self.tableView.tableHeaderView!.frame = frame
@@ -53,7 +54,16 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
             scrollDelegate.causeUpdateControllerIsScrolling(scrollView)
         }
     }
-
+    
+    func joinCause() {
+        if let cause = self.cause {
+            ServerRequest.shared.joinCause(cause, success: { (successful) -> Void in
+                
+                }, failure: { (errorMessage) -> Void in
+                    
+            })
+        }
+    }
     /*
     // MARK: - Navigation
 

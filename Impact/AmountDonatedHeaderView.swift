@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AmountDonatedHeaderViewCauseDelegate {
+    func joinCause()
+}
+
 class AmountDonatedHeaderView: UIView {
 
     @IBOutlet weak var graphView: UIView!
@@ -16,6 +20,8 @@ class AmountDonatedHeaderView: UIView {
     @IBOutlet weak var amountRaisedLabel: UILabel!
     @IBOutlet weak var amountLeftLabel: UILabel!
     var cause : Cause!
+    
+    var joinCauseDelegate : AmountDonatedHeaderViewCauseDelegate? = nil
     
     init(frame:CGRect, cause:Cause) {
         super.init(frame: frame)
@@ -59,6 +65,11 @@ class AmountDonatedHeaderView: UIView {
         self.graphView.addSubview(circleView)
     }
 
+    @IBAction func contributeButtonPressed(sender: AnyObject) {
+        if let delegate = self.joinCauseDelegate {
+            delegate.joinCause()
+        }
+    }
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
