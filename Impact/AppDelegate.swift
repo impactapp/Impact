@@ -28,7 +28,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = UINavigationController(rootViewController: initialViewController);
         navigationController.navigationBarHidden = true;
         self.window?.rootViewController =  navigationController;
-        self.window?.makeKeyAndVisible();
+        self.window?.makeKeyAndVisible()
+        
+        registerForPushNotifications()
         
         return true
     }
@@ -39,6 +41,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             return false
         }
+    }
+    
+    private func registerForPushNotifications() {
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        var token = NSString(format: "%@", deviceToken)
+        token = token.stringByReplacingOccurrencesOfString("<", withString: "")
+        token = token.stringByReplacingOccurrencesOfString(">", withString: "")
+        token = token.stringByReplacingOccurrencesOfString(" ", withString: "")
+        
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {
