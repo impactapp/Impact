@@ -50,12 +50,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        var token = NSString(format: "%@", deviceToken)
-        token = token.stringByReplacingOccurrencesOfString("<", withString: "")
-        token = token.stringByReplacingOccurrencesOfString(">", withString: "")
-        token = token.stringByReplacingOccurrencesOfString(" ", withString: "")
-        
-        
+        var tokenString = NSString(format: "%@", deviceToken)
+        tokenString = tokenString.stringByReplacingOccurrencesOfString("<", withString: "")
+        tokenString = tokenString.stringByReplacingOccurrencesOfString(">", withString: "")
+        tokenString = tokenString.stringByReplacingOccurrencesOfString(" ", withString: "")
+        UserCredentials.shared.updateDeviceToken(tokenString as String)
     }
 
     func applicationWillResignActive(application: UIApplication) {
