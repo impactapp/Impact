@@ -63,8 +63,7 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         let index = viewControllers.indexOf(viewController)
         
-        if index == viewControllers.count-1 || index == NSNotFound
-        {
+        if index == viewControllers.count-1 || index == NSNotFound {
             return nil
             
         }else{
@@ -117,19 +116,23 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
         
         var frame = self.headerView.frame
         let size = self.headerView.frame.size.height
-        let framePercentageHiden = ((20 - frame.origin.y) / (frame.size.height - 1))
+        
+        let framePercentageShown = (size + frame.origin.y) / size
+        
         let scrollOffset = scrollView.contentOffset.y
         let scrollDiff = scrollOffset - self.previousScrollViewOffset
         let scrollHeight = scrollView.frame.size.height
         let scrollContentSizeHeight = scrollView.contentSize.height + scrollView.contentInset.bottom //+ statusBarHeight
         var segmentControlFrame = self.segmentControl.frame
         
+        let hasReachedBottom = ((scrollOffset + scrollHeight) >= scrollContentSizeHeight && scrollContentSizeHeight > self.view.frame.size.height)
+        
         if (scrollOffset <= -scrollView.contentInset.top) {
-            frame.origin.y = statusBarHeight;
-        } else if ((scrollOffset + scrollHeight) >= scrollContentSizeHeight && scrollContentSizeHeight > self.view.frame.size.height){
-            frame.origin.y = -size
+            frame.origin.y = statusBarHeight
+        } else if hasReachedBottom {
+            frame.origin.y = -size + 20
         } else {
-            frame.origin.y = min(statusBarHeight, max(-size, frame.origin.y - scrollDiff));
+            frame.origin.y = min(statusBarHeight, max(-size+20, frame.origin.y - scrollDiff));
         }
         
         segmentControlFrame.origin.y = frame.origin.y + frame.size.height

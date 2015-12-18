@@ -26,7 +26,7 @@ protocol CustomSegmentControlDelegate{
         }
     }
     
-    var items:[String] = ["Story", "Updates"] {
+    var items:[String] = ["Summary", "Updates"] {
         didSet {
             setUpLabels()
         }
@@ -46,13 +46,30 @@ protocol CustomSegmentControlDelegate{
         super.layoutSubviews()
         let labelHeight = self.bounds.height
         let labelWidth = self.bounds.width / CGFloat(labels.count)
-        for index in 0..<labels.count {
-            var label = labels[index]
-            label.textAlignment = .Center
-            let xPosition = CGFloat(index)*labelWidth
+        if labels.count == 2 {
+            let gap = CGFloat(10)
+            let leftLabel = labels[0]
+            leftLabel.textAlignment = .Right
+            leftLabel.frame = CGRectMake(0,0,labelWidth-gap,labelHeight)
+            leftLabel.font = UIFont.avenirNext(15.0)
             
-            label.frame = CGRectMake(xPosition,0,labelWidth,labelHeight)
+            let rightLabel = labels[1]
+            rightLabel.textAlignment = .Left
+            rightLabel.frame = CGRectMake(labelWidth + gap,0,labelWidth - gap,labelHeight)
+            rightLabel.font = UIFont.avenirNext(15.0)
+            
+        } else {
+            for index in 0..<labels.count {
+                let label = labels[index]
+                label.textAlignment = .Center
+                let xPosition = CGFloat(index)*labelWidth
+                
+                label.frame = CGRectMake(xPosition,0,labelWidth,labelHeight)
+                label.font = UIFont.avenirNext(13.0)
+            }
         }
+        
+
         
         layer.borderColor = UIColor.clearColor().CGColor
         layer.borderWidth = CGFloat(1)

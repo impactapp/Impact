@@ -15,6 +15,8 @@ protocol CauseStoryScrollableDelegate {
 class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var scrollDelegate : CauseStoryScrollableDelegate? = nil
+    
+    var amountDonatedHeaderView = BlogPostTableViewHeader(frame:CGRectZero)
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -22,8 +24,7 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
         self.tableView.delegate = self
         self.tableView.dataSource = self
         let frame = CGRectMake(0,0,self.tableView.frame.size.width,self.tableView.frame.size.height)
-        let amountDonatedHeaderView = BlogPostTableViewHeader(frame:frame)
-        
+        self.amountDonatedHeaderView = BlogPostTableViewHeader(frame:frame)
 
         let newHeight = amountDonatedHeaderView.blogPostLabel.frame.origin.y + amountDonatedHeaderView.blogPostLabel.frame.size.height
         amountDonatedHeaderView.frame.size.height = newHeight
@@ -32,10 +33,34 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 0 {
+            //hacky solution to fix weird footer
+            return UIView(frame: CGRectZero)
+        } else {
+            let header = UITableViewHeaderFooterView(frame: CGRectMake(0,0,self.view.frame.size.width,44))
+            header.backgroundView = UIView(frame: header.frame)
+            header.backgroundView?.backgroundColor = UIColor.whiteColor()
+            return header
+        }
+    }
+    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        if section == 1 {
+            let header = view as! UITableViewHeaderFooterView
+            header.textLabel!.text = "Comments"
+            let font = UIFont(name: "AvenirNext-Regular", size: 12.0)!
+            header.textLabel!.font = font
+        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return 0
+        }
         return 0
     }
     
