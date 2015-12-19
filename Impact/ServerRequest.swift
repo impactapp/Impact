@@ -123,7 +123,9 @@ class ServerRequest: NSObject {
     }
     
     private func updateAuthenticationToken(token:String?) {
+        
         if let authToken = token {
+            
             UserCredentials.shared.updateUserToken(authToken)
         }
     }
