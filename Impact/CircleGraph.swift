@@ -29,7 +29,7 @@ public class CircleGraph: UIControl {
         outerCircleLayer = CAShapeLayer()
         outerCircleLayer.path = outerCirclePath.CGPath
         outerCircleLayer.fillColor = UIColor.clearColor().CGColor
-        outerCircleLayer.strokeColor = UIColor.customGreyWithAlpha(0.6).CGColor
+        outerCircleLayer.strokeColor = UIColor.customGreyWithAlpha(0.4).CGColor
         outerCircleLayer.lineWidth = 5.0;
         outerCircleLayer.strokeEnd = 1.0
         
@@ -38,12 +38,16 @@ public class CircleGraph: UIControl {
         circleLayer.path = circlePath.CGPath
         circleLayer.fillColor = UIColor.clearColor().CGColor
         circleLayer.strokeColor = UIColor.whiteColor().CGColor
-        circleLayer.lineWidth = 5.0;
+        circleLayer.lineWidth = 8.0;
         circleLayer.strokeEnd = 1.0
         
         // Add the circleLayer to the view's layer's sublayers
         layer.addSublayer(outerCircleLayer)
         layer.addSublayer(circleLayer)
+    }
+    
+    func setThickeness(thickness:CGFloat) {
+        outerCircleLayer.lineWidth = thickness
     }
     
 

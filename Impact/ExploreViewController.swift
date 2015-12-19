@@ -24,13 +24,14 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
+        initHeader()
         enableLocationServices()
         self.navigationController?.edgesForExtendedLayout = .None
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        initHeader()
+        
         initTableView()
         ServerRequest.shared.getAllCauses { (causes) -> Void in
             self.causes = causes
@@ -40,8 +41,10 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     func initHeader() {
-        self.header = HeaderView(view: self.view)
-        self.view.addSubview(self.header)
+        if !self.view.subviews.contains(self.header) {
+            self.header = HeaderView(view: self.view)
+            self.view.addSubview(self.header)
+        }
     }
     
     func initTableView() {
@@ -88,6 +91,13 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         }
         
         return cell
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedCause = self.causes[indexPath.row]
+        
+        let cpvc = CausePageViewController(nibName: "CausePageViewController", bundle: nil)
+        cpvc.cause = selectedCause
+        self.navigationController?.pushViewController(cpvc, animated: true)
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {

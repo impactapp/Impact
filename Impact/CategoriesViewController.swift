@@ -8,6 +8,8 @@
 
 import UIKit
 
+
+
 class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var collectionView: UICollectionView!
     let headerViewIdentifier = "ChooseCategoryHeaderView";
@@ -21,6 +23,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpCollectionView()
         self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
         ServerRequest.shared.getCategories { (categories) -> Void in
@@ -163,6 +166,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         let tabBarController = TabBarViewController()
         let nvc = UINavigationController(rootViewController: tabBarController)
         nvc.navigationBarHidden = true
+        
         ServerRequest.shared.chooseCategories(self.selectedCategories) { (success) -> Void in
             if success {
                 self.presentViewController(nvc, animated: true, completion: nil)

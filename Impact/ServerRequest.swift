@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Stripe
+import FBSDKCoreKit
 
 enum BankType:String {
     case BankOfAmerica = "bofa"
@@ -165,6 +166,8 @@ class ServerRequest: NSObject {
         })
     }
     
+    //MARK: Facebook
+    
     
     func loginWithFacebook(email:String, facebookAccessToken:String, facebookID:String, success:(json:JSON) -> Void, failure:(errorMessage:String)->Void){
         let parameters = [kFacebookRequestKey:["email":email, "facebook_id":facebookID, "facebook_access_token":facebookAccessToken]]
@@ -172,8 +175,8 @@ class ServerRequest: NSObject {
         postWithEndpoint("facebook_auth", parameters: parameters, authenticated: false, success: { (json) -> Void in
             
             self.updateAuthenticationToken(json["authentication_token"].string)
-            
             success(json: json)
+            
             }, failure: { (error) -> Void in
                 
                 if let errorArray = error["errors"].array {
@@ -183,6 +186,19 @@ class ServerRequest: NSObject {
         })
     
     }
+    
+    func getFacebookFriends(friends:(friends:[AnyObject]) -> Void) {
+        if FBSDKAccessToken.currentAccessToken() != nil {
+            let params = ["fields":"name,id"]
+            let request = FBSDKGraphRequest(graphPath: "/me/friends", parameters: params, HTTPMethod: "GET")
+            request.startWithCompletionHandler({ (connection, result, error) -> Void in
+                
+            })
+        }
+
+    }
+    
+    
     
     //MARK: Stripe and Credit Card Info
     
@@ -227,6 +243,7 @@ class ServerRequest: NSObject {
     
     func chooseCategories(categories:[Category], completion:(success:Bool) -> Void) {
         let endpoint = "categories/choose"
+        
         let parameters = ["categories":["category_ids":categories.map{$0.id}]]
         postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
             
@@ -251,6 +268,15 @@ class ServerRequest: NSObject {
             },failure: { (error) -> Void in
         })
         
+    }
+    
+    func joinCause(cause:Cause, success:(successful:Bool) -> Void, failure:(errorMessage:String)->Void) {
+        let endpoint = "causes/\(cause.id)/join"
+        postWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            success(successful: true)
+            }, failure: { (error) -> Void in
+                failure(errorMessage: "Unable to join cause")
+        })
     }
     
     //MARK: Banks

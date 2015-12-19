@@ -32,11 +32,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         registerForPushNotifications()
         
-        return true
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     private func isLoggedIn() -> Bool {
-        if let authenticationToken = UserCredentials.shared.getUserToken() {
+        if UserCredentials.shared.getUserToken() != nil {
             return true
         } else {
             return false
