@@ -14,7 +14,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet var initialSearchView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
-    let cellHeight = CGFloat(175)
+    let cellHeight = CGFloat(60)
     var causes:[Cause] = []
     var searchResults:[Cause] = []
     
@@ -37,7 +37,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func initTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.registerNib(UINib(nibName: "CausesTableViewCell", bundle: nil), forCellReuseIdentifier: "CausesTableViewCell")
+        self.tableView.registerNib(UINib(nibName: "SearchCauseTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchCauseTableViewCell")
         let tableViewHeader = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, header.frame.size.height - 20))
         tableViewHeader.backgroundColor = UIColor.customRed() //hacky solution
         self.tableView.tableHeaderView = tableViewHeader
@@ -57,23 +57,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cause = self.searchResults[indexPath.row]
-        let cell:CausesTableViewCell = tableView.dequeueReusableCellWithIdentifier("CausesTableViewCell", forIndexPath: indexPath) as! CausesTableViewCell
+        let cell:SearchCauseTableViewCell = tableView.dequeueReusableCellWithIdentifier("SearchCauseTableViewCell", forIndexPath: indexPath) as! SearchCauseTableViewCell
         cell.causeNameLabel.text = cause.name
-        cell.causeImageView.setImageWithUrl(NSURL(string: cause.profileImageUrl))
-        cell.organizationImageView.setImageWithUrl(NSURL(string:cause.organizationLogoUrl))
-        cell.goalLabel.text = "Seeking $\(cause.goal/100)"
-        cell.addressLabel.text = "\(cause.city), \(cause.state)"
-        if let goal = cause.goal {
-            let amount = cause.currentTotal
-            if goal != 0 {
-                let percentage = CGFloat(amount)/CGFloat(goal)
-                cell.percentageLabel.text = "\(Int(percentage*100))% raised"
-                cell.drawPercentageGraph(percentage)
-            } else {
-                cell.drawPercentageGraph(0)
-            }
-        }
-        
+        cell.profileImageView.setImageWithUrl(NSURL(string: cause.profileImageUrl))
+        let info = "In partnership with \(cause.organizationName) | \(cause.city),\(cause.state)"
+        cell.causeInfoLabel.text = info
         return cell
 
     }

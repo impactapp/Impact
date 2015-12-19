@@ -68,6 +68,8 @@
 		4DD2FDF21C25DA0100CF3F4C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2FDF01C25DA0100CF3F4C /* SearchViewController.swift */; };
 		4DD2FDF31C25DA0100CF3F4C /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2FDF11C25DA0100CF3F4C /* SearchViewController.xib */; };
 		4DD2FDF71C25E75B00CF3F4C /* InitialSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2FDF61C25E75B00CF3F4C /* InitialSearchView.xib */; };
+		4DD2FDFC1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2FDFA1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift */; };
+		4DD2FDFD1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2FDFB1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib */; };
 		4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */; };
 		4DE85F671BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE85F661BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift */; };
 		4DE85F691BD18CC5002AE4C5 /* Cause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE85F681BD18CC5002AE4C5 /* Cause.swift */; };
@@ -174,6 +176,8 @@
 		4DD2FDF01C25DA0100CF3F4C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4DD2FDF11C25DA0100CF3F4C /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		4DD2FDF61C25E75B00CF3F4C /* InitialSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialSearchView.xib; sourceTree = "<group>"; };
+		4DD2FDFA1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCauseTableViewCell.swift; sourceTree = "<group>"; };
+		4DD2FDFB1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCauseTableViewCell.xib; sourceTree = "<group>"; };
 		4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ImpactColors.swift"; sourceTree = "<group>"; };
 		4DE85F661BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomStatusBar.swift"; sourceTree = "<group>"; };
 		4DE85F681BD18CC5002AE4C5 /* Cause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cause.swift; sourceTree = "<group>"; };
@@ -419,6 +423,8 @@
 				4DD2FDF61C25E75B00CF3F4C /* InitialSearchView.xib */,
 				4DD2FDF01C25DA0100CF3F4C /* SearchViewController.swift */,
 				4DD2FDF11C25DA0100CF3F4C /* SearchViewController.xib */,
+				4DD2FDFA1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift */,
+				4DD2FDFB1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib */,
 			);
 			name = Search;
 			sourceTree = "<group>";
@@ -640,6 +646,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DD2FDFD1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib in Resources */,
 				B8C77E1B1B8AC2E700000927 /* SignInViewController.xib in Resources */,
 				B82E47831BB747E600D3C90B /* Main.storyboard in Resources */,
 				4D6BC9981BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib in Resources */,
@@ -758,6 +765,7 @@
 				4D9BB11A1BFFD40700E5000A /* CauseStoryViewController.swift in Sources */,
 				4DF27D401C24A11E007D563A /* UIFont+CustomFonts.swift in Sources */,
 				4D2B0FE41BBF4B8100482FF4 /* AlertViewController.swift in Sources */,
+				4DD2FDFC1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift in Sources */,
 				4DC0C9891BF8D37100E2A468 /* CauseUpdateViewController.swift in Sources */,
 				4D92199D1BF815D700A326A8 /* CausePageViewController.swift in Sources */,
 				4D9219A01BF8190E00A326A8 /* CustomSegmentControl.swift in Sources */,
