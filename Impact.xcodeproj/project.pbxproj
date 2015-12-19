@@ -67,6 +67,7 @@
 		4DC8A7CB1B8D6D1E00F3A9ED /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8A7CA1B8D6D1E00F3A9ED /* MobileCoreServices.framework */; };
 		4DD2FDF21C25DA0100CF3F4C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2FDF01C25DA0100CF3F4C /* SearchViewController.swift */; };
 		4DD2FDF31C25DA0100CF3F4C /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2FDF11C25DA0100CF3F4C /* SearchViewController.xib */; };
+		4DD2FDF71C25E75B00CF3F4C /* InitialSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2FDF61C25E75B00CF3F4C /* InitialSearchView.xib */; };
 		4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */; };
 		4DE85F671BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE85F661BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift */; };
 		4DE85F691BD18CC5002AE4C5 /* Cause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE85F681BD18CC5002AE4C5 /* Cause.swift */; };
@@ -172,6 +173,7 @@
 		4DC8A7CA1B8D6D1E00F3A9ED /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		4DD2FDF01C25DA0100CF3F4C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		4DD2FDF11C25DA0100CF3F4C /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		4DD2FDF61C25E75B00CF3F4C /* InitialSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialSearchView.xib; sourceTree = "<group>"; };
 		4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ImpactColors.swift"; sourceTree = "<group>"; };
 		4DE85F661BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomStatusBar.swift"; sourceTree = "<group>"; };
 		4DE85F681BD18CC5002AE4C5 /* Cause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cause.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 		4DD2FDEF1C25D9F100CF3F4C /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				4DD2FDF61C25E75B00CF3F4C /* InitialSearchView.xib */,
 				4DD2FDF01C25DA0100CF3F4C /* SearchViewController.swift */,
 				4DD2FDF11C25DA0100CF3F4C /* SearchViewController.xib */,
 			);
@@ -656,6 +659,7 @@
 				4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */,
 				4D02EC1D1BD08A0400701C75 /* CausesTableViewCell.xib in Resources */,
 				4D02EC181BD0887200701C75 /* ExploreViewController.xib in Resources */,
+				4DD2FDF71C25E75B00CF3F4C /* InitialSearchView.xib in Resources */,
 				4D2256F11B8AC7C900727A4C /* ChooseBankViewController.xib in Resources */,
 				B8A5CF541B8FF49A00D71D2C /* ThirdIntroViewController.xib in Resources */,
 				4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */,

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Impact" customModuleProvider="target">
+            <connections>
+                <outlet property="initialSearchView" destination="AtX-AI-BlT" id="n85-lf-Jrj"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="AtX-AI-BlT">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="277"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MagnifyingGlass" translatesAutoresizingMaskIntoConstraints="NO" id="Njt-Jt-gGi">
+                    <rect key="frame" x="100" y="77" width="100" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="PnC-af-qOg"/>
+                        <constraint firstAttribute="height" constant="100" id="ldG-iV-vx2"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCs-TJ-bon">
+                    <rect key="frame" x="4" y="39" width="293" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="dOD-Ob-RUz"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="Find where you want to make an Impact">
+                            <attributes>
+                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <font key="NSFont" size="15" name="AvenirNext-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUp-VZ-SLD">
+                    <rect key="frame" x="43" y="185" width="214" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="JKj-yg-2Wk"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="Search people,  organizations, causes, and locations">
+                            <attributes>
+                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <font key="NSFont" size="15" name="AvenirNext-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="bCs-TJ-bon" secondAttribute="trailing" constant="3" id="B37-VO-2Hf"/>
+                <constraint firstItem="Njt-Jt-gGi" firstAttribute="top" secondItem="bCs-TJ-bon" secondAttribute="bottom" constant="17" id="CQa-Wm-058"/>
+                <constraint firstAttribute="bottom" secondItem="iUp-VZ-SLD" secondAttribute="bottom" constant="12" id="ChG-ij-zwi"/>
+                <constraint firstItem="Njt-Jt-gGi" firstAttribute="centerY" secondItem="AtX-AI-BlT" secondAttribute="centerY" constant="-11.5" id="MoO-ll-KmS"/>
+                <constraint firstItem="iUp-VZ-SLD" firstAttribute="leading" secondItem="AtX-AI-BlT" secondAttribute="leading" constant="43" id="PEg-uU-xEj"/>
+                <constraint firstItem="bCs-TJ-bon" firstAttribute="leading" secondItem="AtX-AI-BlT" secondAttribute="leading" constant="4" id="QtG-xQ-b0E"/>
+                <constraint firstAttribute="trailing" secondItem="iUp-VZ-SLD" secondAttribute="trailing" constant="43" id="fT3-ao-Zkj"/>
+                <constraint firstItem="Njt-Jt-gGi" firstAttribute="centerX" secondItem="AtX-AI-BlT" secondAttribute="centerX" id="pr9-Qz-HvV"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="263" y="312.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="MagnifyingGlass" width="25" height="25"/>
+    </resources>
+</document>
