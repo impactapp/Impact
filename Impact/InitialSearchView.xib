@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Impact" customModuleProvider="target">
             <connections>
+                <outlet property="findYourCauseMessageLabel" destination="bCs-TJ-bon" id="TiV-1r-1Gb"/>
                 <outlet property="initialSearchView" destination="AtX-AI-BlT" id="n85-lf-Jrj"/>
             </connections>
         </placeholder>
@@ -22,13 +23,13 @@
                         <constraint firstAttribute="height" constant="100" id="ldG-iV-vx2"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCs-TJ-bon">
-                    <rect key="frame" x="4" y="39" width="293" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUp-VZ-SLD">
+                    <rect key="frame" x="43" y="185" width="214" height="80"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="21" id="dOD-Ob-RUz"/>
+                        <constraint firstAttribute="height" constant="80" id="JKj-yg-2Wk"/>
                     </constraints>
                     <attributedString key="attributedText">
-                        <fragment content="Find where you want to make an Impact">
+                        <fragment content="Search people,  organizations, causes, and locations">
                             <attributes>
                                 <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <font key="NSFont" size="15" name="AvenirNext-Regular"/>
@@ -38,13 +39,13 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUp-VZ-SLD">
-                    <rect key="frame" x="43" y="185" width="214" height="80"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bCs-TJ-bon">
+                    <rect key="frame" x="4" y="39" width="293" height="21"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="80" id="JKj-yg-2Wk"/>
+                        <constraint firstAttribute="height" constant="21" id="dOD-Ob-RUz"/>
                     </constraints>
                     <attributedString key="attributedText">
-                        <fragment content="Search people,  organizations, causes, and locations">
+                        <fragment content="Find where you want to make an Impact">
                             <attributes>
                                 <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <font key="NSFont" size="15" name="AvenirNext-Regular"/>

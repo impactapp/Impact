@@ -10,6 +10,7 @@ import UIKit
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
+    @IBOutlet weak var findYourCauseMessageLabel: UILabel!
     @IBOutlet weak var header: UIView!
     @IBOutlet var initialSearchView: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -18,37 +19,68 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var causes:[Cause] = []
     var searchResults:[Cause] = []
     
+    let statusBarHeight = CGFloat(0)
+    var previousBarYOrigin = CGFloat(0)
+    var previousScrollViewOffset = CGFloat(0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStatusBarColor(UIColor.customRed(), useWhiteText: true)
         initTableView()
         initSearchTextField()
-        
+        initInitialSearchView()
         ServerRequest.shared.getAllCauses { (causes) -> Void in
             self.causes = causes
             self.tableView.reloadData()
         }
-        
+    }
+    
+    func initInitialSearchView() {
         initialSearchView = UINib(nibName: "InitialSearchView", bundle: nil).instantiateWithOwner(self, options: nil).first as! UIView
         self.view.addSubview(initialSearchView)
         initialSearchView.frame = CGRectMake(0,self.header.frame.size.height+60,self.view.frame.size.width,200)
-        
+        if let messageString = findYourCauseMessageLabel.text {
+            let text = messageString as NSString
+            let attributedString = NSMutableAttributedString(string: messageString)
+            if #available(iOS 9.0, *) {
+                let range = text.rangeOfString("Impact")
+                attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.customRed(), range: range)
+                self.findYourCauseMessageLabel.attributedText = attributedString
+            }
+        }
     }
     
-    func initTableView() {
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.registerNib(UINib(nibName: "SearchCauseTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchCauseTableViewCell")
-        let tableViewHeader = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, header.frame.size.height - 20))
-        tableViewHeader.backgroundColor = UIColor.customRed() //hacky solution
-        self.tableView.tableHeaderView = tableViewHeader
-    }
+    //MARK: TextField
     
     func initSearchTextField() {
         self.searchTextField.delegate = self
         self.searchTextField.attributedPlaceholder = NSAttributedString(string:"Search",
             attributes:[NSForegroundColorAttributeName: UIColor.whiteColor()])
         self.searchTextField.textAlignment = NSTextAlignment.Center
-
+    }
+    
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        
+        let searchString = searchText.lowercaseString
+        searchResults = causes.filter {
+            $0.name.lowercaseString.containsString(searchString) ||
+                $0.organizationName.lowercaseString.containsString(searchString) ||
+                $0.city.lowercaseString.containsString(searchString)
+        }
+        
+        tableView.reloadData()
+    }
+    
+    //MARK: TableView
+    
+    func initTableView() {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.registerNib(UINib(nibName: "SearchCauseTableViewCell", bundle: nil), forCellReuseIdentifier: "SearchCauseTableViewCell")
+        let tableViewHeader = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, header.frame.size.height - 20))
+        tableViewHeader.backgroundColor = UIColor.customDarkGrey() //hacky solution
+        self.tableView.tableHeaderView = tableViewHeader
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,17 +89,27 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cause = self.searchResults[indexPath.row]
+        return configureCell(cause, indexPath: indexPath)
+    }
+    
+    private func configureCell(cause:Cause, indexPath:NSIndexPath) -> SearchCauseTableViewCell {
         let cell:SearchCauseTableViewCell = tableView.dequeueReusableCellWithIdentifier("SearchCauseTableViewCell", forIndexPath: indexPath) as! SearchCauseTableViewCell
         cell.causeNameLabel.text = cause.name
         cell.profileImageView.setImageWithUrl(NSURL(string: cause.profileImageUrl))
-        let info = "In partnership with \(cause.organizationName) | \(cause.city),\(cause.state)"
+        let info = "In partnership with \(cause.organizationName) | \(cause.city), \(cause.state)"
         cell.causeInfoLabel.text = info
         return cell
-
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return self.cellHeight
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedCause = self.causes[indexPath.row]
+        let cpvc = CausePageViewController(nibName: "CausePageViewController", bundle: nil)
+        cpvc.cause = selectedCause
+        self.navigationController?.pushViewController(cpvc, animated: true)
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -81,17 +123,52 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return true
     }
     
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
-
-        let searchString = searchText.lowercaseString
-        searchResults = causes.filter {
-            $0.name.lowercaseString.containsString(searchString) ||
-            $0.organizationName.lowercaseString.containsString(searchString) ||
-            $0.city.lowercaseString.containsString(searchString)
+    //MARK: Scrolling
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        animateHeaderView(scrollView)
+    }
+    
+    func animateHeaderView(scrollView:UIScrollView) {
+        
+        var frame = self.header.frame
+        let size = self.header.frame.size.height
+        let scrollOffset = scrollView.contentOffset.y
+        let scrollDiff = scrollOffset - self.previousScrollViewOffset
+        let scrollHeight = scrollView.frame.size.height
+        let scrollContentSizeHeight = scrollView.contentSize.height + scrollView.contentInset.bottom //+ statusBarHeight
+        if (scrollOffset <= -scrollView.contentInset.top) {
+            frame.origin.y = statusBarHeight;
+        } else if ((scrollOffset + scrollHeight) >= scrollContentSizeHeight && scrollContentSizeHeight > self.view.frame.size.height){
+            frame.origin.y = -size
+        } else {
+            frame.origin.y = min(statusBarHeight, max(-size, frame.origin.y - scrollDiff));
         }
         
-        tableView.reloadData()
+        self.header.frame = frame
+        //self.updateHeaderViewButtons(CGFloat(1) - framePercentageHiden)
+        self.previousScrollViewOffset = scrollOffset
+        
     }
+    
+    func stoppedScrolling() {
+        let frame = self.header.frame
+        if frame.origin.y < 20 {
+            let newY = -(frame.size.height - 21)
+            self.translateHeaderTo(newY)
+        }
+    }
+    
+    func translateHeaderTo(y:CGFloat) {
+        UIView.animateWithDuration(0.2) { () -> Void in
+            var frame = self.header.frame
+            let alpha = CGFloat((frame.origin.y >= y ? 0 : 1))
+            frame.origin.y = y
+            self.header.frame = frame
+            //self.updateHeaderViewButtons(alpha)
+        }
+    }
+
     
 
     /*
