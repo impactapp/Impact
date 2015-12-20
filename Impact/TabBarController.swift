@@ -34,11 +34,11 @@ class TabBarViewController: UITabBarController {
         exploreViewController.tabBarItem.image = UIImage(named: "Earth");
         let profileViewController = UIViewController();
         profileViewController.tabBarItem.image = UIImage(named: "Heart");
-        let test1 = UIViewController()
-        test1.tabBarItem.image = UIImage(named:"MagnifyingGlass")
+        let searchViewController = SearchViewController()
+        searchViewController.tabBarItem.image = UIImage(named:"MagnifyingGlass")
         let test2 = UIViewController()
         test2.tabBarItem.image = UIImage(named: "Person");
-        self.viewControllers = [exploreViewController,profileViewController,test1,test2];
+        self.viewControllers = [exploreViewController,profileViewController,searchViewController,test2];
         for item:UITabBarItem in self.tabBar.items! {
             item.imageInsets = self.tabBarImageInsets
         }

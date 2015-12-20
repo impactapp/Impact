@@ -24,7 +24,7 @@ extension UIColor {
     }
     
     static func customDarkGreyWithAlpha(alpha:CGFloat) -> UIColor {
-        return UIColor(red: 92/255.0, green: 90/255.0, blue: 90/255.0, alpha: alpha);
+        return UIColor(red: 72/255.0, green: 72/255.0, blue: 72/255.0, alpha: alpha);
     }
     
     static func customRed() -> UIColor {

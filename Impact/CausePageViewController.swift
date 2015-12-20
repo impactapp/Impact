@@ -13,6 +13,7 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
     var viewControllers : [UIViewController] = []
     @IBOutlet weak var segmentControl: CustomSegmentControl!
     
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var headerView: UIView!
     var previousBarYOrigin = CGFloat(0)
     var previousScrollViewOffset = CGFloat(0)
@@ -24,6 +25,8 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
     var cause : Cause? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
+        setStatusBarColor(UIColor.customRed(), useWhiteText: true)
+        
         cuvc.cause = self.cause
         cuvc.scrollDelegate = self
         csvc.scrollDelegate = self
@@ -156,8 +159,15 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
             let alpha = CGFloat((frame.origin.y >= y ? 0 : 1))
             frame.origin.y = y
             self.headerView.frame = frame
+            self.updateTransparencyHeaderButtons(alpha)
         }
     }
+    
+    func updateTransparencyHeaderButtons(alpha:CGFloat) {
+        self.backButton.alpha = alpha
+    }
+    
+
 
     
     /*
