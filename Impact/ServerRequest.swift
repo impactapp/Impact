@@ -267,7 +267,22 @@ class ServerRequest: NSObject {
             completion(causes: result)
             },failure: { (error) -> Void in
         })
-        
+    }
+    
+    func getPreviousCauses(completion:(causes:[Cause]) -> Void) {
+        let endpoint = "current_user/causes"
+        getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            var result: [Cause] = []
+            if let array = json.array {
+                for jsonObject in array {
+                    result.append(Cause(fromJson:jsonObject))
+                }
+            }
+            completion(causes:result)
+            
+            }, failure: { (error) -> Void in
+                
+        })
     }
     
     func joinCause(cause:Cause, success:(successful:Bool) -> Void, failure:(errorMessage:String)->Void) {

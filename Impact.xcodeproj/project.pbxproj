@@ -43,6 +43,10 @@
 		4D6DC3641B8BED330017BF29 /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DC3631B8BED330017BF29 /* DoneButton.swift */; };
 		4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */; };
 		4D8210281BD291F30032DA07 /* CircleGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8210271BD291F30032DA07 /* CircleGraph.swift */; };
+		4D91C4911C28841D00A4C0A5 /* PreviousImpactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D91C48F1C28841D00A4C0A5 /* PreviousImpactsViewController.swift */; };
+		4D91C4921C28841D00A4C0A5 /* PreviousImpactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D91C4901C28841D00A4C0A5 /* PreviousImpactsViewController.xib */; };
+		4D91C4951C28861800A4C0A5 /* AccessoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D91C4931C28861800A4C0A5 /* AccessoryTableViewCell.swift */; };
+		4D91C4961C28861800A4C0A5 /* AccessoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D91C4941C28861800A4C0A5 /* AccessoryTableViewCell.xib */; };
 		4D92199D1BF815D700A326A8 /* CausePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D92199B1BF815D700A326A8 /* CausePageViewController.swift */; };
 		4D92199E1BF815D700A326A8 /* CausePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D92199C1BF815D700A326A8 /* CausePageViewController.xib */; };
 		4D9219A01BF8190E00A326A8 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D92199F1BF8190E00A326A8 /* CustomSegmentControl.swift */; };
@@ -151,6 +155,10 @@
 		4D6DC3631B8BED330017BF29 /* DoneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 		4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBorderedTextField.swift; sourceTree = "<group>"; };
 		4D8210271BD291F30032DA07 /* CircleGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleGraph.swift; sourceTree = "<group>"; };
+		4D91C48F1C28841D00A4C0A5 /* PreviousImpactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousImpactsViewController.swift; sourceTree = "<group>"; };
+		4D91C4901C28841D00A4C0A5 /* PreviousImpactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviousImpactsViewController.xib; sourceTree = "<group>"; };
+		4D91C4931C28861800A4C0A5 /* AccessoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryTableViewCell.swift; sourceTree = "<group>"; };
+		4D91C4941C28861800A4C0A5 /* AccessoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccessoryTableViewCell.xib; sourceTree = "<group>"; };
 		4D92199B1BF815D700A326A8 /* CausePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CausePageViewController.swift; sourceTree = "<group>"; };
 		4D92199C1BF815D700A326A8 /* CausePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CausePageViewController.xib; sourceTree = "<group>"; };
 		4D92199F1BF8190E00A326A8 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
@@ -263,6 +271,8 @@
 		4D0FDE451B8B82A1002877CE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				4D91C4931C28861800A4C0A5 /* AccessoryTableViewCell.swift */,
+				4D91C4941C28861800A4C0A5 /* AccessoryTableViewCell.xib */,
 				4D2B0FE21BBF4B8100482FF4 /* AlertViewController.swift */,
 				4D8210271BD291F30032DA07 /* CircleGraph.swift */,
 				4D02EC221BD0918500701C75 /* HeaderView.swift */,
@@ -480,6 +490,8 @@
 				B8585C181B8642E900AB091A /* AppDelegate.swift */,
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
 				4D2256E81B8A8E5E00727A4C /* TabBarController.swift */,
+				4D91C48F1C28841D00A4C0A5 /* PreviousImpactsViewController.swift */,
+				4D91C4901C28841D00A4C0A5 /* PreviousImpactsViewController.xib */,
 				4DD2FDEF1C25D9F100CF3F4C /* Search */,
 				4D6BC9921BE4FF59000C89C8 /* Categories */,
 				4D02EC191BD0887900701C75 /* Causes */,
@@ -673,12 +685,14 @@
 				4D92199E1BF815D700A326A8 /* CausePageViewController.xib in Resources */,
 				4DC0C98E1BF8D57600E2A468 /* AmountDonatedHeaderView.xib in Resources */,
 				B8A5CF581B8FF4A500D71D2C /* FinalIntroViewController.xib in Resources */,
+				4D91C4961C28861800A4C0A5 /* AccessoryTableViewCell.xib in Resources */,
 				4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */,
 				B8B8AA6D1B8FF69D006E689C /* PageViewController.xib in Resources */,
 				4D6BC9961BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib in Resources */,
 				4D0FDE4E1B8BB646002877CE /* BankSignInViewController.xib in Resources */,
 				4DD2FDF31C25DA0100CF3F4C /* SearchViewController.xib in Resources */,
 				B8585C231B8642E900AB091A /* Images.xcassets in Resources */,
+				4D91C4921C28841D00A4C0A5 /* PreviousImpactsViewController.xib in Resources */,
 				4D9BB11B1BFFD40700E5000A /* CauseStoryViewController.xib in Resources */,
 				B8D45A061B8FF3E000877310 /* SecondIntroViewController.xib in Resources */,
 			);
@@ -753,6 +767,7 @@
 				4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */,
 				4DE85F671BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift in Sources */,
 				4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */,
+				4D91C4911C28841D00A4C0A5 /* PreviousImpactsViewController.swift in Sources */,
 				4D02EC1C1BD08A0400701C75 /* CausesTableViewCell.swift in Sources */,
 				4D2265841BA7937000A51908 /* CreditCardViewController.swift in Sources */,
 				4D8210281BD291F30032DA07 /* CircleGraph.swift in Sources */,
@@ -797,6 +812,7 @@
 				B8A5CF571B8FF4A500D71D2C /* FinalIntroViewController.swift in Sources */,
 				4D2256FA1B8AD62300727A4C /* RoundedCollectionViewCell.swift in Sources */,
 				4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */,
+				4D91C4951C28861800A4C0A5 /* AccessoryTableViewCell.swift in Sources */,
 				4D6BC9901BE4FED6000C89C8 /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
