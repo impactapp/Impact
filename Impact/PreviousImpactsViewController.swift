@@ -21,6 +21,7 @@ class PreviousImpactsViewController: UIViewController, UITableViewDelegate, UITa
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        self.tableView.tableFooterView = UIView() //gets rid of not-needed separators
     }
     
     override func viewWillAppear(animated: Bool) {
