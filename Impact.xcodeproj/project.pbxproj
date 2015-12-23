@@ -17,6 +17,7 @@
 		4D0FDE491B8B8620002877CE /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDE481B8B8620002877CE /* UIView+Nib.swift */; };
 		4D0FDE4D1B8BB646002877CE /* BankSignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D0FDE4B1B8BB646002877CE /* BankSignInViewController.swift */; };
 		4D0FDE4E1B8BB646002877CE /* BankSignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D0FDE4C1B8BB646002877CE /* BankSignInViewController.xib */; };
+		4D147D351BE6B1AC0040CF0E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D147D341BE6B1AC0040CF0E /* Category.swift */; };
 		4D2256E91B8A8E5E00727A4C /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2256E81B8A8E5E00727A4C /* TabBarController.swift */; };
 		4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2256EC1B8AC40E00727A4C /* RoundedButton.swift */; };
 		4D2256F01B8AC7C900727A4C /* ChooseBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2256EE1B8AC7C900727A4C /* ChooseBankViewController.swift */; };
@@ -29,26 +30,55 @@
 		4D2265851BA7937000A51908 /* CreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2265831BA7937000A51908 /* CreditCardViewController.xib */; };
 		4D2B0FE41BBF4B8100482FF4 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D2B0FE21BBF4B8100482FF4 /* AlertViewController.swift */; };
 		4D2B0FE91BBF5ADD00482FF4 /* AlertPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2B0FE81BBF5ADD00482FF4 /* AlertPopupView.xib */; };
+		4D545D8C1BF7B99D00F009D5 /* DeviceDetect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D545D8B1BF7B99D00F009D5 /* DeviceDetect.swift */; };
 		4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5522991B870EB700F9E5CA /* ServerRequest.swift */; };
 		4D5C805A1BA8F2F0001DEDAF /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C80591BA8F2F0001DEDAF /* UITextField+Padding.swift */; };
+		4D6BC9901BE4FED6000C89C8 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6BC98E1BE4FED6000C89C8 /* CategoriesViewController.swift */; };
+		4D6BC9911BE4FED6000C89C8 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6BC98F1BE4FED6000C89C8 /* CategoriesViewController.xib */; };
+		4D6BC9951BE4FF8D000C89C8 /* CategoriesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6BC9931BE4FF8D000C89C8 /* CategoriesCollectionViewCell.swift */; };
+		4D6BC9961BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6BC9941BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib */; };
+		4D6BC9981BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6BC9971BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib */; };
 		4D6DC35F1B8BEBAC0017BF29 /* BankPinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DC35D1B8BEBAC0017BF29 /* BankPinViewController.swift */; };
 		4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6DC35E1B8BEBAC0017BF29 /* BankPinViewController.xib */; };
 		4D6DC3641B8BED330017BF29 /* DoneButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6DC3631B8BED330017BF29 /* DoneButton.swift */; };
 		4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */; };
 		4D8210281BD291F30032DA07 /* CircleGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8210271BD291F30032DA07 /* CircleGraph.swift */; };
+		4D91C4911C28841D00A4C0A5 /* PreviousImpactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D91C48F1C28841D00A4C0A5 /* PreviousImpactsViewController.swift */; };
+		4D91C4921C28841D00A4C0A5 /* PreviousImpactsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D91C4901C28841D00A4C0A5 /* PreviousImpactsViewController.xib */; };
+		4D91C4951C28861800A4C0A5 /* AccessoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D91C4931C28861800A4C0A5 /* AccessoryTableViewCell.swift */; };
+		4D91C4961C28861800A4C0A5 /* AccessoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D91C4941C28861800A4C0A5 /* AccessoryTableViewCell.xib */; };
+		4D92199D1BF815D700A326A8 /* CausePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D92199B1BF815D700A326A8 /* CausePageViewController.swift */; };
+		4D92199E1BF815D700A326A8 /* CausePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D92199C1BF815D700A326A8 /* CausePageViewController.xib */; };
+		4D9219A01BF8190E00A326A8 /* CustomSegmentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D92199F1BF8190E00A326A8 /* CustomSegmentControl.swift */; };
 		4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9621F31BA9A16F005EBCDD /* UserCredentials.swift */; };
 		4D962E9D1B8BFB780026E84D /* BankSecurityQuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D962E9B1B8BFB780026E84D /* BankSecurityQuestionViewController.swift */; };
 		4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */; };
+		4D96D1511BFE282500CDE687 /* FriendsCollectionViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D96D1501BFE282500CDE687 /* FriendsCollectionViewHeader.xib */; };
+		4D96D1561BFE299000CDE687 /* FriendsCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D96D1551BFE299000CDE687 /* FriendsCollectionViewHeader.swift */; };
+		4D9BB1151BFFD00300E5000A /* BlogPostTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D9BB1141BFFD00300E5000A /* BlogPostTableViewHeader.xib */; };
+		4D9BB1171BFFD32200E5000A /* BlogPostTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BB1161BFFD32200E5000A /* BlogPostTableViewHeader.swift */; };
+		4D9BB11A1BFFD40700E5000A /* CauseStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BB1181BFFD40700E5000A /* CauseStoryViewController.swift */; };
+		4D9BB11B1BFFD40700E5000A /* CauseStoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D9BB1191BFFD40700E5000A /* CauseStoryViewController.xib */; };
 		4DB8CB171B8ED5CE00A6031D /* ForgetLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */; };
 		4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB8CB161B8ED5CE00A6031D /* ForgetLoginViewController.xib */; };
+		4DC0C9891BF8D37100E2A468 /* CauseUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0C9871BF8D37100E2A468 /* CauseUpdateViewController.swift */; };
+		4DC0C98A1BF8D37100E2A468 /* CauseUpdateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC0C9881BF8D37100E2A468 /* CauseUpdateViewController.xib */; };
+		4DC0C98C1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0C98B1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift */; };
+		4DC0C98E1BF8D57600E2A468 /* AmountDonatedHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DC0C98D1BF8D57600E2A468 /* AmountDonatedHeaderView.xib */; };
 		4DC8A7C51B8D6D0800F3A9ED /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8A7C41B8D6D0800F3A9ED /* AVFoundation.framework */; };
 		4DC8A7C71B8D6D0D00F3A9ED /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8A7C61B8D6D0D00F3A9ED /* AudioToolbox.framework */; };
 		4DC8A7C91B8D6D1700F3A9ED /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8A7C81B8D6D1700F3A9ED /* CoreMedia.framework */; };
 		4DC8A7CB1B8D6D1E00F3A9ED /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DC8A7CA1B8D6D1E00F3A9ED /* MobileCoreServices.framework */; };
+		4DD2FDF21C25DA0100CF3F4C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2FDF01C25DA0100CF3F4C /* SearchViewController.swift */; };
+		4DD2FDF31C25DA0100CF3F4C /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2FDF11C25DA0100CF3F4C /* SearchViewController.xib */; };
+		4DD2FDF71C25E75B00CF3F4C /* InitialSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2FDF61C25E75B00CF3F4C /* InitialSearchView.xib */; };
+		4DD2FDFC1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2FDFA1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift */; };
+		4DD2FDFD1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2FDFB1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib */; };
 		4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */; };
 		4DE85F671BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE85F661BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift */; };
 		4DE85F691BD18CC5002AE4C5 /* Cause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE85F681BD18CC5002AE4C5 /* Cause.swift */; };
-		4E515AB7A3CD6CED1BBE3ABB /* Pods_Impact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		4DF27D401C24A11E007D563A /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27D3F1C24A11E007D563A /* UIFont+CustomFonts.swift */; };
+		4E515AB7A3CD6CED1BBE3ABB /* Pods_Impact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */; };
 		B82E47821BB747E600D3C90B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8585C241B8642E900AB091A /* LaunchScreen.xib */; };
 		B82E47831BB747E600D3C90B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B8585C1F1B8642E900AB091A /* Main.storyboard */; };
 		B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8585C181B8642E900AB091A /* AppDelegate.swift */; };
@@ -102,6 +132,7 @@
 		4D0FDE481B8B8620002877CE /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		4D0FDE4B1B8BB646002877CE /* BankSignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankSignInViewController.swift; sourceTree = "<group>"; };
 		4D0FDE4C1B8BB646002877CE /* BankSignInViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankSignInViewController.xib; sourceTree = "<group>"; };
+		4D147D341BE6B1AC0040CF0E /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		4D2256E81B8A8E5E00727A4C /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		4D2256EC1B8AC40E00727A4C /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		4D2256EE1B8AC7C900727A4C /* ChooseBankViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBankViewController.swift; sourceTree = "<group>"; };
@@ -115,25 +146,54 @@
 		4D2265861BA7979300A51908 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
 		4D2B0FE21BBF4B8100482FF4 /* AlertViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		4D2B0FE81BBF5ADD00482FF4 /* AlertPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertPopupView.xib; sourceTree = "<group>"; };
+		4D545D8B1BF7B99D00F009D5 /* DeviceDetect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetect.swift; sourceTree = "<group>"; };
 		4D5522991B870EB700F9E5CA /* ServerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
 		4D5C80591BA8F2F0001DEDAF /* UITextField+Padding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
+		4D6BC98E1BE4FED6000C89C8 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
+		4D6BC98F1BE4FED6000C89C8 /* CategoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
+		4D6BC9931BE4FF8D000C89C8 /* CategoriesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesCollectionViewCell.swift; sourceTree = "<group>"; };
+		4D6BC9941BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesCollectionViewCell.xib; sourceTree = "<group>"; };
+		4D6BC9971BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChooseCategoryHeaderView.xib; sourceTree = "<group>"; };
 		4D6DC35D1B8BEBAC0017BF29 /* BankPinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankPinViewController.swift; sourceTree = "<group>"; };
 		4D6DC35E1B8BEBAC0017BF29 /* BankPinViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankPinViewController.xib; sourceTree = "<group>"; };
 		4D6DC3631B8BED330017BF29 /* DoneButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneButton.swift; sourceTree = "<group>"; };
 		4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BottomBorderedTextField.swift; sourceTree = "<group>"; };
 		4D8210271BD291F30032DA07 /* CircleGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleGraph.swift; sourceTree = "<group>"; };
+		4D91C48F1C28841D00A4C0A5 /* PreviousImpactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreviousImpactsViewController.swift; sourceTree = "<group>"; };
+		4D91C4901C28841D00A4C0A5 /* PreviousImpactsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreviousImpactsViewController.xib; sourceTree = "<group>"; };
+		4D91C4931C28861800A4C0A5 /* AccessoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessoryTableViewCell.swift; sourceTree = "<group>"; };
+		4D91C4941C28861800A4C0A5 /* AccessoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccessoryTableViewCell.xib; sourceTree = "<group>"; };
+		4D92199B1BF815D700A326A8 /* CausePageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CausePageViewController.swift; sourceTree = "<group>"; };
+		4D92199C1BF815D700A326A8 /* CausePageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CausePageViewController.xib; sourceTree = "<group>"; };
+		4D92199F1BF8190E00A326A8 /* CustomSegmentControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentControl.swift; sourceTree = "<group>"; };
 		4D9621F31BA9A16F005EBCDD /* UserCredentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		4D962E9B1B8BFB780026E84D /* BankSecurityQuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankSecurityQuestionViewController.swift; sourceTree = "<group>"; };
 		4D962E9C1B8BFB780026E84D /* BankSecurityQuestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankSecurityQuestionViewController.xib; sourceTree = "<group>"; };
+		4D96D1501BFE282500CDE687 /* FriendsCollectionViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FriendsCollectionViewHeader.xib; sourceTree = "<group>"; };
+		4D96D1551BFE299000CDE687 /* FriendsCollectionViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsCollectionViewHeader.swift; sourceTree = "<group>"; };
+		4D9BB1141BFFD00300E5000A /* BlogPostTableViewHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BlogPostTableViewHeader.xib; sourceTree = "<group>"; };
+		4D9BB1161BFFD32200E5000A /* BlogPostTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostTableViewHeader.swift; sourceTree = "<group>"; };
+		4D9BB1181BFFD40700E5000A /* CauseStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CauseStoryViewController.swift; sourceTree = "<group>"; };
+		4D9BB1191BFFD40700E5000A /* CauseStoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CauseStoryViewController.xib; sourceTree = "<group>"; };
 		4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetLoginViewController.swift; sourceTree = "<group>"; };
 		4DB8CB161B8ED5CE00A6031D /* ForgetLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetLoginViewController.xib; sourceTree = "<group>"; };
+		4DC0C9871BF8D37100E2A468 /* CauseUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CauseUpdateViewController.swift; sourceTree = "<group>"; };
+		4DC0C9881BF8D37100E2A468 /* CauseUpdateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CauseUpdateViewController.xib; sourceTree = "<group>"; };
+		4DC0C98B1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AmountDonatedHeaderView.swift; sourceTree = "<group>"; };
+		4DC0C98D1BF8D57600E2A468 /* AmountDonatedHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AmountDonatedHeaderView.xib; sourceTree = "<group>"; };
 		4DC8A7C41B8D6D0800F3A9ED /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4DC8A7C61B8D6D0D00F3A9ED /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4DC8A7C81B8D6D1700F3A9ED /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		4DC8A7CA1B8D6D1E00F3A9ED /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		4DD2FDF01C25DA0100CF3F4C /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		4DD2FDF11C25DA0100CF3F4C /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
+		4DD2FDF61C25E75B00CF3F4C /* InitialSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialSearchView.xib; sourceTree = "<group>"; };
+		4DD2FDFA1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCauseTableViewCell.swift; sourceTree = "<group>"; };
+		4DD2FDFB1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCauseTableViewCell.xib; sourceTree = "<group>"; };
 		4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ImpactColors.swift"; sourceTree = "<group>"; };
 		4DE85F661BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomStatusBar.swift"; sourceTree = "<group>"; };
 		4DE85F681BD18CC5002AE4C5 /* Cause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cause.swift; sourceTree = "<group>"; };
+		4DF27D3F1C24A11E007D563A /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
 		7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8585C131B8642E800AB091A /* Impact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Impact.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8585C171B8642E800AB091A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -209,11 +269,9 @@
 		4D02EC191BD0887900701C75 /* Causes */ = {
 			isa = PBXGroup;
 			children = (
-				4D02EC151BD0887200701C75 /* ExploreViewController.swift */,
-				4D02EC1A1BD08A0400701C75 /* CausesTableViewCell.swift */,
-				4D02EC1B1BD08A0400701C75 /* CausesTableViewCell.xib */,
-				4D02EC161BD0887200701C75 /* ExploreViewController.xib */,
-				4DE85F681BD18CC5002AE4C5 /* Cause.swift */,
+				4D96D1541BFE291900CDE687 /* Controller */,
+				4D96D1531BFE290A00CDE687 /* Views */,
+				4D96D1521BFE28F300CDE687 /* Model */,
 			);
 			name = Causes;
 			sourceTree = "<group>";
@@ -221,6 +279,8 @@
 		4D0FDE451B8B82A1002877CE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				4D91C4931C28861800A4C0A5 /* AccessoryTableViewCell.swift */,
+				4D91C4941C28861800A4C0A5 /* AccessoryTableViewCell.xib */,
 				4D2B0FE21BBF4B8100482FF4 /* AlertViewController.swift */,
 				4D8210271BD291F30032DA07 /* CircleGraph.swift */,
 				4D02EC221BD0918500701C75 /* HeaderView.swift */,
@@ -243,6 +303,7 @@
 		4D2256B51B8A530800727A4C /* IBDesignables */ = {
 			isa = PBXGroup;
 			children = (
+				4D92199F1BF8190E00A326A8 /* CustomSegmentControl.swift */,
 				4D7659151B8A3A55000862F7 /* BottomBorderedTextField.swift */,
 				4D2256EC1B8AC40E00727A4C /* RoundedButton.swift */,
 			);
@@ -290,6 +351,43 @@
 			name = "Server Request";
 			sourceTree = "<group>";
 		};
+		4D5674931BE932F10019D95C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4D6BC9971BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib */,
+				4D6BC9931BE4FF8D000C89C8 /* CategoriesCollectionViewCell.swift */,
+				4D6BC9941BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4D5674941BE932F60019D95C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D147D341BE6B1AC0040CF0E /* Category.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4D5674951BE932FD0019D95C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4D6BC98E1BE4FED6000C89C8 /* CategoriesViewController.swift */,
+				4D6BC98F1BE4FED6000C89C8 /* CategoriesViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4D6BC9921BE4FF59000C89C8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4D5674951BE932FD0019D95C /* Controller */,
+				4D5674941BE932F60019D95C /* Model */,
+				4D5674931BE932F10019D95C /* View */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		4D9621F21BA9A151005EBCDD /* Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -299,15 +397,67 @@
 			name = Card;
 			sourceTree = "<group>";
 		};
+		4D96D1521BFE28F300CDE687 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4DE85F681BD18CC5002AE4C5 /* Cause.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4D96D1531BFE290A00CDE687 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4DC0C98B1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift */,
+				4DC0C98D1BF8D57600E2A468 /* AmountDonatedHeaderView.xib */,
+				4D9BB1161BFFD32200E5000A /* BlogPostTableViewHeader.swift */,
+				4D9BB1141BFFD00300E5000A /* BlogPostTableViewHeader.xib */,
+				4D96D1501BFE282500CDE687 /* FriendsCollectionViewHeader.xib */,
+				4D96D1551BFE299000CDE687 /* FriendsCollectionViewHeader.swift */,
+				4D02EC1A1BD08A0400701C75 /* CausesTableViewCell.swift */,
+				4D02EC1B1BD08A0400701C75 /* CausesTableViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		4D96D1541BFE291900CDE687 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				4D92199B1BF815D700A326A8 /* CausePageViewController.swift */,
+				4D92199C1BF815D700A326A8 /* CausePageViewController.xib */,
+				4D9BB1181BFFD40700E5000A /* CauseStoryViewController.swift */,
+				4D9BB1191BFFD40700E5000A /* CauseStoryViewController.xib */,
+				4DC0C9871BF8D37100E2A468 /* CauseUpdateViewController.swift */,
+				4DC0C9881BF8D37100E2A468 /* CauseUpdateViewController.xib */,
+				4D02EC151BD0887200701C75 /* ExploreViewController.swift */,
+				4D02EC161BD0887200701C75 /* ExploreViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		4DD2FDEF1C25D9F100CF3F4C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				4DD2FDF61C25E75B00CF3F4C /* InitialSearchView.xib */,
+				4DD2FDF01C25DA0100CF3F4C /* SearchViewController.swift */,
+				4DD2FDF11C25DA0100CF3F4C /* SearchViewController.xib */,
+				4DD2FDFA1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift */,
+				4DD2FDFB1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib */,
+			);
+			name = Search;
+			sourceTree = "<group>";
+		};
 		4DE6692F1B86C8C4005CB0AF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */,
+				4D545D8B1BF7B99D00F009D5 /* DeviceDetect.swift */,
 				4DE85F661BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift */,
 				4D02EC261BD0ABF000701C75 /* String+Date.swift */,
 				4D0FDE431B8B77C3002877CE /* UIImageView+AsynchronousLoading.swift */,
 				4D0FDE481B8B8620002877CE /* UIView+Nib.swift */,
 				4D5C80591BA8F2F0001DEDAF /* UITextField+Padding.swift */,
+				4DF27D3F1C24A11E007D563A /* UIFont+CustomFonts.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -349,6 +499,10 @@
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
 				4D2256E81B8A8E5E00727A4C /* TabBarController.swift */,
 				B85F3F661BDD6C180029F83E /* Contributions */,
+				4D91C48F1C28841D00A4C0A5 /* PreviousImpactsViewController.swift */,
+				4D91C4901C28841D00A4C0A5 /* PreviousImpactsViewController.xib */,
+				4DD2FDEF1C25D9F100CF3F4C /* Search */,
+				4D6BC9921BE4FF59000C89C8 /* Categories */,
 				4D02EC191BD0887900701C75 /* Causes */,
 				4D9621F21BA9A151005EBCDD /* Card */,
 				B8D459F81B8FE0A400877310 /* Intro Screens */,
@@ -524,30 +678,44 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DD2FDFD1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib in Resources */,
 				B8C77E1B1B8AC2E700000927 /* SignInViewController.xib in Resources */,
 				B82E47831BB747E600D3C90B /* Main.storyboard in Resources */,
+				4D6BC9981BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib in Resources */,
+				4D6BC9911BE4FED6000C89C8 /* CategoriesViewController.xib in Resources */,
 				B8B8AA711B8FFBD1006E689C /* ContentViewController.xib in Resources */,
+				4DC0C98A1BF8D37100E2A468 /* CauseUpdateViewController.xib in Resources */,
 				4D2265851BA7937000A51908 /* CreditCardViewController.xib in Resources */,
 				B8C77E141B8ABEFA00000927 /* InitialScreenViewController.xib in Resources */,
 				B82E47821BB747E600D3C90B /* LaunchScreen.xib in Resources */,
 				B85F3F611BDD656C0029F83E /* ContributionsCollectionViewCell.xib in Resources */,
 				B8A5CF501B8FF48600D71D2C /* FirstIntroViewController.xib in Resources */,
 				B8C77E1F1B8AC2FF00000927 /* SignUpViewController.xib in Resources */,
+				4D9BB1151BFFD00300E5000A /* BlogPostTableViewHeader.xib in Resources */,
+				4D96D1511BFE282500CDE687 /* FriendsCollectionViewHeader.xib in Resources */,
 				4D2256FB1B8AD62300727A4C /* RoundedCollectionViewCell.xib in Resources */,
 				4D2256F31B8ACBD500727A4C /* ChooseBankHeaderView.xib in Resources */,
 				4D2B0FE91BBF5ADD00482FF4 /* AlertPopupView.xib in Resources */,
 				4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */,
 				4D02EC1D1BD08A0400701C75 /* CausesTableViewCell.xib in Resources */,
 				4D02EC181BD0887200701C75 /* ExploreViewController.xib in Resources */,
+				4DD2FDF71C25E75B00CF3F4C /* InitialSearchView.xib in Resources */,
 				4D2256F11B8AC7C900727A4C /* ChooseBankViewController.xib in Resources */,
 				B8A5CF541B8FF49A00D71D2C /* ThirdIntroViewController.xib in Resources */,
 				4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */,
+				4D92199E1BF815D700A326A8 /* CausePageViewController.xib in Resources */,
+				4DC0C98E1BF8D57600E2A468 /* AmountDonatedHeaderView.xib in Resources */,
 				B8A5CF581B8FF4A500D71D2C /* FinalIntroViewController.xib in Resources */,
+				4D91C4961C28861800A4C0A5 /* AccessoryTableViewCell.xib in Resources */,
 				4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */,
 				B8B8AA6D1B8FF69D006E689C /* PageViewController.xib in Resources */,
+				4D6BC9961BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib in Resources */,
 				4D0FDE4E1B8BB646002877CE /* BankSignInViewController.xib in Resources */,
 				B85F3F651BDD6C130029F83E /* ContributionsViewController.xib in Resources */,
+				4DD2FDF31C25DA0100CF3F4C /* SearchViewController.xib in Resources */,
 				B8585C231B8642E900AB091A /* Images.xcassets in Resources */,
+				4D91C4921C28841D00A4C0A5 /* PreviousImpactsViewController.xib in Resources */,
+				4D9BB11B1BFFD40700E5000A /* CauseStoryViewController.xib in Resources */,
 				B8D45A061B8FF3E000877310 /* SecondIntroViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,17 +785,27 @@
 				B8585C1E1B8642E900AB091A /* ViewController.swift in Sources */,
 				4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */,
 				4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */,
+				4DD2FDF21C25DA0100CF3F4C /* SearchViewController.swift in Sources */,
 				4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */,
 				4DE85F671BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift in Sources */,
 				4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */,
+				4D91C4911C28841D00A4C0A5 /* PreviousImpactsViewController.swift in Sources */,
 				4D02EC1C1BD08A0400701C75 /* CausesTableViewCell.swift in Sources */,
 				4D2265841BA7937000A51908 /* CreditCardViewController.swift in Sources */,
 				4D8210281BD291F30032DA07 /* CircleGraph.swift in Sources */,
+				4D147D351BE6B1AC0040CF0E /* Category.swift in Sources */,
 				B8C77E1E1B8AC2FF00000927 /* SignUpViewController.swift in Sources */,
 				B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */,
 				B8A5CF531B8FF49A00D71D2C /* ThirdIntroViewController.swift in Sources */,
 				4D0FDE441B8B77C3002877CE /* UIImageView+AsynchronousLoading.swift in Sources */,
+				4D9BB1171BFFD32200E5000A /* BlogPostTableViewHeader.swift in Sources */,
+				4D9BB11A1BFFD40700E5000A /* CauseStoryViewController.swift in Sources */,
+				4DF27D401C24A11E007D563A /* UIFont+CustomFonts.swift in Sources */,
 				4D2B0FE41BBF4B8100482FF4 /* AlertViewController.swift in Sources */,
+				4DD2FDFC1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift in Sources */,
+				4DC0C9891BF8D37100E2A468 /* CauseUpdateViewController.swift in Sources */,
+				4D92199D1BF815D700A326A8 /* CausePageViewController.swift in Sources */,
+				4D9219A01BF8190E00A326A8 /* CustomSegmentControl.swift in Sources */,
 				4D0FDE491B8B8620002877CE /* UIView+Nib.swift in Sources */,
 				4D6DC3641B8BED330017BF29 /* DoneButton.swift in Sources */,
 				4D2256E91B8A8E5E00727A4C /* TabBarController.swift in Sources */,
@@ -635,7 +813,9 @@
 				4D2256F01B8AC7C900727A4C /* ChooseBankViewController.swift in Sources */,
 				4D5C805A1BA8F2F0001DEDAF /* UITextField+Padding.swift in Sources */,
 				B8B8AA701B8FFBD1006E689C /* ContentViewController.swift in Sources */,
+				4DC0C98C1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift in Sources */,
 				B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */,
+				4D96D1561BFE299000CDE687 /* FriendsCollectionViewHeader.swift in Sources */,
 				4D2257021B8ADD1000727A4C /* Bank.swift in Sources */,
 				4DB8CB171B8ED5CE00A6031D /* ForgetLoginViewController.swift in Sources */,
 				4D02EC171BD0887200701C75 /* ExploreViewController.swift in Sources */,
@@ -648,12 +828,16 @@
 				4D0FDE4D1B8BB646002877CE /* BankSignInViewController.swift in Sources */,
 				B85F3F601BDD656C0029F83E /* ContributionsCollectionViewCell.swift in Sources */,
 				4D6DC35F1B8BEBAC0017BF29 /* BankPinViewController.swift in Sources */,
+				4D545D8C1BF7B99D00F009D5 /* DeviceDetect.swift in Sources */,
 				4DE85F691BD18CC5002AE4C5 /* Cause.swift in Sources */,
+				4D6BC9951BE4FF8D000C89C8 /* CategoriesCollectionViewCell.swift in Sources */,
 				B8B8AA6C1B8FF69D006E689C /* PageViewController.swift in Sources */,
 				B8A5CF571B8FF4A500D71D2C /* FinalIntroViewController.swift in Sources */,
 				B85F3F641BDD6C130029F83E /* ContributionsViewController.swift in Sources */,
 				4D2256FA1B8AD62300727A4C /* RoundedCollectionViewCell.swift in Sources */,
 				4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */,
+				4D91C4951C28861800A4C0A5 /* AccessoryTableViewCell.swift in Sources */,
+				4D6BC9901BE4FED6000C89C8 /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,7 +900,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -764,7 +948,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_BITCODE = YES;
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -794,7 +978,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Impact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Impact.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ImpactApp.Impact;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Impact/Bridging-Header.h";
@@ -811,7 +995,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Impact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Impact.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ImpactApp.Impact;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Impact/Bridging-Header.h";

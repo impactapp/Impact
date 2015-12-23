@@ -24,25 +24,35 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
-        initTableView()
         initHeader()
         enableLocationServices()
+        self.navigationController?.edgesForExtendedLayout = .None
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        initTableView()
         ServerRequest.shared.getAllCauses { (causes) -> Void in
             self.causes = causes
             self.tableView.reloadData()
         }
+
     }
     
     func initHeader() {
-        self.header = HeaderView(view: self.view)
-        self.view.addSubview(self.header)
+        if !self.view.subviews.contains(self.header) {
+            self.header = HeaderView(view: self.view)
+            self.view.addSubview(self.header)
+        }
     }
     
     func initTableView() {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.registerNib(UINib(nibName: "CausesTableViewCell", bundle: nil), forCellReuseIdentifier: "CausesTableViewCell")
-        let tableViewHeader = UIView(frame: CGRectMake(statusBarHeight, 0, self.tableView.frame.size.width, header.frame.size.height))
+        let tableViewHeader = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, header.frame.size.height))
+        tableViewHeader.backgroundColor = UIColor.customRed() //hacky solution
         self.tableView.tableHeaderView = tableViewHeader
     }
     
@@ -82,6 +92,13 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         
         return cell
     }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let selectedCause = self.causes[indexPath.row]
+        
+        let cpvc = CausePageViewController(nibName: "CausePageViewController", bundle: nil)
+        cpvc.cause = selectedCause
+        self.navigationController?.pushViewController(cpvc, animated: true)
+    }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         animateHeaderView(scrollView)
@@ -95,7 +112,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         let scrollOffset = scrollView.contentOffset.y
         let scrollDiff = scrollOffset - self.previousScrollViewOffset
         let scrollHeight = scrollView.frame.size.height
-        let scrollContentSizeHeight = scrollView.contentSize.height + scrollView.contentInset.bottom + statusBarHeight
+        let scrollContentSizeHeight = scrollView.contentSize.height + scrollView.contentInset.bottom //+ statusBarHeight
         if (scrollOffset <= -scrollView.contentInset.top) {
             frame.origin.y = statusBarHeight;
         } else if ((scrollOffset + scrollHeight) >= scrollContentSizeHeight && scrollContentSizeHeight > self.view.frame.size.height){

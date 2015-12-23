@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -24,6 +25,7 @@
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jr4-sj-En0">
                     <rect key="frame" x="21" y="120" width="559" height="42"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="r6g-50-2IJ"/>
                     </constraints>
@@ -35,6 +37,7 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="de3-Et-bU8">
                             <rect key="frame" x="8" y="19" width="63" height="42"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="63" id="VZt-Yc-XJe"/>
                             </constraints>
@@ -48,6 +51,7 @@
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbg-pR-zWt">
                             <rect key="frame" x="150" y="19" width="300" height="42"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="300" id="PSO-e9-dLV"/>
                                 <constraint firstAttribute="height" constant="42" id="l1J-h0-sif"/>
@@ -57,6 +61,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="de3-Et-bU8" secondAttribute="bottom" constant="7" id="0P3-t3-iwy"/>
@@ -69,6 +74,7 @@
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8i4-Qq-czM">
                     <rect key="frame" x="49" y="96" width="531" height="20.5"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Sh5-pM-EjC"/>
                     </constraints>
@@ -78,12 +84,14 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChainIcon" translatesAutoresizingMaskIntoConstraints="NO" id="XXc-YV-rDm">
                     <rect key="frame" x="21" y="96" width="20" height="20"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="XXc-YV-rDm" secondAttribute="height" multiplier="1:1" id="8Sz-tT-F2G"/>
                     </constraints>
                 </imageView>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jDd-kM-kea">
                     <rect key="frame" x="21" y="194" width="559" height="42"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="PaG-Ka-oEe"/>
                     </constraints>
@@ -92,6 +100,7 @@
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z9m-lu-Hd1">
                     <rect key="frame" x="49" y="170" width="531" height="20.5"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="Tt0-aJ-roH"/>
                     </constraints>
@@ -101,11 +110,13 @@
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LockIcon" translatesAutoresizingMaskIntoConstraints="NO" id="KpU-2w-iM8">
                     <rect key="frame" x="21" y="170" width="20" height="20"/>
+                    <animations/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="KpU-2w-iM8" secondAttribute="height" multiplier="1:1" id="bqU-ha-Gua"/>
                     </constraints>
                 </imageView>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="8i4-Qq-czM" secondAttribute="trailing" constant="20" id="1oY-PM-RQS"/>

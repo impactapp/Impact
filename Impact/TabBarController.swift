@@ -16,6 +16,7 @@ class TabBarViewController: UITabBarController {
     //MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad();
+        UIApplication.sharedApplication().statusBarHidden = false
         initTabBarAttributes();
         setUpViewControllers();
         initUnderLine()
@@ -30,16 +31,15 @@ class TabBarViewController: UITabBarController {
     
     func setUpViewControllers() {
         let exploreViewController = ExploreViewController();
-        exploreViewController.tabBarItem.image = UIImage(named: "CausesIcon");
-        let contributionsViewController = ContributionsViewController()
-        
-        
-        contributionsViewController.tabBarItem.image = UIImage(named: "ProfileIcon");
-        let test1 = UIViewController()
-        test1.tabBarItem.image = UIImage(named:"CausesIcon")
+
+        exploreViewController.tabBarItem.image = UIImage(named: "Earth");
+        let profileViewController = UIViewController();
+        profileViewController.tabBarItem.image = UIImage(named: "Heart");
+        let searchViewController = SearchViewController()
+        searchViewController.tabBarItem.image = UIImage(named:"MagnifyingGlass")
         let test2 = UIViewController()
-        test2.tabBarItem.image = UIImage(named: "ProfileIcon");
-        self.viewControllers = [exploreViewController,contributionsViewController,test1,test2];
+        test2.tabBarItem.image = UIImage(named: "Person");
+        self.viewControllers = [exploreViewController,profileViewController,searchViewController,test2];
         for item:UITabBarItem in self.tabBar.items! {
             item.imageInsets = self.tabBarImageInsets
         }

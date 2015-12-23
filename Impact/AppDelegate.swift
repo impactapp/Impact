@@ -15,31 +15,46 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
         
         //we'll change the initial view controller based on whether the user is logged in or not
         var initialViewController = UIViewController();
         if (isLoggedIn()) {
-            initialViewController = TabBarViewController();
+            initialViewController = TabBarViewController()
         } else {
             initialViewController = PageViewController(nibName:"PageViewController", bundle: nil);
         }
         let navigationController = UINavigationController(rootViewController: initialViewController);
         navigationController.navigationBarHidden = true;
         self.window?.rootViewController =  navigationController;
-        self.window?.makeKeyAndVisible();
+        self.window?.makeKeyAndVisible()
         
-        return true
+        registerForPushNotifications()
+        
+        return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     private func isLoggedIn() -> Bool {
-        if let authenticationToken = UserCredentials.shared.getUserToken() {
+        if UserCredentials.shared.getUserToken() != nil {
             return true
         } else {
             return false
         }
+    }
+    
+    private func registerForPushNotifications() {
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        var tokenString = NSString(format: "%@", deviceToken)
+        tokenString = tokenString.stringByReplacingOccurrencesOfString("<", withString: "")
+        tokenString = tokenString.stringByReplacingOccurrencesOfString(">", withString: "")
+        tokenString = tokenString.stringByReplacingOccurrencesOfString(" ", withString: "")
+        UserCredentials.shared.updateDeviceToken(tokenString as String)
     }
 
     func applicationWillResignActive(application: UIApplication) {

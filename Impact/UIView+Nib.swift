@@ -21,4 +21,19 @@ extension UIView {
         lineView.backgroundColor=color;
         self.addSubview(lineView);
     }
+    
+    func resizeToFitSubviews() {
+        
+        let subviewsRect = subviews.reduce(CGRect.zero) {
+            $0.union($1.frame)
+        }
+        
+        let fix = subviewsRect.origin
+        subviews.forEach {
+            $0.frame.offsetInPlace(dx: -fix.x, dy: -fix.y)
+        }
+        
+        frame.offsetInPlace(dx: fix.x, dy: fix.y)
+        frame.size = subviewsRect.size
+    }
 }
