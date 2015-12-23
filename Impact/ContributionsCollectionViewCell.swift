@@ -20,8 +20,7 @@ class ContributionsCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         // Initialization code
         self.layer.borderColor = UIColor.blackColor().CGColor
-        self.layer.borderWidth = 2.0
-        self.backgroundColor = UIColor.customGrey()
+        self.backgroundColor = UIColor.customDarkGrey()
         
     }
 

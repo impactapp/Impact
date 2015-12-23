@@ -221,10 +221,6 @@
 		4D0FDE451B8B82A1002877CE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				B85F3F5E1BDD656C0029F83E /* ContributionsCollectionViewCell.swift */,
-				B85F3F5F1BDD656C0029F83E /* ContributionsCollectionViewCell.xib */,
-				4D2256F81B8AD62300727A4C /* RoundedCollectionViewCell.swift */,
-				4D2256F91B8AD62300727A4C /* RoundedCollectionViewCell.xib */,
 				4D2B0FE21BBF4B8100482FF4 /* AlertViewController.swift */,
 				4D8210271BD291F30032DA07 /* CircleGraph.swift */,
 				4D02EC221BD0918500701C75 /* HeaderView.swift */,
@@ -400,6 +396,8 @@
 		B85F3F661BDD6C180029F83E /* Contributions */ = {
 			isa = PBXGroup;
 			children = (
+				B85F3F5E1BDD656C0029F83E /* ContributionsCollectionViewCell.swift */,
+				B85F3F5F1BDD656C0029F83E /* ContributionsCollectionViewCell.xib */,
 				B85F3F621BDD6C130029F83E /* ContributionsViewController.swift */,
 				B85F3F631BDD6C130029F83E /* ContributionsViewController.xib */,
 			);
