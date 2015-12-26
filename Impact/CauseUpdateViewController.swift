@@ -57,10 +57,10 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     
     func joinCause() {
         if let cause = self.cause {
+            print("here")
             ServerRequest.shared.joinCause(cause, success: { (successful) -> Void in
                 
                 }, failure: { (errorMessage) -> Void in
-                    
             })
         }
     }

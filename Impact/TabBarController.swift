@@ -31,14 +31,15 @@ class TabBarViewController: UITabBarController {
     
     func setUpViewControllers() {
         let exploreViewController = ExploreViewController();
+
         exploreViewController.tabBarItem.image = UIImage(named: "Earth");
         let profileViewController = UIViewController();
-        profileViewController.tabBarItem.image = UIImage(named: "Heart");
+        profileViewController.tabBarItem.image = UIImage(named: "Person");
         let searchViewController = SearchViewController()
         searchViewController.tabBarItem.image = UIImage(named:"MagnifyingGlass")
-        let test2 = UIViewController()
-        test2.tabBarItem.image = UIImage(named: "Person");
-        self.viewControllers = [exploreViewController,profileViewController,searchViewController,test2];
+        let contributionsViewController = ContributionsViewController()
+        contributionsViewController.tabBarItem.image = UIImage(named: "Heart");
+        self.viewControllers = [exploreViewController,contributionsViewController,searchViewController,profileViewController];
         for item:UITabBarItem in self.tabBar.items! {
             item.imageInsets = self.tabBarImageInsets
         }

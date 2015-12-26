@@ -166,6 +166,20 @@ class ServerRequest: NSObject {
         })
     }
     
+    //MARK: User
+    func getCurrentUser(completion:(currentUser:User) -> Void) {
+        let endpoint = "current_user"
+        
+        getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            let result:User =  User(fromJson:json)
+            completion(currentUser: result)
+            },failure: { (error) -> Void in
+                
+        })
+    }
+    
+    
+    
     //MARK: Facebook
     
     
@@ -222,6 +236,25 @@ class ServerRequest: NSObject {
             }
         })
     }
+    
+    //MARK: Contributions
+    func getContributions(completion:(contributions:[Contribution]) -> Void) {
+        let endpoint = "current_user/contributions"
+        
+        getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            var result: [Contribution] = []
+            if let array = json.array {
+                for jsonObject in array {
+                    result.append(Contribution(fromJson: jsonObject))
+                }
+            }
+            completion(contributions: result)
+            },failure: { (error) -> Void in
+                
+        })
+    }
+    
+    
     
     //MARK: Categories
     
