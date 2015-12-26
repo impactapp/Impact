@@ -11,6 +11,11 @@ import UIKit
 class ContributionsViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet var collectionView: UICollectionView!
+    var previousCauses : [Cause] = []
+    var contributions : [Contribution] = []
+    var currentUser : User!
+    var mostContributedCategory : Category!
+
     let statusBarHeight = CGFloat(20)
     let tabBarHeight = CGFloat(44)
     let collectionCellOffset = CGFloat(2)
@@ -29,7 +34,27 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpCollectionView()
+        refreshCollectionView()
         initHeader()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        ServerRequest.shared.getCurrentUser{ (currentUser) -> Void in
+            self.currentUser = currentUser
+            self.collectionView.reloadData()
+        }
+        ServerRequest.shared.getPreviousCauses { (causes) -> Void in
+            self.previousCauses = causes
+            self.collectionView.reloadData()
+        }
+        ServerRequest.shared.getContributions { (contributions) -> Void in
+            self.contributions = contributions
+            self.collectionView.reloadData()
+        }
+        
+        
+        refreshCollectionView()
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +65,13 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
     func initHeader() {
         self.header = HeaderView(view: self.view)
         self.view.addSubview(self.header)
+    }
+    
+    //TODO
+    private func refreshCollectionView(){
+        
+        
+        
     }
     
     private func setUpCollectionView() {
@@ -78,20 +110,101 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         let cell :ContributionsCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! ContributionsCollectionViewCell
         cell.titleLabel.text = titles[itemNum]
         cell.detailLabel.text = details[itemNum]
-        cell.finishingLabel.text = bottomLabels[itemNum]
+        cell.titleLabel.adjustsFontSizeToFitWidth = true
         if(itemNum != 3){
+            cell.finishingLabel.text = bottomLabels[itemNum]
             cell.imageView.hidden = true
+        }
+
+        switch itemNum{
+        case 0:
+            if(self.previousCauses.count>0){
+                cell.numberLabel.adjustsFontSizeToFitWidth = true
+                cell.numberLabel.text = self.previousCauses[0].name
+
+            }else{
+                cell.numberLabel.text = "hello"
+
+            }
             
-        }else{
+        case 1:
+            if((self.currentUser) != nil){
+                cell.numberLabel.text = String(self.currentUser.weekly_budget);
+            }
+        case 3:
             cell.numberLabel.hidden = true
+            let category:String = getMostContributedCategory()
+            //TODO add category images here
+            if(self.mostContributedCategory != nil){
+                //TODO why isn't this updating?
+                cell.imageView.setImageWithUrl(NSURL(string: self.mostContributedCategory.icon_url))
+            }
+
+            cell.finishingLabel.text = category
+            
+        case 4:
+            cell.numberLabel.text = String(self.contributions.count)
+            
+        case 5:
+            cell.numberLabel.text = String(self.previousCauses.count)
+        default:
+            cell.numberLabel.text = "hello"
+            cell.imageView.hidden = true
         }
         
         return cell
     }
+    
+    private func getMostContributedCategory() -> String{
+        let defaultString = "default string"
+        var causeCategories = [String: Int]()
+
+        for cause:Cause in self.previousCauses{
+            if let val = causeCategories[cause.category] {
+                let inc = val+1
+                causeCategories[cause.category] = inc
+                
+            }else{
+                causeCategories[cause.category] = 1
+            }
+        }
+        var maxVal = 0
+        var maxCat = defaultString
+        for (category, num) in causeCategories{
+            if(num>maxVal){
+                maxVal = num
+                maxCat = category
+            }
+        }
+        
+        if(maxCat != defaultString){
+            ServerRequest.shared.getCategories { (categories) -> Void in
+                for category in categories{
+                    if(category.name.lowercaseString == maxCat.lowercaseString){
+                        self.mostContributedCategory = category
+                    }
+                }
+                
+                self.collectionView.reloadData()
+            }
+        }
+        
+        
+        return maxCat
+    }
 
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        
+        let itemNum = indexPath.item
+        switch itemNum{
+        case 5:
+            let previousImpactsVC : PreviousImpactsViewController = PreviousImpactsViewController(nibName: "PreviousImpactsViewController", bundle: nil);
+            self.navigationController?.pushViewController(previousImpactsVC, animated: true);
+            
+        default:
+            _ = 0
+        }
+
     }
     
 
