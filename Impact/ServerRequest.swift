@@ -178,6 +178,15 @@ class ServerRequest: NSObject {
         })
     }
     
+    func postClearUserStreak(completion:(currentUser:User) -> Void) {
+        let endpoint = "current_user/update/clear_streak"
+        postWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            let result:User =  User(fromJson:json)
+            completion(currentUser: result)
+            },failure: { (error) -> Void in
+                
+        })
+    }
     
     
     //MARK: Facebook

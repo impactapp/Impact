@@ -13,6 +13,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
     @IBOutlet var collectionView: UICollectionView!
     var previousCauses : [Cause] = []
     var contributions : [Contribution] = []
+    var categories : [Category] = []
     var currentUser : User!
     var mostContributedCategory : Category!
 
@@ -50,6 +51,9 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         ServerRequest.shared.getContributions { (contributions) -> Void in
             self.contributions = contributions
             self.collectionView.reloadData()
+        }
+        ServerRequest.shared.getCategories { (categories) -> Void in
+            self.categories = categories
         }
         
         
@@ -131,13 +135,32 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             if((self.currentUser) != nil){
                 cell.numberLabel.text = String(self.currentUser.weekly_budget);
             }
+        case 2:
+            
+            cell.numberLabel.hidden = false
+            
+            if((self.currentUser) != nil){
+                let currentTime : NSDate = NSDate()
+                let lastContribution = self.currentUser.last_contribution_date
+                let oneDayLater = lastContribution!.dateByAddingTimeInterval(60*60*24)
+                if(currentTime.compare(oneDayLater)  == .OrderedAscending){
+                    cell.numberLabel.text = String(self.currentUser.current_streak);
+                }else{
+                    ServerRequest.shared.postClearUserStreak{ (currentUser) -> Void in
+                        
+                    }
+                    cell.numberLabel.text = "0"
+                }
+                
+            }
         case 3:
             cell.numberLabel.hidden = true
+            cell.imageView.hidden = false
             let category:String = getMostContributedCategory()
-            //TODO add category images here
             if(self.mostContributedCategory != nil){
-                //TODO why isn't this updating?
+                //gotta figure out colors here
                 cell.imageView.setImageWithUrl(NSURL(string: self.mostContributedCategory.icon_url))
+                cell.imageView.backgroundColor = UIColor.whiteColor()
             }
 
             cell.finishingLabel.text = category
@@ -178,15 +201,12 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         }
         
         if(maxCat != defaultString){
-            ServerRequest.shared.getCategories { (categories) -> Void in
-                for category in categories{
-                    if(category.name.lowercaseString == maxCat.lowercaseString){
-                        self.mostContributedCategory = category
-                    }
+            for category in self.categories{
+                if(category.name.lowercaseString == maxCat.lowercaseString){
+                    self.mostContributedCategory = category
                 }
-                
-                self.collectionView.reloadData()
             }
+            
         }
         
         

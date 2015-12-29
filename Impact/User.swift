@@ -40,16 +40,15 @@ class User: NSObject {
             return
         }
         
+        
         id = json["id"].intValue
         name = json["name"].stringValue
         email = json["email"].stringValue
         facebook_id = json["facebook_id"].intValue
         current_cause_id = json["current_cause_id"].intValue
         current_cause_name = json["current_cause_name"].stringValue
-        current_cause_join_date = json["current_cause_join_date"].stringValue.convertToDate()
         total_amount_contributed = json["total_amount_contributed"].floatValue
         current_cause_amount_contributed = json["current_cause_amount_contributed"].floatValue
-        last_contribution_date = json["last_contribution_date"].stringValue.convertToDate()
         pending_contribution_amount = json["pending_contribution_amount"].floatValue
         stripe_customer_id = json["stripe_customer_id"].intValue
         current_payment_id = json["current_payment_id"].intValue
@@ -57,8 +56,20 @@ class User: NSObject {
         current_streak = json["current_streak"].intValue
         total_contributions = json["total_contributions"].intValue
         device_token = json["device_token"].stringValue
-        created_at = json["created_at"].stringValue.convertToDate()
-        updated_at = json["updated_at"].stringValue.convertToDate()
+        
+        //dates
+        let dateformatter = NSDateFormatter()
+        dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        let created_at_string = json["created_at"].stringValue
+        let updated_at_string = json["updated_at"].stringValue
+        let last_contribution_date_string = json["last_contribution_date"].stringValue
+        let current_cause_join_date_string = json["current_cause_join_date"].stringValue
+
+        current_cause_join_date = dateformatter.dateFromString(current_cause_join_date_string)
+        last_contribution_date = dateformatter.dateFromString(last_contribution_date_string)
+        created_at = dateformatter.dateFromString(created_at_string)
+        updated_at = dateformatter.dateFromString(updated_at_string)
     }
     
     /**

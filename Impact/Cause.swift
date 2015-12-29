@@ -37,7 +37,6 @@ class Cause: NSObject {
             return
         }
         category = json["category"].stringValue
-        createdAt = json["created_at"].stringValue.convertToDate()
         currentTotal = json["current_total"].intValue
         descriptionField = json["description"].stringValue
         endDate = json["end_date"].stringValue.convertToDate()
@@ -56,7 +55,17 @@ class Cause: NSObject {
         city = json["city"].stringValue
         longitude = json["longitude"].floatValue
         latitude = json["latitude"].floatValue
-        updatedAt = json["updated_at"].stringValue.convertToDate()
+        
+        
+        
+        //dates
+        let dateformatter = NSDateFormatter()
+        dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        let created_at_string = json["created_at"].stringValue
+        let updated_at_string = json["updated_at"].stringValue
+        createdAt = dateformatter.dateFromString(created_at_string)
+        updatedAt = dateformatter.dateFromString(updated_at_string)
     }
     
     /**

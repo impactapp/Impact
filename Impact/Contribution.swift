@@ -34,8 +34,15 @@ class Contribution: NSObject {
         user_name = json["user_name"].stringValue
         cause_id = json["cause_id"].intValue
         payment_id = json["payment_id"].intValue
-        created_at = json["created_at"].stringValue.convertToDate()
-        updated_at = json["updated_at"].stringValue.convertToDate()
+        
+        //dates
+        let dateformatter = NSDateFormatter()
+        dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        
+        let created_at_string = json["created_at"].stringValue
+        let updated_at_string = json["updated_at"].stringValue
+        created_at = dateformatter.dateFromString(created_at_string)
+        updated_at = dateformatter.dateFromString(updated_at_string)
     }
     
     /**
