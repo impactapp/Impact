@@ -158,7 +158,9 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             cell.imageView.hidden = false
             let category:String = getMostContributedCategory()
             if(self.mostContributedCategory != nil){
+                //gotta figure out colors here
                 cell.imageView.setImageWithUrl(NSURL(string: self.mostContributedCategory.icon_url))
+                cell.imageView.backgroundColor = UIColor.whiteColor()
             }
 
             cell.finishingLabel.text = category
