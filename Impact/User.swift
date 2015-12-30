@@ -59,11 +59,12 @@ class User: NSObject {
         
         //dates
         let dateformatter = NSDateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         
         let created_at_string = json["created_at"].stringValue
         let updated_at_string = json["updated_at"].stringValue
         let last_contribution_date_string = json["last_contribution_date"].stringValue
+        
         let current_cause_join_date_string = json["current_cause_join_date"].stringValue
 
         current_cause_join_date = dateformatter.dateFromString(current_cause_join_date_string)
