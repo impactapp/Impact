@@ -60,7 +60,7 @@ class Cause: NSObject {
         
         //dates
         let dateformatter = NSDateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
         
         let created_at_string = json["created_at"].stringValue
         let updated_at_string = json["updated_at"].stringValue
