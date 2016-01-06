@@ -59,6 +59,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.searchTextField.textAlignment = NSTextAlignment.Center
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        dismissKeyboard()
+        return true
+    }
+    
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         
@@ -72,6 +77,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.reloadData()
     }
     
+    func dismissKeyboard() {
+        self.searchTextField.resignFirstResponder()
+    }
+    
     //MARK: TableView
     
     func initTableView() {
@@ -81,6 +90,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let tableViewHeader = UIView(frame: CGRectMake(0, 0, self.tableView.frame.size.width, header.frame.size.height - 20))
         tableViewHeader.backgroundColor = UIColor.customDarkGrey() //hacky solution
         self.tableView.tableHeaderView = tableViewHeader
+        let tableViewTap = UITapGestureRecognizer(target: self, action: "didTapTableView:")
+        self.tableView.addGestureRecognizer(tableViewTap)
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,6 +101,21 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cause = self.searchResults[indexPath.row]
         return configureCell(cause, indexPath: indexPath)
+    }
+    
+    //all touches to tableviews go through here because of tap gesture recognizer
+    func didTapTableView(recognizer:UIGestureRecognizer) {
+        let tapLocation = recognizer.locationInView(self.tableView)
+        let indexPath = self.tableView.indexPathForRowAtPoint(tapLocation)
+        let didTouchTableViewCell = indexPath != nil
+        
+        //if location is on a tableviewcell cancel gesture and let default action take place
+        //else dismiss keyboard
+        if didTouchTableViewCell {
+            recognizer.cancelsTouchesInView = false
+        } else {
+            dismissKeyboard()
+        }
     }
     
     private func configureCell(cause:Cause, indexPath:NSIndexPath) -> SearchCauseTableViewCell {
