@@ -29,7 +29,9 @@ enum BankType:String {
 }
 
 class ServerRequest: NSObject {
-    private let baseURL = "https://murmuring-coast-1876.herokuapp.com/api/";
+    private let useStagingServer = false
+    private let baseURL = "https://murmuring-coast-1876.herokuapp.com/api/"
+    private let stagingURL = "https://pacific-wildwood-1045.herokuapp.com/api/"
     private let kUserRequestKey = "user"
     private let kFacebookRequestKey = "facebook"
     private let kStripePublishableKey = "pk_test_xxr45bpY3r0T5MZ4dGbeTQ7L"
@@ -37,7 +39,8 @@ class ServerRequest: NSObject {
     
     //MARK :  Helper Methods
     private func getWithEndpoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
-        let path : String = baseURL + endpoint;
+        let url = useStagingServer ? stagingURL : baseURL
+        let path : String = url + endpoint;
         let headers = getRequestHeaders(authenticated)
         Alamofire.request(.GET, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { response in
             let status = response.response?.statusCode
@@ -53,7 +56,8 @@ class ServerRequest: NSObject {
     }
     
     private func updateWithEndpoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
-        let path : String = baseURL + endpoint;
+        let url = useStagingServer ? stagingURL : baseURL
+        let path : String = url + endpoint
         let headers = getRequestHeaders(authenticated)
         Alamofire.request(.PUT, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { response in
             let status = response.response?.statusCode
@@ -69,7 +73,8 @@ class ServerRequest: NSObject {
     }
     
     private func postWithEndpoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
-        let path : String = baseURL + endpoint;
+        let url = useStagingServer ? stagingURL : baseURL
+        let path : String = url + endpoint
         let headers = getRequestHeaders(authenticated)
         Alamofire.request(.POST, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { response in
             let status = response.response?.statusCode
@@ -85,7 +90,8 @@ class ServerRequest: NSObject {
     }
     
     private func stagedPostWithEndpoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON,completed:Bool) -> Void, failure:(error:JSON) -> Void) {
-        let path : String = baseURL + endpoint;
+        let url = useStagingServer ? stagingURL : baseURL
+        let path : String = url + endpoint
         let headers = getRequestHeaders(authenticated)
         Alamofire.request(.POST, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { (response) -> Void in
             let status = response.response?.statusCode
@@ -103,7 +109,8 @@ class ServerRequest: NSObject {
     }
     
     private func deleteWithEndoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
-        let path : String = baseURL + endpoint;
+        let url = useStagingServer ? stagingURL : baseURL
+        let path : String = url + endpoint
         let headers = getRequestHeaders(authenticated)
         Alamofire.request(.DELETE, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { (response) -> Void in
             let status = response.response?.statusCode
