@@ -115,6 +115,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         cell.titleLabel.text = titles[itemNum]
         cell.detailLabel.text = details[itemNum]
         cell.titleLabel.adjustsFontSizeToFitWidth = true
+        cell.numberLabel.adjustsFontSizeToFitWidth = true
         if(itemNum != 3){
             cell.finishingLabel.text = bottomLabels[itemNum]
             cell.imageView.hidden = true
