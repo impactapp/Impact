@@ -16,6 +16,9 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
     var categories : [Category] = []
     var currentUser : User!
     var mostContributedCategory : Category!
+    let contributingCauseNameFontSize:CGFloat = 30
+    let contritedAmountFontSize:CGFloat = 50
+    let defaultTitleLabelFontSize:CGFloat = 125
 
     let statusBarHeight = CGFloat(20)
     let tabBarHeight = CGFloat(44)
@@ -115,28 +118,36 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         cell.titleLabel.text = titles[itemNum]
         cell.detailLabel.text = details[itemNum]
         cell.titleLabel.adjustsFontSizeToFitWidth = true
-        cell.numberLabel.adjustsFontSizeToFitWidth = true
         cell.detailLabel.adjustsFontSizeToFitWidth = true
         if(itemNum != 3){
             cell.finishingLabel.text = bottomLabels[itemNum]
             cell.imageView.hidden = true
         }
-        cell.numberLabel.textColor = UIColor.whiteColor()   
+        //set defaults
+        cell.numberLabel.baselineAdjustment = UIBaselineAdjustment.AlignCenters
+            cell.finishingLabel.hidden = false
+        cell.numberLabel.textColor = UIColor.whiteColor()
         switch itemNum{
         case 0:
             if(self.previousCauses.count>0){
-                cell.numberLabel.adjustsFontSizeToFitWidth = true
+                cell.numberLabel.numberOfLines = 2
+
                 cell.numberLabel.text = self.previousCauses[0].name
 
             }else{
                 cell.numberLabel.text = ""
 
             }
+            cell.numberLabel.adjustsFontSizeToFitWidth = true
+
+            cell.finishingLabel.hidden = true;
             
         case 1:
             if((self.currentUser) != nil){
-                cell.numberLabel.text = String(self.currentUser.total_amount_contributed);
+                cell.numberLabel.text = "$" + String(self.currentUser.total_amount_contributed);
             }
+            cell.numberLabel.adjustsFontSizeToFitWidth = true
+
         case 2:
             
             cell.numberLabel.hidden = false
@@ -160,6 +171,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
                 }
                 
             }
+            
         case 3:
             cell.numberLabel.hidden = true
             cell.imageView.hidden = false
@@ -179,6 +191,8 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         case 5:
             cell.numberLabel.text = String(self.previousCauses.count)
             cell.numberLabel.textColor = UIColor.customRed()
+            cell.numberLabel.adjustsFontSizeToFitWidth = false
+
 
         default:
             cell.numberLabel.text = ""

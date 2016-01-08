@@ -91,13 +91,13 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="wdS-3H-39m" secondAttribute="bottom" constant="115" id="03W-sC-yRn"/>
                 <constraint firstAttribute="trailing" secondItem="GJV-0t-64Z" secondAttribute="trailing" constant="47" id="2If-Xj-HIT"/>
-                <constraint firstAttribute="trailing" secondItem="wdS-3H-39m" secondAttribute="trailing" constant="236" id="4oh-lL-oas"/>
                 <constraint firstItem="Py1-sC-L7K" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7fs-Io-2dd"/>
                 <constraint firstItem="GJV-0t-64Z" firstAttribute="width" secondItem="dFg-IL-oiF" secondAttribute="width" id="9Yc-dU-jSS"/>
                 <constraint firstAttribute="trailing" secondItem="yfr-E2-b4Z" secondAttribute="trailing" constant="47" id="Abp-kv-kcy"/>
                 <constraint firstItem="yfr-E2-b4Z" firstAttribute="top" secondItem="GJV-0t-64Z" secondAttribute="bottom" constant="8" id="ETR-kv-Jtd"/>
                 <constraint firstAttribute="bottom" secondItem="Py1-sC-L7K" secondAttribute="bottom" id="EtM-w9-ayK"/>
                 <constraint firstItem="wdS-3H-39m" firstAttribute="top" secondItem="yfr-E2-b4Z" secondAttribute="bottom" constant="8" id="IFN-fg-BEO"/>
+                <constraint firstItem="wdS-3H-39m" firstAttribute="centerX" secondItem="Py1-sC-L7K" secondAttribute="centerX" constant="-5" id="PnW-qQ-0YI"/>
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="GJV-0t-64Z" secondAttribute="trailing" constant="42" id="ao0-6S-2Ka"/>
                 <constraint firstItem="Py1-sC-L7K" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="apW-Wz-UkH"/>
                 <constraint firstAttribute="trailing" secondItem="Py1-sC-L7K" secondAttribute="trailing" id="dPe-Bf-uFB"/>
