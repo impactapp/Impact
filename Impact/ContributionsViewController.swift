@@ -114,7 +114,9 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let itemNum = indexPath.item
+        
         let cell :ContributionsCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! ContributionsCollectionViewCell
+        
         cell.titleLabel.text = titles[itemNum]
         cell.detailLabel.text = details[itemNum]
         cell.titleLabel.adjustsFontSizeToFitWidth = true
@@ -178,8 +180,10 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             let category:String = getMostContributedCategory()
             if(self.mostContributedCategory != nil){
                 //gotta figure out colors here
+
                 cell.imageView.setImageWithUrl(NSURL(string: self.mostContributedCategory.icon_url))
-                cell.imageView.backgroundColor = UIColor.whiteColor()
+                cell.imageView.image = cell.imageView.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
+                cell.imageView.tintColor = UIColor.whiteColor()
             }
 
             cell.finishingLabel.text = category
@@ -234,7 +238,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         }
         
         
-        return maxCat
+        return maxCat.capitalizedString
     }
 
     
