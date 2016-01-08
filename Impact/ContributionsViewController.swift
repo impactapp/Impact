@@ -22,9 +22,9 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
     let collectionCellOffset = CGFloat(2)
 
     let cellIdentifier = "ContributionsCollectionViewCell"
-    let titles :[String] = ["Currently Impacting", "Weekly Budget", "Current Streak", "Donation Breakdown", "Round Up Log", "Previous Impacts"]
-    let details :[String] = ["You're impacting:", "You're contributing:", "You've consecutively impacted:", "You've mostly impacted:", "You've made:", "You've helped"]
-    let bottomLabels :[String] = ["Causes", "Per Week", "Days", "Armed Services", "Round Ups", "Causes"]
+    let titles :[String] = ["Currently Impacting", "Total Contributions", "Current Streak", "Donation Breakdown", "Round Up Log", "Previous Impacts"]
+    let details :[String] = ["You're impacting:", "You've donated:", "You've consecutively impacted:", "You've mostly impacted:", "You've made:", "You've helped"]
+    let bottomLabels :[String] = ["Causes", "In Total", "Days", "Armed Services", "Round Ups", "Causes"]
     
     var header = HeaderView(view:UIView())
     var previousBarYOrigin = CGFloat(0)
@@ -119,7 +119,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             cell.finishingLabel.text = bottomLabels[itemNum]
             cell.imageView.hidden = true
         }
-
+        cell.numberLabel.textColor = UIColor.whiteColor()   
         switch itemNum{
         case 0:
             if(self.previousCauses.count>0){
@@ -127,13 +127,13 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
                 cell.numberLabel.text = self.previousCauses[0].name
 
             }else{
-                cell.numberLabel.text = "hello"
+                cell.numberLabel.text = ""
 
             }
             
         case 1:
             if((self.currentUser) != nil){
-                cell.numberLabel.text = String(self.currentUser.weekly_budget);
+                cell.numberLabel.text = String(self.currentUser.total_amount_contributed);
             }
         case 2:
             
@@ -172,11 +172,14 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             
         case 4:
             cell.numberLabel.text = String(self.contributions.count)
+            cell.numberLabel.textColor = UIColor.customRed()
             
         case 5:
             cell.numberLabel.text = String(self.previousCauses.count)
+            cell.numberLabel.textColor = UIColor.customRed()
+
         default:
-            cell.numberLabel.text = "hello"
+            cell.numberLabel.text = ""
             cell.imageView.hidden = true
         }
         
