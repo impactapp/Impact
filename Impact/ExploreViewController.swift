@@ -24,6 +24,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
+        self.tableView.backgroundColor = UIColor.customRed()  
         initHeader()
         enableLocationServices()
         self.navigationController?.edgesForExtendedLayout = .None
