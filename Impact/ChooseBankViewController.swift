@@ -74,6 +74,7 @@ class ChooseBankViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.selectedBank = banks[indexPath.row];
         let bsvc : BankSignInViewController = BankSignInViewController(nibName: "BankSignInViewController", bundle: nil);
+        
         bsvc.bank = self.selectedBank;
         self.navigationController?.pushViewController(bsvc, animated: true);
     }

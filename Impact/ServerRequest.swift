@@ -343,6 +343,22 @@ class ServerRequest: NSObject {
         })
     }
     
+    func getCauseBlogPosts(cause:Cause, success:(blogPosts:[BlogPost]) -> Void, failure:(errorMessage:String)->Void) {
+        let endpoint = "blog_post/cause/\(cause.id)"
+        getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            var blogPosts : [BlogPost] = []
+            if let array = json.array {
+                for jsonObject in array {
+                    blogPosts.append(BlogPost(fromJson: jsonObject))
+                }
+            }
+            success(blogPosts: blogPosts)
+            
+            },failure: { (error) -> Void in
+                failure(errorMessage: "Unable to retrieve blog posts from cause")
+        })
+    }
+    
     //MARK: Banks
     
     func submitBankAccountInfo(bankUserName:String, bankPassword:String, bankType:String, pin: String?,success:(isFinished:Bool, question:String?, plaidToken:String?) -> Void, failure:(errorMessage:String) -> Void) {
