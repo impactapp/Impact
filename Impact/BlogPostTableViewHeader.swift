@@ -12,12 +12,25 @@ class BlogPostTableViewHeader: UIView {
 
     var blogPostLabel: UILabel!
     let margins = CGFloat(20)
+    var blogPostBody : String = ""
+    var blogPostTitle : String = ""
     
     
+    @IBOutlet weak var causeNameLabel: UILabel!
+    @IBOutlet weak var blogPostTitleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
     var blogPostLabelHeight = CGFloat(0)
+    var cause : Cause? = nil
+    
     override init(frame:CGRect) {
         super.init(frame: frame)
+    }
+    
+    init(frame:CGRect, blogPost:BlogPost, cause: Cause?) {
+        super.init(frame: frame)
+        self.blogPostBody = blogPost.blog_body
+        self.blogPostTitle = blogPost.title
+        self.cause = cause
         let xibView = NSBundle.mainBundle().loadNibNamed("BlogPostTableViewHeader", owner: self, options: [:]).first as! UIView
         self.addSubview(xibView)
         setUpLabel()
@@ -31,10 +44,13 @@ class BlogPostTableViewHeader: UIView {
     func setUpLabel() {
         let textWidth = UIScreen.mainScreen().bounds.width - 2*margins
         let labelY = self.imageView.frame.origin.y + self.imageView.frame.size.height - 40
+        self.blogPostTitleLabel.text = self.blogPostTitle
         self.blogPostLabel = UILabel(frame: CGRectMake(20,labelY,textWidth,0))
         self.blogPostLabel.numberOfLines = 0
-        self.blogPostLabel.text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
-        
+        self.blogPostLabel.text = self.blogPostBody
+        if let cause = self.cause {
+            self.causeNameLabel.text = cause.name
+        }
         let maximumLabelSize = CGSizeMake(textWidth, CGFloat(Double.infinity));
         let text = self.blogPostLabel.text!
         let font = UIFont(name: "AvenirNext-Regular", size: 15.0)!

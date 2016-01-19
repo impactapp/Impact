@@ -15,6 +15,7 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var headerView: UIView!
+    
     var previousBarYOrigin = CGFloat(0)
     var previousScrollViewOffset = CGFloat(0)
     let statusBarHeight = CGFloat(0)
@@ -29,7 +30,10 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
         
         cuvc.cause = self.cause
         cuvc.scrollDelegate = self
+        
+        csvc.cause = self.cause
         csvc.scrollDelegate = self
+        
         viewControllers = [csvc,cuvc];
         
         self.pageViewController = UIPageViewController(transitionStyle: UIPageViewControllerTransitionStyle.Scroll, navigationOrientation: UIPageViewControllerNavigationOrientation.Horizontal, options: nil)

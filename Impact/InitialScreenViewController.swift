@@ -47,7 +47,9 @@ class InitialScreenViewController: UIViewController {
                     print(self.dict)
                     NSLog(self.dict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as! String)
                     ServerRequest.shared.loginWithFacebook(self.dict["email"] as! String, facebookAccessToken: fbLoginResult.token.tokenString, facebookID: self.dict["id"] as! String, success: { (json) -> Void in
-                        let bankController = ChooseBankViewController()
+                        let bankController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil)
+                        let navigationController = UINavigationController(rootViewController: bankController);
+                        navigationController.navigationBarHidden = true;
                         self.presentViewController(bankController, animated: true, completion: nil)
                         },failure: { (errorMessage) -> Void in
                             //TODO : Display error
