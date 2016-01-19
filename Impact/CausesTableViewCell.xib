@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -18,7 +18,6 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3hl-Cw-sBS">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="197"/>
-                        <animations/>
                         <color key="backgroundColor" white="0.25" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yXZ-tC-uKw">
@@ -26,7 +25,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Location" translatesAutoresizingMaskIntoConstraints="NO" id="5yu-HN-ali">
                                 <rect key="frame" x="8" y="148" width="20" height="37"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="rcN-tD-WdJ"/>
                                     <constraint firstAttribute="height" constant="37" id="yaf-Y0-7ru"/>
@@ -34,7 +32,6 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Boston, MA" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXN-fe-nCi">
                                 <rect key="frame" x="36" y="148" width="179" height="28"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="179" id="HqA-M3-w3x"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="ZKB-oi-teV"/>
@@ -47,7 +44,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="350 miles away" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GVZ-vF-riQ">
                                 <rect key="frame" x="36" y="167" width="179" height="28"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="0oz-OD-YdO"/>
                                     <constraint firstAttribute="width" constant="179" id="E5q-ny-Ilw"/>
@@ -60,7 +56,6 @@
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vjs-aq-TV0">
                                 <rect key="frame" x="407" y="154" width="35" height="35"/>
-                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Do3-3o-xe0"/>
@@ -69,7 +64,6 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seeking $9,000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vM9-3s-7Tn">
                                 <rect key="frame" x="219" y="148" width="180" height="28"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="180" id="rPb-EP-0H1"/>
                                     <constraint firstAttribute="height" constant="28" id="wtZ-kR-n8z"/>
@@ -80,7 +74,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="51% raised" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iW-0A-SjY">
                                 <rect key="frame" x="219" y="167" width="180" height="28"/>
-                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="28" id="0zi-fy-tKW"/>
                                     <constraint firstAttribute="width" constant="180" id="GZt-Ub-NBc"/>
@@ -90,7 +83,6 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <animations/>
                         <constraints>
                             <constraint firstItem="5yu-HN-ali" firstAttribute="leading" secondItem="yXZ-tC-uKw" secondAttribute="leading" constant="8" id="BfA-xD-ySN"/>
                             <constraint firstItem="tXN-fe-nCi" firstAttribute="leading" secondItem="5yu-HN-ali" secondAttribute="trailing" constant="8" id="EF6-lr-6rv"/>
@@ -107,7 +99,6 @@
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mikey Stolzenberg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fq-Ar-F8l">
                         <rect key="frame" x="8" y="8" width="270" height="40"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="jkN-ow-pe9"/>
                         </constraints>
@@ -117,14 +108,12 @@
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CausesIcon" translatesAutoresizingMaskIntoConstraints="NO" id="QvC-1y-reA">
                         <rect key="frame" x="350" y="18" width="100" height="50"/>
-                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="idU-nr-RGg"/>
                             <constraint firstAttribute="height" constant="50" id="swk-7l-9rB"/>
                         </constraints>
                     </imageView>
                 </subviews>
-                <animations/>
                 <constraints>
                     <constraint firstItem="yXZ-tC-uKw" firstAttribute="height" secondItem="3hl-Cw-sBS" secondAttribute="height" id="1HF-JV-ccE"/>
                     <constraint firstAttribute="trailing" secondItem="QvC-1y-reA" secondAttribute="trailing" id="1uN-gn-ZQv"/>
@@ -149,7 +138,6 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
-            <animations/>
             <connections>
                 <outlet property="addressLabel" destination="tXN-fe-nCi" id="GEc-6u-eUv"/>
                 <outlet property="causeImageView" destination="3hl-Cw-sBS" id="QFD-w8-JTo"/>

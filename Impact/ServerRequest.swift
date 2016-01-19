@@ -343,18 +343,24 @@ class ServerRequest: NSObject {
         })
     }
     
-    func getCauseBlogPosts(cause:Cause, success:(blogPosts:[BlogPost]) -> Void, failure:(errorMessage:String)->Void) {
-        let endpoint = "blog_post/cause/\(cause.id)"
+    func getCauseBlogPostsAndContributors(cause:Cause, success:(blogPosts:[BlogPost], contributors: [User]) -> Void, failure:(errorMessage:String)->Void) {
+        let endpoint = "causes/show_extra/\(cause.id)"
         getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
             var blogPosts : [BlogPost] = []
-            if let array = json.array {
+            if let array = json["blogs_posts"].array {
                 for jsonObject in array {
                     blogPosts.append(BlogPost(fromJson: jsonObject))
                 }
             }
-            success(blogPosts: blogPosts)
-            
+            var contributors : [User] = []
+            if let array = json["fb_sorted_users"].array {
+                for jsonObject in array {
+                    contributors.append(User(fromJson: jsonObject))
+                }
+            }
+            success(blogPosts: blogPosts, contributors: contributors)
             },failure: { (error) -> Void in
+                
                 failure(errorMessage: "Unable to retrieve blog posts from cause")
         })
     }

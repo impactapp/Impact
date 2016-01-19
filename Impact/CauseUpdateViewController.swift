@@ -16,7 +16,10 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     var cause : Cause? = nil
     var scrollDelegate : CauseUpdateScrollableDelegate? = nil
     var blogPosts : [BlogPost] = []
+    var contributors : [User] = []
     let updateHeaderHeight : CGFloat = 250
+    let userCollectionViewHeight = CGFloat(110)
+    var contributorsHeaderView : FriendsCollectionViewHeader = FriendsCollectionViewHeader(frame: CGRectZero)
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -25,10 +28,15 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor.customDarkGrey()
         self.tableView.registerNib(UINib(nibName: "AccessoryTableViewCell", bundle: nil), forCellReuseIdentifier: "AccessoryTableViewCell")
+
+        
         if let cause = self.cause {
-            ServerRequest.shared.getCauseBlogPosts(cause, success: { (blogPosts) -> Void in
+            ServerRequest.shared.getCauseBlogPostsAndContributors(cause, success: { (blogPosts, contributors) -> Void in
                 self.blogPosts = blogPosts
+                self.contributors = contributors
                 self.tableView.reloadData()
+                let headerFrame = CGRectMake(0,0,self.view.frame.size.width,self.userCollectionViewHeight)
+                self.contributorsHeaderView = FriendsCollectionViewHeader(frame: headerFrame, friends: contributors)
                 }, failure: { (errorMessage) -> Void in
                     
             })
@@ -42,15 +50,27 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
+    }
+    
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 1 {
+            return userCollectionViewHeight
+        }
+        
+        return 25
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             //hacky solution to fix weird footer
             return UIView(frame: CGRectZero)
+        } else if section == 1 {
+            let header = FriendsCollectionViewHeader(frame: CGRectMake(0,0,self.view.frame.size.width,80), friends: self.contributors)
+            return header
         } else {
-            let header = UITableViewHeaderFooterView(frame: CGRectMake(0,0,self.view.frame.size.width,44))
+            let header = UITableViewHeaderFooterView(frame: CGRectMake(0,0,self.view.frame.size.width,25))
             header.backgroundView = UIView(frame: header.frame)
             header.backgroundView?.backgroundColor = UIColor.whiteColor()
             return header
@@ -58,7 +78,7 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if section == 1 {
+        if section == 2 {
             let header = view as! UITableViewHeaderFooterView
             header.textLabel!.text = "Blog Posts"
             let font = UIFont(name: "AvenirNext-Regular", size: 12.0)!
@@ -67,7 +87,10 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        if section == 0  {
+            return 0
+        }
+        if section == 1 {
             return 0
         }
         return self.blogPosts.count
