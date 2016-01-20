@@ -43,7 +43,8 @@ class BlogPostTableViewHeader: UIView {
     
     func setUpLabel() {
         let textWidth = UIScreen.mainScreen().bounds.width - 2*margins
-        let labelY = self.imageView.frame.origin.y + self.imageView.frame.size.height - 40
+
+        let labelY = self.blogPostTitleLabel.frame.origin.y - 80//self.imageView.frame.origin.y + self.imageView.frame.size.height - 40
         self.blogPostTitleLabel.text = self.blogPostTitle
         self.blogPostLabel = UILabel(frame: CGRectMake(20,labelY,textWidth,0))
         self.blogPostLabel.numberOfLines = 0
@@ -61,9 +62,12 @@ class BlogPostTableViewHeader: UIView {
         var newFrame = self.blogPostLabel.frame;
         newFrame.size.height = expectedLabelSize.height;
         self.blogPostLabel.frame = newFrame;
-        
+
         self.addSubview(self.blogPostLabel)
+        let verticalConstraint = NSLayoutConstraint(item: self.blogPostLabel, attribute: NSLayoutAttribute.TopMargin, relatedBy: NSLayoutRelation.Equal, toItem: self.blogPostTitleLabel, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 40)
+        self.addConstraint(verticalConstraint)
         self.bringSubviewToFront(self.blogPostLabel)
+        
         
     }
 
