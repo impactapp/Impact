@@ -116,7 +116,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         let itemNum = indexPath.item
         
         let cell :ContributionsCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! ContributionsCollectionViewCell
-        
+        cell.imageView.tintColor = UIColor.whiteColor()
         cell.titleLabel.text = titles[itemNum]
         cell.detailLabel.text = details[itemNum]
         cell.titleLabel.adjustsFontSizeToFitWidth = true
@@ -186,6 +186,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
                 cell.imageView.tintColor = UIColor.whiteColor()
             }
 
+
             cell.finishingLabel.text = category
             
         case 4:
@@ -202,7 +203,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             cell.numberLabel.text = ""
             cell.imageView.hidden = true
         }
-        
+
         return cell
     }
     
@@ -245,6 +246,9 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         let itemNum = indexPath.item
         switch itemNum{
+        case 4:
+            let roundUps : RoundUpsViewController = RoundUpsViewController()
+            self.navigationController?.pushViewController(roundUps, animated: true)
         case 5:
             let previousImpactsVC : PreviousImpactsViewController = PreviousImpactsViewController();
             self.navigationController?.pushViewController(previousImpactsVC, animated: true);

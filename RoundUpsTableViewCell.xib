@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RoundUpsTableViewCell" id="KGk-i7-Jjw" customClass="RoundUpsTableViewCell" customModule="Impact" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="November 23, 2015" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iay-fx-yxM">
+                        <rect key="frame" x="9" y="24" width="144.5" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="144.5" id="7I1-6Z-Cr6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$0.28" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inD-p0-eeH">
+                        <rect key="frame" x="238" y="6" width="73.5" height="23.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="73.5" id="Jp6-52-zZ7"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                        <color key="textColor" red="0.92941176470588238" green="0.4823529411764706" blue="0.46666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$24.72" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ug8-qk-AnO">
+                        <rect key="frame" x="256" y="25" width="56" height="16.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="56" id="c2K-r0-dkN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dunkin' Donuts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eb-tz-PQS">
+                        <rect key="frame" x="8" y="6" width="202.5" height="20.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="202.5" id="ouO-uI-D9h"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" red="0.36078431370000003" green="0.35294117650000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                <constraints>
+                    <constraint firstItem="iay-fx-yxM" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="1" id="3fe-NF-ZV4"/>
+                    <constraint firstItem="iay-fx-yxM" firstAttribute="top" secondItem="0eb-tz-PQS" secondAttribute="bottom" constant="-2" id="8Uj-Hg-C4k"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="0eb-tz-PQS" secondAttribute="leading" id="Mzg-Yf-Clq"/>
+                    <constraint firstItem="ug8-qk-AnO" firstAttribute="top" secondItem="inD-p0-eeH" secondAttribute="bottom" constant="-4.5" id="NSf-SC-2sm"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="ug8-qk-AnO" secondAttribute="trailing" id="UWL-OI-bCM"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="inD-p0-eeH" secondAttribute="trailing" id="VcF-Kj-47W"/>
+                    <constraint firstItem="inD-p0-eeH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="k5V-PN-S6R"/>
+                    <constraint firstItem="0eb-tz-PQS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-2" id="yna-He-XhV"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="roundUpAmountLabel" destination="inD-p0-eeH" id="fIM-7b-1g2"/>
+                <outlet property="roundUpDateLabel" destination="iay-fx-yxM" id="OuU-oF-oNJ"/>
+                <outlet property="roundUpLocationLabel" destination="0eb-tz-PQS" id="D1w-Rd-N6z"/>
+                <outlet property="totalAmountSpentLabel" destination="ug8-qk-AnO" id="viL-dp-P66"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>
