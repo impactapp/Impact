@@ -26,7 +26,6 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         setStatusBarColor(UIColor.customRed(), useWhiteText: true)
-        
         cuvc.cause = self.cause
         cuvc.scrollDelegate = self
         csvc.scrollDelegate = self

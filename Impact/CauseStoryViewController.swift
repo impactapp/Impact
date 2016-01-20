@@ -49,12 +49,13 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
     }
     
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        if section == 1 {
-            let header = view as! UITableViewHeaderFooterView
-            header.textLabel!.text = "Comments"
-            let font = UIFont(name: "AvenirNext-Regular", size: 12.0)!
-            header.textLabel!.font = font
-        }
+        //Comments header not needed for beta
+        //        if section == 1 {
+//            let header = view as! UITableViewHeaderFooterView
+//            header.textLabel!.text = "Comments"
+//            let font = UIFont(name: "AvenirNext-Regular", size: 12.0)!
+//            header.textLabel!.font = font
+//        }
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

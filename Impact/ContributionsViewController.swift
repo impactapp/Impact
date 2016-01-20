@@ -246,7 +246,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         let itemNum = indexPath.item
         switch itemNum{
         case 5:
-            let previousImpactsVC : PreviousImpactsViewController = PreviousImpactsViewController(nibName: "PreviousImpactsViewController", bundle: nil);
+            let previousImpactsVC : PreviousImpactsViewController = PreviousImpactsViewController();
             self.navigationController?.pushViewController(previousImpactsVC, animated: true);
             
         default:
