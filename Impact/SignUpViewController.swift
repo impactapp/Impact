@@ -92,11 +92,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func navigateToBankViewController() {
-        let chooseBankViewController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil);
+        let chooseBankViewController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil)
         let navigationController = UINavigationController(rootViewController: chooseBankViewController);
         navigationController.navigationBarHidden = true;
         self.presentViewController(navigationController, animated: true, completion: nil)
-
     }
 
 }

@@ -16,7 +16,8 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
     
     var scrollDelegate : CauseStoryScrollableDelegate? = nil
     
-    var amountDonatedHeaderView = BlogPostTableViewHeader(frame:CGRectZero)
+    var summaryHeaderView = BlogPostTableViewHeader(frame:CGRectZero)
+    var cause: Cause? = nil
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -24,44 +25,24 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
         self.tableView.delegate = self
         self.tableView.dataSource = self
         let frame = CGRectMake(0,0,self.tableView.frame.size.width,self.tableView.frame.size.height)
-        self.amountDonatedHeaderView = BlogPostTableViewHeader(frame:frame)
+        let blogPost = BlogPost()
+        blogPost.title = "Test Blog Post"
+        blogPost.blog_body =  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
 
-        let newHeight = amountDonatedHeaderView.blogPostLabel.frame.origin.y + amountDonatedHeaderView.blogPostLabel.frame.size.height
-        amountDonatedHeaderView.frame.size.height = newHeight
-        self.tableView.tableHeaderView = amountDonatedHeaderView
+        self.summaryHeaderView = BlogPostTableViewHeader(frame:frame,blogPost:blogPost, cause:self.cause )
+
+        let newHeight = summaryHeaderView.blogPostLabel.frame.origin.y + summaryHeaderView.blogPostLabel.frame.size.height
+        summaryHeaderView.frame.size.height = newHeight
+        self.tableView.tableHeaderView = summaryHeaderView
     }
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 {
-            //hacky solution to fix weird footer
-            return UIView(frame: CGRectZero)
-        } else {
-            let header = UITableViewHeaderFooterView(frame: CGRectMake(0,0,self.view.frame.size.width,44))
-            header.backgroundView = UIView(frame: header.frame)
-            header.backgroundView?.backgroundColor = UIColor.whiteColor()
-            return header
-        }
-    }
-    
-    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        //Comments header not needed for beta
-        //        if section == 1 {
-//            let header = view as! UITableViewHeaderFooterView
-//            header.textLabel!.text = "Comments"
-//            let font = UIFont(name: "AvenirNext-Regular", size: 12.0)!
-//            header.textLabel!.font = font
-//        }
+
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 0
-        }
         return 0
     }
     
