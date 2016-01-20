@@ -42,8 +42,8 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Summary Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfW-Yf-wf2">
-                    <rect key="frame" x="14" y="458" width="584" height="51"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfW-Yf-wf2">
+                    <rect key="frame" x="8" y="444" width="584" height="51"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="51" id="23E-w9-NTy"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="51" id="q5C-Gl-ajx"/>
@@ -56,7 +56,7 @@
             <color key="backgroundColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="cfW-Yf-wf2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Apo-t3-kqA"/>
-                <constraint firstItem="cfW-Yf-wf2" firstAttribute="top" secondItem="eVy-rN-pTe" secondAttribute="bottom" constant="19" id="BL9-Df-Pxo"/>
+                <constraint firstItem="cfW-Yf-wf2" firstAttribute="top" secondItem="eVy-rN-pTe" secondAttribute="bottom" constant="5" id="BL9-Df-Pxo"/>
                 <constraint firstAttribute="trailing" secondItem="eVy-rN-pTe" secondAttribute="trailing" id="Flb-B8-3X3"/>
                 <constraint firstItem="Rkb-qX-k3z" firstAttribute="top" secondItem="pCD-SY-k2c" secondAttribute="bottom" constant="-6" id="Oyl-dS-al2"/>
                 <constraint firstItem="eVy-rN-pTe" firstAttribute="top" secondItem="Rkb-qX-k3z" secondAttribute="bottom" constant="8" id="P98-Mu-bI7"/>
