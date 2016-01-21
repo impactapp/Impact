@@ -60,12 +60,12 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="bCs-TJ-bon" secondAttribute="trailing" constant="3" id="B37-VO-2Hf"/>
                 <constraint firstItem="Njt-Jt-gGi" firstAttribute="top" secondItem="bCs-TJ-bon" secondAttribute="bottom" constant="17" id="CQa-Wm-058"/>
-                <constraint firstAttribute="bottom" secondItem="iUp-VZ-SLD" secondAttribute="bottom" constant="12" id="ChG-ij-zwi"/>
                 <constraint firstItem="Njt-Jt-gGi" firstAttribute="centerY" secondItem="AtX-AI-BlT" secondAttribute="centerY" constant="-11.5" id="MoO-ll-KmS"/>
                 <constraint firstItem="iUp-VZ-SLD" firstAttribute="leading" secondItem="AtX-AI-BlT" secondAttribute="leading" constant="43" id="PEg-uU-xEj"/>
                 <constraint firstItem="bCs-TJ-bon" firstAttribute="leading" secondItem="AtX-AI-BlT" secondAttribute="leading" constant="4" id="QtG-xQ-b0E"/>
                 <constraint firstAttribute="trailing" secondItem="iUp-VZ-SLD" secondAttribute="trailing" constant="43" id="fT3-ao-Zkj"/>
                 <constraint firstItem="Njt-Jt-gGi" firstAttribute="centerX" secondItem="AtX-AI-BlT" secondAttribute="centerX" id="pr9-Qz-HvV"/>
+                <constraint firstItem="iUp-VZ-SLD" firstAttribute="top" secondItem="Njt-Jt-gGi" secondAttribute="bottom" constant="8" id="wZA-l8-TOQ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="263" y="312.5"/>

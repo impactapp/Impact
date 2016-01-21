@@ -63,6 +63,9 @@ class PreviousImpactsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     
+    @IBAction func backPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     
 
     /*
