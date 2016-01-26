@@ -26,8 +26,6 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
        
         initTextFields()
         shouldEnableSignInButton(false)
-        
-        // Do any additional setup after loading the view.
     }
     
     func shouldEnableSignInButton(enable:Bool) {
@@ -75,17 +73,28 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         self.presentViewController(flvc, animated: true, completion: nil)
     }
     @IBAction func signInButtonPressed(sender: AnyObject) {
-        ServerRequest.shared.loginWithEmail(emailTextField.text!, password: passwordTextField.text!, success: { (json) -> Void in
-            let tabBarController = TabBarViewController()
-            let nvc = UINavigationController(rootViewController: tabBarController)
-            nvc.navigationBarHidden = true
-            self.presentViewController(nvc, animated: true, completion: nil)
+        ServerRequest.shared.loginWithEmail(emailTextField.text!, password: passwordTextField.text!, success: { (user) -> Void in
+            self.navigateToAppropriateViewController(user)
             },failure: { (errorMessage) -> Void in
                 let alertViewController = AlertViewController()
                 alertViewController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
                 alertViewController.show()
         })
     }
+    func navigateToAppropriateViewController(user:User) {
+        let tabBarController = TabBarViewController()
+        var nvc = UINavigationController(rootViewController: tabBarController)
+        if user.needsBankInfo == true {
+            let chooseBankViewController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil)
+            nvc = UINavigationController(rootViewController: chooseBankViewController)
+        } else if user.needsCreditCardInfo  == true {
+            let ccvc = CreditCardViewController(nibName: "CreditCardViewController", bundle: nil);
+            nvc = UINavigationController(rootViewController: ccvc)
+        }
+        nvc.navigationBarHidden = true
+        self.presentViewController(nvc, animated: true, completion: nil)
+    }
+    
     @IBAction func closeButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
 

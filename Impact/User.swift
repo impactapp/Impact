@@ -29,6 +29,8 @@ class User: NSObject {
     var current_streak: Int!
     var total_contributions: Int!
     var device_token: String!
+    var needsBankInfo: Bool!
+    var needsCreditCardInfo: Bool!
     var created_at : NSDate?
     var updated_at : NSDate?
     
@@ -39,7 +41,6 @@ class User: NSObject {
         if json == nil{
             return
         }
-        
         
         id = json["id"].intValue
         name = json["name"].stringValue
@@ -56,6 +57,8 @@ class User: NSObject {
         current_streak = json["current_streak"].intValue
         total_contributions = json["total_contributions"].intValue
         device_token = json["device_token"].stringValue
+        needsBankInfo = json["needs_bank_information"].bool ?? false
+        needsCreditCardInfo = json["needs_credit_card_information"].bool ?? false
         
         //dates
         let dateformatter = NSDateFormatter()

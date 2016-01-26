@@ -101,9 +101,16 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
         if let bank = self.bank {
             let bankUserName = self.bankUsernameTextField.text
             let bankPassword = self.bankPasswordTextfield.text
-            ServerRequest.shared.submitBankAccountInfo(bankUserName!, bankPassword: bankPassword!, bankType: bank.bankType, pin: nil, success: { (isFinished, question,plaidToken) -> Void in
+            ServerRequest.shared.submitBankAccountInfo(bankUserName!, bankPassword: bankPassword!, bankType: bank.bankType, pin: nil, success: { (isFinished,user, question,plaidToken) -> Void in
                 if isFinished {
-                    self.navigateToCreditCard()
+                    if let currentUser = user {
+                        
+                        if currentUser.needsCreditCardInfo == true {
+                            self.navigateToCreditCard()
+                        } else {
+                            self.navigateToApp()
+                        }
+                    }
                 } else {
                     self.plaidToken = plaidToken
                     self.question = question
@@ -134,4 +141,10 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
         let ccvc = CreditCardViewController(nibName: "CreditCardViewController", bundle: nil);
         self.navigationController?.pushViewController(ccvc, animated: true)
     }
+    
+    func navigateToApp() {
+        let tabBarController = TabBarViewController()
+        self.navigationController?.pushViewController(tabBarController, animated: true)
+    }
+    
 }
