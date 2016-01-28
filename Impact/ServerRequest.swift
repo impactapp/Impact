@@ -264,6 +264,23 @@ class ServerRequest: NSObject {
         })
     }
     
+    //MARK: Transactions: Plaid
+//    func getTransactions(completion:(contributions:[Transaction]) -> Void) {
+//        let endpoint = "plaid/transactions"
+//        
+//        getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+//            var result: [Transaction] = []
+//            if let array = json.array {
+//                for jsonObject in array {
+//                    result.append(Transaction(fromJson: jsonObject))
+//                }
+//            }
+//            completion(contributions: result)
+//            },failure: { (error) -> Void in
+//                
+//        })
+//    }
+    
     //MARK: Contributions
     func getContributions(completion:(contributions:[Contribution]) -> Void) {
         let endpoint = "current_user/contributions"
