@@ -46,12 +46,8 @@ class InitialScreenViewController: UIViewController {
                     print(result)
                     print(self.dict)
                     NSLog(self.dict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as! String)
-                    ServerRequest.shared.loginWithFacebook(self.dict["email"] as! String, facebookAccessToken: fbLoginResult.token.tokenString, facebookID: self.dict["id"] as! String, success: { (json) -> Void in
-                        let bankController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil)
-                        
-                        let navigationController = UINavigationController(rootViewController: bankController);
-                        navigationController.navigationBarHidden = true;
-                        self.presentViewController(navigationController, animated: true, completion: nil)
+                    ServerRequest.shared.loginWithFacebook(self.dict["email"] as! String, facebookAccessToken: fbLoginResult.token.tokenString, facebookID: self.dict["id"] as! String, success: { (user) -> Void in
+                        self.navigateToAppropriateViewController(user)
                         },failure: { (errorMessage) -> Void in
                             //TODO : Display error
                             
@@ -67,13 +63,26 @@ class InitialScreenViewController: UIViewController {
     @IBAction func signInButtonPressed(sender: AnyObject) {
         let signInViewController = SignInViewController(nibName: "SignInViewController", bundle: nil);
         self.presentViewController(signInViewController, animated: true, completion: nil)
-
     }
     
     @IBAction func signUpButtonPressed(sender: AnyObject) {
         let signUpViewController = SignUpViewController(nibName: "SignUpViewController", bundle: nil);
         self.presentViewController(signUpViewController, animated: true, completion: nil)
-
+    }
+    
+    func navigateToAppropriateViewController(user:User) {
+        let tabBarController = TabBarViewController()
+        var nvc = UINavigationController(rootViewController: tabBarController)
+        
+        if user.needsBankInfo == true {
+            let chooseBankViewController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil)
+            nvc = UINavigationController(rootViewController: chooseBankViewController)
+        } else if user.needsCreditCardInfo  == true {
+            let ccvc = CreditCardViewController(nibName: "CreditCardViewController", bundle: nil);
+            nvc = UINavigationController(rootViewController: ccvc)
+        }
+        nvc.navigationBarHidden = true
+        self.presentViewController(nvc, animated: true, completion: nil)
     }
     
 

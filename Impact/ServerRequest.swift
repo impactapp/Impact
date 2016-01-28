@@ -163,11 +163,12 @@ class ServerRequest: NSObject {
         })
     }
     
-    func loginWithEmail(email:String, password:String, success:(json:JSON) -> Void, failure:(errorMessage:String) -> Void) {
+    func loginWithEmail(email:String, password:String, success:(currentUser:User) -> Void, failure:(errorMessage:String) -> Void) {
         let parameters = [kUserRequestKey:["email":email, "password":password]]
         postWithEndpoint("login", parameters: parameters, authenticated: false, success: { (json) -> Void in
             self.updateAuthenticationToken(json["authentication_token"].string)
-            success(json: json)
+            let result:User =  User(fromJson:json)
+            success(currentUser: result)
             }, failure: { (error) -> Void in
                 failure(errorMessage: "Invalid Email and Password")
         })
@@ -199,13 +200,15 @@ class ServerRequest: NSObject {
     //MARK: Facebook
     
     
-    func loginWithFacebook(email:String, facebookAccessToken:String, facebookID:String, success:(json:JSON) -> Void, failure:(errorMessage:String)->Void){
+    func loginWithFacebook(email:String, facebookAccessToken:String, facebookID:String, success:(currentUser:User) -> Void, failure:(errorMessage:String)->Void){
         let parameters = [kFacebookRequestKey:["email":email, "facebook_id":facebookID, "facebook_access_token":facebookAccessToken]]
         
         postWithEndpoint("facebook_auth", parameters: parameters, authenticated: false, success: { (json) -> Void in
             
             self.updateAuthenticationToken(json["authentication_token"].string)
-            success(json: json)
+            let result:User =  User(fromJson:json)
+            
+            success(currentUser: result)
             
             }, failure: { (error) -> Void in
                 
@@ -367,7 +370,7 @@ class ServerRequest: NSObject {
     
     //MARK: Banks
     
-    func submitBankAccountInfo(bankUserName:String, bankPassword:String, bankType:String, pin: String?,success:(isFinished:Bool, question:String?, plaidToken:String?) -> Void, failure:(errorMessage:String) -> Void) {
+    func submitBankAccountInfo(bankUserName:String, bankPassword:String, bankType:String, pin: String?,success:(isFinished:Bool,user:User?, question:String?, plaidToken:String?) -> Void, failure:(errorMessage:String) -> Void) {
         let endpoint = "plaid/create"
         var payload = ["username":bankUserName, "password":bankPassword, "bank_type":bankType]
         if let bankPin = pin {
@@ -383,13 +386,17 @@ class ServerRequest: NSObject {
                 }
                 plaidToken = json["questions"]["access_token"].string
             }
-            success(isFinished: completed, question:question, plaidToken:plaidToken)
+            var user:User? = nil
+            if completed {
+                user = User(fromJson: json)
+            }
+            success(isFinished: completed,user:user, question:question, plaidToken:plaidToken)
             }, failure: { (error) -> Void in
                 failure(errorMessage: "Invalid Credentials")
         })
     }
     
-    func answerMFA(answer:String,plaidToken:String, success:(isFinished:Bool, question:String?, plaidToken:String?) -> Void, failure:(errorMessage:String) -> Void) {
+    func answerMFA(answer:String,plaidToken:String, success:(isFinished:Bool, user:User?, question:String?, plaidToken:String?) -> Void, failure:(errorMessage:String) -> Void) {
         let endpoint = "plaid/answer"
         let parameters = ["plaid": ["plaid_access_token": plaidToken,
             "answer":answer] ]
@@ -400,7 +407,11 @@ class ServerRequest: NSObject {
                     question = questionObject["question"]!.string
                 }
             }
-            success(isFinished: completed, question:question, plaidToken:plaidToken)
+            var user:User? = nil
+            if completed {
+                user = User(fromJson: json)
+            }
+            success(isFinished: completed,user:user, question:question, plaidToken:plaidToken)
             }, failure: { (error) -> Void in
                 failure(errorMessage: "That answer is incorrect")
         })

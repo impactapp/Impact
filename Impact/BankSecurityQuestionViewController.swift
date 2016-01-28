@@ -67,9 +67,16 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
     
     func updateSecurityQuestion() {
         if let answer = self.answerTextField.text {
-            ServerRequest.shared.answerMFA(answer, plaidToken: self.plaidToken, success: { (isFinished, question, plaidToken) -> Void in
+            ServerRequest.shared.answerMFA(answer, plaidToken: self.plaidToken, success: { (isFinished, user, question, plaidToken) -> Void in
                 if isFinished {
-                    self.navigateToCreditCard()
+                    if let currentUser = user {
+                        if currentUser.needsCreditCardInfo == true {
+                            self.navigateToCreditCard()
+                        } else {
+                            self.navigateToApp()
+                        }
+                    }
+                    
                 } else {
                     self.questionLabel.text = question
                 }
@@ -90,6 +97,11 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
     func navigateToCreditCard() {
         let ccvc = CreditCardViewController(nibName: "CreditCardViewController", bundle: nil);
         self.navigationController?.pushViewController(ccvc, animated: true)
+    }
+    
+    func navigateToApp() {
+        let tabBarController = TabBarViewController()
+        self.navigationController?.pushViewController(tabBarController, animated: true)
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {
