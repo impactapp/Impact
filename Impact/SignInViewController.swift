@@ -73,9 +73,13 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         self.presentViewController(flvc, animated: true, completion: nil)
     }
     @IBAction func signInButtonPressed(sender: AnyObject) {
+        let activityIndicator = ActivityIndicator(view: self.view)
+        activityIndicator.startCustomAnimation()
         ServerRequest.shared.loginWithEmail(emailTextField.text!, password: passwordTextField.text!, success: { (user) -> Void in
+            activityIndicator.stopAnimating()
             self.navigateToAppropriateViewController(user)
             },failure: { (errorMessage) -> Void in
+                activityIndicator.stopAnimating()
                 let alertViewController = AlertViewController()
                 alertViewController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
                 alertViewController.show()
