@@ -33,7 +33,7 @@ class TabBarViewController: UITabBarController {
         let exploreViewController = ExploreViewController();
 
         exploreViewController.tabBarItem.image = UIImage(named: "Earth");
-        let profileViewController = UIViewController();
+        let profileViewController = ProfileViewController();
         profileViewController.tabBarItem.image = UIImage(named: "Person");
         let searchViewController = SearchViewController()
         searchViewController.tabBarItem.image = UIImage(named:"MagnifyingGlass")
