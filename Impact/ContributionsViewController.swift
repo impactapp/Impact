@@ -70,7 +70,10 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
     }
     
     func initHeader() {
+        let statusBarHeight = CGFloat(20)
+        self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
         self.header = HeaderView(view: self.view)
+        self.header.frame.origin.y = statusBarHeight
         self.view.addSubview(self.header)
     }
     
@@ -87,11 +90,12 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         layout.minimumInteritemSpacing = 2;
         layout.minimumLineSpacing = 2;
-        self.collectionView.scrollEnabled = false
+        self.collectionView.scrollEnabled = true
         self.collectionView.collectionViewLayout = layout;
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
         self.collectionView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier);
+        self.collectionView.alwaysBounceVertical = true
     }
 
     //MARK: - Collectionview

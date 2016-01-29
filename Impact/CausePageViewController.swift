@@ -107,7 +107,7 @@ class CausePageViewController: UIViewController, UIPageViewControllerDataSource,
     }
     
     @IBAction func backPressed(sender: AnyObject) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func causeStoryControllerIsScrolling(scrollView: UIScrollView) {

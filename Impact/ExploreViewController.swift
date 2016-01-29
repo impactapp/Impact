@@ -30,13 +30,17 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
         self.navigationController?.edgesForExtendedLayout = .None
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         initTableView()
+        let activityIndicator = ActivityIndicator(view: self.view)
+        if self.causes.count == 0 {
+            activityIndicator.startCustomAnimation()
+        }
         ServerRequest.shared.getAllCauses { (causes) -> Void in
             self.causes = causes
             self.tableView.reloadData()
+            activityIndicator.stopAnimating()
         }
 
     }
