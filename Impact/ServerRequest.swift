@@ -173,6 +173,17 @@ class ServerRequest: NSObject {
                 failure(errorMessage: "Invalid Email and Password")
         })
     }
+    //TODO Returns error of invalid email and password?
+//    func logout(success:(json:JSON) -> Void, failure:(errorMessage:String) -> Void){
+//        let parameters = [kUserRequestKey:[]]
+//        postWithEndpoint("logout", parameters: parameters, authenticated: true, success: { (json) -> Void in
+//            success(json: json)
+//            }, failure: { (error) -> Void in
+//                failure(errorMessage: "Invalid Email and Password")
+//        })
+//     
+//    
+//    }
     
     //MARK: User
     func getCurrentUser(completion:(currentUser:User) -> Void) {
@@ -256,6 +267,23 @@ class ServerRequest: NSObject {
         })
     }
     
+//    MARK: Transactions: Plaid
+    func getTransactions(completion:(contributions:[Transaction]) -> Void) {
+        let endpoint = "plaid/transactions"
+        
+        getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            var result: [Transaction] = []
+            if let array = json.array {
+                for jsonObject in array {
+                    result.append(Transaction(fromJson: jsonObject))
+                }
+            }
+            completion(contributions: result)
+            },failure: { (error) -> Void in
+                
+        })
+    }
+    
     //MARK: Contributions
     func getContributions(completion:(contributions:[Contribution]) -> Void) {
         let endpoint = "current_user/contributions"
@@ -311,6 +339,7 @@ class ServerRequest: NSObject {
         let endpoint = "causes/all"
         getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
             var result: [Cause] = []
+            print(json)
             if let array = json.array {
                 for jsonObject in array {
                     result.append(Cause(fromJson: jsonObject))

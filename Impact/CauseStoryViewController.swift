@@ -38,6 +38,7 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
     
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+
         return 1
     }
     
