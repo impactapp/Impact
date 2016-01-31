@@ -17,6 +17,7 @@ class SettingsTableViewDataSource: NSObject, UITableViewDataSource {
     var sectionHash: [SettingsSection : [String]] = [.UserInfo: [], .PaymentInfo:[], .SecurityInfo:[]]
     var cellIdentifier : String = "SettingsTableViewCell"
     var user : User? = nil
+    var creditCards : [CreditCard] = []
     
     init(user:User?) {
         self.sectionHash = [.UserInfo: userInfoOptions, .PaymentInfo:paymentInfoOptions, .SecurityInfo:securityOptions]

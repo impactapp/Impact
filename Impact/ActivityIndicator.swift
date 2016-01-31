@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SWActivityIndicatorView
 
 private let ActivityIndicatorAnimationKey = "Rotation"
 
