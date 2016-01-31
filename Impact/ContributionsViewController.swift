@@ -38,7 +38,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpCollectionView()
-        refreshCollectionView()
+        getDataFromServer()
         initHeader()
     }
     

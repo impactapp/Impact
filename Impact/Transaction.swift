@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import SwiftyJson
+import SwiftyJSON
 
 class Transaction: NSObject {
     
@@ -18,7 +18,7 @@ class Transaction: NSObject {
     var date : NSDate!
     var pending : Bool!
     
-    var category : [String]!
+    var category : String!
     var category_id : Int!
     //var score : NSObject!
     //var meta : NSObject!
@@ -38,7 +38,7 @@ class Transaction: NSObject {
         _id = json["_id"].stringValue
         amount = json["amount"].floatValue
         account = json["user_id"].stringValue
-        name = json["user_name"].stringValue
+        name = json["name"].stringValue
         pending = json["payment_id"].boolValue
         category = json["category"].stringValue
         category_id = json["category_id"].intValue
@@ -50,7 +50,7 @@ class Transaction: NSObject {
         
         //dates
         let dateformatter = NSDateFormatter()
-        dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateformatter.dateFormat = "yyyy-MM-dd"
         
         let date_string = json["date"].stringValue
         date = dateformatter.dateFromString(date_string)

@@ -7,25 +7,23 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class RoundUpsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     let statusBarHeight = CGFloat(20)
     let cellIdentifier = "RoundUpsTableViewCell"
-    let transactions = [Transaction] = []
+    var transactions : [Transaction] = []
+    var testTransaction: Transaction!
     @IBOutlet var tableView: UITableView!
     @IBOutlet var headerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewController()
         getTransactions()
-        
-        let jsonTestString = "{\"_account\": \"xanpD845Qqi0B71qLZKEU5mOLBPKr5hA5oYB6\",\"_id\": \"w4XnLJrmQPCpxrvn6J4Aiw4yqjLqzAcDYNKQ1\",\"amount\": -0.01,\"date\": \"2016-01-27\",\"name\": \"Keep the Change\",\"meta\": {\"location\": {}},\"pending\": false,\"type\": {\"primary\": \"special\"},\"category\": [\"Transfer\",\"Keep the Change Savings Program\"],\"category_id\": \"21008000\",\"score\": {\"location\": {},\"name\": 1}"
-        let testTransaction:Transaction = Transaction(fromJson: jsonTestString)
-        
         // Do any additional setup after loading the view.
     }
     
-    func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(animated: Bool) {
         getTransactions()
     }
 
@@ -51,7 +49,7 @@ class RoundUpsViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4;
+        return transactions.count;
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -67,6 +65,17 @@ class RoundUpsViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell : RoundUpsTableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! RoundUpsTableViewCell
         
+        let transaction = transactions[indexPath.row]
+        let dateformatter = NSDateFormatter()
+        dateformatter.dateFormat = "MMMM dd, yyyy"
+        cell.roundUpLocationLabel.text = transaction.name
+        cell.totalAmountSpentLabel.text = String(format: "%.2f", transaction.amount)
+        cell.roundUpDateLabel.text = dateformatter.stringFromDate(transaction.date)
+        let rounded = ceil(transaction.amount)
+        let roundUp = rounded - transaction.amount
+        let roundUpString = String(format: "%.2f", roundUp)
+        cell.roundUpAmountLabel.text = "+$" + roundUpString
+    
         
         return cell
     }
@@ -77,6 +86,10 @@ class RoundUpsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     
+    @IBAction func backPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+
+    }
 
 
     /*

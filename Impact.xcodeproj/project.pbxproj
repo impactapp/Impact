@@ -122,6 +122,7 @@
 		B8C77E1F1B8AC2FF00000927 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C77E1D1B8AC2FF00000927 /* SignUpViewController.xib */; };
 		B8D45A051B8FF3E000877310 /* SecondIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D45A031B8FF3E000877310 /* SecondIntroViewController.swift */; };
 		B8D45A061B8FF3E000877310 /* SecondIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D45A041B8FF3E000877310 /* SecondIntroViewController.xib */; };
+		B8D4982A1C5E13FB001EE8BE /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D498291C5E13FB001EE8BE /* Transaction.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,6 +257,7 @@
 		B8C77E1D1B8AC2FF00000927 /* SignUpViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		B8D45A031B8FF3E000877310 /* SecondIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondIntroViewController.swift; sourceTree = "<group>"; };
 		B8D45A041B8FF3E000877310 /* SecondIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondIntroViewController.xib; sourceTree = "<group>"; };
+		B8D498291C5E13FB001EE8BE /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		ED45840C4AA33A9113487D60 /* Pods-Impact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impact.release.xcconfig"; path = "Pods/Target Support Files/Pods-Impact/Pods-Impact.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -515,8 +517,6 @@
 		B8049CB41C2F08D3005A559B /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B83889991C4F3D6800A65A99 /* RoundUpsTableViewCell.swift */,
-				B838899A1C4F3D6800A65A99 /* RoundUpsTableViewCell.xib */,
 				B85F3F5E1BDD656C0029F83E /* ContributionsCollectionViewCell.swift */,
 				B85F3F5F1BDD656C0029F83E /* ContributionsCollectionViewCell.xib */,
 			);
@@ -526,8 +526,6 @@
 		B8049CB51C2F08E2005A559B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				B838899D1C4F6AEF00A65A99 /* RoundUpsViewController.swift */,
-				B838899E1C4F6AEF00A65A99 /* RoundUpsViewController.xib */,
 				4D91C48F1C28841D00A4C0A5 /* PreviousImpactsViewController.swift */,
 				4D91C4901C28841D00A4C0A5 /* PreviousImpactsViewController.xib */,
 				B85F3F621BDD6C130029F83E /* ContributionsViewController.swift */,
@@ -581,6 +579,7 @@
 				4D2256E81B8A8E5E00727A4C /* TabBarController.swift */,
 				B8C758691C3F8EF40063D028 /* TempViewController.swift */,
 				B8C7586A1C3F8EF40063D028 /* TempViewController.xib */,
+				B8D498251C5E1366001EE8BE /* Transactions */,
 				4D89C1341C456D8100D6B1F0 /* Blog Posts */,
 				B8049CBE1C2F3607005A559B /* Users */,
 				B85F3F661BDD6C180029F83E /* Contributions */,
@@ -672,6 +671,42 @@
 				B8D45A041B8FF3E000877310 /* SecondIntroViewController.xib */,
 			);
 			name = "Intro Screens";
+			sourceTree = "<group>";
+		};
+		B8D498251C5E1366001EE8BE /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				B8D498261C5E1377001EE8BE /* Model */,
+				B8D498271C5E137D001EE8BE /* View */,
+				B8D498281C5E1389001EE8BE /* Controller */,
+			);
+			name = Transactions;
+			sourceTree = "<group>";
+		};
+		B8D498261C5E1377001EE8BE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B8D498291C5E13FB001EE8BE /* Transaction.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B8D498271C5E137D001EE8BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B83889991C4F3D6800A65A99 /* RoundUpsTableViewCell.swift */,
+				B838899A1C4F3D6800A65A99 /* RoundUpsTableViewCell.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B8D498281C5E1389001EE8BE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B838899D1C4F6AEF00A65A99 /* RoundUpsViewController.swift */,
+				B838899E1C4F6AEF00A65A99 /* RoundUpsViewController.xib */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -913,6 +948,7 @@
 				4D14C87C1C4D816100D7089B /* UserCollectionViewCell.swift in Sources */,
 				B838899B1C4F3D6800A65A99 /* RoundUpsTableViewCell.swift in Sources */,
 				4D02EC231BD0918500701C75 /* HeaderView.swift in Sources */,
+				B8D4982A1C5E13FB001EE8BE /* Transaction.swift in Sources */,
 				B8585C1C1B8642E900AB091A /* Impact.xcdatamodeld in Sources */,
 				B8D45A051B8FF3E000877310 /* SecondIntroViewController.swift in Sources */,
 				B8C77E131B8ABEFA00000927 /* InitialScreenViewController.swift in Sources */,

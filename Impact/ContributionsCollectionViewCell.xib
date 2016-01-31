@@ -14,7 +14,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="178" height="178"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SafeIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ihZ-9k-wbv">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihZ-9k-wbv">
                         <rect key="frame" x="44" y="44" width="90" height="90"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="91w-rQ-FhL">
@@ -82,7 +82,4 @@
             <point key="canvasLocation" x="314" y="265"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="SafeIcon" width="30" height="30"/>
-    </resources>
 </document>
