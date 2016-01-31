@@ -43,6 +43,17 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        getDataFromServer()
+        super.viewWillAppear(animated)
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func getDataFromServer(){
         ServerRequest.shared.getCurrentUser{ (currentUser) -> Void in
             self.currentUser = currentUser
             self.collectionView.reloadData()
@@ -58,15 +69,6 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         ServerRequest.shared.getCategories { (categories) -> Void in
             self.categories = categories
         }
-        
-        
-        refreshCollectionView()
-        super.viewWillAppear(animated)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func initHeader() {
@@ -77,12 +79,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         self.view.addSubview(self.header)
     }
     
-    //TODO
-    private func refreshCollectionView(){
-        
-        
-        
-    }
+
     
     private func setUpCollectionView() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout();
