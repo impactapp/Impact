@@ -267,6 +267,20 @@ class ServerRequest: NSObject {
         })
     }
     
+    func getCreditCards(success:(cards:[CreditCard]) -> Void, failure:(errorMessage:String) -> Void) {
+        let endpoint = "stripe/cards"
+        getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            var result: [CreditCard] = []
+            if let array = json.array {
+                for jsonObject in array {
+                    result.append(CreditCard(fromJson: jsonObject))
+                }
+            }
+            success(cards: result)
+
+            },failure: { (error) -> Void in })
+    }
+    
 //    MARK: Transactions: Plaid
     func getTransactions(completion:(contributions:[Transaction]) -> Void) {
         let endpoint = "plaid/transactions"
