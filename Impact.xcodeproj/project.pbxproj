@@ -64,7 +64,6 @@
 		4D9BB1171BFFD32200E5000A /* BlogPostTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BB1161BFFD32200E5000A /* BlogPostTableViewHeader.swift */; };
 		4D9BB11A1BFFD40700E5000A /* CauseStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BB1181BFFD40700E5000A /* CauseStoryViewController.swift */; };
 		4D9BB11B1BFFD40700E5000A /* CauseStoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D9BB1191BFFD40700E5000A /* CauseStoryViewController.xib */; };
-		4DA63D541C5B163A0019219F /* SettingsTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA63D531C5B163A0019219F /* SettingsTableViewDataSource.swift */; };
 		4DA63D571C5B1B070019219F /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA63D551C5B1B070019219F /* SettingsTableViewCell.swift */; };
 		4DA63D581C5B1B070019219F /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA63D561C5B1B070019219F /* SettingsTableViewCell.xib */; };
 		4DB8CB171B8ED5CE00A6031D /* ForgetLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */; };
@@ -91,6 +90,8 @@
 		4DE94A911C59EDAC00850363 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE94A8F1C59EDAC00850363 /* SettingsViewController.swift */; };
 		4DE94A921C59EDAC00850363 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE94A901C59EDAC00850363 /* SettingsViewController.xib */; };
 		4DF27D401C24A11E007D563A /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27D3F1C24A11E007D563A /* UIFont+CustomFonts.swift */; };
+		4DF3876B1C6019E9008FFAF7 /* EditInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF387691C6019E9008FFAF7 /* EditInformationViewController.swift */; };
+		4DF3876C1C6019E9008FFAF7 /* EditInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF3876A1C6019E9008FFAF7 /* EditInformationViewController.xib */; };
 		4E515AB7A3CD6CED1BBE3ABB /* Pods_Impact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */; };
 		B8049CBB1C2F099F005A559B /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8049CBA1C2F099F005A559B /* Contribution.swift */; };
 		B8049CBD1C2F0B20005A559B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8049CBC1C2F0B20005A559B /* Category.swift */; };
@@ -203,7 +204,6 @@
 		4D9BB1161BFFD32200E5000A /* BlogPostTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostTableViewHeader.swift; sourceTree = "<group>"; };
 		4D9BB1181BFFD40700E5000A /* CauseStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CauseStoryViewController.swift; sourceTree = "<group>"; };
 		4D9BB1191BFFD40700E5000A /* CauseStoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CauseStoryViewController.xib; sourceTree = "<group>"; };
-		4DA63D531C5B163A0019219F /* SettingsTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewDataSource.swift; sourceTree = "<group>"; };
 		4DA63D551C5B1B070019219F /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		4DA63D561C5B1B070019219F /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetLoginViewController.swift; sourceTree = "<group>"; };
@@ -230,6 +230,8 @@
 		4DE94A8F1C59EDAC00850363 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4DE94A901C59EDAC00850363 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		4DF27D3F1C24A11E007D563A /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
+		4DF387691C6019E9008FFAF7 /* EditInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInformationViewController.swift; sourceTree = "<group>"; };
+		4DF3876A1C6019E9008FFAF7 /* EditInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditInformationViewController.xib; sourceTree = "<group>"; };
 		7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8049CBA1C2F099F005A559B /* Contribution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contribution.swift; sourceTree = "<group>"; };
 		B8049CBC1C2F0B20005A559B /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -525,11 +527,12 @@
 		4DE94A821C59E90700850363 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				4DF387691C6019E9008FFAF7 /* EditInformationViewController.swift */,
+				4DF3876A1C6019E9008FFAF7 /* EditInformationViewController.xib */,
 				4DA63D551C5B1B070019219F /* SettingsTableViewCell.swift */,
 				4DA63D561C5B1B070019219F /* SettingsTableViewCell.xib */,
 				4DE94A8F1C59EDAC00850363 /* SettingsViewController.swift */,
 				4DE94A901C59EDAC00850363 /* SettingsViewController.xib */,
-				4DA63D531C5B163A0019219F /* SettingsTableViewDataSource.swift */,
 				4DE94A831C59E92800850363 /* ProfileViewController.swift */,
 				4DE94A841C59E92800850363 /* ProfileViewController.xib */,
 			);
@@ -834,6 +837,7 @@
 				B82E47831BB747E600D3C90B /* Main.storyboard in Resources */,
 				4D6BC9981BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib in Resources */,
 				4DA63D581C5B1B070019219F /* SettingsTableViewCell.xib in Resources */,
+				4DF3876C1C6019E9008FFAF7 /* EditInformationViewController.xib in Resources */,
 				B8C7586C1C3F8EF40063D028 /* TempViewController.xib in Resources */,
 				4D6BC9911BE4FED6000C89C8 /* CategoriesViewController.xib in Resources */,
 				B8B8AA711B8FFBD1006E689C /* ContentViewController.xib in Resources */,
@@ -964,6 +968,7 @@
 				4DF27D401C24A11E007D563A /* UIFont+CustomFonts.swift in Sources */,
 				4D2B0FE41BBF4B8100482FF4 /* AlertViewController.swift in Sources */,
 				4DD2FDFC1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift in Sources */,
+				4DF3876B1C6019E9008FFAF7 /* EditInformationViewController.swift in Sources */,
 				4DC0C9891BF8D37100E2A468 /* CauseUpdateViewController.swift in Sources */,
 				4D05AA7B1C5880D9002B8C9A /* ActivityIndicator.swift in Sources */,
 				4D92199D1BF815D700A326A8 /* CausePageViewController.swift in Sources */,
@@ -1008,7 +1013,6 @@
 				4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */,
 				4DE94A851C59E92800850363 /* ProfileViewController.swift in Sources */,
 				4D91C4951C28861800A4C0A5 /* AccessoryTableViewCell.swift in Sources */,
-				4DA63D541C5B163A0019219F /* SettingsTableViewDataSource.swift in Sources */,
 				4D6BC9901BE4FED6000C89C8 /* CategoriesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
