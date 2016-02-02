@@ -207,6 +207,28 @@ class ServerRequest: NSObject {
         })
     }
     
+    func changeEmail(newEmail:String, completion:(currentUser:User) -> Void) {
+        let endpoint = "current_user/change/email"
+        let parameters = ["change": ["email":newEmail]]
+        updateWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+            let result:User =  User(fromJson:json)
+            completion(currentUser: result)
+            }, failure: { (error) -> Void in
+                
+        })
+    }
+    
+    func changePassword(newPassword:String, completion:(currentUser:User) -> Void) {
+        let endpoint = "current_user/change/password"
+        let parameters = ["change":["password":newPassword]]
+        updateWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+            let result:User =  User(fromJson:json)
+            completion(currentUser: result)
+            },failure: { (error) -> Void in
+                
+        })
+    }
+    
     
     //MARK: Facebook
     

@@ -15,7 +15,7 @@ enum SettingsSection:String {
     case SecurityInfo = "Security"
 }
 
-class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UpdateUserInformationDelegate {
     var user : User? = nil
     let userInfoOptions = ["Name", "Email"]
     let paymentInfoOptions = ["Credit Card", "Bank", "Automatic Payments"]
@@ -116,8 +116,6 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         return userLabel
         
     }
-
-    
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 25
@@ -146,11 +144,34 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         header.textLabel!.text = sectionTitle
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.section == 0 {
+            let eivc = EditInformationViewController()
+            eivc.user = self.user
+            eivc.editType = indexPath.row == 0 ? .Name : .Email
+            eivc.userInfoDelegate = self
+            self.navigationController?.pushViewController(eivc, animated: true)
+        } else if indexPath.section == 2 && indexPath.row == 2 {
+            let eivc = EditInformationViewController()
+            eivc.user = self.user
+            eivc.editType = .Password
+            eivc.userInfoDelegate = self
+            self.navigationController?.pushViewController(eivc, animated: true)
+        }
+    }
+    
     func disableFloatingHeaders() {
         let headerHeight = CGFloat(25)
         let tempView = UIView(frame:CGRectMake(0,0,self.tableView.bounds.size.width,headerHeight))
         self.tableView.tableHeaderView = tempView
         self.tableView.contentInset = UIEdgeInsetsMake(-headerHeight, 0, 0, 0)
+    }
+    
+    // Update User Info Delegate
+    
+    func updateUserInfo(user: User) {
+        self.user = user
+        self.tableView.reloadData()
     }
     
     func changeLocationPreferences(sender:UISwitch) {

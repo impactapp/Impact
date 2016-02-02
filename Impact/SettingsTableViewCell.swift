@@ -18,7 +18,6 @@ class SettingsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.customAccessoryView.transform = CGAffineTransformMakeScale(-1, 1)
-        // Initialization code
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
