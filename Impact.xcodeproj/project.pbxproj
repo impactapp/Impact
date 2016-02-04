@@ -123,6 +123,8 @@
 		B8D45A051B8FF3E000877310 /* SecondIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D45A031B8FF3E000877310 /* SecondIntroViewController.swift */; };
 		B8D45A061B8FF3E000877310 /* SecondIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D45A041B8FF3E000877310 /* SecondIntroViewController.xib */; };
 		B8D4982A1C5E13FB001EE8BE /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D498291C5E13FB001EE8BE /* Transaction.swift */; };
+		B8D4982D1C633D3C001EE8BE /* MyCreditCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D4982B1C633D3C001EE8BE /* MyCreditCardsViewController.swift */; };
+		B8D4982E1C633D3C001EE8BE /* MyCreditCardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D4982C1C633D3C001EE8BE /* MyCreditCardsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -258,6 +260,8 @@
 		B8D45A031B8FF3E000877310 /* SecondIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondIntroViewController.swift; sourceTree = "<group>"; };
 		B8D45A041B8FF3E000877310 /* SecondIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondIntroViewController.xib; sourceTree = "<group>"; };
 		B8D498291C5E13FB001EE8BE /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		B8D4982B1C633D3C001EE8BE /* MyCreditCardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCreditCardsViewController.swift; sourceTree = "<group>"; };
+		B8D4982C1C633D3C001EE8BE /* MyCreditCardsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCreditCardsViewController.xib; sourceTree = "<group>"; };
 		ED45840C4AA33A9113487D60 /* Pods-Impact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impact.release.xcconfig"; path = "Pods/Target Support Files/Pods-Impact/Pods-Impact.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -432,6 +436,8 @@
 			children = (
 				4D2265821BA7937000A51908 /* CreditCardViewController.swift */,
 				4D2265831BA7937000A51908 /* CreditCardViewController.xib */,
+				B8D4982B1C633D3C001EE8BE /* MyCreditCardsViewController.swift */,
+				B8D4982C1C633D3C001EE8BE /* MyCreditCardsViewController.xib */,
 			);
 			name = Card;
 			sourceTree = "<group>";
@@ -824,6 +830,7 @@
 				4D2256F11B8AC7C900727A4C /* ChooseBankViewController.xib in Resources */,
 				B8A5CF541B8FF49A00D71D2C /* ThirdIntroViewController.xib in Resources */,
 				4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */,
+				B8D4982E1C633D3C001EE8BE /* MyCreditCardsViewController.xib in Resources */,
 				4D92199E1BF815D700A326A8 /* CausePageViewController.xib in Resources */,
 				4D14C87D1C4D816100D7089B /* UserCollectionViewCell.xib in Resources */,
 				4DC0C98E1BF8D57600E2A468 /* AmountDonatedHeaderView.xib in Resources */,
@@ -919,6 +926,7 @@
 				4D2265841BA7937000A51908 /* CreditCardViewController.swift in Sources */,
 				4D8210281BD291F30032DA07 /* CircleGraph.swift in Sources */,
 				B8C77E1E1B8AC2FF00000927 /* SignUpViewController.swift in Sources */,
+				B8D4982D1C633D3C001EE8BE /* MyCreditCardsViewController.swift in Sources */,
 				B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */,
 				B8A5CF531B8FF49A00D71D2C /* ThirdIntroViewController.swift in Sources */,
 				4D0FDE441B8B77C3002877CE /* UIImageView+AsynchronousLoading.swift in Sources */,
