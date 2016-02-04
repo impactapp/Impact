@@ -207,6 +207,28 @@ class ServerRequest: NSObject {
         })
     }
     
+    func changeEmail(newEmail:String, completion:(currentUser:User) -> Void) {
+        let endpoint = "current_user/change/email"
+        let parameters = ["change": ["email":newEmail]]
+        updateWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+            let result:User =  User(fromJson:json)
+            completion(currentUser: result)
+            }, failure: { (error) -> Void in
+                
+        })
+    }
+    
+    func changePassword(newPassword:String, completion:(currentUser:User) -> Void) {
+        let endpoint = "current_user/change/password"
+        let parameters = ["change":["password":newPassword]]
+        updateWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+            let result:User =  User(fromJson:json)
+            completion(currentUser: result)
+            },failure: { (error) -> Void in
+                
+        })
+    }
+    
     
     //MARK: Facebook
     
@@ -265,6 +287,20 @@ class ServerRequest: NSObject {
                 failure(errorMessage: errorMessage)
             }
         })
+    }
+    
+    func getCreditCards(success:(cards:[CreditCard]) -> Void, failure:(errorMessage:String) -> Void) {
+        let endpoint = "stripe/cards"
+        getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            var result: [CreditCard] = []
+            if let array = json.array {
+                for jsonObject in array {
+                    result.append(CreditCard(fromJson: jsonObject))
+                }
+            }
+            success(cards: result)
+
+            },failure: { (error) -> Void in })
     }
     
 //    MARK: Transactions: Plaid

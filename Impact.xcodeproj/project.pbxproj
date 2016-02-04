@@ -64,6 +64,8 @@
 		4D9BB1171BFFD32200E5000A /* BlogPostTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BB1161BFFD32200E5000A /* BlogPostTableViewHeader.swift */; };
 		4D9BB11A1BFFD40700E5000A /* CauseStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9BB1181BFFD40700E5000A /* CauseStoryViewController.swift */; };
 		4D9BB11B1BFFD40700E5000A /* CauseStoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D9BB1191BFFD40700E5000A /* CauseStoryViewController.xib */; };
+		4DA63D571C5B1B070019219F /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA63D551C5B1B070019219F /* SettingsTableViewCell.swift */; };
+		4DA63D581C5B1B070019219F /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DA63D561C5B1B070019219F /* SettingsTableViewCell.xib */; };
 		4DB8CB171B8ED5CE00A6031D /* ForgetLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */; };
 		4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DB8CB161B8ED5CE00A6031D /* ForgetLoginViewController.xib */; };
 		4DC0C9891BF8D37100E2A468 /* CauseUpdateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DC0C9871BF8D37100E2A468 /* CauseUpdateViewController.swift */; };
@@ -79,10 +81,17 @@
 		4DD2FDF71C25E75B00CF3F4C /* InitialSearchView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2FDF61C25E75B00CF3F4C /* InitialSearchView.xib */; };
 		4DD2FDFC1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2FDFA1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift */; };
 		4DD2FDFD1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2FDFB1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib */; };
+		4DDCAE101C5D86900074DF89 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDCAE0F1C5D86900074DF89 /* CreditCard.swift */; };
 		4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */; };
 		4DE85F671BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE85F661BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift */; };
 		4DE85F691BD18CC5002AE4C5 /* Cause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE85F681BD18CC5002AE4C5 /* Cause.swift */; };
+		4DE94A851C59E92800850363 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE94A831C59E92800850363 /* ProfileViewController.swift */; };
+		4DE94A861C59E92800850363 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE94A841C59E92800850363 /* ProfileViewController.xib */; };
+		4DE94A911C59EDAC00850363 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE94A8F1C59EDAC00850363 /* SettingsViewController.swift */; };
+		4DE94A921C59EDAC00850363 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE94A901C59EDAC00850363 /* SettingsViewController.xib */; };
 		4DF27D401C24A11E007D563A /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27D3F1C24A11E007D563A /* UIFont+CustomFonts.swift */; };
+		4DF3876B1C6019E9008FFAF7 /* EditInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF387691C6019E9008FFAF7 /* EditInformationViewController.swift */; };
+		4DF3876C1C6019E9008FFAF7 /* EditInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF3876A1C6019E9008FFAF7 /* EditInformationViewController.xib */; };
 		4E515AB7A3CD6CED1BBE3ABB /* Pods_Impact.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */; };
 		B8049CBB1C2F099F005A559B /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8049CBA1C2F099F005A559B /* Contribution.swift */; };
 		B8049CBD1C2F0B20005A559B /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8049CBC1C2F0B20005A559B /* Category.swift */; };
@@ -197,6 +206,8 @@
 		4D9BB1161BFFD32200E5000A /* BlogPostTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlogPostTableViewHeader.swift; sourceTree = "<group>"; };
 		4D9BB1181BFFD40700E5000A /* CauseStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CauseStoryViewController.swift; sourceTree = "<group>"; };
 		4D9BB1191BFFD40700E5000A /* CauseStoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CauseStoryViewController.xib; sourceTree = "<group>"; };
+		4DA63D551C5B1B070019219F /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		4DA63D561C5B1B070019219F /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
 		4DB8CB151B8ED5CE00A6031D /* ForgetLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgetLoginViewController.swift; sourceTree = "<group>"; };
 		4DB8CB161B8ED5CE00A6031D /* ForgetLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ForgetLoginViewController.xib; sourceTree = "<group>"; };
 		4DC0C9871BF8D37100E2A468 /* CauseUpdateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CauseUpdateViewController.swift; sourceTree = "<group>"; };
@@ -212,10 +223,17 @@
 		4DD2FDF61C25E75B00CF3F4C /* InitialSearchView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialSearchView.xib; sourceTree = "<group>"; };
 		4DD2FDFA1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCauseTableViewCell.swift; sourceTree = "<group>"; };
 		4DD2FDFB1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCauseTableViewCell.xib; sourceTree = "<group>"; };
+		4DDCAE0F1C5D86900074DF89 /* CreditCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
 		4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ImpactColors.swift"; sourceTree = "<group>"; };
 		4DE85F661BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomStatusBar.swift"; sourceTree = "<group>"; };
 		4DE85F681BD18CC5002AE4C5 /* Cause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cause.swift; sourceTree = "<group>"; };
+		4DE94A831C59E92800850363 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		4DE94A841C59E92800850363 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		4DE94A8F1C59EDAC00850363 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		4DE94A901C59EDAC00850363 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
 		4DF27D3F1C24A11E007D563A /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
+		4DF387691C6019E9008FFAF7 /* EditInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInformationViewController.swift; sourceTree = "<group>"; };
+		4DF3876A1C6019E9008FFAF7 /* EditInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditInformationViewController.xib; sourceTree = "<group>"; };
 		7DC47E49CE7D52E23F79192F /* Pods_Impact.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Impact.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8049CBA1C2F099F005A559B /* Contribution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contribution.swift; sourceTree = "<group>"; };
 		B8049CBC1C2F0B20005A559B /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
@@ -435,6 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				4D2265821BA7937000A51908 /* CreditCardViewController.swift */,
+				4DDCAE0F1C5D86900074DF89 /* CreditCard.swift */,
 				4D2265831BA7937000A51908 /* CreditCardViewController.xib */,
 				B8D4982B1C633D3C001EE8BE /* MyCreditCardsViewController.swift */,
 				B8D4982C1C633D3C001EE8BE /* MyCreditCardsViewController.xib */,
@@ -511,6 +530,21 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		4DE94A821C59E90700850363 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				4DF387691C6019E9008FFAF7 /* EditInformationViewController.swift */,
+				4DF3876A1C6019E9008FFAF7 /* EditInformationViewController.xib */,
+				4DA63D551C5B1B070019219F /* SettingsTableViewCell.swift */,
+				4DA63D561C5B1B070019219F /* SettingsTableViewCell.xib */,
+				4DE94A8F1C59EDAC00850363 /* SettingsViewController.swift */,
+				4DE94A901C59EDAC00850363 /* SettingsViewController.xib */,
+				4DE94A831C59E92800850363 /* ProfileViewController.swift */,
+				4DE94A841C59E92800850363 /* ProfileViewController.xib */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		5FDB813D32490678FE722628 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -583,6 +617,7 @@
 				B8585C181B8642E900AB091A /* AppDelegate.swift */,
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
 				4D2256E81B8A8E5E00727A4C /* TabBarController.swift */,
+				4DE94A821C59E90700850363 /* Profile */,
 				B8C758691C3F8EF40063D028 /* TempViewController.swift */,
 				B8C7586A1C3F8EF40063D028 /* TempViewController.xib */,
 				B8D498251C5E1366001EE8BE /* Transactions */,
@@ -801,11 +836,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DE94A861C59E92800850363 /* ProfileViewController.xib in Resources */,
 				4DD2FDFD1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib in Resources */,
 				B8C77E1B1B8AC2E700000927 /* SignInViewController.xib in Resources */,
 				4D9B85421C46AFE500C4F720 /* CauseBlogPostViewController.xib in Resources */,
 				B82E47831BB747E600D3C90B /* Main.storyboard in Resources */,
 				4D6BC9981BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib in Resources */,
+				4DA63D581C5B1B070019219F /* SettingsTableViewCell.xib in Resources */,
+				4DF3876C1C6019E9008FFAF7 /* EditInformationViewController.xib in Resources */,
 				B8C7586C1C3F8EF40063D028 /* TempViewController.xib in Resources */,
 				4D6BC9911BE4FED6000C89C8 /* CategoriesViewController.xib in Resources */,
 				B8B8AA711B8FFBD1006E689C /* ContentViewController.xib in Resources */,
@@ -829,6 +867,7 @@
 				4DD2FDF71C25E75B00CF3F4C /* InitialSearchView.xib in Resources */,
 				4D2256F11B8AC7C900727A4C /* ChooseBankViewController.xib in Resources */,
 				B8A5CF541B8FF49A00D71D2C /* ThirdIntroViewController.xib in Resources */,
+				4DE94A921C59EDAC00850363 /* SettingsViewController.xib in Resources */,
 				4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */,
 				B8D4982E1C633D3C001EE8BE /* MyCreditCardsViewController.xib in Resources */,
 				4D92199E1BF815D700A326A8 /* CausePageViewController.xib in Resources */,
@@ -918,6 +957,8 @@
 				4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */,
 				4DD2FDF21C25DA0100CF3F4C /* SearchViewController.swift in Sources */,
 				4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */,
+				4DDCAE101C5D86900074DF89 /* CreditCard.swift in Sources */,
+				4DE94A911C59EDAC00850363 /* SettingsViewController.swift in Sources */,
 				4DE85F671BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift in Sources */,
 				4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */,
 				B8049CC01C2F378D005A559B /* User.swift in Sources */,
@@ -935,6 +976,7 @@
 				4DF27D401C24A11E007D563A /* UIFont+CustomFonts.swift in Sources */,
 				4D2B0FE41BBF4B8100482FF4 /* AlertViewController.swift in Sources */,
 				4DD2FDFC1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift in Sources */,
+				4DF3876B1C6019E9008FFAF7 /* EditInformationViewController.swift in Sources */,
 				4DC0C9891BF8D37100E2A468 /* CauseUpdateViewController.swift in Sources */,
 				4D05AA7B1C5880D9002B8C9A /* ActivityIndicator.swift in Sources */,
 				4D92199D1BF815D700A326A8 /* CausePageViewController.swift in Sources */,
@@ -963,6 +1005,7 @@
 				B8A5CF4F1B8FF48600D71D2C /* FirstIntroViewController.swift in Sources */,
 				4D0FDE4D1B8BB646002877CE /* BankSignInViewController.swift in Sources */,
 				B85F3F601BDD656C0029F83E /* ContributionsCollectionViewCell.swift in Sources */,
+				4DA63D571C5B1B070019219F /* SettingsTableViewCell.swift in Sources */,
 				4D6DC35F1B8BEBAC0017BF29 /* BankPinViewController.swift in Sources */,
 				B8049CBB1C2F099F005A559B /* Contribution.swift in Sources */,
 				4D545D8C1BF7B99D00F009D5 /* DeviceDetect.swift in Sources */,
@@ -976,6 +1019,7 @@
 				B8C7586B1C3F8EF40063D028 /* TempViewController.swift in Sources */,
 				4D2256FA1B8AD62300727A4C /* RoundedCollectionViewCell.swift in Sources */,
 				4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */,
+				4DE94A851C59E92800850363 /* ProfileViewController.swift in Sources */,
 				4D91C4951C28861800A4C0A5 /* AccessoryTableViewCell.swift in Sources */,
 				4D6BC9901BE4FED6000C89C8 /* CategoriesViewController.swift in Sources */,
 			);

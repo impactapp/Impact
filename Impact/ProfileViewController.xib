@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="Impact" customModuleProvider="target">
+            <connections>
+                <outlet property="emailLabel" destination="cqr-jH-cCV" id="FjR-Ux-tlO"/>
+                <outlet property="nameLabel" destination="3Gp-YM-wrV" id="imd-mx-rz9"/>
+                <outlet property="profileImageView" destination="Srv-hQ-bKw" id="EN5-KR-LvU"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YOE-pm-ce3">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Goh-7E-Tai">
+                            <rect key="frame" x="561" y="26" width="31" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Ca5-jZ-eST"/>
+                                <constraint firstAttribute="width" constant="31" id="SCJ-lY-t4v"/>
+                            </constraints>
+                            <state key="normal" image="ChainIcon"/>
+                            <connections>
+                                <action selector="settingsPressed:" destination="-1" eventType="touchUpInside" id="HCI-lJ-Skr"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="Goh-7E-Tai" secondAttribute="bottom" constant="8" id="A6z-VE-5Gt"/>
+                        <constraint firstAttribute="trailing" secondItem="Goh-7E-Tai" secondAttribute="trailing" constant="8" id="Xw7-2F-fA4"/>
+                        <constraint firstAttribute="height" constant="64" id="som-9h-t03"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Srv-hQ-bKw">
+                    <rect key="frame" x="175" y="175" width="250" height="250"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="6aC-99-fee"/>
+                        <constraint firstAttribute="height" constant="250" id="nLb-OQ-bhd"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Gp-YM-wrV">
+                    <rect key="frame" x="49" y="129" width="503" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="FO8-sk-ReD"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="Label">
+                            <attributes>
+                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="17" name="AvenirNext-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqr-jH-cCV">
+                    <rect key="frame" x="49" y="433" width="503" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="NEc-jJ-1Wa"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="Label">
+                            <attributes>
+                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="17" name="AvenirNext-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="3Gp-YM-wrV" secondAttribute="trailing" constant="48" id="15c-EL-59O"/>
+                <constraint firstAttribute="trailing" secondItem="cqr-jH-cCV" secondAttribute="trailing" constant="48" id="5Ao-uI-7qo"/>
+                <constraint firstItem="YOE-pm-ce3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="BVS-Uz-vlQ"/>
+                <constraint firstItem="cqr-jH-cCV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="49" id="QNc-tY-ur2"/>
+                <constraint firstItem="cqr-jH-cCV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ZE3-X4-Q81"/>
+                <constraint firstItem="3Gp-YM-wrV" firstAttribute="top" secondItem="YOE-pm-ce3" secondAttribute="bottom" constant="65" id="Za0-4o-2AR"/>
+                <constraint firstAttribute="trailing" secondItem="YOE-pm-ce3" secondAttribute="trailing" id="b3V-LB-Bjt"/>
+                <constraint firstItem="3Gp-YM-wrV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="49" id="i35-dn-77b"/>
+                <constraint firstItem="Srv-hQ-bKw" firstAttribute="top" secondItem="3Gp-YM-wrV" secondAttribute="bottom" constant="14" id="iC1-SJ-Y8f"/>
+                <constraint firstItem="YOE-pm-ce3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kz7-ca-uza"/>
+                <constraint firstItem="cqr-jH-cCV" firstAttribute="top" secondItem="Srv-hQ-bKw" secondAttribute="bottom" constant="8" id="t88-9u-R6k"/>
+                <constraint firstItem="Srv-hQ-bKw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="tWd-Bt-pDd"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="ChainIcon" width="31" height="30"/>
+    </resources>
+</document>
