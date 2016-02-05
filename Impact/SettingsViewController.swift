@@ -157,6 +157,9 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             eivc.editType = .Password
             eivc.userInfoDelegate = self
             self.navigationController?.pushViewController(eivc, animated: true)
+        } else if indexPath.section == 1 && indexPath.row == 0{
+            let ccvc = MyCreditCardsViewController()
+            self.navigationController?.pushViewController(ccvc, animated: true)
         }
     }
     
