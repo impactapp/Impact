@@ -132,6 +132,16 @@
 		B8D45A051B8FF3E000877310 /* SecondIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D45A031B8FF3E000877310 /* SecondIntroViewController.swift */; };
 		B8D45A061B8FF3E000877310 /* SecondIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D45A041B8FF3E000877310 /* SecondIntroViewController.xib */; };
 		B8D4982A1C5E13FB001EE8BE /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D498291C5E13FB001EE8BE /* Transaction.swift */; };
+		B8D4982D1C633D3C001EE8BE /* MyCreditCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D4982B1C633D3C001EE8BE /* MyCreditCardsViewController.swift */; };
+		B8D4982E1C633D3C001EE8BE /* MyCreditCardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D4982C1C633D3C001EE8BE /* MyCreditCardsViewController.xib */; };
+		B8D498311C634308001EE8BE /* CreditCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D4982F1C634308001EE8BE /* CreditCardCollectionViewCell.swift */; };
+		B8D498321C634308001EE8BE /* CreditCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D498301C634308001EE8BE /* CreditCardCollectionViewCell.xib */; };
+		B8EEA9401C63D0ED003A362F /* NewCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEA93E1C63D0ED003A362F /* NewCreditCardViewController.swift */; };
+		B8EEA9411C63D0ED003A362F /* NewCreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8EEA93F1C63D0ED003A362F /* NewCreditCardViewController.xib */; };
+		B8EEA9441C63D9AB003A362F /* EditCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEA9421C63D9AB003A362F /* EditCreditCardViewController.swift */; };
+		B8EEA9451C63D9AB003A362F /* EditCreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8EEA9431C63D9AB003A362F /* EditCreditCardViewController.xib */; };
+		B8EEA9481C64C7E4003A362F /* FooterCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEA9461C64C7E4003A362F /* FooterCollectionReusableView.swift */; };
+		B8EEA9491C64C7E4003A362F /* FooterCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8EEA9471C64C7E4003A362F /* FooterCollectionReusableView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -276,6 +286,16 @@
 		B8D45A031B8FF3E000877310 /* SecondIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondIntroViewController.swift; sourceTree = "<group>"; };
 		B8D45A041B8FF3E000877310 /* SecondIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondIntroViewController.xib; sourceTree = "<group>"; };
 		B8D498291C5E13FB001EE8BE /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		B8D4982B1C633D3C001EE8BE /* MyCreditCardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCreditCardsViewController.swift; sourceTree = "<group>"; };
+		B8D4982C1C633D3C001EE8BE /* MyCreditCardsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCreditCardsViewController.xib; sourceTree = "<group>"; };
+		B8D4982F1C634308001EE8BE /* CreditCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardCollectionViewCell.swift; sourceTree = "<group>"; };
+		B8D498301C634308001EE8BE /* CreditCardCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		B8EEA93E1C63D0ED003A362F /* NewCreditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCreditCardViewController.swift; sourceTree = "<group>"; };
+		B8EEA93F1C63D0ED003A362F /* NewCreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCreditCardViewController.xib; sourceTree = "<group>"; };
+		B8EEA9421C63D9AB003A362F /* EditCreditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCreditCardViewController.swift; sourceTree = "<group>"; };
+		B8EEA9431C63D9AB003A362F /* EditCreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditCreditCardViewController.xib; sourceTree = "<group>"; };
+		B8EEA9461C64C7E4003A362F /* FooterCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FooterCollectionReusableView.swift; sourceTree = "<group>"; };
+		B8EEA9471C64C7E4003A362F /* FooterCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FooterCollectionReusableView.xib; sourceTree = "<group>"; };
 		ED45840C4AA33A9113487D60 /* Pods-Impact.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Impact.release.xcconfig"; path = "Pods/Target Support Files/Pods-Impact/Pods-Impact.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -333,6 +353,8 @@
 				4D2B0FE21BBF4B8100482FF4 /* AlertViewController.swift */,
 				4D8210271BD291F30032DA07 /* CircleGraph.swift */,
 				4D02EC221BD0918500701C75 /* HeaderView.swift */,
+				B8EEA9461C64C7E4003A362F /* FooterCollectionReusableView.swift */,
+				B8EEA9471C64C7E4003A362F /* FooterCollectionReusableView.xib */,
 				4D2B0FE81BBF5ADD00482FF4 /* AlertPopupView.xib */,
 				4D6DC3631B8BED330017BF29 /* DoneButton.swift */,
 				4D2256F81B8AD62300727A4C /* RoundedCollectionViewCell.swift */,
@@ -451,6 +473,14 @@
 				4D2265821BA7937000A51908 /* CreditCardViewController.swift */,
 				4DDCAE0F1C5D86900074DF89 /* CreditCard.swift */,
 				4D2265831BA7937000A51908 /* CreditCardViewController.xib */,
+				B8D4982F1C634308001EE8BE /* CreditCardCollectionViewCell.swift */,
+				B8D498301C634308001EE8BE /* CreditCardCollectionViewCell.xib */,
+				B8EEA9421C63D9AB003A362F /* EditCreditCardViewController.swift */,
+				B8EEA9431C63D9AB003A362F /* EditCreditCardViewController.xib */,
+				B8D4982B1C633D3C001EE8BE /* MyCreditCardsViewController.swift */,
+				B8D4982C1C633D3C001EE8BE /* MyCreditCardsViewController.xib */,
+				B8EEA93E1C63D0ED003A362F /* NewCreditCardViewController.swift */,
+				B8EEA93F1C63D0ED003A362F /* NewCreditCardViewController.xib */,
 			);
 			name = Card;
 			sourceTree = "<group>";
@@ -841,6 +871,7 @@
 				B8C7586C1C3F8EF40063D028 /* TempViewController.xib in Resources */,
 				4D6BC9911BE4FED6000C89C8 /* CategoriesViewController.xib in Resources */,
 				B8B8AA711B8FFBD1006E689C /* ContentViewController.xib in Resources */,
+				B8EEA9491C64C7E4003A362F /* FooterCollectionReusableView.xib in Resources */,
 				4DC0C98A1BF8D37100E2A468 /* CauseUpdateViewController.xib in Resources */,
 				4D2265851BA7937000A51908 /* CreditCardViewController.xib in Resources */,
 				B83889A01C4F6AEF00A65A99 /* RoundUpsViewController.xib in Resources */,
@@ -856,6 +887,7 @@
 				4D2B0FE91BBF5ADD00482FF4 /* AlertPopupView.xib in Resources */,
 				4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */,
 				4D02EC1D1BD08A0400701C75 /* CausesTableViewCell.xib in Resources */,
+				B8D498321C634308001EE8BE /* CreditCardCollectionViewCell.xib in Resources */,
 				4D02EC181BD0887200701C75 /* ExploreViewController.xib in Resources */,
 				B838899C1C4F3D6800A65A99 /* RoundUpsTableViewCell.xib in Resources */,
 				4DD2FDF71C25E75B00CF3F4C /* InitialSearchView.xib in Resources */,
@@ -863,6 +895,7 @@
 				B8A5CF541B8FF49A00D71D2C /* ThirdIntroViewController.xib in Resources */,
 				4DE94A921C59EDAC00850363 /* SettingsViewController.xib in Resources */,
 				4DB8CB181B8ED5CE00A6031D /* ForgetLoginViewController.xib in Resources */,
+				B8D4982E1C633D3C001EE8BE /* MyCreditCardsViewController.xib in Resources */,
 				4D92199E1BF815D700A326A8 /* CausePageViewController.xib in Resources */,
 				4D14C87D1C4D816100D7089B /* UserCollectionViewCell.xib in Resources */,
 				4DC0C98E1BF8D57600E2A468 /* AmountDonatedHeaderView.xib in Resources */,
@@ -870,8 +903,10 @@
 				4D91C4961C28861800A4C0A5 /* AccessoryTableViewCell.xib in Resources */,
 				4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */,
 				B8B8AA6D1B8FF69D006E689C /* PageViewController.xib in Resources */,
+				B8EEA9451C63D9AB003A362F /* EditCreditCardViewController.xib in Resources */,
 				4D6BC9961BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib in Resources */,
 				4D0FDE4E1B8BB646002877CE /* BankSignInViewController.xib in Resources */,
+				B8EEA9411C63D0ED003A362F /* NewCreditCardViewController.xib in Resources */,
 				B85F3F651BDD6C130029F83E /* ContributionsViewController.xib in Resources */,
 				4DD2FDF31C25DA0100CF3F4C /* SearchViewController.xib in Resources */,
 				B8585C231B8642E900AB091A /* Images.xcassets in Resources */,
@@ -951,6 +986,7 @@
 				4DD2FDF21C25DA0100CF3F4C /* SearchViewController.swift in Sources */,
 				4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */,
 				4DDCAE101C5D86900074DF89 /* CreditCard.swift in Sources */,
+				B8EEA9441C63D9AB003A362F /* EditCreditCardViewController.swift in Sources */,
 				4DE94A911C59EDAC00850363 /* SettingsViewController.swift in Sources */,
 				4DE85F671BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift in Sources */,
 				4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */,
@@ -960,10 +996,12 @@
 				4D2265841BA7937000A51908 /* CreditCardViewController.swift in Sources */,
 				4D8210281BD291F30032DA07 /* CircleGraph.swift in Sources */,
 				B8C77E1E1B8AC2FF00000927 /* SignUpViewController.swift in Sources */,
+				B8D4982D1C633D3C001EE8BE /* MyCreditCardsViewController.swift in Sources */,
 				B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */,
 				B8A5CF531B8FF49A00D71D2C /* ThirdIntroViewController.swift in Sources */,
 				4D0FDE441B8B77C3002877CE /* UIImageView+AsynchronousLoading.swift in Sources */,
 				4D9BB1171BFFD32200E5000A /* BlogPostTableViewHeader.swift in Sources */,
+				B8EEA9401C63D0ED003A362F /* NewCreditCardViewController.swift in Sources */,
 				4D9BB11A1BFFD40700E5000A /* CauseStoryViewController.swift in Sources */,
 				4DF27D401C24A11E007D563A /* UIFont+CustomFonts.swift in Sources */,
 				4D2B0FE41BBF4B8100482FF4 /* AlertViewController.swift in Sources */,
@@ -978,6 +1016,7 @@
 				4D2256E91B8A8E5E00727A4C /* TabBarController.swift in Sources */,
 				4D02EC271BD0ABF000701C75 /* String+Date.swift in Sources */,
 				4D2256F01B8AC7C900727A4C /* ChooseBankViewController.swift in Sources */,
+				B8EEA9481C64C7E4003A362F /* FooterCollectionReusableView.swift in Sources */,
 				4D5C805A1BA8F2F0001DEDAF /* UITextField+Padding.swift in Sources */,
 				B8B8AA701B8FFBD1006E689C /* ContentViewController.swift in Sources */,
 				4DC0C98C1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift in Sources */,
@@ -991,6 +1030,7 @@
 				B838899B1C4F3D6800A65A99 /* RoundUpsTableViewCell.swift in Sources */,
 				4D02EC231BD0918500701C75 /* HeaderView.swift in Sources */,
 				B8D4982A1C5E13FB001EE8BE /* Transaction.swift in Sources */,
+				B8D498311C634308001EE8BE /* CreditCardCollectionViewCell.swift in Sources */,
 				B8585C1C1B8642E900AB091A /* Impact.xcdatamodeld in Sources */,
 				B8D45A051B8FF3E000877310 /* SecondIntroViewController.swift in Sources */,
 				B8C77E131B8ABEFA00000927 /* InitialScreenViewController.swift in Sources */,

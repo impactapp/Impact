@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 private let ActivityIndicatorAnimationKey = "Rotation"
 
 @IBDesignable public class ActivityIndicator: UIView {
