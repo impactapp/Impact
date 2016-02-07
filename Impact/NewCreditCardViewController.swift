@@ -8,12 +8,14 @@
 
 import UIKit
 
-class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FooterCollectionReusableViewDelegate {
     let statusBarHeight = CGFloat(20)
     let cellHeight = CGFloat(165)
     @IBOutlet var headerView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     let cellIdentifier = "CreditCardCollectionViewCell"
+    let footerViewIdentifier = "FooterCollectionReusableView"
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,8 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
     private func setUpCollectionView() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout();
         layout.headerReferenceSize = CGSize(width: self.view.frame.size.width, height: self.headerView.frame.size.height - statusBarHeight/2);
+        layout.footerReferenceSize = CGSize(width: self.view.frame.size.width, height: 150);
+
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         layout.minimumInteritemSpacing = 2;
         layout.minimumLineSpacing = 10;
@@ -39,6 +43,8 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
         self.collectionView.dataSource = self;
         self.collectionView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier);
         self.collectionView.alwaysBounceVertical = true
+        self.collectionView.registerNib(UINib(nibName: footerViewIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerViewIdentifier);
+        self.collectionView.registerNib(UINib(nibName: footerViewIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: footerViewIdentifier);
         
         
     }
@@ -59,7 +65,7 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2;
+        return 1;
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -78,9 +84,61 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView,
+        viewForSupplementaryElementOfKind kind: String,
+        atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+            
+            switch kind {
+                
+            case UICollectionElementKindSectionHeader:
+                
+                //have to have something here because we need the header for space at the top
+                let footerView : FooterCollectionReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+                    withReuseIdentifier: footerViewIdentifier,
+                    forIndexPath: indexPath) as! FooterCollectionReusableView
+                footerView.topButton.hidden = true
+                footerView.bottomButton.hidden = true
+                footerView.delegate = self
+                
+                
+                return footerView
+                
+            case UICollectionElementKindSectionFooter:
+                let footerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+                    withReuseIdentifier: footerViewIdentifier,
+                    forIndexPath: indexPath) as! FooterCollectionReusableView
+                footerView.bottomButton.hidden = true
+                footerView.topButton.setTitle("Add Card", forState: UIControlState.Normal)
+                footerView.delegate = self
+                
+                
+                return footerView
+                
+            default:
+                
+                let footerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+                    withReuseIdentifier: footerViewIdentifier,
+                    forIndexPath: indexPath) as! FooterCollectionReusableView
+                footerView.bottomButton.hidden = true
+                footerView.delegate = self
+                
+                return footerView
+            }
+            
+            
+            
+    }
     
     
+    //MARK - footer view delegate methods
     
+    
+    func footerViewTopButtonPressed() {
+        
+    }
+    func footerViewBottomButtonPressed() {
+        
+    }
     
     
     @IBAction func backPressed(sender: AnyObject) {
