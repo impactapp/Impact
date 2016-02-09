@@ -12,6 +12,8 @@ class TabBarViewController: UITabBarController {
     var underlineView = UIView()
     let underlineHeight = CGFloat(4.0)
     let tabBarImageInsets = UIEdgeInsetsMake(3, 0, -3, 0)
+    var contributeButton : UIButton = UIButton()
+    let contributeButtonWidth = CGFloat(80)
     
     //MARK: Initialization
     override func viewDidLoad() {
@@ -20,6 +22,7 @@ class TabBarViewController: UITabBarController {
         initTabBarAttributes();
         setUpViewControllers();
         initUnderLine()
+        setUpContributeButton()
     }
     
     func initTabBarAttributes() {
@@ -27,19 +30,28 @@ class TabBarViewController: UITabBarController {
         self.tabBar.barTintColor = UIColor.blackColor()
         self.tabBar.tintColor = UIColor.whiteColor();
         self.tabBar.opaque = true;
+        self.tabBar.translucent = false
     }
     
     func setUpViewControllers() {
         let exploreViewController = ExploreViewController();
-
         exploreViewController.tabBarItem.image = UIImage(named: "Earth");
+        exploreViewController.extendedLayoutIncludesOpaqueBars = true
         let profileViewController = ProfileViewController();
         profileViewController.tabBarItem.image = UIImage(named: "Person");
+        profileViewController.extendedLayoutIncludesOpaqueBars = true
         let searchViewController = SearchViewController()
         searchViewController.tabBarItem.image = UIImage(named:"MagnifyingGlass")
+        searchViewController.extendedLayoutIncludesOpaqueBars = true
         let contributionsViewController = ContributionsViewController()
         contributionsViewController.tabBarItem.image = UIImage(named: "Heart");
-        self.viewControllers = [exploreViewController,contributionsViewController,searchViewController,profileViewController];
+        contributionsViewController.extendedLayoutIncludesOpaqueBars = true
+        //TODO: PUT IN REAL MAKE CONTRIBUTION VIEWCONTROLLER
+        let temp = UIViewController()
+        temp.extendedLayoutIncludesOpaqueBars = true
+        temp.tabBarItem.enabled = false
+        
+        self.viewControllers = [exploreViewController,contributionsViewController,temp,searchViewController,profileViewController];
         for item:UITabBarItem in self.tabBar.items! {
             item.imageInsets = self.tabBarImageInsets
         }
@@ -56,13 +68,65 @@ class TabBarViewController: UITabBarController {
         self.view.addSubview(self.underlineView)
     }
     
-    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-        let underlineFrame = self.underlineView.frame
-        if let newIndex = self.tabBar.items?.indexOf(item) {
-            let newXOrigin = underlineFrame.size.width * CGFloat(newIndex)
-            UIView.animateWithDuration(0.25, animations: { () -> Void in
-                self.underlineView.frame = CGRectMake(newXOrigin, underlineFrame.origin.y, underlineFrame.width, underlineFrame.height)
-                }, completion: nil)
+    private func setUpContributeButton() {
+        let buttonFrame = CGRectMake(self.tabBar.frame.size.width/2 - contributeButtonWidth/2, -30.0, contributeButtonWidth, contributeButtonWidth);
+        self.contributeButton = UIButton(frame: buttonFrame);
+        self.contributeButton.addTarget(self, action: "didPressContributeButton:", forControlEvents: .TouchUpInside);
+        self.contributeButton.tintColor = UIColor.whiteColor()
+        self.contributeButton.backgroundColor = UIColor.blackColor()
+        self.contributeButton.opaque = true
+        self.contributeButton.layer.cornerRadius = contributeButtonWidth/2;
+        self.contributeButton.layer.masksToBounds = true;
+        self.contributeButton.layer.borderWidth = 1.0;
+        self.contributeButton.setImage(UIImage(named:"ContributeIcon"), forState: .Normal);
+        self.contributeButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
+        
+        self.tabBar.addSubview(contributeButton);
+    }
+    
+    func didPressContributeButton(sender:UIButton!) {
+        //TODO: SET SELECTED VIEWCONTROLLER TO MAKE CONTRIBUTION CONTROLLER
+        self.selectedIndex = 2
+        animateContributeButton { () -> Void in
+            
         }
+    }
+    
+    private func animateContributeButton(completion:() -> Void) {
+        let middleIndex = 2
+        animateUndlerineToIndex(middleIndex)
+        UIView.animateWithDuration(0.1, delay: 0.0, options: .CurveEaseInOut, animations: {
+            //shrink button
+            var shrinkTransformation = CATransform3DIdentity;
+            shrinkTransformation = CATransform3DMakeScale(0.3, 0.3, 1.0);
+            self.contributeButton.layer.transform = shrinkTransformation;
+
+            }, completion: { finished in
+                UIView.animateWithDuration(0.1, delay: 0.0, options: .CurveEaseInOut, animations: {
+                    //enlarge button
+                    var enlargeTransformation = CATransform3DIdentity;
+                    enlargeTransformation = CATransform3DMakeScale(1.0, 1.0, 1.0);
+                    self.contributeButton.layer.transform = enlargeTransformation;
+                    }, completion: { finished in
+                        completion();
+                });
+        });
+    }
+    
+    
+    
+    override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        if let newIndex = self.tabBar.items?.indexOf(item) {
+            animateUndlerineToIndex(newIndex)
+        }
+    }
+    
+    private func animateUndlerineToIndex(index: Int) {
+        let underlineFrame = self.underlineView.frame
+        let newXOrigin = underlineFrame.size.width * CGFloat(index)
+        UIView.animateWithDuration(0.25, animations: { () -> Void in
+            self.underlineView.frame = CGRectMake(newXOrigin, underlineFrame.origin.y, underlineFrame.width, underlineFrame.height)
+            }, completion: nil)
+        
     }
 }
