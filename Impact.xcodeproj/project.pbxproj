@@ -82,6 +82,10 @@
 		4DD2FDFC1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD2FDFA1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift */; };
 		4DD2FDFD1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DD2FDFB1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib */; };
 		4DDCAE101C5D86900074DF89 /* CreditCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DDCAE0F1C5D86900074DF89 /* CreditCard.swift */; };
+		4DE411751C72B27500D7B675 /* DonateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE411731C72B27500D7B675 /* DonateViewController.swift */; };
+		4DE411761C72B27500D7B675 /* DonateViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE411741C72B27500D7B675 /* DonateViewController.xib */; };
+		4DE411781C72B2BC00D7B675 /* DonationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE411771C72B2BC00D7B675 /* DonationCardView.swift */; };
+		4DE4117A1C72B2D900D7B675 /* DonationCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE411791C72B2D900D7B675 /* DonationCardView.xib */; };
 		4DE6692E1B86C5A9005CB0AF /* UIColor+ImpactColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */; };
 		4DE85F671BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE85F661BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift */; };
 		4DE85F691BD18CC5002AE4C5 /* Cause.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE85F681BD18CC5002AE4C5 /* Cause.swift */; };
@@ -232,6 +236,10 @@
 		4DD2FDFA1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCauseTableViewCell.swift; sourceTree = "<group>"; };
 		4DD2FDFB1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCauseTableViewCell.xib; sourceTree = "<group>"; };
 		4DDCAE0F1C5D86900074DF89 /* CreditCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCard.swift; sourceTree = "<group>"; };
+		4DE411731C72B27500D7B675 /* DonateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateViewController.swift; sourceTree = "<group>"; };
+		4DE411741C72B27500D7B675 /* DonateViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonateViewController.xib; sourceTree = "<group>"; };
+		4DE411771C72B2BC00D7B675 /* DonationCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationCardView.swift; sourceTree = "<group>"; };
+		4DE411791C72B2D900D7B675 /* DonationCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationCardView.xib; sourceTree = "<group>"; };
 		4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+ImpactColors.swift"; sourceTree = "<group>"; };
 		4DE85F661BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+CustomStatusBar.swift"; sourceTree = "<group>"; };
 		4DE85F681BD18CC5002AE4C5 /* Cause.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cause.swift; sourceTree = "<group>"; };
@@ -539,6 +547,17 @@
 			name = Search;
 			sourceTree = "<group>";
 		};
+		4DE411721C72B26400D7B675 /* Donate */ = {
+			isa = PBXGroup;
+			children = (
+				4DE411731C72B27500D7B675 /* DonateViewController.swift */,
+				4DE411741C72B27500D7B675 /* DonateViewController.xib */,
+				4DE411771C72B2BC00D7B675 /* DonationCardView.swift */,
+				4DE411791C72B2D900D7B675 /* DonationCardView.xib */,
+			);
+			name = Donate;
+			sourceTree = "<group>";
+		};
 		4DE6692F1B86C8C4005CB0AF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,6 +663,7 @@
 				4DE94A821C59E90700850363 /* Profile */,
 				B8C758691C3F8EF40063D028 /* TempViewController.swift */,
 				B8C7586A1C3F8EF40063D028 /* TempViewController.xib */,
+				4DE411721C72B26400D7B675 /* Donate */,
 				B8D498251C5E1366001EE8BE /* Transactions */,
 				4D89C1341C456D8100D6B1F0 /* Blog Posts */,
 				B8049CBE1C2F3607005A559B /* Users */,
@@ -828,7 +848,7 @@
 				TargetAttributes = {
 					B8585C121B8642E800AB091A = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = SBD89XZSYG;
+						DevelopmentTeam = F6J9Z7FPQB;
 					};
 					B8585C2A1B8642E900AB091A = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -905,10 +925,12 @@
 				B8B8AA6D1B8FF69D006E689C /* PageViewController.xib in Resources */,
 				B8EEA9451C63D9AB003A362F /* EditCreditCardViewController.xib in Resources */,
 				4D6BC9961BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib in Resources */,
+				4DE4117A1C72B2D900D7B675 /* DonationCardView.xib in Resources */,
 				4D0FDE4E1B8BB646002877CE /* BankSignInViewController.xib in Resources */,
 				B8EEA9411C63D0ED003A362F /* NewCreditCardViewController.xib in Resources */,
 				B85F3F651BDD6C130029F83E /* ContributionsViewController.xib in Resources */,
 				4DD2FDF31C25DA0100CF3F4C /* SearchViewController.xib in Resources */,
+				4DE411761C72B27500D7B675 /* DonateViewController.xib in Resources */,
 				B8585C231B8642E900AB091A /* Images.xcassets in Resources */,
 				4D91C4921C28841D00A4C0A5 /* PreviousImpactsViewController.xib in Resources */,
 				4D9BB11B1BFFD40700E5000A /* CauseStoryViewController.xib in Resources */,
@@ -986,6 +1008,7 @@
 				4DD2FDF21C25DA0100CF3F4C /* SearchViewController.swift in Sources */,
 				4D2256ED1B8AC40E00727A4C /* RoundedButton.swift in Sources */,
 				4DDCAE101C5D86900074DF89 /* CreditCard.swift in Sources */,
+				4DE411751C72B27500D7B675 /* DonateViewController.swift in Sources */,
 				B8EEA9441C63D9AB003A362F /* EditCreditCardViewController.swift in Sources */,
 				4DE94A911C59EDAC00850363 /* SettingsViewController.swift in Sources */,
 				4DE85F671BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift in Sources */,
@@ -1019,6 +1042,7 @@
 				B8EEA9481C64C7E4003A362F /* FooterCollectionReusableView.swift in Sources */,
 				4D5C805A1BA8F2F0001DEDAF /* UITextField+Padding.swift in Sources */,
 				B8B8AA701B8FFBD1006E689C /* ContentViewController.swift in Sources */,
+				4DE411781C72B2BC00D7B675 /* DonationCardView.swift in Sources */,
 				4DC0C98C1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift in Sources */,
 				B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */,
 				4D96D1561BFE299000CDE687 /* FriendsCollectionViewHeader.swift in Sources */,
