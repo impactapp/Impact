@@ -10,9 +10,16 @@ import UIKit
 
 class DonationCardView: UIView {
     
+    @IBOutlet weak var amountTextField: UITextField!
+    var amount:Int = 0{
+        willSet(newValue){
+            self.amountTextField.text = "$\(newValue)"
+        }
+    }
     override init(frame:CGRect) {
         super.init(frame: frame)
         let xibView = NSBundle.mainBundle().loadNibNamed("DonationCardView", owner: self, options: [:]).first as! UIView
+        self.amountTextField.enabled = false
         self.addSubview(xibView)
         xibView.frame = self.frame;
     }

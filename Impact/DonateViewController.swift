@@ -30,7 +30,15 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         donationCardView.frame = CGRectMake(inset,20,cardViewWidth,donateCardViewHeight)
         donationCardView.layer.masksToBounds = true
         donationCardView.layer.cornerRadius = 10
+        ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
+            donationCardView.amount = 35//currentUser.pending_contribution_amount
+        }
 
+    }
+    
+    private func setUpDonationCardView(amount: Int) {
+        
+        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
