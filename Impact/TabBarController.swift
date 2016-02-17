@@ -44,14 +44,13 @@ class TabBarViewController: UITabBarController {
         searchViewController.tabBarItem.image = UIImage(named:"MagnifyingGlass")
         searchViewController.extendedLayoutIncludesOpaqueBars = true
         let contributionsViewController = ContributionsViewController()
-        contributionsViewController.tabBarItem.image = UIImage(named: "Heart");
+        contributionsViewController.tabBarItem.image = UIImage(named: "stats");
         contributionsViewController.extendedLayoutIncludesOpaqueBars = true
-        //TODO: PUT IN REAL MAKE CONTRIBUTION VIEWCONTROLLER
-        let temp = UIViewController()
-        temp.extendedLayoutIncludesOpaqueBars = true
-        temp.tabBarItem.enabled = false
+        let donateViewController = DonateViewController()
+        donateViewController.extendedLayoutIncludesOpaqueBars = true
+        donateViewController.tabBarItem.enabled = false
         
-        self.viewControllers = [exploreViewController,contributionsViewController,temp,searchViewController,profileViewController];
+        self.viewControllers = [exploreViewController,contributionsViewController,donateViewController,searchViewController,profileViewController];
         for item:UITabBarItem in self.tabBar.items! {
             item.imageInsets = self.tabBarImageInsets
         }
@@ -78,17 +77,17 @@ class TabBarViewController: UITabBarController {
         self.contributeButton.layer.cornerRadius = contributeButtonWidth/2;
         self.contributeButton.layer.masksToBounds = true;
         self.contributeButton.layer.borderWidth = 1.0;
-        self.contributeButton.setImage(UIImage(named:"ContributeIcon"), forState: .Normal);
+        self.contributeButton.setImage(UIImage(named:"colored-heart-unfilled"), forState: .Normal);
+        self.contributeButton.setImage(UIImage(named: "colored-heart"), forState: .Highlighted)
         self.contributeButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         
         self.tabBar.addSubview(contributeButton);
     }
     
     func didPressContributeButton(sender:UIButton!) {
-        //TODO: SET SELECTED VIEWCONTROLLER TO MAKE CONTRIBUTION CONTROLLER
         self.selectedIndex = 2
         animateContributeButton { () -> Void in
-            
+            self.contributeButton.highlighted = true
         }
     }
     
@@ -116,6 +115,7 @@ class TabBarViewController: UITabBarController {
     
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
+        self.contributeButton.highlighted = false
         if let newIndex = self.tabBar.items?.indexOf(item) {
             animateUndlerineToIndex(newIndex)
         }
