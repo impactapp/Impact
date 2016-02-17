@@ -9,26 +9,29 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
+            <rect key="frame" x="0.0" y="0.0" width="300" height="300"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnU-gS-jJu">
-                    <rect key="frame" x="0.0" y="251" width="200" height="49"/>
-                    <state key="normal" title="Button"/>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ddb-AG-QxK">
-                    <rect key="frame" x="200" y="251" width="200" height="49"/>
+                    <rect key="frame" x="150" y="251" width="150" height="49"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="49" id="4wN-3w-0Pg"/>
                     </constraints>
                     <state key="normal" title="Button"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1R-Pa-KIE">
-                    <rect key="frame" x="0.0" y="185" width="400" height="58"/>
+                    <rect key="frame" x="0.0" y="185" width="300" height="58"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="58" id="09e-Be-mVr"/>
                     </constraints>
                     <state key="normal" title="Donate"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnU-gS-jJu">
+                    <rect key="frame" x="0.0" y="251" width="150" height="49"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="49" id="pSc-lc-oos"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -41,10 +44,18 @@
                 <constraint firstAttribute="bottom" secondItem="GnU-gS-jJu" secondAttribute="bottom" id="TI4-Id-6NH"/>
                 <constraint firstItem="M1R-Pa-KIE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="a8m-wH-uic"/>
                 <constraint firstAttribute="trailing" secondItem="M1R-Pa-KIE" secondAttribute="trailing" id="gVS-E9-3vy"/>
+                <constraint firstItem="GnU-gS-jJu" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.5" id="hID-tM-Nbm"/>
+                <constraint firstItem="M1R-Pa-KIE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="i2k-Sa-ufW"/>
                 <constraint firstAttribute="trailing" secondItem="Ddb-AG-QxK" secondAttribute="trailing" id="oLM-Oa-sR7"/>
                 <constraint firstAttribute="bottom" secondItem="Ddb-AG-QxK" secondAttribute="bottom" id="vAC-nk-FcT"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="7eC-lK-1ts"/>
+                    <exclude reference="CcY-ZE-NBx"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="257" y="300"/>
         </view>
     </objects>

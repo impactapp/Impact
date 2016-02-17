@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (3.1.5)
+  - Alamofire (3.2.0)
   - Bolts (1.6.0):
     - Bolts/AppLinks (= 1.6.0)
     - Bolts/Tasks (= 1.6.0)
@@ -7,14 +7,14 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.6.0)
   - CardIO (5.1.1)
-  - FBSDKCoreKit (4.9.1):
+  - FBSDKCoreKit (4.10.0):
     - Bolts (~> 1.5)
-  - FBSDKLoginKit (4.9.1):
+  - FBSDKLoginKit (4.10.0):
     - FBSDKCoreKit
-  - Locksmith (2.0.6)
-  - Stripe (6.1.0):
-    - Stripe/Core (= 6.1.0)
-  - Stripe/Core (6.1.0)
+  - Locksmith (2.0.8)
+  - Stripe (6.2.0):
+    - Stripe/Core (= 6.2.0)
+  - Stripe/Core (6.2.0)
   - SwiftyJSON (2.2.1)
 
 DEPENDENCIES:
@@ -27,13 +27,13 @@ DEPENDENCIES:
   - SwiftyJSON (~> 2.2.1)
 
 SPEC CHECKSUMS:
-  Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
+  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
   Bolts: f52a250053bb517ca874523c3913776359ab3def
   CardIO: 2c3a8ef9b9add4bd664c83bb653b83b2f32d9d7f
-  FBSDKCoreKit: aee20b6d9855f15b618d4fddd1a5ad45f5a4a59d
-  FBSDKLoginKit: ec22dc49bd372b064e93d6773df4ffefb3a552a2
-  Locksmith: 42ec3d535448e3c218f4342782b07a222b1acfd1
-  Stripe: bee87bf3459953211b9a3709fb3b90a90a62b060
+  FBSDKCoreKit: 13bec8373fb3af94d44daf2aa1e0958687897fbd
+  FBSDKLoginKit: d3d4a2e9d31954deb00bfea964167a05ca1ea976
+  Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
+  Stripe: 275524137e6c4cc1058f6d32ece248adf30a21f9
   SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
 
 COCOAPODS: 0.39.0

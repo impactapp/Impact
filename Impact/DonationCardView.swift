@@ -9,6 +9,18 @@
 import UIKit
 
 class DonationCardView: UIView {
+    
+    override init(frame:CGRect) {
+        super.init(frame: frame)
+        let xibView = NSBundle.mainBundle().loadNibNamed("DonationCardView", owner: self, options: [:]).first as! UIView
+        self.addSubview(xibView)
+        xibView.frame = self.frame;
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+
 
     /*
     // Only override drawRect: if you perform custom drawing.

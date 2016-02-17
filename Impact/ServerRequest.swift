@@ -42,6 +42,7 @@ class ServerRequest: NSObject {
         let url = useStagingServer ? stagingURL : baseURL
         let path : String = url + endpoint;
         let headers = getRequestHeaders(authenticated)
+        
         Alamofire.request(.GET, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { response in
             let status = response.response?.statusCode
             if let data = response.data {
