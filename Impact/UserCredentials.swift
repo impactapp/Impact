@@ -23,6 +23,7 @@ class UserCredentials: NSObject {
             try Locksmith.updateData([kAuthenticationTokenKey: newToken], forUserAccount: kUserCredentialsConstant)
         }
         catch {
+            
             print("Unable to update Authentication Token")
         }
     }
@@ -53,7 +54,7 @@ class UserCredentials: NSObject {
             try Locksmith.updateData([kFacebookToken:facebookToken, kFacebookID:facebookID], forUserAccount: kFacebookCredentials)
         }
         catch {
-            print("Unable to update Token")
+            print("Unable to facebook update Token")
         }
     }
     
