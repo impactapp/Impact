@@ -128,7 +128,7 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
                     withReuseIdentifier: footerViewIdentifier,
                     forIndexPath: indexPath) as! FooterCollectionReusableView
                 footerView.topButton.setTitle("Save Changes", forState: UIControlState.Normal)
-                footerView.topButton.setTitle("Remove Card", forState: UIControlState.Normal)
+                footerView.bottomButton.setTitle("Remove Card", forState: UIControlState.Normal)
                 footerView.delegate = self
                 
                 
@@ -152,9 +152,15 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
     
     
     func footerViewTopButtonPressed() {
+        //alert view - changes saved
+        //pop vc
+        //delete credit card and add a new one w/ information
         
     }
     func footerViewBottomButtonPressed() {
+        //alert view - sure you want to remove?
+        //pop vc
+        //remove credit card from server
         
     }
     

@@ -274,7 +274,7 @@ class ServerRequest: NSObject {
         apiClient.createTokenWithCard(card, completion: { (stripeToken, error) -> Void in
             if let token = stripeToken?.tokenId {
                 let parameters = ["contribution": ["stripe_generated_token":token]]
-                let endpoint = "contributions/add_card"
+                let endpoint = "contributions/create_customer"
                 self.postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
                     success(success: true)
                     }, failure: { (error) -> Void in
@@ -289,6 +289,30 @@ class ServerRequest: NSObject {
             }
         })
     }
+    
+    func addCreditCard(card:STPCard,success:(success:Bool) -> Void, failure:(errorMessage:String) -> Void) {
+        let apiClient = STPAPIClient(publishableKey: kStripePublishableKey)
+        apiClient.createTokenWithCard(card, completion: { (stripeToken, error) -> Void in
+            if let token = stripeToken?.tokenId {
+                let parameters = ["contribution": ["stripe_generated_token":token]]
+                let endpoint = "contributions/add_card"
+                self.postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+                    success(success: true)
+                    }, failure: { (error) -> Void in
+                        failure(errorMessage: "Invalid Credit Card Credentials")
+                })
+            } else {
+                var errorMessage = "Invalid Credit Card Credentials"
+                if let reason = error?.localizedDescription {
+                    errorMessage = reason
+                }
+                failure(errorMessage: errorMessage)
+            }
+        })
+    }
+    
+    
+    
     
     func getCreditCards(success:(cards:[CreditCard]) -> Void, failure:(errorMessage:String) -> Void) {
         let endpoint = "stripe/cards"

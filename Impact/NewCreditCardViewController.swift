@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Stripe
+
 
 class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FooterCollectionReusableViewDelegate {
     let statusBarHeight = CGFloat(20)
@@ -15,13 +17,17 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
     @IBOutlet var collectionView: UICollectionView!
     let cellIdentifier = "CreditCardCollectionViewCell"
     let footerViewIdentifier = "FooterCollectionReusableView"
-
+    var collectionCell:CreditCardCollectionViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,7 +86,7 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
         let cell :CreditCardCollectionViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(cellIdentifier, forIndexPath: indexPath) as! CreditCardCollectionViewCell
         
         cell.layer.cornerRadius = 10
-        
+        self.collectionCell = cell
         return cell
     }
     
@@ -129,11 +135,48 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
             
     }
     
+    //CARD
+    func addCard(){
+        let stripeCard: STPCard = STPCard()        
+        
+        if let creditCardString = collectionCell.cardNumberTextField.text {
+            stripeCard.number = creditCardString.stringByReplacingOccurrencesOfString(" ", withString: "")
+        }
+        stripeCard.cvc = collectionCell.cvvTextField.text
+        if let dateString = collectionCell.expDateTextField.text {
+            let month = dateString[dateString.startIndex ..< dateString.characters.indexOf("/")!]
+            let year = String(dateString.substringFromIndex(dateString.rangeOfString("/")!.startIndex).characters.dropFirst())
+            if let monthInt = Int(month) {
+                stripeCard.expMonth = UInt(monthInt)
+            }
+            if let yearInt = Int(year) {
+                stripeCard.expYear = UInt(yearInt)
+            }
+        }
+        let activityIndicator = ActivityIndicator(view: self.view)
+        activityIndicator.startCustomAnimation()
+        ServerRequest.shared.addCreditCard(stripeCard, success: { (success) -> Void in
+            activityIndicator.stopAnimating()
+            let alertController = AlertViewController()
+            alertController.setUp(self, title: "Success!", message: "Added credit card", buttonText: "Dismiss")
+            alertController.show()
+            self.navigationController?.popViewControllerAnimated(true)
+            }, failure: { (errorMessage) -> Void in
+                activityIndicator.stopAnimating()
+                let alertController = AlertViewController()
+                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                alertController.show()
+        })
+
+    }
+    
     
     //MARK - footer view delegate methods
     
     
     func footerViewTopButtonPressed() {
+        //alert view added new card ?? need activity icon?? / error handling?
+        addCard()
         
     }
     func footerViewBottomButtonPressed() {
