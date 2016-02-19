@@ -31,6 +31,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         initTableView()
         ServerRequest.shared.getCreditCards({ (cards) -> Void in
+            print(cards)
             self.creditCards = cards
             self.tableView.reloadData()
             },failure: { (errorMessage) -> Void in

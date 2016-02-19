@@ -478,8 +478,8 @@
 		4D9621F21BA9A151005EBCDD /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				4D2265821BA7937000A51908 /* CreditCardViewController.swift */,
 				4DDCAE0F1C5D86900074DF89 /* CreditCard.swift */,
+				4D2265821BA7937000A51908 /* CreditCardViewController.swift */,
 				4D2265831BA7937000A51908 /* CreditCardViewController.xib */,
 				B8D4982F1C634308001EE8BE /* CreditCardCollectionViewCell.swift */,
 				B8D498301C634308001EE8BE /* CreditCardCollectionViewCell.xib */,

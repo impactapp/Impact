@@ -32,6 +32,10 @@ class MyCreditCardsViewController: UIViewController, UICollectionViewDelegate,UI
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func viewDidAppear(animated: Bool) {
+        getCreditCards()
+
+    }
     
     private func getCreditCards(){
         ServerRequest.shared.getCreditCards({ (cards) -> Void in
@@ -145,6 +149,10 @@ class MyCreditCardsViewController: UIViewController, UICollectionViewDelegate,UI
         cell.expDateTextField.enabled = false
         cell.cardNumberTextField.enabled = false
         let creditCard: CreditCard = creditCards[indexPath.item]
+        
+        cell.cvvTextField.enablePadding(true)
+        cell.cardNumberTextField.enablePadding(true)
+        cell.expDateTextField.enablePadding(true)
         
         cell.cardNumberTextField.text = "**** **** **** " + creditCard.last4
         cell.cvvTextField.text = "***"
