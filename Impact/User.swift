@@ -22,7 +22,7 @@ class User: NSObject {
     var total_amount_contributed : Float!
     var current_cause_amount_contributed: Float!
     var last_contribution_date: NSDate?
-    var pending_contribution_amount: Float!
+    var pending_contribution_amount: Int!
     var stripe_customer_id: Int!
     var current_payment_id: Int!
     var weekly_budget: Float!
@@ -50,7 +50,7 @@ class User: NSObject {
         current_cause_name = json["current_cause_name"].stringValue
         total_amount_contributed = json["total_amount_contributed"].floatValue
         current_cause_amount_contributed = json["current_cause_amount_contributed"].floatValue
-        pending_contribution_amount = json["pending_contribution_amount"].floatValue
+        pending_contribution_amount = json["pending_contribution_amount"].intValue
         stripe_customer_id = json["stripe_customer_id"].intValue
         current_payment_id = json["current_payment_id"].intValue
         weekly_budget = json["weekly_budget"].floatValue
