@@ -26,7 +26,6 @@ class Transaction: NSObject {
     //TODO see what we should do for nsobjects?
     
     
-    
     /**
      * Instantiate the instance using the passed json values to set the properties values
      */

@@ -34,6 +34,7 @@
 		4D2B0FE91BBF5ADD00482FF4 /* AlertPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D2B0FE81BBF5ADD00482FF4 /* AlertPopupView.xib */; };
 		4D545D8C1BF7B99D00F009D5 /* DeviceDetect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D545D8B1BF7B99D00F009D5 /* DeviceDetect.swift */; };
 		4D55229A1B870EB700F9E5CA /* ServerRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5522991B870EB700F9E5CA /* ServerRequest.swift */; };
+		4D55E5911C792B7900480A18 /* Payment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D55E5901C792B7900480A18 /* Payment.swift */; };
 		4D5C805A1BA8F2F0001DEDAF /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C80591BA8F2F0001DEDAF /* UITextField+Padding.swift */; };
 		4D6BC9901BE4FED6000C89C8 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6BC98E1BE4FED6000C89C8 /* CategoriesViewController.swift */; };
 		4D6BC9911BE4FED6000C89C8 /* CategoriesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6BC98F1BE4FED6000C89C8 /* CategoriesViewController.xib */; };
@@ -188,6 +189,7 @@
 		4D2B0FE81BBF5ADD00482FF4 /* AlertPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlertPopupView.xib; sourceTree = "<group>"; };
 		4D545D8B1BF7B99D00F009D5 /* DeviceDetect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceDetect.swift; sourceTree = "<group>"; };
 		4D5522991B870EB700F9E5CA /* ServerRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerRequest.swift; sourceTree = "<group>"; };
+		4D55E5901C792B7900480A18 /* Payment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payment.swift; sourceTree = "<group>"; };
 		4D5C80591BA8F2F0001DEDAF /* UITextField+Padding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
 		4D6BC98E1BE4FED6000C89C8 /* CategoriesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		4D6BC98F1BE4FED6000C89C8 /* CategoriesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesViewController.xib; sourceTree = "<group>"; };
@@ -478,8 +480,8 @@
 		4D9621F21BA9A151005EBCDD /* Card */ = {
 			isa = PBXGroup;
 			children = (
-				4D2265821BA7937000A51908 /* CreditCardViewController.swift */,
 				4DDCAE0F1C5D86900074DF89 /* CreditCard.swift */,
+				4D2265821BA7937000A51908 /* CreditCardViewController.swift */,
 				4D2265831BA7937000A51908 /* CreditCardViewController.xib */,
 				B8D4982F1C634308001EE8BE /* CreditCardCollectionViewCell.swift */,
 				B8D498301C634308001EE8BE /* CreditCardCollectionViewCell.xib */,
@@ -551,6 +553,7 @@
 			isa = PBXGroup;
 			children = (
 				4DE411731C72B27500D7B675 /* DonateViewController.swift */,
+				4D55E5901C792B7900480A18 /* Payment.swift */,
 				4DE411741C72B27500D7B675 /* DonateViewController.xib */,
 				4DE411771C72B2BC00D7B675 /* DonationCardView.swift */,
 				4DE411791C72B2D900D7B675 /* DonationCardView.xib */,
@@ -1074,6 +1077,7 @@
 				B85F3F641BDD6C130029F83E /* ContributionsViewController.swift in Sources */,
 				B8C7586B1C3F8EF40063D028 /* TempViewController.swift in Sources */,
 				4D2256FA1B8AD62300727A4C /* RoundedCollectionViewCell.swift in Sources */,
+				4D55E5911C792B7900480A18 /* Payment.swift in Sources */,
 				4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */,
 				4DE94A851C59E92800850363 /* ProfileViewController.swift in Sources */,
 				4D91C4951C28861800A4C0A5 /* AccessoryTableViewCell.swift in Sources */,

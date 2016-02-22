@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AlertViewControllerDelegate{
+    func popupDismissed()
+}
+
 class AlertViewController: UIViewController {
     var viewController: UIViewController = UIViewController()
     var popup: UIView = UIView()
@@ -16,11 +20,16 @@ class AlertViewController: UIViewController {
     weak var button: RoundedButton!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var messageLabel: UILabel!
+    var delegate: AlertViewControllerDelegate? = nil
+
+    
+    
     
     func setUp(viewController:UIViewController,title:String, message:String, buttonText:String) {
         self.viewController = viewController
         self.view.backgroundColor = UIColor(white: 0, alpha: 0.7)
         setUpPopup(title, message: message, buttonText: buttonText)
+        
     }
     
     private func setUpPopup(title:String, message:String, buttonText:String) {
@@ -55,6 +64,9 @@ class AlertViewController: UIViewController {
     
     @IBAction func dismissPopup(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
+        if let delegate = self.delegate {
+            delegate.popupDismissed()
+        }
     }
     
 

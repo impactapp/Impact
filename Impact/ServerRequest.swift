@@ -109,6 +109,23 @@ class ServerRequest: NSObject {
         }
     }
     
+    private func putWithEndpoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
+        let url = useStagingServer ? stagingURL : baseURL
+        let path : String = url + endpoint
+        let headers = getRequestHeaders(authenticated)
+        Alamofire.request(.PUT, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { response in
+            let status = response.response?.statusCode
+            if let data = response.data {
+                let json = JSON(data:data)
+                if(status == 200 || status == 201) {
+                    success(json: json)
+                } else {
+                    failure(error: json)
+                }
+            }
+        }
+    }
+    
     private func deleteWithEndoint(endpoint:String, parameters:[String : AnyObject]?, authenticated:Bool, success:(json:JSON) -> Void, failure:(error:JSON) -> Void) {
         let url = useStagingServer ? stagingURL : baseURL
         let path : String = url + endpoint
@@ -274,7 +291,7 @@ class ServerRequest: NSObject {
         apiClient.createTokenWithCard(card, completion: { (stripeToken, error) -> Void in
             if let token = stripeToken?.tokenId {
                 let parameters = ["contribution": ["stripe_generated_token":token]]
-                let endpoint = "contributions/add_card"
+                let endpoint = "contributions/create_customer"
                 self.postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
                     success(success: true)
                     }, failure: { (error) -> Void in
@@ -290,10 +307,55 @@ class ServerRequest: NSObject {
         })
     }
     
+    func addCreditCard(card:STPCard,success:(success:Bool) -> Void, failure:(errorMessage:String) -> Void) {
+        let apiClient = STPAPIClient(publishableKey: kStripePublishableKey)
+        apiClient.createTokenWithCard(card, completion: { (stripeToken, error) -> Void in
+            if let token = stripeToken?.tokenId {
+                let parameters = ["contribution": ["stripe_generated_token":token]]
+                let endpoint = "stripe/add_card"
+                self.postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+                    success(success: true)
+                    }, failure: { (error) -> Void in
+                        failure(errorMessage: "Invalid Credit Card Credentials")
+                })
+            } else {
+                var errorMessage = "Invalid Credit Card Credentials"
+                if let reason = error?.localizedDescription {
+                    errorMessage = reason
+                }
+                failure(errorMessage: errorMessage)
+            }
+        })
+    }
+    
+    func deleteCreditCard(cardID:String,success:(success:Bool) -> Void, failure:(errorMessage:String) -> Void) {
+                let parameters = ["card": ["stripe_card_id":cardID]]
+                let endpoint = "stripe/delete/card"
+                self.deleteWithEndoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+                    success(success: true)
+                    }, failure: { (error) -> Void in
+                        failure(errorMessage: "Invalid delete request")
+                })
+    }
+    
+    func updateCreditCard(cardID:String, exp_month:String, exp_year:String, success:(success:Bool) -> Void, failure:(errorMessage:String) -> Void) {
+        let parameters = ["card": ["card_id":cardID, "exp_month":exp_month, "exp_year":exp_year]]
+        let endpoint = "stripe/update/card"
+        self.putWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+            success(success: true)
+            }, failure: { (error) -> Void in
+                failure(errorMessage: "Invalid update request")
+        })
+    }
+    
+    
+    
+    
     func getCreditCards(success:(cards:[CreditCard]) -> Void, failure:(errorMessage:String) -> Void) {
         let endpoint = "stripe/cards"
         getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
             var result: [CreditCard] = []
+            print(json)
             if let array = json.array {
                 for jsonObject in array {
                     result.append(CreditCard(fromJson: jsonObject))
@@ -303,6 +365,8 @@ class ServerRequest: NSObject {
 
             },failure: { (error) -> Void in })
     }
+    
+    
     
 //    MARK: Transactions: Plaid
     func getTransactions(completion:(contributions:[Transaction]) -> Void) {
@@ -337,6 +401,18 @@ class ServerRequest: NSObject {
                 
         })
     }
+    
+    func makeContribution(amount:Int, completion:(payment:Payment) ->Void) {
+        let endpoint = "contributions/pay"
+        let params =  ["contribution": ["amount":amount ] ]
+        postWithEndpoint(endpoint, parameters: params, authenticated: true, success: { (json) -> Void in
+            let payment = Payment(fromJson:json)
+            completion(payment: payment)
+            },failure: { (error) -> Void in
+                
+        })
+    }
+    
     
     
     

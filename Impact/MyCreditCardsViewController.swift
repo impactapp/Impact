@@ -11,7 +11,7 @@
 
 import UIKit
 
-class MyCreditCardsViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class MyCreditCardsViewController: UIViewController, UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, FooterCollectionReusableViewDelegate {
     let statusBarHeight = CGFloat(20)
     let cellHeight = CGFloat(165)
     @IBOutlet var headerView: UIView!
@@ -32,6 +32,10 @@ class MyCreditCardsViewController: UIViewController, UICollectionViewDelegate,UI
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    override func viewDidAppear(animated: Bool) {
+        getCreditCards()
+
+    }
     
     private func getCreditCards(){
         ServerRequest.shared.getCreditCards({ (cards) -> Void in
@@ -46,6 +50,7 @@ class MyCreditCardsViewController: UIViewController, UICollectionViewDelegate,UI
     private func setUpCollectionView() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout();
         layout.headerReferenceSize = CGSize(width: self.view.frame.size.width, height: self.headerView.frame.size.height - statusBarHeight/2);
+        layout.footerReferenceSize = CGSize(width: self.view.frame.size.width, height: 150);
         layout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
         layout.minimumInteritemSpacing = 2;
         layout.minimumLineSpacing = 10;
@@ -55,6 +60,7 @@ class MyCreditCardsViewController: UIViewController, UICollectionViewDelegate,UI
         self.collectionView.dataSource = self;
         self.collectionView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier);
         self.collectionView.registerNib(UINib(nibName: footerViewIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerViewIdentifier);
+        self.collectionView.registerNib(UINib(nibName: footerViewIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: footerViewIdentifier);
         
         self.collectionView.alwaysBounceVertical = true
         
@@ -78,10 +84,44 @@ class MyCreditCardsViewController: UIViewController, UICollectionViewDelegate,UI
         viewForSupplementaryElementOfKind kind: String,
         atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
 
-            let footerView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionFooter,
+            switch kind {
+                
+            case UICollectionElementKindSectionHeader:
+                
+                //have to have something here because we need the header for space at the top
+                let footerView : FooterCollectionReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind,
                     withReuseIdentifier: footerViewIdentifier,
-                    forIndexPath: indexPath)
-            return footerView
+                    forIndexPath: indexPath) as! FooterCollectionReusableView
+                footerView.topButton.hidden = true
+                footerView.bottomButton.hidden = true
+                footerView.delegate = self
+
+                
+                return footerView
+                
+            case UICollectionElementKindSectionFooter:
+                let footerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+                    withReuseIdentifier: footerViewIdentifier,
+                    forIndexPath: indexPath) as! FooterCollectionReusableView
+                footerView.bottomButton.hidden = true
+                footerView.topButton.setTitle("Add Card", forState: UIControlState.Normal)
+                footerView.delegate = self
+
+                
+                return footerView
+                
+            default:
+                
+                let footerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind,
+                    withReuseIdentifier: footerViewIdentifier,
+                    forIndexPath: indexPath) as! FooterCollectionReusableView
+                footerView.bottomButton.hidden = true
+                footerView.delegate = self
+                
+                return footerView
+            }
+
+            
             
     }
     
@@ -110,6 +150,10 @@ class MyCreditCardsViewController: UIViewController, UICollectionViewDelegate,UI
         cell.cardNumberTextField.enabled = false
         let creditCard: CreditCard = creditCards[indexPath.item]
         
+        cell.cvvTextField.enablePadding(true)
+        cell.cardNumberTextField.enablePadding(true)
+        cell.expDateTextField.enablePadding(true)
+        
         cell.cardNumberTextField.text = "**** **** **** " + creditCard.last4
         cell.cvvTextField.text = "***"
         var monthString = ""
@@ -133,6 +177,17 @@ class MyCreditCardsViewController: UIViewController, UICollectionViewDelegate,UI
         self.navigationController?.pushViewController(eccvc, animated: true)
         
         
+        
+    }
+    
+    //MARK - footerview delegate methods
+    
+    func footerViewTopButtonPressed() {
+        let nccvc = NewCreditCardViewController()
+        self.navigationController?.pushViewController(nccvc, animated: true)
+    }
+    
+    func footerViewBottomButtonPressed() {
         
     }
     

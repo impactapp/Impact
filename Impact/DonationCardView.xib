@@ -22,6 +22,9 @@
                         <constraint firstAttribute="height" constant="46" id="4wN-3w-0Pg"/>
                     </constraints>
                     <state key="normal" title="Clear"/>
+                    <connections>
+                        <action selector="clearButtonPressed:" destination="-1" eventType="touchUpInside" id="51Q-o5-ukH"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M1R-Pa-KIE">
                     <rect key="frame" x="0.0" y="145" width="395" height="35"/>
@@ -33,6 +36,9 @@
                     <state key="normal" title="DONATE">
                         <color key="titleColor" red="0.95744023181285876" green="0.94786424203081787" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="donateButtonPressed:" destination="-1" eventType="touchUpInside" id="xdh-1D-WeM"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GnU-gS-jJu">
                     <rect key="frame" x="0.0" y="179" width="197.5" height="46"/>
@@ -40,6 +46,9 @@
                         <constraint firstAttribute="height" constant="46" id="pSc-lc-oos"/>
                     </constraints>
                     <state key="normal" title="Manage"/>
+                    <connections>
+                        <action selector="manageButtonPressed:" destination="-1" eventType="touchUpInside" id="JtX-AV-yNG"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Have Collected:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arb-w2-47z">
                     <rect key="frame" x="69" y="20" width="177" height="35"/>
@@ -47,7 +56,7 @@
                         <constraint firstAttribute="height" constant="35" id="9Ea-Bw-DLg"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="colored-heart" translatesAutoresizingMaskIntoConstraints="NO" id="Zd7-yT-d2x">
@@ -63,7 +72,7 @@
                         <constraint firstAttribute="height" constant="21" id="0G5-pP-6bF"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="$20.07" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="z0A-up-wGT">

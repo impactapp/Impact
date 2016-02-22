@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DonationCardViewDelegate {
     let donateCardViewHeight = CGFloat(225)
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -21,24 +21,24 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        setUpDonationCardView()
+        
+    }
+    
+    private func setUpDonationCardView() {
         let footer = UIView(frame: CGRectMake(0,0,self.view.frame.size.width,420))
         self.tableView.tableFooterView = footer
         let inset = CGFloat(8)
         let cardViewWidth = self.view.frame.size.width - 2*inset
         let donationCardView = DonationCardView(frame: CGRectZero)
+        donationCardView.delegate = self
         footer.addSubview(donationCardView)
         donationCardView.frame = CGRectMake(inset,20,cardViewWidth,donateCardViewHeight)
         donationCardView.layer.masksToBounds = true
         donationCardView.layer.cornerRadius = 10
         ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
-            donationCardView.amount = 35//currentUser.pending_contribution_amount
+            donationCardView.amount = currentUser.pending_contribution_amount
         }
-
-    }
-    
-    private func setUpDonationCardView(amount: Int) {
-        
-        
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,6 +51,21 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
+    }
+    
+    //MARK: - DonationCardViewDelegate
+    func donateButtonPressed(donationAmount: Int) {
+        ServerRequest.shared.makeContribution(donationAmount) { (payment) -> Void in
+            
+        }
+    }
+    
+    func manageButtonPressed() {
+        
+    }
+    
+    func clearButtonPressed() {
+        
     }
     
 //    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
