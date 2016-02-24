@@ -8,14 +8,17 @@
 
 import UIKit
 
-class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DonationCardViewDelegate {
+class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DonationCardViewDelegate, AlertViewControllerDelegate, UITextFieldDelegate {
     let donateCardViewHeight = CGFloat(225)
     let statusBarHeight = CGFloat(20)
     let cellIdentifier = "DonateTableViewCell"
     let rowHeight = CGFloat(61)
     let titlesArray = ["Flat Donation", "Monthly Maximum", "Automatic Donations"]
     let detailsArray = ["Make a one-time flat donation to the cause of your choice.", "Manage a maximum amount you want to donate per month.", "Have your round ups automatically donated on every purchase"]
-
+    var amountTextField:UITextField!
+    var currentCause:String!
+    var donationCard:DonationCardView!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var headerView: UIView!
     override func viewDidLoad() {
@@ -44,12 +47,16 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cardViewWidth = self.view.frame.size.width - 2*inset
         let donationCardView = DonationCardView(frame: CGRectZero)
         donationCardView.delegate = self
+        self.amountTextField = donationCardView.amountTextField
+        self.amountTextField.delegate = self
         footer.addSubview(donationCardView)
         donationCardView.frame = CGRectMake(inset,20,cardViewWidth,donateCardViewHeight)
         donationCardView.layer.masksToBounds = true
         donationCardView.layer.cornerRadius = 10
+        self.donationCard = donationCardView
         ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
             donationCardView.amount = currentUser.pending_contribution_amount
+            self.currentCause = currentUser.current_cause_name
         }
     }
     
@@ -69,6 +76,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.detailedTextLabel.numberOfLines = 0
         cell.detailedTextLabel.text = detailsArray[row]
         cell.titleTextLabel.text = titlesArray[row]
+        cell.titleTextLabel.adjustsFontSizeToFitWidth = true
         cell.moneyTextLabel.adjustsFontSizeToFitWidth = true
         cell.backgroundColor = UIColor.clearColor()
         
@@ -97,6 +105,10 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let fdvc:FlatDonationsViewController = FlatDonationsViewController();
                 self.navigationController?.pushViewController(fdvc, animated: true);
             }
+            else if row == 1{
+                let mmvc:MonthlyMaximumViewController = MonthlyMaximumViewController();
+                self.navigationController?.pushViewController(mmvc, animated: true);
+            }
         }
     }
     
@@ -106,17 +118,80 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     //MARK: - DonationCardViewDelegate
     func donateButtonPressed(donationAmount: Int) {
-        ServerRequest.shared.makeContribution(donationAmount) { (payment) -> Void in
+        self.amountTextField.resignFirstResponder()
+        self.amountTextField.enabled = false
+        let activityIndicator:ActivityIndicator = ActivityIndicator(view: self.view)
+        activityIndicator.startAnimating()
+        
+        let firstMessageString:String =  "You are about to contribute: " + self.amountTextField.text! + " to " + self.currentCause
+        let secondMessageString:String =  " click OK to confirm your payment"
+        let alertController = UIAlertController(title: "Donate!" , message: firstMessageString + secondMessageString, preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            ServerRequest.shared.getCurrentUser  { (currentUser) -> Void in
+                self.donationCard.amount = currentUser.pending_contribution_amount
+            }
             
         }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            // ...
+            //ADD SUCCESS STUFF - if successful, clear the amount collected (endpoint) and clear text field
+            ServerRequest.shared.makeContribution(donationAmount, completion:  { (payment) -> Void in
+                activityIndicator.stopAnimating()
+                if(payment.id != nil){
+                    let alertController = AlertViewController()
+                    alertController.delegate = self
+                    alertController.setUp(self, title: "Success!", message: "Donated" + self.amountTextField.text! + " to " + self.currentCause, buttonText: "Dismiss")
+                    alertController.show()
+                }else{
+                    let alertController = AlertViewController()
+                    alertController.delegate = self
+                    alertController.setUp(self, title: "Failure", message: "Donation Failed", buttonText: "Dismiss")
+                    alertController.show()
+                    
+                }
+                
+            })
+        }
+    
+        alertController.addAction(OKAction)
+        alertController.view.tintColor = UIColor.customRed()
+        
+        self.presentViewController(alertController, animated: true) {
+            // ...
+        }
+
+        
+        
     }
     
     func manageButtonPressed() {
+        //Not exactly sure what to do here but will probably select the UI text field
+        let newContentOffset = CGPointMake(0, self.tableView.contentSize.height -  self.tableView.bounds.size.height);
         
+        self.tableView.setContentOffset(newContentOffset, animated:true);
+        self.amountTextField.enabled = true
+        self.amountTextField.becomeFirstResponder()
     }
     
     func clearButtonPressed() {
+        //clear amount collected and clear the UITextField
+        //Warning message
         
+    }
+    
+    //TEXT FIELD
+    func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool{
+        if((textField.text?.characters.count) == 0){
+            self.amountTextField.text = "$"
+        }
+        return true
+        
+    }
+    
+    func popupDismissed() {
     }
     
 //    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

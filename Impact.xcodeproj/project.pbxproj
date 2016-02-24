@@ -124,6 +124,8 @@
 		B86095771C7DC32800AEDB74 /* DonateHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86095751C7DC32800AEDB74 /* DonateHeaderCollectionReusableView.xib */; };
 		B860957A1C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86095781C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.swift */; };
 		B860957B1C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86095791C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib */; };
+		B860957E1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B860957C1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift */; };
+		B860957F1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B860957D1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib */; };
 		B8A5CF4F1B8FF48600D71D2C /* FirstIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5CF4D1B8FF48600D71D2C /* FirstIntroViewController.swift */; };
 		B8A5CF501B8FF48600D71D2C /* FirstIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8A5CF4E1B8FF48600D71D2C /* FirstIntroViewController.xib */; };
 		B8A5CF531B8FF49A00D71D2C /* ThirdIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5CF511B8FF49A00D71D2C /* ThirdIntroViewController.swift */; };
@@ -291,6 +293,8 @@
 		B86095751C7DC32800AEDB74 /* DonateHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonateHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		B86095781C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationHelperCollectionViewCell.swift; sourceTree = "<group>"; };
 		B86095791C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationHelperCollectionViewCell.xib; sourceTree = "<group>"; };
+		B860957C1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyMaximumViewController.swift; sourceTree = "<group>"; };
+		B860957D1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthlyMaximumViewController.xib; sourceTree = "<group>"; };
 		B8A5CF4D1B8FF48600D71D2C /* FirstIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstIntroViewController.swift; sourceTree = "<group>"; };
 		B8A5CF4E1B8FF48600D71D2C /* FirstIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstIntroViewController.xib; sourceTree = "<group>"; };
 		B8A5CF511B8FF49A00D71D2C /* ThirdIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdIntroViewController.swift; sourceTree = "<group>"; };
@@ -571,6 +575,8 @@
 			isa = PBXGroup;
 			children = (
 				4D55E5901C792B7900480A18 /* Payment.swift */,
+				B860957C1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift */,
+				B860957D1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib */,
 				B860956C1C7D109700AEDB74 /* DonateTableViewCell.swift */,
 				B860956D1C7D109700AEDB74 /* DonateTableViewCell.xib */,
 				B86095781C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.swift */,
@@ -949,6 +955,7 @@
 				4D14C87D1C4D816100D7089B /* UserCollectionViewCell.xib in Resources */,
 				4DC0C98E1BF8D57600E2A468 /* AmountDonatedHeaderView.xib in Resources */,
 				B8A5CF581B8FF4A500D71D2C /* FinalIntroViewController.xib in Resources */,
+				B860957F1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib in Resources */,
 				4D91C4961C28861800A4C0A5 /* AccessoryTableViewCell.xib in Resources */,
 				4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */,
 				B8B8AA6D1B8FF69D006E689C /* PageViewController.xib in Resources */,
@@ -1044,6 +1051,7 @@
 				4DE94A911C59EDAC00850363 /* SettingsViewController.swift in Sources */,
 				4DE85F671BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift in Sources */,
 				4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */,
+				B860957E1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift in Sources */,
 				B8049CC01C2F378D005A559B /* User.swift in Sources */,
 				4D91C4911C28841D00A4C0A5 /* PreviousImpactsViewController.swift in Sources */,
 				4D02EC1C1BD08A0400701C75 /* CausesTableViewCell.swift in Sources */,
