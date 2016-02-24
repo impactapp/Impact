@@ -79,12 +79,25 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.cellSwitch.hidden = true
         case 2:
             cell.forwardButton.hidden = true
+            cell.selectionStyle = UITableViewCellSelectionStyle.None
             
         default:
             _ = 2
         }
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let row = indexPath.row
+        if cell != nil {
+            if row == 0{
+                let fdvc:FlatDonationsViewController = FlatDonationsViewController();
+                self.navigationController?.pushViewController(fdvc, animated: true);
+            }
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
