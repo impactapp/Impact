@@ -10,17 +10,29 @@ import UIKit
 
 class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DonationCardViewDelegate {
     let donateCardViewHeight = CGFloat(225)
+    let statusBarHeight = CGFloat(20)
+    let cellIdentifier = "DonateTableViewCell"
+    let rowHeight = CGFloat(61)
+    let titlesArray = ["Flat Donation", "Monthly Maximum", "Automatic Donations"]
+    let detailsArray = ["Make a one-time flat donation to the cause of your choice.", "Manage a maximum amount you want to donate per month.", "Have your round ups automatically donated on every purchase"]
+
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet var headerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor.customDarkGrey()
-        
+        self.tableView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        self.tableView.rowHeight = rowHeight
+        self.tableView.separatorInset = UIEdgeInsetsZero
+
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        self.setStatusBarColor(self.headerView.backgroundColor!, useWhiteText: true)
+
         setUpDonationCardView()
         
     }
@@ -41,12 +53,38 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return self.headerView.frame.size.height - statusBarHeight
+    }
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 3
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell:DonateTableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! DonateTableViewCell
+        let row = indexPath.row
+        
+        cell.detailedTextLabel.lineBreakMode = .ByWordWrapping // or NSLineBreakMode.ByWordWrapping
+        cell.detailedTextLabel.numberOfLines = 0
+        cell.detailedTextLabel.text = detailsArray[row]
+        cell.titleTextLabel.text = titlesArray[row]
+        cell.moneyTextLabel.adjustsFontSizeToFitWidth = true
+        cell.backgroundColor = UIColor.clearColor()
+        
+        switch row{
+        case 0:
+            cell.cellSwitch.hidden = true
+        case 1:
+            cell.cellSwitch.hidden = true
+        case 2:
+            cell.forwardButton.hidden = true
+            
+        default:
+            _ = 2
+        }
+        
+        return cell
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
