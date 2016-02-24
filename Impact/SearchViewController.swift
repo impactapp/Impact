@@ -8,16 +8,24 @@
 
 import UIKit
 
+protocol SearchViewControllerDelegate{
+    func selectedRow(cause:Cause)
+}
+
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
 
+    @IBOutlet var backButton: UIButton!
     @IBOutlet weak var findYourCauseMessageLabel: UILabel!
     @IBOutlet weak var header: UIView!
     @IBOutlet var initialSearchView: UIView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchTextField: UITextField!
+    var enteredFromDonate = false
     let cellHeight = CGFloat(60)
     var causes:[Cause] = []
     var searchResults:[Cause] = []
+    var delegate: SearchViewControllerDelegate? = nil
+
     
     let statusBarHeight = CGFloat(0)
     var previousBarYOrigin = CGFloat(0)
@@ -29,10 +37,20 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         initTableView()
         initSearchTextField()
         initInitialSearchView()
+        
         ServerRequest.shared.getAllCauses { (causes) -> Void in
             self.causes = causes
             self.tableView.reloadData()
         }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if(enteredFromDonate){
+            backButton.hidden = false
+        }else{
+            backButton.hidden = true
+        }
+        
     }
     
     func initInitialSearchView() {
@@ -133,9 +151,19 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let selectedCause = self.causes[indexPath.row]
-        let cpvc = CausePageViewController(nibName: "CausePageViewController", bundle: nil)
-        cpvc.cause = selectedCause
-        self.navigationController?.pushViewController(cpvc, animated: true)
+
+        if(enteredFromDonate){
+            if let delegate = self.delegate {
+                delegate.selectedRow(selectedCause)
+            }
+            self.navigationController?.popViewControllerAnimated(true)
+            
+            
+        }else{
+            let cpvc = CausePageViewController(nibName: "CausePageViewController", bundle: nil)
+            cpvc.cause = selectedCause
+            self.navigationController?.pushViewController(cpvc, animated: true)
+        }
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -195,6 +223,9 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     
 
     /*

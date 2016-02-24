@@ -41,14 +41,14 @@
                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fym-VL-FTA">
-                        <rect key="frame" x="72" y="27" width="216" height="29"/>
+                        <rect key="frame" x="28" y="27" width="305" height="29"/>
                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="27"/>
                         <color key="textColor" red="0.92941176469999998" green="0.4823529412" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Tv-zi-YIM">
-                        <rect key="frame" x="72" y="53" width="216" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Tv-zi-YIM">
+                        <rect key="frame" x="28" y="53" width="305" height="21"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -57,16 +57,16 @@
             </view>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="KnG-eR-iKX" firstAttribute="trailing" secondItem="1Tv-zi-YIM" secondAttribute="trailing" constant="13" id="0Mi-U4-vUH"/>
+                <constraint firstItem="KnG-eR-iKX" firstAttribute="trailing" secondItem="1Tv-zi-YIM" secondAttribute="trailing" constant="-32" id="0Mi-U4-vUH"/>
                 <constraint firstItem="KnG-eR-iKX" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="0Wk-ie-BqK"/>
                 <constraint firstItem="GjM-jT-Q9g" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="2xE-lg-joM"/>
                 <constraint firstItem="KnG-eR-iKX" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="21" id="5tI-Hd-nfO"/>
-                <constraint firstItem="fym-VL-FTA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="72" id="93y-AP-yFv"/>
+                <constraint firstItem="fym-VL-FTA" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="28" id="93y-AP-yFv"/>
                 <constraint firstItem="GVi-mn-4Jk" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottomMargin" id="LMw-2I-lKO"/>
                 <constraint firstItem="1Tv-zi-YIM" firstAttribute="top" secondItem="GjM-jT-Q9g" secondAttribute="bottom" constant="27" id="NZB-aF-TIR"/>
                 <constraint firstAttribute="bottom" secondItem="1Tv-zi-YIM" secondAttribute="bottom" constant="26" id="PJg-Q6-C3z"/>
                 <constraint firstItem="fym-VL-FTA" firstAttribute="trailing" secondItem="1Tv-zi-YIM" secondAttribute="trailing" id="Q2J-IC-bYp"/>
-                <constraint firstItem="KnG-eR-iKX" firstAttribute="leading" secondItem="fym-VL-FTA" secondAttribute="leading" constant="-13" id="VJ2-oB-XbO"/>
+                <constraint firstItem="KnG-eR-iKX" firstAttribute="leading" secondItem="fym-VL-FTA" secondAttribute="leading" constant="31" id="VJ2-oB-XbO"/>
                 <constraint firstItem="fym-VL-FTA" firstAttribute="top" secondItem="GjM-jT-Q9g" secondAttribute="bottom" constant="1" id="c1i-F3-mtQ"/>
                 <constraint firstItem="GVi-mn-4Jk" firstAttribute="top" secondItem="fym-VL-FTA" secondAttribute="bottom" constant="15" id="cCq-g5-GSZ"/>
                 <constraint firstItem="GVi-mn-4Jk" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailingMargin" id="h2Y-Ya-FWT"/>
