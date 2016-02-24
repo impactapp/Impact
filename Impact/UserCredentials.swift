@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Locksmith
+import KeychainSwift
 
 class UserCredentials: NSObject {
     let kUserCredentialsConstant = "UserCredentials"
@@ -16,63 +16,46 @@ class UserCredentials: NSObject {
     let kFacebookToken = "facebookToken"
     let kFacebookID = "facebookID"
     let kDeviceToken = "deviceToken"
+    let keychain = KeychainSwift()
     static let shared = UserCredentials()
     
     func updateUserToken(newToken:String) {
-        do {
-            try Locksmith.updateData([kAuthenticationTokenKey: newToken], forUserAccount: kUserCredentialsConstant)
-        }
-        catch {
+        if keychain.set(newToken, forKey: kAuthenticationTokenKey) {
             
-            print("Unable to update Authentication Token")
+        } else {
+            print("Unable to Update Token in Keychain")
         }
     }
     
     func updateDeviceToken(deviceToken:String) {
-        do {
-            try Locksmith.updateData([kDeviceToken: deviceToken], forUserAccount: kUserCredentialsConstant)
+        if keychain.set(deviceToken, forKey: kDeviceToken) {
+            
+        } else {
+            print("Unable to Update device token in Keychain")
         }
-        catch {
-            print("Unable to update Device Token")
-        }
-        
-    }
-    
-    func getCredentials() -> [String:AnyObject?]? {
-        return Locksmith.loadDataForUserAccount(kUserCredentialsConstant)
     }
     
     func getUserToken() -> String? {
-        if let credentials = getCredentials() {
-            return credentials[kAuthenticationTokenKey] as? String
-        }
-        return nil
+        return keychain.get(kAuthenticationTokenKey)
     }
     
     func updateFacebookInfo(facebookID:String,facebookToken:String) {
-        do {
-            try Locksmith.updateData([kFacebookToken:facebookToken, kFacebookID:facebookID], forUserAccount: kFacebookCredentials)
-        }
-        catch {
-            print("Unable to facebook update Token")
-        }
+        keychain.set(facebookToken, forKey: kFacebookToken)
+        keychain.set(facebookID, forKey: kFacebookID)
     }
     
-    func getFacebookCredentials() -> [String:AnyObject?]? {
-        return Locksmith.loadDataForUserAccount(kFacebookCredentials)
+    func getFacebookCredentials() -> [String:[String:AnyObject?]]? {
+        let facebookID = getFacebookID();
+        let facebookToken = getFacebookToken()
+        let credentials : [String:AnyObject?] = [kFacebookID:facebookID, kFacebookToken:facebookToken];
+        return [kFacebookCredentials: credentials]
     }
     
     func getFacebookID() -> String? {
-        if let fbcredentials = getFacebookCredentials() {
-            return fbcredentials[kFacebookID] as? String
-        }
-        return nil
+        return keychain.get(kFacebookID)
     }
     
     func getFacebookToken() -> String? {
-        if let fbcredentials = getFacebookCredentials() {
-            return fbcredentials[kFacebookToken] as? String
-        }
-        return nil
+        return keychain.get(kFacebookToken)
     }
 }

@@ -11,7 +11,7 @@ PODS:
     - Bolts (~> 1.5)
   - FBSDKLoginKit (4.10.0):
     - FBSDKCoreKit
-  - Locksmith (2.0.8)
+  - KeychainSwift (3.0.11)
   - Stripe (6.2.0):
     - Stripe/Core (= 6.2.0)
   - Stripe/Core (6.2.0)
@@ -22,7 +22,7 @@ DEPENDENCIES:
   - CardIO (~> 5.1.0)
   - FBSDKCoreKit
   - FBSDKLoginKit
-  - Locksmith
+  - KeychainSwift (~> 3.0)
   - Stripe
   - SwiftyJSON (~> 2.2.1)
 
@@ -32,7 +32,7 @@ SPEC CHECKSUMS:
   CardIO: 2c3a8ef9b9add4bd664c83bb653b83b2f32d9d7f
   FBSDKCoreKit: 13bec8373fb3af94d44daf2aa1e0958687897fbd
   FBSDKLoginKit: d3d4a2e9d31954deb00bfea964167a05ca1ea976
-  Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
+  KeychainSwift: 0a4214c910423543a42b0f30f25987d46178b6a5
   Stripe: 275524137e6c4cc1058f6d32ece248adf30a21f9
   SwiftyJSON: ae2d0a3d68025d136602a33c4ee215091ced3e33
 
