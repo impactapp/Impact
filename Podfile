@@ -6,9 +6,9 @@ target 'Impact' do
 	pod 'CardIO', '~> 5.1.0'
     pod 'SwiftyJSON', '~> 2.2.1'
     pod 'Stripe'
-    pod 'Locksmith'
     pod 'FBSDKCoreKit'
     pod 'FBSDKLoginKit'
+    pod 'KeychainSwift', '~> 3.0'
 	use_frameworks!
 end
 
