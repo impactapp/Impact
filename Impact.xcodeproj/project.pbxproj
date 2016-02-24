@@ -120,6 +120,12 @@
 		B860956F1C7D109700AEDB74 /* DonateTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B860956D1C7D109700AEDB74 /* DonateTableViewCell.xib */; };
 		B86095721C7DB9AE00AEDB74 /* FlatDonationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86095701C7DB9AE00AEDB74 /* FlatDonationsViewController.swift */; };
 		B86095731C7DB9AE00AEDB74 /* FlatDonationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86095711C7DB9AE00AEDB74 /* FlatDonationsViewController.xib */; };
+		B86095761C7DC32800AEDB74 /* DonateHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86095741C7DC32800AEDB74 /* DonateHeaderCollectionReusableView.swift */; };
+		B86095771C7DC32800AEDB74 /* DonateHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86095751C7DC32800AEDB74 /* DonateHeaderCollectionReusableView.xib */; };
+		B860957A1C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86095781C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.swift */; };
+		B860957B1C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86095791C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib */; };
+		B860957E1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B860957C1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift */; };
+		B860957F1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B860957D1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib */; };
 		B8A5CF4F1B8FF48600D71D2C /* FirstIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5CF4D1B8FF48600D71D2C /* FirstIntroViewController.swift */; };
 		B8A5CF501B8FF48600D71D2C /* FirstIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8A5CF4E1B8FF48600D71D2C /* FirstIntroViewController.xib */; };
 		B8A5CF531B8FF49A00D71D2C /* ThirdIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5CF511B8FF49A00D71D2C /* ThirdIntroViewController.swift */; };
@@ -283,6 +289,12 @@
 		B860956D1C7D109700AEDB74 /* DonateTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonateTableViewCell.xib; sourceTree = "<group>"; };
 		B86095701C7DB9AE00AEDB74 /* FlatDonationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlatDonationsViewController.swift; sourceTree = "<group>"; };
 		B86095711C7DB9AE00AEDB74 /* FlatDonationsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlatDonationsViewController.xib; sourceTree = "<group>"; };
+		B86095741C7DC32800AEDB74 /* DonateHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonateHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
+		B86095751C7DC32800AEDB74 /* DonateHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonateHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		B86095781C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationHelperCollectionViewCell.swift; sourceTree = "<group>"; };
+		B86095791C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationHelperCollectionViewCell.xib; sourceTree = "<group>"; };
+		B860957C1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyMaximumViewController.swift; sourceTree = "<group>"; };
+		B860957D1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthlyMaximumViewController.xib; sourceTree = "<group>"; };
 		B8A5CF4D1B8FF48600D71D2C /* FirstIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstIntroViewController.swift; sourceTree = "<group>"; };
 		B8A5CF4E1B8FF48600D71D2C /* FirstIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstIntroViewController.xib; sourceTree = "<group>"; };
 		B8A5CF511B8FF49A00D71D2C /* ThirdIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdIntroViewController.swift; sourceTree = "<group>"; };
@@ -371,6 +383,8 @@
 				4D2B0FE21BBF4B8100482FF4 /* AlertViewController.swift */,
 				4D8210271BD291F30032DA07 /* CircleGraph.swift */,
 				4D02EC221BD0918500701C75 /* HeaderView.swift */,
+				B86095741C7DC32800AEDB74 /* DonateHeaderCollectionReusableView.swift */,
+				B86095751C7DC32800AEDB74 /* DonateHeaderCollectionReusableView.xib */,
 				B8EEA9461C64C7E4003A362F /* FooterCollectionReusableView.swift */,
 				B8EEA9471C64C7E4003A362F /* FooterCollectionReusableView.xib */,
 				4D2B0FE81BBF5ADD00482FF4 /* AlertPopupView.xib */,
@@ -560,10 +574,14 @@
 		4DE411721C72B26400D7B675 /* Donate */ = {
 			isa = PBXGroup;
 			children = (
+				4D55E5901C792B7900480A18 /* Payment.swift */,
+				B860957C1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift */,
+				B860957D1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib */,
 				B860956C1C7D109700AEDB74 /* DonateTableViewCell.swift */,
 				B860956D1C7D109700AEDB74 /* DonateTableViewCell.xib */,
+				B86095781C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.swift */,
+				B86095791C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib */,
 				4DE411731C72B27500D7B675 /* DonateViewController.swift */,
-				4D55E5901C792B7900480A18 /* Payment.swift */,
 				4DE411741C72B27500D7B675 /* DonateViewController.xib */,
 				4DE411771C72B2BC00D7B675 /* DonationCardView.swift */,
 				4DE411791C72B2D900D7B675 /* DonationCardView.xib */,
@@ -914,6 +932,7 @@
 				B82E47821BB747E600D3C90B /* LaunchScreen.xib in Resources */,
 				B85F3F611BDD656C0029F83E /* ContributionsCollectionViewCell.xib in Resources */,
 				B86095731C7DB9AE00AEDB74 /* FlatDonationsViewController.xib in Resources */,
+				B86095771C7DC32800AEDB74 /* DonateHeaderCollectionReusableView.xib in Resources */,
 				B8A5CF501B8FF48600D71D2C /* FirstIntroViewController.xib in Resources */,
 				B8C77E1F1B8AC2FF00000927 /* SignUpViewController.xib in Resources */,
 				4D9BB1151BFFD00300E5000A /* BlogPostTableViewHeader.xib in Resources */,
@@ -936,6 +955,7 @@
 				4D14C87D1C4D816100D7089B /* UserCollectionViewCell.xib in Resources */,
 				4DC0C98E1BF8D57600E2A468 /* AmountDonatedHeaderView.xib in Resources */,
 				B8A5CF581B8FF4A500D71D2C /* FinalIntroViewController.xib in Resources */,
+				B860957F1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib in Resources */,
 				4D91C4961C28861800A4C0A5 /* AccessoryTableViewCell.xib in Resources */,
 				4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */,
 				B8B8AA6D1B8FF69D006E689C /* PageViewController.xib in Resources */,
@@ -947,6 +967,7 @@
 				B85F3F651BDD6C130029F83E /* ContributionsViewController.xib in Resources */,
 				4DD2FDF31C25DA0100CF3F4C /* SearchViewController.xib in Resources */,
 				4DE411761C72B27500D7B675 /* DonateViewController.xib in Resources */,
+				B860957B1C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib in Resources */,
 				B8585C231B8642E900AB091A /* Images.xcassets in Resources */,
 				4D91C4921C28841D00A4C0A5 /* PreviousImpactsViewController.xib in Resources */,
 				4D9BB11B1BFFD40700E5000A /* CauseStoryViewController.xib in Resources */,
@@ -1030,6 +1051,7 @@
 				4DE94A911C59EDAC00850363 /* SettingsViewController.swift in Sources */,
 				4DE85F671BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift in Sources */,
 				4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */,
+				B860957E1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift in Sources */,
 				B8049CC01C2F378D005A559B /* User.swift in Sources */,
 				4D91C4911C28841D00A4C0A5 /* PreviousImpactsViewController.swift in Sources */,
 				4D02EC1C1BD08A0400701C75 /* CausesTableViewCell.swift in Sources */,
@@ -1077,9 +1099,11 @@
 				B8D45A051B8FF3E000877310 /* SecondIntroViewController.swift in Sources */,
 				B8C77E131B8ABEFA00000927 /* InitialScreenViewController.swift in Sources */,
 				B8A5CF4F1B8FF48600D71D2C /* FirstIntroViewController.swift in Sources */,
+				B860957A1C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.swift in Sources */,
 				4D0FDE4D1B8BB646002877CE /* BankSignInViewController.swift in Sources */,
 				B85F3F601BDD656C0029F83E /* ContributionsCollectionViewCell.swift in Sources */,
 				B86095721C7DB9AE00AEDB74 /* FlatDonationsViewController.swift in Sources */,
+				B86095761C7DC32800AEDB74 /* DonateHeaderCollectionReusableView.swift in Sources */,
 				4DA63D571C5B1B070019219F /* SettingsTableViewCell.swift in Sources */,
 				4D6DC35F1B8BEBAC0017BF29 /* BankPinViewController.swift in Sources */,
 				B8049CBB1C2F099F005A559B /* Contribution.swift in Sources */,

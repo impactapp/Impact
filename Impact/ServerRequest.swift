@@ -409,6 +409,7 @@ class ServerRequest: NSObject {
             let payment = Payment(fromJson:json)
             completion(payment: payment)
             },failure: { (error) -> Void in
+                print("failure")
                 
         })
     }
