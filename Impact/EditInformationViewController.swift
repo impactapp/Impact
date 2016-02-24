@@ -103,7 +103,9 @@ class EditInformationViewController: UIViewController, UITextFieldDelegate {
     
     func changePassword(newPassword:String, newPasswordConfirm:String) {
         if newPassword != newPasswordConfirm {
-            
+            let alertController = AlertViewController()
+            alertController.setUp(self, title: "Error!", message: "Please Ensure the two password inputs are the same", buttonText: "Dismiss")
+            alertController.show()
         } else {
             ServerRequest.shared.changePassword(newPassword) { (currentUser) -> Void in
                 self.navigationController?.popViewControllerAnimated(true)
