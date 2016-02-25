@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlatDonationsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate,FooterCollectionReusableViewDelegate, SearchViewControllerDelegate {
+class FlatDonationsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate,FooterCollectionReusableViewDelegate {
     @IBOutlet var headerView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     let statusBarHeight = CGFloat(20)
@@ -21,7 +21,6 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
     var causeLabel:UILabel!
     var partnerLabel: UILabel!
     var bottomButton:RoundedButton!
-    var selectedCause:Cause!
     
 
 
@@ -103,28 +102,15 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
             cell.causeLabel.hidden = true
             cell.partnerLabel.hidden = true
         case 1:
+            cell.causeLabel.hidden = true
+            cell.partnerLabel.hidden = true
+            cell.bottomRightLabel.hidden = true
             self.partnerLabel = cell.partnerLabel
             self.causeLabel = cell.causeLabel
-            self.causeLabel.adjustsFontSizeToFitWidth = true
             cell.topLeftLabel.text = "Impacting:"
             cell.moneyTextField.text = "Select Cause"
             cell.moneyTextField.enabled = false
-            cell.bottomRightLabel.hidden = true
-            if(self.selectedCause != nil){
-                self.causeLabel.hidden = false
-                self.partnerLabel.hidden = false
-                self.causeLabel.text = self.selectedCause.name
-                self.partnerLabel.text = self.selectedCause.organizationName
-                cell.moneyTextField.hidden = true
-                
-                
-            }else{
-                cell.causeLabel.hidden = true
-                cell.partnerLabel.hidden = true
-                cell.moneyTextField.textColor = UIColor.blackColor()
-            }
-            
-            
+            cell.moneyTextField.textColor = UIColor.blackColor()
         default:
             cell.moneyTextField.hidden = true
             cell.causeLabel.hidden = true
@@ -132,17 +118,6 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
         
         
         return cell
-    }
-    
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let itemNum = indexPath.item
-        let svc = SearchViewController()
-        svc.enteredFromDonate = true
-        svc.delegate = self
-        self.navigationController?.pushViewController(svc, animated: true)
-        
-        
-        
     }
     
     
@@ -227,12 +202,6 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
         }
         return true
         
-    }
-    
-    //Search Results
-    func selectedRow(cause: Cause) {
-        self.selectedCause = cause
-        self.collectionView.reloadData()
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {

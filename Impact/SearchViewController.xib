@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Impact" customModuleProvider="target">
             <connections>
-                <outlet property="backButton" destination="RVY-4s-zEy" id="Wu6-Y0-7jz"/>
                 <outlet property="header" destination="eAH-HL-61R" id="FeU-qe-qHk"/>
                 <outlet property="searchTextField" destination="bwR-Ac-IJp" id="M59-13-gSd"/>
                 <outlet property="tableView" destination="JsS-Vu-Zo6" id="zRU-dv-z1T"/>
@@ -28,7 +26,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bwR-Ac-IJp">
-                            <rect key="frame" x="34" y="30" width="533" height="30"/>
+                            <rect key="frame" x="8" y="30" width="584" height="30"/>
                             <color key="backgroundColor" red="0.65491062260052346" green="0.3168922367421888" blue="0.3168922367421888" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="BdC-zM-O4K"/>
@@ -38,28 +36,13 @@
                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
-                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVY-4s-zEy">
-                            <rect key="frame" x="8" y="30" width="25" height="30"/>
-                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="JrF-Dk-YjF"/>
-                                <constraint firstAttribute="width" constant="25" id="nyf-6Q-sPt"/>
-                            </constraints>
-                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="9" maxY="0.0"/>
-                            <state key="normal" image="BackButton"/>
-                            <connections>
-                                <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="cgk-Y6-5u4"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="RVY-4s-zEy" firstAttribute="leading" secondItem="eAH-HL-61R" secondAttribute="leadingMargin" id="Pat-SY-qYf"/>
-                        <constraint firstAttribute="trailing" secondItem="bwR-Ac-IJp" secondAttribute="trailing" constant="33" id="gnI-zq-KR5"/>
+                        <constraint firstAttribute="trailing" secondItem="bwR-Ac-IJp" secondAttribute="trailing" constant="8" id="gnI-zq-KR5"/>
                         <constraint firstAttribute="height" constant="70" id="kl0-xP-jxK"/>
-                        <constraint firstItem="RVY-4s-zEy" firstAttribute="top" secondItem="bwR-Ac-IJp" secondAttribute="top" id="oef-Cw-zTZ"/>
                         <constraint firstItem="bwR-Ac-IJp" firstAttribute="centerY" secondItem="eAH-HL-61R" secondAttribute="centerY" constant="10" id="qLN-IF-gaN"/>
-                        <constraint firstItem="bwR-Ac-IJp" firstAttribute="leading" secondItem="eAH-HL-61R" secondAttribute="leading" constant="34" id="qrL-mp-Twm"/>
+                        <constraint firstItem="bwR-Ac-IJp" firstAttribute="leading" secondItem="eAH-HL-61R" secondAttribute="leading" constant="8" id="qrL-mp-Twm"/>
                     </constraints>
                 </view>
             </subviews>
@@ -76,7 +59,4 @@
             <point key="canvasLocation" x="197" y="323"/>
         </view>
     </objects>
-    <resources>
-        <image name="BackButton" width="26" height="45"/>
-    </resources>
 </document>
