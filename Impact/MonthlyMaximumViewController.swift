@@ -1,5 +1,5 @@
 //
-//  FlatDonationsViewController.swift
+//  MonthlyMaximumViewController.swift
 //  Impact
 //
 //  Created by Anthony Emberley on 2/24/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlatDonationsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate,FooterCollectionReusableViewDelegate {
+class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate,FooterCollectionReusableViewDelegate  {
     @IBOutlet var headerView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     let statusBarHeight = CGFloat(20)
@@ -20,10 +20,6 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
     var moneyTextField: UITextField!
     var causeLabel:UILabel!
     var partnerLabel: UILabel!
-    var bottomButton:RoundedButton!
-    
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
@@ -44,7 +40,7 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
         layout.minimumInteritemSpacing = 2;
         layout.minimumLineSpacing = 10;
         layout.footerReferenceSize = CGSize(width: self.view.frame.size.width, height: 150);
-
+        
         self.collectionView.backgroundColor = UIColor.customDarkGrey()
         self.collectionView.scrollEnabled = true
         self.collectionView.collectionViewLayout = layout;
@@ -53,22 +49,11 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
         self.collectionView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier);
         self.collectionView.registerNib(UINib(nibName: headerViewIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerViewIdentifier);
         self.collectionView.registerNib(UINib(nibName: footerViewIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerViewIdentifier);
-//        
+        //
         self.collectionView.alwaysBounceVertical = true
         
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     //CollectionView
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -76,7 +61,7 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2;
+        return 1;
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
@@ -96,21 +81,13 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
         switch item{
         case 0:
             self.moneyTextField = cell.moneyTextField
-            cell.topLeftLabel.text = "Flat Amount:"
-            cell.bottomRightLabel.hidden = true
-            cell.moneyTextField.text = "$0.00"
-            cell.causeLabel.hidden = true
-            cell.partnerLabel.hidden = true
-        case 1:
-            cell.causeLabel.hidden = true
-            cell.partnerLabel.hidden = true
-            cell.bottomRightLabel.hidden = true
-            self.partnerLabel = cell.partnerLabel
-            self.causeLabel = cell.causeLabel
-            cell.topLeftLabel.text = "Impacting:"
-            cell.moneyTextField.text = "Select Cause"
-            cell.moneyTextField.enabled = false
             cell.moneyTextField.textColor = UIColor.blackColor()
+            cell.topLeftLabel.text = "Set Maximum:"
+            cell.bottomRightLabel.text = "Per Month"
+            cell.moneyTextField.text = "Enter Maximum"
+            cell.causeLabel.hidden = true
+            cell.partnerLabel.hidden = true
+        
         default:
             cell.moneyTextField.hidden = true
             cell.causeLabel.hidden = true
@@ -119,7 +96,6 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
         
         return cell
     }
-    
     
     func collectionView(collectionView: UICollectionView,
         viewForSupplementaryElementOfKind kind: String,
@@ -133,8 +109,8 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
                 let headerView : DonateHeaderCollectionReusableView = collectionView.dequeueReusableSupplementaryViewOfKind(kind,
                     withReuseIdentifier: headerViewIdentifier,
                     forIndexPath: indexPath) as! DonateHeaderCollectionReusableView
-                    headerView.textLabel.sizeToFit()
-                
+                headerView.textLabel.sizeToFit()
+                headerView.textLabel.text = "With Impact, YOU are in control of the amount you donate. Select the maximum amount you want to donate per month"
                 
                 return headerView
                 
@@ -144,10 +120,9 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
                     withReuseIdentifier: footerViewIdentifier,
                     forIndexPath: indexPath) as! FooterCollectionReusableView
                 footerView.bottomButton.hidden = true
-                footerView.topButton.setTitle("DONATE", forState: UIControlState.Normal)
+                footerView.topButton.setTitle("SET MAXIMUM", forState: UIControlState.Normal)
                 footerView.bottomButton.enabled = false
                 footerView.delegate = self
-                self.bottomButton = footerView.bottomButton
                 
                 
                 return footerView
@@ -158,8 +133,8 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
                 let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind,
                     withReuseIdentifier: headerViewIdentifier,
                     forIndexPath: indexPath) as! DonateHeaderCollectionReusableView
-                    headerView.textLabel.sizeToFit()
-
+                headerView.textLabel.sizeToFit()
+                
                 
                 
                 return headerView
@@ -168,11 +143,11 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
             
             
     }
+
     
     func footerViewTopButtonPressed() {
-        let firstMessageString:String =  "You are about to contribute: " + self.moneyTextField.text! + " to " + self.causeLabel.text!
-        let secondMessageString:String = " in partnership with " + partnerLabel.text! + " click OK to confirm your payment"
-        let alertController = UIAlertController(title: "Flat Donation" , message: firstMessageString + secondMessageString, preferredStyle: .Alert)
+        let messageString:String =  "You are about to update your monthly maximum to " + self.moneyTextField.text! + " press OK to confirm this update"
+        let alertController = UIAlertController(title: "New Maximum" , message: messageString, preferredStyle: .Alert)
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
             // ...
@@ -188,7 +163,7 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
         self.presentViewController(alertController, animated: true) {
             // ...
         }
-
+        
         
     }
     func footerViewBottomButtonPressed() {
@@ -197,13 +172,25 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
     
     //TEXT FIELD
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool{
+        self.moneyTextField.textColor = UIColor.customRed()
         if((textField.text?.characters.count) == 0){
             self.moneyTextField.text = "$"
         }
         return true
         
     }
+
     
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
     @IBAction func backButtonPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MonthlyMaximumViewController" customModule="Impact" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="Sc5-aK-1PI" id="1Cb-zd-rwq"/>
+                <outlet property="headerView" destination="M2K-9J-Hvy" id="YeA-OO-wBh"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2K-9J-Hvy">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sz-oS-dZz">
+                            <rect key="frame" x="8" y="26" width="25" height="30"/>
+                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="Vcc-Zd-Ppb"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="9" maxY="0.0"/>
+                            <state key="normal" image="BackButton"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="9za-x8-aGV"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Maximum" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfF-4t-ZnU">
+                            <rect key="frame" x="189" y="26" width="222" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="222" id="Tgg-9s-aDS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="HfF-4t-ZnU" firstAttribute="bottom" secondItem="0sz-oS-dZz" secondAttribute="bottom" id="BVC-lB-A4x"/>
+                        <constraint firstItem="0sz-oS-dZz" firstAttribute="top" secondItem="M2K-9J-Hvy" secondAttribute="top" constant="26" id="R7J-Hg-fJT"/>
+                        <constraint firstItem="0sz-oS-dZz" firstAttribute="leading" secondItem="M2K-9J-Hvy" secondAttribute="leadingMargin" id="Uau-y1-AZQ"/>
+                        <constraint firstItem="0sz-oS-dZz" firstAttribute="top" secondItem="HfF-4t-ZnU" secondAttribute="top" id="hLd-Yd-Vm8"/>
+                        <constraint firstAttribute="height" constant="64" id="mWR-Vn-VPq"/>
+                        <constraint firstItem="HfF-4t-ZnU" firstAttribute="centerX" secondItem="M2K-9J-Hvy" secondAttribute="centerX" id="sBh-3o-Tdg"/>
+                        <constraint firstItem="0sz-oS-dZz" firstAttribute="bottom" secondItem="M2K-9J-Hvy" secondAttribute="bottomMargin" id="x0g-F5-rgK"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Sc5-aK-1PI">
+                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="536" id="XMy-wF-kyF"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="waP-LX-RDU">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Sc5-aK-1PI" secondAttribute="bottom" id="0ew-9H-6Wn"/>
+                <constraint firstAttribute="trailing" secondItem="Sc5-aK-1PI" secondAttribute="trailing" id="6u0-2D-CBS"/>
+                <constraint firstItem="M2K-9J-Hvy" firstAttribute="leading" secondItem="Sc5-aK-1PI" secondAttribute="leading" id="UQN-7k-BmJ"/>
+                <constraint firstItem="Sc5-aK-1PI" firstAttribute="top" secondItem="M2K-9J-Hvy" secondAttribute="bottom" id="heq-NF-XC9"/>
+                <constraint firstItem="M2K-9J-Hvy" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="w2C-8s-q3W"/>
+                <constraint firstItem="M2K-9J-Hvy" firstAttribute="trailing" secondItem="Sc5-aK-1PI" secondAttribute="trailing" id="w9N-hi-3Vl"/>
+                <constraint firstItem="M2K-9J-Hvy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zCo-wi-iSS"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="BackButton" width="26" height="45"/>
+    </resources>
+</document>
