@@ -81,16 +81,26 @@ class FriendsCollectionViewHeader: UIView, UICollectionViewDelegateFlowLayout, U
         cell.nameLabel.text = user.name.componentsSeparatedByString(" ").first
         
         if user.facebook_id != 0 {
-            let facebookURLString = "http://graph.facebook.com/\(user.facebook_id)/picture?type=square"
+            let facebookURLString = "http://graph.facebook.com/\(user.facebook_id)/picture?type=normal"
             cell.imageView.setImageWithUrl(NSURL(string:facebookURLString), placeHolderImage: nil)
             cell.initialsLabel.hidden = true
         } else {
             cell.initialsLabel.hidden = false
             let nameComponents = user.name.componentsSeparatedByString(" ")
-            var initials = nameComponents.first![0] as String
-            if nameComponents.count > 1 {
-                initials += nameComponents.last![0]
+            var initials = ""
+            if let firstName = nameComponents.first {
+                if firstName != "" {
+                    initials += String(firstName[firstName.startIndex])
+                }
             }
+            if nameComponents.count > 1 {
+                if let lastName = nameComponents.last {
+                    if lastName != "" {
+                        initials += String(lastName[lastName.startIndex])
+                    }
+                }
+            }
+
             cell.initialsLabel.text = initials
         }
         

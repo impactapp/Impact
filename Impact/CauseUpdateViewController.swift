@@ -20,6 +20,7 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     let updateHeaderHeight : CGFloat = 250
     let userCollectionViewHeight = CGFloat(110)
     var contributorsHeaderView : FriendsCollectionViewHeader = FriendsCollectionViewHeader(frame: CGRectZero)
+    var joinCauseButton : UIButton? = nil;
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -31,6 +32,11 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
 
         
         if let cause = self.cause {
+            let frame = CGRectMake(0,0,self.tableView.frame.size.width,updateHeaderHeight + 44)
+            let amountDonatedHeaderView = AmountDonatedHeaderView(frame:frame,cause:cause) as AmountDonatedHeaderView
+            amountDonatedHeaderView.joinCauseDelegate = self
+            self.tableView.tableHeaderView = amountDonatedHeaderView
+            self.joinCauseButton = amountDonatedHeaderView.joinCauseButton;
             ServerRequest.shared.getCauseBlogPostsAndContributors(cause, success: { (blogPosts, contributors) -> Void in
                 self.blogPosts = blogPosts
                 self.contributors = contributors
@@ -42,11 +48,7 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
             })
         }
 
-        let frame = CGRectMake(0,0,self.tableView.frame.size.width,updateHeaderHeight + 44)
-        let amountDonatedHeaderView = AmountDonatedHeaderView(frame:frame,cause:cause!) as AmountDonatedHeaderView
-        amountDonatedHeaderView.joinCauseDelegate = self
-        
-        self.tableView.tableHeaderView = amountDonatedHeaderView
+
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -120,9 +122,10 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     
     func joinCause() {
         if let cause = self.cause {
-            print("here")
+            if let joinCauseButton = self.joinCauseButton {
+                joinCauseButton.selected = true
+            }
             ServerRequest.shared.joinCause(cause, success: { (successful) -> Void in
-                
                 }, failure: { (errorMessage) -> Void in
             })
         }
