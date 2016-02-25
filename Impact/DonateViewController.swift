@@ -180,6 +180,41 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //clear amount collected and clear the UITextField
         //Warning message
         
+        let alertController = UIAlertController(title: "Clear Roundups" , message: "Are you sure you want to clear the roundups you have accumulated?", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            // ...
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            // ...
+            //update monthly max here
+            clearPendingContribution()
+         
+            
+        }
+        alertController.addAction(OKAction)
+        alertController.view.tintColor = UIColor.customRed()
+        
+        self.presentViewController(alertController, animated: true) {
+            // ...
+        }
+        
+    }
+    
+    func clearPendingContribution(){
+        
+        
+        ServerRequest.shared.clearUserPendingContribution{(currentUser) -> Void in
+            activityIndicator.stopAnimating()
+            let alertController = AlertViewController()
+            alertController.delegate = self
+            alertController.setUp(self, title: "Clear", message: "You cleared your roundups", buttonText: "Dismiss")
+            alertController.show()
+        }
+        
+        
     }
     
     //TEXT FIELD

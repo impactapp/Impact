@@ -169,6 +169,36 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
             
     }
     
+    func donateAmount(){
+        let amountString = self.moneyTextField.text?.substringFromIndex(1)
+        let amount = Float(amountString)
+        
+        let activityIndicator: ActivityIndicator = ActivityIndicator(view: self.view)
+        activityIndicator.startAnimating()
+        
+        ServerRequest.shared.updateWeeklyBudget(amount, success: { (successful) -> Void in
+            activityIndicator.stopAnimating()
+            
+            let firstMessageString:String =  "You are about to contribute: " + self.amountTextField.text! + " to " + self.currentCause
+            let secondMessageString:String =  " click OK to confirm your payment"
+           
+            
+            
+            }, failure: { (errorMessage) -> Void in
+                activityIndicator.stopAnimating()
+                let alertController = AlertViewController()
+                alertController.delegate = self
+                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                alertController.show()
+                
+        })
+        
+    }
+    
+    func validMoneyText(){
+        return true
+    }
+    
     func footerViewTopButtonPressed() {
         let firstMessageString:String =  "You are about to contribute: " + self.moneyTextField.text! + " to " + self.causeLabel.text!
         let secondMessageString:String = " in partnership with " + partnerLabel.text! + " click OK to confirm your payment"
@@ -181,6 +211,16 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
         
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
             // ...
+            
+            if(validMoneyText()){
+                donateAmount()
+            }else{
+                let alertController = AlertViewController()
+                alertController.delegate = self
+                alertController.setUp(self, title: "Invalid Amount", message: "Please select a valid amount", buttonText: "Dismiss")
+                alertController.show()
+                
+            }
         }
         alertController.addAction(OKAction)
         alertController.view.tintColor = UIColor.customRed()

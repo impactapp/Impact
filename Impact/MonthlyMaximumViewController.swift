@@ -20,9 +20,11 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
     var moneyTextField: UITextField!
     var causeLabel:UILabel!
     var partnerLabel: UILabel!
+    var currentUser:User!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
+        getCurrentUser()
 
 
         // Do any additional setup after loading the view.
@@ -31,6 +33,12 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func getCurrentUser(){
+        ServerRequest.shared.getCurrentUser{ (currentUser) -> Void in
+            self.currentUser = currentUser
+        }
     }
     
     private func setUpCollectionView() {
@@ -84,7 +92,19 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
             cell.moneyTextField.textColor = UIColor.blackColor()
             cell.topLeftLabel.text = "Set Maximum:"
             cell.bottomRightLabel.text = "Per Month"
-            cell.moneyTextField.text = "Enter Maximum"
+            
+            if((currentUser) != nil){
+                if(self.currentUser.weekly_budget == 0.0){
+                    cell.moneyTextField.text = "Enter Maximum"
+
+                }else{
+                    cell.moneyTextField.text = "$" + String(currentUser.weekly_budget)
+                }
+            }else{
+                cell.moneyTextField.text = "Enter Maximum"
+
+            }
+            
             cell.causeLabel.hidden = true
             cell.partnerLabel.hidden = true
         
@@ -143,6 +163,13 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
             
             
     }
+    
+    func validMoneyText() -> Bool{
+        
+        
+        
+        return true
+    }
 
     
     func footerViewTopButtonPressed() {
@@ -156,6 +183,17 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
         
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
             // ...
+            //update monthly max here
+            if(validMoneyText()){
+                updateMonthlyMax()
+            }else{
+                let alertController = AlertViewController()
+                alertController.delegate = self
+                alertController.setUp(self, title: "Invalid Amount", message: "Please select a valid amount", buttonText: "Dismiss")
+                alertController.show()
+                
+            }
+            
         }
         alertController.addAction(OKAction)
         alertController.view.tintColor = UIColor.customRed()
@@ -167,6 +205,34 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
         
     }
     func footerViewBottomButtonPressed() {
+        
+    }
+    
+    func updateMonthlyMax(){
+        
+        
+        let amountString = self.moneyTextField.text?.substringFromIndex(1)
+        let amount = Float(amountString)
+        
+        let activityIndicator: ActivityIndicator = ActivityIndicator(view: self.view)
+        activityIndicator.startAnimating()
+       
+        ServerRequest.shared.updateWeeklyBudget(amount, success: { (successful) -> Void in
+            activityIndicator.stopAnimating()
+            let alertController = AlertViewController()
+            alertController.delegate = self
+            alertController.setUp(self, title: "Success!", message: "You updated your monthly budget!", buttonText: "Dismiss")
+            alertController.show()
+            
+            }, failure: { (errorMessage) -> Void in
+                activityIndicator.stopAnimating()
+                let alertController = AlertViewController()
+                alertController.delegate = self
+                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                alertController.show()
+
+        })
+        
         
     }
     

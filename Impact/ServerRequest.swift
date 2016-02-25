@@ -225,6 +225,16 @@ class ServerRequest: NSObject {
         })
     }
     
+    func clearUserPendingContribution(completion:(currentUser:User) -> Void) {
+        let endpoint = "current_user/clear_pending_contribution"
+        postWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            let result:User =  User(fromJson:json)
+            completion(currentUser: result)
+            },failure: { (error) -> Void in
+                
+        })
+    }
+    
     func changeEmail(newEmail:String, completion:(currentUser:User) -> Void) {
         let endpoint = "current_user/change/email"
         let parameters = ["change": ["email":newEmail]]
@@ -414,6 +424,17 @@ class ServerRequest: NSObject {
         })
     }
     
+    func updateWeeklyBudget(amount:Float, success:(successful:Bool) -> Void, failure:(errorMessage:String)->Void) {
+        let endpoint = "/current_user/update/weekly_budget"
+        let params =  ["user": ["value":amount ] ]
+
+        postWithEndpoint(endpoint, parameters: params, authenticated: true, success: { (json) -> Void in
+            success(successful: true)
+            }, failure: { (error) -> Void in
+                failure(errorMessage: "Couldn't update budget")
+        })
+    }
+    
     
     
     
@@ -446,6 +467,7 @@ class ServerRequest: NSObject {
                 completion(success:false)
         })
     }
+    
     
     //MARK: Causes
     
