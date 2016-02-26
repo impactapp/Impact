@@ -80,6 +80,7 @@ class ServerRequest: NSObject {
         Alamofire.request(.POST, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { response in
             let status = response.response?.statusCode
             if let data = response.data {
+                
                 let json = JSON(data:data)
                 if(status == 200 || status == 201) {
                     success(json: json)
@@ -192,16 +193,18 @@ class ServerRequest: NSObject {
         })
     }
     //TODO Returns error of invalid email and password?
-//    func logout(success:(json:JSON) -> Void, failure:(errorMessage:String) -> Void){
-//        let parameters = [kUserRequestKey:[]]
-//        postWithEndpoint("logout", parameters: parameters, authenticated: true, success: { (json) -> Void in
-//            success(json: json)
-//            }, failure: { (error) -> Void in
-//                failure(errorMessage: "Invalid Email and Password")
-//        })
-//     
-//    
-//    }
+    func logout(success:(json:JSON) -> Void, failure:(errorMessage:String) -> Void){
+        postWithEndpoint("logout", parameters: nil, authenticated: true, success: { (json) -> Void in
+            
+            UserCredentials.shared.deleteUserToken()
+            success(json: json)
+            }, failure: { (error) -> Void in
+                
+                failure(errorMessage: "Unable to logout")
+        })
+     
+    
+    }
     
     //MARK: User
     func getCurrentUser(completion:(currentUser:User) -> Void) {

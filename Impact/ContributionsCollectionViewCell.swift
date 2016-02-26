@@ -21,6 +21,7 @@ class ContributionsCollectionViewCell: UICollectionViewCell {
         // Initialization code
         self.layer.borderColor = UIColor.blackColor().CGColor
         self.backgroundColor = UIColor.customDarkGrey()
+        self.bringSubviewToFront(self.imageView)
         
     }
 

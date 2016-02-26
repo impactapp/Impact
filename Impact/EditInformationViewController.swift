@@ -93,20 +93,42 @@ class EditInformationViewController: UIViewController, UITextFieldDelegate {
     }
     
     func changeEmail(newEmail:String) {
-        ServerRequest.shared.changeEmail(newEmail) { (currentUser) -> Void in
-            if let delegate = self.userInfoDelegate {
-                delegate.updateUserInfo(currentUser)
+        if (isValidEmail(newEmail)) {
+            ServerRequest.shared.changeEmail(newEmail) { (currentUser) -> Void in
+                if let delegate = self.userInfoDelegate {
+                    delegate.updateUserInfo(currentUser)
+                }
+                self.navigationController?.popViewControllerAnimated(true)
             }
-            self.navigationController?.popViewControllerAnimated(true)
+        } else {
+            let alertController = AlertViewController()
+            alertController.setUp(self, title: "Error!", message: "Please Enter a Valid Email", buttonText: "Dismiss")
+            alertController.show()
         }
+        
     }
     
     func changePassword(newPassword:String, newPasswordConfirm:String) {
         if newPassword != newPasswordConfirm {
-            
+            let alertController = AlertViewController()
+            alertController.setUp(self, title: "Error!", message: "Please Ensure the two password inputs are the same", buttonText: "Dismiss")
+            alertController.show()
         } else {
-            ServerRequest.shared.changePassword(newPassword) { (currentUser) -> Void in
-                self.navigationController?.popViewControllerAnimated(true)
+            let alertController = UIAlertController(title: "Warning", message: "Are you sure you want to change your password?", preferredStyle: .Alert)
+            alertController.view.tintColor = UIColor.customRed()
+            
+            let cancelAction = UIAlertAction(title: "NO", style: .Cancel) { (action) in
+            }
+            alertController.addAction(cancelAction)
+            
+            let OKAction = UIAlertAction(title: "YES", style: .Default) { (action) in
+                ServerRequest.shared.changePassword(newPassword) { (currentUser) -> Void in
+                    self.navigationController?.popViewControllerAnimated(true)
+                }
+            }
+            alertController.addAction(OKAction)
+            self.presentViewController(alertController, animated: true) {
+                
             }
         }
 
@@ -114,6 +136,16 @@ class EditInformationViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func backPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func isValidEmail(testStr:String) -> Bool {
+        
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        
+        return emailTest.evaluateWithObject(testStr)
+        
     }
 
     /*

@@ -147,7 +147,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             
         case 1:
             if((self.currentUser) != nil){
-                cell.numberLabel.text = "$" + String(self.currentUser.total_amount_contributed);
+                cell.numberLabel.text = "$" + String(self.currentUser.total_amount_contributed/100.00);
             }
             cell.numberLabel.adjustsFontSizeToFitWidth = true
 

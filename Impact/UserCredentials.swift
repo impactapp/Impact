@@ -27,6 +27,10 @@ class UserCredentials: NSObject {
         }
     }
     
+    func deleteUserToken() {
+        keychain.clear()
+    }
+    
     func updateDeviceToken(deviceToken:String) {
         if keychain.set(deviceToken, forKey: kDeviceToken) {
             
