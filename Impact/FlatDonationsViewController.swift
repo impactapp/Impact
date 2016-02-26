@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FlatDonationsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate,FooterCollectionReusableViewDelegate {
+class FlatDonationsViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate,FooterCollectionReusableViewDelegate, SearchViewControllerDelegate, AlertViewControllerDelegate {
     @IBOutlet var headerView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     let statusBarHeight = CGFloat(20)
@@ -21,6 +21,7 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
     var causeLabel:UILabel!
     var partnerLabel: UILabel!
     var bottomButton:RoundedButton!
+    var selectedCause:Cause!
     
 
 
@@ -98,26 +99,51 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
             self.moneyTextField = cell.moneyTextField
             cell.topLeftLabel.text = "Flat Amount:"
             cell.bottomRightLabel.hidden = true
-            cell.moneyTextField.text = "$0.00"
             cell.causeLabel.hidden = true
             cell.partnerLabel.hidden = true
         case 1:
-            cell.causeLabel.hidden = true
-            cell.partnerLabel.hidden = true
-            cell.bottomRightLabel.hidden = true
             self.partnerLabel = cell.partnerLabel
             self.causeLabel = cell.causeLabel
+            self.causeLabel.adjustsFontSizeToFitWidth = true
             cell.topLeftLabel.text = "Impacting:"
             cell.moneyTextField.text = "Select Cause"
             cell.moneyTextField.enabled = false
-            cell.moneyTextField.textColor = UIColor.blackColor()
+            cell.bottomRightLabel.hidden = true
+            if(self.selectedCause != nil){
+                self.causeLabel.hidden = false
+                self.partnerLabel.hidden = false
+                self.causeLabel.text = self.selectedCause.name
+                self.partnerLabel.text = self.selectedCause.organizationName
+                cell.moneyTextField.hidden = true
+                
+                
+            }else{
+                cell.causeLabel.hidden = true
+                cell.partnerLabel.hidden = true
+                cell.moneyTextField.textColor = UIColor.blackColor()
+            }
+            
+            
         default:
             cell.moneyTextField.hidden = true
             cell.causeLabel.hidden = true
         }
-        
+
         
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let itemNum = indexPath.item
+        if(itemNum == 1){
+            let svc = SearchViewController()
+            svc.enteredFromDonate = true
+            svc.delegate = self
+            self.navigationController?.pushViewController(svc, animated: true)
+            
+        }
+        
+        
     }
     
     
@@ -169,25 +195,22 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
             
     }
     
-    func donateAmount(){
-        let amountString = self.moneyTextField.text?.substringFromIndex(1)
-        let amount = Float(amountString)
+    func donateAmount(amount:NSNumber){
         
         let activityIndicator: ActivityIndicator = ActivityIndicator(view: self.view)
         activityIndicator.startAnimating()
         
-        ServerRequest.shared.updateWeeklyBudget(amount, success: { (successful) -> Void in
+        ServerRequest.shared.makeFlatDonation(Float(amount), cause_id: self.selectedCause.id, completion:  { (payment) -> Void in
             activityIndicator.stopAnimating()
-            
-            let firstMessageString:String =  "You are about to contribute: " + self.amountTextField.text! + " to " + self.currentCause
-            let secondMessageString:String =  " click OK to confirm your payment"
-           
+            let alertController = AlertViewController()
+            alertController.setUp(self, title: "Success", message: "You have successfully contributed to this cause.  Thank you!", buttonText: "Dismiss")
+            alertController.delegate = self
+            alertController.show()
             
             
             }, failure: { (errorMessage) -> Void in
                 activityIndicator.stopAnimating()
                 let alertController = AlertViewController()
-                alertController.delegate = self
                 alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
                 alertController.show()
                 
@@ -195,39 +218,59 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
         
     }
     
-    func validMoneyText(){
-        return true
+    func validMoneyText(moneyText:String) -> NSNumber?{
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .CurrencyStyle
+        
+        let testNum = numberFormatter.numberFromString(moneyText)
+        if(testNum == 0){
+            return nil
+        }
+        return testNum
     }
     
     func footerViewTopButtonPressed() {
-        let firstMessageString:String =  "You are about to contribute: " + self.moneyTextField.text! + " to " + self.causeLabel.text!
-        let secondMessageString:String = " in partnership with " + partnerLabel.text! + " click OK to confirm your payment"
-        let alertController = UIAlertController(title: "Flat Donation" , message: firstMessageString + secondMessageString, preferredStyle: .Alert)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-            // ...
-        }
-        alertController.addAction(cancelAction)
-        
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-            // ...
-            
-            if(validMoneyText()){
-                donateAmount()
+        if((self.selectedCause) != nil){
+            let moneyString = self.moneyTextField.text
+            let amount = validMoneyText(moneyString!)
+            if(amount != nil){
+                let firstMessageString:String =  "You are about to contribute: " + self.moneyTextField.text! + " to " + self.causeLabel.text!
+                let secondMessageString:String = " in partnership with " + partnerLabel.text! + " click OK to confirm your payment"
+                let alertController = UIAlertController(title: "Flat Donation" , message: firstMessageString + secondMessageString, preferredStyle: .Alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                    // ...
+                }
+                alertController.addAction(cancelAction)
+                
+                let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                    // ...
+                    
+                    self.donateAmount(amount!)
+                    
+                }
+                alertController.addAction(OKAction)
+                alertController.view.tintColor = UIColor.customRed()
+                
+                self.presentViewController(alertController, animated: true) {
+                    // ...
+                }
             }else{
                 let alertController = AlertViewController()
-                alertController.delegate = self
-                alertController.setUp(self, title: "Invalid Amount", message: "Please select a valid amount", buttonText: "Dismiss")
+                alertController.setUp(self, title: "Error", message: "Invalid amount, please try again", buttonText: "Dismiss")
                 alertController.show()
                 
             }
+            
+            
+            
+        }else{
+            let alertController = AlertViewController()
+            alertController.setUp(self, title: "Error", message: "Please select a cause by pressing the Select Cause button", buttonText: "Dismiss")
+            alertController.show()
+            
         }
-        alertController.addAction(OKAction)
-        alertController.view.tintColor = UIColor.customRed()
         
-        self.presentViewController(alertController, animated: true) {
-            // ...
-        }
 
         
     }
@@ -242,6 +285,15 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
         }
         return true
         
+    }
+    
+    func selectedRow(cause: Cause) {
+        self.selectedCause = cause
+        self.collectionView.reloadData()
+    }
+    
+    func popupDismissed() {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     @IBAction func backButtonPressed(sender: AnyObject) {

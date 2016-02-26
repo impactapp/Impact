@@ -18,17 +18,13 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var amountTextField:UITextField!
     var currentCause:String!
     var donationCard:DonationCardView!
+    var currentUser:User!
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var headerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        self.tableView.backgroundColor = UIColor.customDarkGrey()
-        self.tableView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
-        self.tableView.rowHeight = rowHeight
-        self.tableView.separatorInset = UIEdgeInsetsZero
+        initTableView()
 
     }
     
@@ -37,7 +33,25 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.setStatusBarColor(self.headerView.backgroundColor!, useWhiteText: true)
 
         setUpDonationCardView()
+        getCurrentUser()
         
+    }
+    
+    private func initTableView(){
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.backgroundColor = UIColor.customDarkGrey()
+        self.view.backgroundColor = UIColor.customDarkGrey()
+        self.tableView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellReuseIdentifier: cellIdentifier)
+        self.tableView.rowHeight = rowHeight
+        self.tableView.separatorInset = UIEdgeInsetsZero
+    }
+    
+    private func getCurrentUser(){
+        ServerRequest.shared.getCurrentUser{ (currentUser) -> Void in
+            self.currentUser = currentUser
+            self.tableView.reloadData()
+        }
     }
     
     private func setUpDonationCardView() {
@@ -85,6 +99,13 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.cellSwitch.hidden = true
         case 1:
             cell.cellSwitch.hidden = true
+            if(self.currentUser != nil){
+                if(self.currentUser.weekly_budget != 0){
+                    let formatter = NSNumberFormatter()
+                    formatter.numberStyle = .CurrencyStyle
+                    cell.moneyTextLabel.text = formatter.stringFromNumber(currentUser.weekly_budget)
+                }
+            }
         case 2:
             cell.forwardButton.hidden = true
             cell.selectionStyle = UITableViewCellSelectionStyle.None
@@ -107,6 +128,9 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
             else if row == 1{
                 let mmvc:MonthlyMaximumViewController = MonthlyMaximumViewController();
+                if currentUser != nil {
+                    mmvc.monthlyMaximum = currentUser.weekly_budget
+                }
                 self.navigationController?.pushViewController(mmvc, animated: true);
             }
         }
@@ -116,8 +140,21 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 1
     }
     
-    //MARK: - DonationCardViewDelegate
-    func donateButtonPressed(donationAmount: Int) {
+    func validMoneyText(moneyText:String) -> NSNumber?{
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .CurrencyStyle
+        
+        let testNum = numberFormatter.numberFromString(moneyText)
+//        if(testNum == 0){
+//            return nil
+//        }
+        return testNum
+    }
+    
+    
+    func donateMoney(amount:NSNumber){
+        
+        
         self.amountTextField.resignFirstResponder()
         self.amountTextField.enabled = false
         let activityIndicator:ActivityIndicator = ActivityIndicator(view: self.view)
@@ -138,31 +175,49 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
             // ...
             //ADD SUCCESS STUFF - if successful, clear the amount collected (endpoint) and clear text field
-            ServerRequest.shared.makeContribution(donationAmount, completion:  { (payment) -> Void in
+            ServerRequest.shared.makeContribution(Float(amount), completion:  { (payment) -> Void in
                 activityIndicator.stopAnimating()
-                if(payment.id != nil){
                     let alertController = AlertViewController()
                     alertController.delegate = self
                     alertController.setUp(self, title: "Success!", message: "Donated" + self.amountTextField.text! + " to " + self.currentCause, buttonText: "Dismiss")
                     alertController.show()
-                }else{
+             
+                
+                }, failure: {(errorMessage) -> Void in
                     let alertController = AlertViewController()
                     alertController.delegate = self
-                    alertController.setUp(self, title: "Failure", message: "Donation Failed", buttonText: "Dismiss")
+                    alertController.setUp(self, title: "Failure", message: errorMessage, buttonText: "Dismiss")
                     alertController.show()
                     
-                }
-                
             })
         }
-    
+        
         alertController.addAction(OKAction)
         alertController.view.tintColor = UIColor.customRed()
         
         self.presentViewController(alertController, animated: true) {
             // ...
         }
+        
 
+        
+    }
+    
+    //MARK: - DonationCardViewDelegate
+    func donateButtonPressed(donationAmount: Int) {
+        
+        
+        let moneyString = self.amountTextField.text
+        let amount = validMoneyText(moneyString!)
+        
+        if(amount != nil){
+            donateMoney(amount!)
+        }else{
+            let alertController = AlertViewController()
+            alertController.setUp(self, title: "Error", message: "Invalid amount, please try again", buttonText: "Dismiss")
+            alertController.show()
+            
+        }
         
         
     }
@@ -177,8 +232,6 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func clearButtonPressed() {
-        //clear amount collected and clear the UITextField
-        //Warning message
         
         let alertController = UIAlertController(title: "Clear Roundups" , message: "Are you sure you want to clear the roundups you have accumulated?", preferredStyle: .Alert)
         
@@ -190,7 +243,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
             // ...
             //update monthly max here
-            clearPendingContribution()
+            self.clearPendingContribution()
          
             
         }
@@ -204,7 +257,8 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func clearPendingContribution(){
-        
+        let activityIndicator: ActivityIndicator = ActivityIndicator(view: self.view)
+        activityIndicator.startAnimating()
         
         ServerRequest.shared.clearUserPendingContribution{(currentUser) -> Void in
             activityIndicator.stopAnimating()
@@ -212,6 +266,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
             alertController.delegate = self
             alertController.setUp(self, title: "Clear", message: "You cleared your roundups", buttonText: "Dismiss")
             alertController.show()
+            self.amountTextField.text = "$0.00"
         }
         
         

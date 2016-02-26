@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate,FooterCollectionReusableViewDelegate  {
+class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UITextFieldDelegate,FooterCollectionReusableViewDelegate, AlertViewControllerDelegate  {
     @IBOutlet var headerView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     let statusBarHeight = CGFloat(20)
@@ -21,6 +21,7 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
     var causeLabel:UILabel!
     var partnerLabel: UILabel!
     var currentUser:User!
+    var monthlyMaximum:Float!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
@@ -38,6 +39,7 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
     func getCurrentUser(){
         ServerRequest.shared.getCurrentUser{ (currentUser) -> Void in
             self.currentUser = currentUser
+            self.collectionView.reloadData()
         }
     }
     
@@ -93,12 +95,15 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
             cell.topLeftLabel.text = "Set Maximum:"
             cell.bottomRightLabel.text = "Per Month"
             
-            if((currentUser) != nil){
-                if(self.currentUser.weekly_budget == 0.0){
+            if((monthlyMaximum) != nil){
+                if(Float(monthlyMaximum) == 0.0){
                     cell.moneyTextField.text = "Enter Maximum"
 
                 }else{
-                    cell.moneyTextField.text = "$" + String(currentUser.weekly_budget)
+                    let numberFormatter = NSNumberFormatter()
+                    numberFormatter.numberStyle = .CurrencyStyle
+                    cell.moneyTextField.text = numberFormatter.stringFromNumber(monthlyMaximum)
+                    cell.moneyTextField.textColor = UIColor.customRed()
                 }
             }else{
                 cell.moneyTextField.text = "Enter Maximum"
@@ -164,43 +169,54 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
             
     }
     
-    func validMoneyText() -> Bool{
+    func validMoneyText(moneyText:String) -> NSNumber?{
+        let numberFormatter = NSNumberFormatter()
+        numberFormatter.numberStyle = .CurrencyStyle
         
-        
-        
-        return true
+        let testNum = numberFormatter.numberFromString(moneyText)
+        if(testNum == 0){
+            return nil
+        }
+        return testNum
     }
 
     
     func footerViewTopButtonPressed() {
-        let messageString:String =  "You are about to update your monthly maximum to " + self.moneyTextField.text! + " press OK to confirm this update"
-        let alertController = UIAlertController(title: "New Maximum" , message: messageString, preferredStyle: .Alert)
+        let moneyText = self.moneyTextField.text
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
-            // ...
-        }
-        alertController.addAction(cancelAction)
-        
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
-            // ...
-            //update monthly max here
-            if(validMoneyText()){
-                updateMonthlyMax()
-            }else{
-                let alertController = AlertViewController()
-                alertController.delegate = self
-                alertController.setUp(self, title: "Invalid Amount", message: "Please select a valid amount", buttonText: "Dismiss")
-                alertController.show()
+        let amount = validMoneyText(moneyText!)
+        if(amount != nil){
+            let messageString:String =  "You are about to update your monthly maximum to " + self.moneyTextField.text! + " press OK to confirm this update"
+            let alertController = UIAlertController(title: "New Maximum" , message: messageString, preferredStyle: .Alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+                // ...
+            }
+            alertController.addAction(cancelAction)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+                // ...
+                //update monthly max here
+                
+                self.updateMonthlyMax(amount!)
+             
                 
             }
+            alertController.addAction(OKAction)
+            alertController.view.tintColor = UIColor.customRed()
+            
+            self.presentViewController(alertController, animated: true) {
+                // ...
+            }
+
+            
+        }else{
+            let alertController = AlertViewController()
+            alertController.setUp(self, title: "Error", message: "Invalid amount, please try again", buttonText: "Dismiss")
+            alertController.show()
             
         }
-        alertController.addAction(OKAction)
-        alertController.view.tintColor = UIColor.customRed()
         
-        self.presentViewController(alertController, animated: true) {
-            // ...
-        }
         
         
     }
@@ -208,26 +224,21 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
         
     }
     
-    func updateMonthlyMax(){
-        
-        
-        let amountString = self.moneyTextField.text?.substringFromIndex(1)
-        let amount = Float(amountString)
+    func updateMonthlyMax(amount:NSNumber){
         
         let activityIndicator: ActivityIndicator = ActivityIndicator(view: self.view)
         activityIndicator.startAnimating()
        
-        ServerRequest.shared.updateWeeklyBudget(amount, success: { (successful) -> Void in
+        ServerRequest.shared.updateWeeklyBudget(Float(amount), success: { (successful) -> Void in
             activityIndicator.stopAnimating()
             let alertController = AlertViewController()
-            alertController.delegate = self
             alertController.setUp(self, title: "Success!", message: "You updated your monthly budget!", buttonText: "Dismiss")
+            alertController.delegate = self
             alertController.show()
             
             }, failure: { (errorMessage) -> Void in
                 activityIndicator.stopAnimating()
                 let alertController = AlertViewController()
-                alertController.delegate = self
                 alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
                 alertController.show()
 
@@ -244,6 +255,10 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
         }
         return true
         
+    }
+    
+    func popupDismissed() {
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
     

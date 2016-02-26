@@ -412,18 +412,33 @@ class ServerRequest: NSObject {
         })
     }
     
-    func makeContribution(amount:Int, completion:(payment:Payment) ->Void) {
+    func makeContribution(amount:Float, completion:(payment:Payment) ->Void, failure:(errorMessage:String) -> Void) {
         let endpoint = "contributions/pay"
         let params =  ["contribution": ["amount":amount ] ]
         postWithEndpoint(endpoint, parameters: params, authenticated: true, success: { (json) -> Void in
             let payment = Payment(fromJson:json)
             completion(payment: payment)
             },failure: { (error) -> Void in
-                print("failure")
+                let errorMessage = "Error in contributions"
+            
+                failure(errorMessage: errorMessage)
+                
                 
         })
     }
     
+    func makeFlatDonation(amount:Float, cause_id:Int, completion:(payment:Payment) ->Void, failure:(errorMessage:String) -> Void) {
+        let endpoint = "contributions/flat_donation"
+        let params =  ["contribution": ["amount":amount, "cause_id":cause_id ] ]
+        postWithEndpoint(endpoint, parameters: params, authenticated: true, success: { (json) -> Void in
+            let payment = Payment(fromJson:json)
+            completion(payment: payment)
+            },failure: { (error) -> Void in
+                let errorMessage = "Error in flat donation"
+                failure(errorMessage: errorMessage)
+                
+        })
+    }
     func updateWeeklyBudget(amount:Float, success:(successful:Bool) -> Void, failure:(errorMessage:String)->Void) {
         let endpoint = "/current_user/update/weekly_budget"
         let params =  ["user": ["value":amount ] ]
