@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var user : User? = nil
     let userInfoOptions = ["Name", "Email"]
     let paymentInfoOptions = ["Credit Card", "Bank", "Automatic Payments"]
-    let securityOptions = ["Location Enabled","Push Notifications","Password","Terms of Service","Help and Support"]
+    let securityOptions = ["Location Enabled","Push Notifications","Password","Terms of Service","Help and Support","Logout"]
     let sectionArray : [SettingsSection] = [.UserInfo, .PaymentInfo, .SecurityInfo]
     var sectionHash: [SettingsSection : [String]] = [.UserInfo: [], .PaymentInfo:[], .SecurityInfo:[]]
     var cellIdentifier : String = "SettingsTableViewCell"
@@ -57,6 +57,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionKey = sectionArray[section]
         let rowsInSection = sectionHash[sectionKey]
+        
         return rowsInSection?.count ?? 0
     }
     
@@ -152,16 +153,32 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             eivc.editType = indexPath.row == 0 ? .Name : .Email
             eivc.userInfoDelegate = self
             self.navigationController?.pushViewController(eivc, animated: true)
-        } else if indexPath.section == 2 && indexPath.row == 2 {
-            let eivc = EditInformationViewController()
-            eivc.user = self.user
-            eivc.editType = .Password
-            eivc.userInfoDelegate = self
-            self.navigationController?.pushViewController(eivc, animated: true)
-        } else if indexPath.section == 1 && indexPath.row == 0{
-            let ccvc = MyCreditCardsViewController()
-            self.navigationController?.pushViewController(ccvc, animated: true)
+        } else if indexPath.section == 1 {
+            if indexPath.row == 0 {
+                let ccvc = MyCreditCardsViewController()
+                self.navigationController?.pushViewController(ccvc, animated: true)
+            }
+        } else if indexPath.section == 2 {
+            if indexPath.row == 2 {
+                let eivc = EditInformationViewController()
+                eivc.user = self.user
+                eivc.editType = .Password
+                eivc.userInfoDelegate = self
+                self.navigationController?.pushViewController(eivc, animated: true)
+            }
+            if indexPath.row == 5 {
+                logout()
+            }
         }
+    }
+    
+    func logout() {
+        ServerRequest.shared.logout({ (json) -> Void in
+            let initialViewController = InitialScreenViewController()
+            self.presentViewController(initialViewController, animated: true, completion: nil)
+            },failure: { (errorMessage) -> Void in
+                
+        })
     }
     
     func disableFloatingHeaders() {
