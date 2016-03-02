@@ -453,6 +453,17 @@ class ServerRequest: NSObject {
         })
     }
     
+    func updateAutomaticDonations( success:(successful:Bool) -> Void, failure:(errorMessage:String)->Void) {
+        let endpoint = "current_user/change/automatic_donations"
+        let params = ["test":"hello"]
+        
+        putWithEndpoint(endpoint, parameters: params, authenticated: true, success: { (json) -> Void in
+            success(successful: true)
+            }, failure: { (error) -> Void in
+                failure(errorMessage: "Couldn't update automatic donations")
+        })
+    }
+
     
     
     

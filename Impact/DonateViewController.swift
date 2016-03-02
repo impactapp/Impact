@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DonationCardViewDelegate, AlertViewControllerDelegate, UITextFieldDelegate {
+class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DonationCardViewDelegate, AlertViewControllerDelegate, DonateTableViewCellDelegate, UITextFieldDelegate {
     let donateCardViewHeight = CGFloat(225)
     let statusBarHeight = CGFloat(20)
     let cellIdentifier = "DonateTableViewCell"
@@ -109,7 +109,15 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         case 2:
             cell.forwardButton.hidden = true
             cell.selectionStyle = UITableViewCellSelectionStyle.None
-            
+            cell.delegate = self
+            if(self.currentUser != nil){
+                cell.cellSwitch.hidden = false
+                if(self.currentUser.weekly_budget != 0){
+                   cell.cellSwitch.on = self.currentUser.automatic_donations
+                }
+            }else{
+                cell.cellSwitch.hidden = true
+            }
         default:
             _ = 2
         }
@@ -270,6 +278,27 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         
+    }
+    
+    func switchIsPressed() {
+        //call update automatic donations
+        let activityIndicator = ActivityIndicator(view: self.view)
+        ServerRequest.shared.updateAutomaticDonations( { (successful) -> Void in
+            activityIndicator.stopAnimating()
+            let alertController = AlertViewController()
+            alertController.setUp(self, title: "Success!", message: "You updated your automatic donation preference!", buttonText: "Dismiss")
+            alertController.delegate = self
+            alertController.show()
+            self.getCurrentUser()
+            }, failure: { (errorMessage) -> Void in
+                activityIndicator.stopAnimating()
+                let alertController = AlertViewController()
+                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                alertController.show()
+                self.getCurrentUser()
+
+                
+        })
     }
     
     //TEXT FIELD
