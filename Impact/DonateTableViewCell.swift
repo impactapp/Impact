@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol DonateTableViewCellDelegate{
+    func switchIsPressed()
+}
+
 class DonateTableViewCell: UITableViewCell {
     @IBOutlet var titleTextLabel: UILabel!
     @IBOutlet var moneyTextLabel: UILabel!
@@ -15,7 +19,8 @@ class DonateTableViewCell: UITableViewCell {
     @IBOutlet var cellSwitch: UISwitch!
     @IBOutlet var forwardButton: UIButton!
     @IBOutlet var detailedTextLabel: UILabel!
-    
+    var delegate: DonateTableViewCellDelegate? = nil
+
     override func awakeFromNib() {
         
         super.awakeFromNib()
@@ -26,6 +31,11 @@ class DonateTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    @IBAction func switchPressed(sender: AnyObject) {
+        if let delegate = self.delegate{
+            delegate.switchIsPressed()
+        }
     }
     
 }

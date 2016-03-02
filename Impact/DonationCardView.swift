@@ -21,7 +21,7 @@ class DonationCardView: UIView {
         willSet(newValue){
             let decimalAmount = CGFloat(newValue) / CGFloat(100.00)
             
-            self.amountTextField.text = newValue == 0 ? "$0.00" : "$ \(decimalAmount)"
+            self.amountTextField.text = newValue == 0 ? "$0.00" : "$\(decimalAmount)"
         }
     }
     override init(frame:CGRect) {

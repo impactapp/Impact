@@ -31,6 +31,7 @@ class User: NSObject {
     var device_token: String!
     var needsBankInfo: Bool!
     var needsCreditCardInfo: Bool!
+    var automatic_donations: Bool!
     var created_at : NSDate?
     var updated_at : NSDate?
     
@@ -59,6 +60,7 @@ class User: NSObject {
         device_token = json["device_token"].stringValue
         needsBankInfo = json["needs_bank_information"].bool ?? false
         needsCreditCardInfo = json["needs_credit_card_information"].bool ?? false
+        automatic_donations = json["automatic_donations"].bool ?? false
         
         //dates
         let dateformatter = NSDateFormatter()
@@ -129,6 +131,9 @@ class User: NSObject {
         }
         if device_token != nil{
             dictionary["device_token"] = device_token
+        }
+        if automatic_donations != nil{
+            dictionary["automatic_donations"] = automatic_donations
         }
         if created_at != nil{
             dictionary["created_at"] = created_at
