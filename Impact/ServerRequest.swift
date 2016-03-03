@@ -415,7 +415,7 @@ class ServerRequest: NSObject {
         })
     }
     
-    func makeContribution(amount:Float, completion:(payment:Payment) ->Void, failure:(errorMessage:String) -> Void) {
+    func makeContribution(amount:Int, completion:(payment:Payment) ->Void, failure:(errorMessage:String) -> Void) {
         let endpoint = "contributions/pay"
         let params =  ["contribution": ["amount":amount ] ]
         postWithEndpoint(endpoint, parameters: params, authenticated: true, success: { (json) -> Void in
