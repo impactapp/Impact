@@ -127,6 +127,8 @@
 		B860957B1C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86095791C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib */; };
 		B860957E1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B860957C1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift */; };
 		B860957F1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B860957D1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib */; };
+		B8989E191C885819002C5327 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8989E171C885819002C5327 /* TermsOfServiceViewController.swift */; };
+		B8989E1A1C885819002C5327 /* TermsOfServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8989E181C885819002C5327 /* TermsOfServiceViewController.xib */; };
 		B8A5CF4F1B8FF48600D71D2C /* FirstIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5CF4D1B8FF48600D71D2C /* FirstIntroViewController.swift */; };
 		B8A5CF501B8FF48600D71D2C /* FirstIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8A5CF4E1B8FF48600D71D2C /* FirstIntroViewController.xib */; };
 		B8A5CF531B8FF49A00D71D2C /* ThirdIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5CF511B8FF49A00D71D2C /* ThirdIntroViewController.swift */; };
@@ -297,6 +299,8 @@
 		B86095791C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationHelperCollectionViewCell.xib; sourceTree = "<group>"; };
 		B860957C1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyMaximumViewController.swift; sourceTree = "<group>"; };
 		B860957D1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthlyMaximumViewController.xib; sourceTree = "<group>"; };
+		B8989E171C885819002C5327 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		B8989E181C885819002C5327 /* TermsOfServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsOfServiceViewController.xib; sourceTree = "<group>"; };
 		B8A5CF4D1B8FF48600D71D2C /* FirstIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstIntroViewController.swift; sourceTree = "<group>"; };
 		B8A5CF4E1B8FF48600D71D2C /* FirstIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstIntroViewController.xib; sourceTree = "<group>"; };
 		B8A5CF511B8FF49A00D71D2C /* ThirdIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdIntroViewController.swift; sourceTree = "<group>"; };
@@ -634,6 +638,8 @@
 				4DE94A901C59EDAC00850363 /* SettingsViewController.xib */,
 				4DE94A831C59E92800850363 /* ProfileViewController.swift */,
 				4DE94A841C59E92800850363 /* ProfileViewController.xib */,
+				B8989E171C885819002C5327 /* TermsOfServiceViewController.swift */,
+				B8989E181C885819002C5327 /* TermsOfServiceViewController.xib */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -892,7 +898,7 @@
 				TargetAttributes = {
 					B8585C121B8642E800AB091A = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = F6J9Z7FPQB;
+						DevelopmentTeam = SBD89XZSYG;
 					};
 					B8585C2A1B8642E900AB091A = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -928,6 +934,7 @@
 				4DD2FDFD1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib in Resources */,
 				B8C77E1B1B8AC2E700000927 /* SignInViewController.xib in Resources */,
 				4D9B85421C46AFE500C4F720 /* CauseBlogPostViewController.xib in Resources */,
+				B8989E1A1C885819002C5327 /* TermsOfServiceViewController.xib in Resources */,
 				B82E47831BB747E600D3C90B /* Main.storyboard in Resources */,
 				4D6BC9981BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib in Resources */,
 				4DA63D581C5B1B070019219F /* SettingsTableViewCell.xib in Resources */,
@@ -1173,6 +1180,7 @@
 				B85F3F641BDD6C130029F83E /* ContributionsViewController.swift in Sources */,
 				B8C7586B1C3F8EF40063D028 /* TempViewController.swift in Sources */,
 				4D2256FA1B8AD62300727A4C /* RoundedCollectionViewCell.swift in Sources */,
+				B8989E191C885819002C5327 /* TermsOfServiceViewController.swift in Sources */,
 				4D55E5911C792B7900480A18 /* Payment.swift in Sources */,
 				4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */,
 				4DE94A851C59E92800850363 /* ProfileViewController.swift in Sources */,

@@ -166,6 +166,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 eivc.userInfoDelegate = self
                 self.navigationController?.pushViewController(eivc, animated: true)
             }
+            if indexPath.row == 3 {
+                let tosvc = TermsOfServiceViewController()
+                self.navigationController?.pushViewController(tosvc, animated: true)
+            }
             if indexPath.row == 5 {
                 logout()
             }
