@@ -21,6 +21,7 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     let userCollectionViewHeight = CGFloat(110)
     var contributorsHeaderView : FriendsCollectionViewHeader = FriendsCollectionViewHeader(frame: CGRectZero)
     var joinCauseButton : UIButton? = nil;
+    var currentCauseId : Int? = nil
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -30,7 +31,6 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
         self.tableView.backgroundColor = UIColor.customDarkGrey()
         self.tableView.registerNib(UINib(nibName: "AccessoryTableViewCell", bundle: nil), forCellReuseIdentifier: "AccessoryTableViewCell")
 
-        
         if let cause = self.cause {
             let frame = CGRectMake(0,0,self.tableView.frame.size.width,updateHeaderHeight + 44)
             let amountDonatedHeaderView = AmountDonatedHeaderView(frame:frame,cause:cause) as AmountDonatedHeaderView
@@ -49,6 +49,13 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
         }
 
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
+            self.currentCauseId = currentUser.current_cause_id
+            self.joinCauseButton?.selected = self.cause?.id == self.currentCauseId && self.currentCauseId != nil
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

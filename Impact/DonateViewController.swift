@@ -160,7 +160,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    func donateMoney(amount:NSNumber){
+    func donateMoney(){
         
         
         self.amountTextField.resignFirstResponder()
@@ -183,12 +183,14 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let OKAction = UIAlertAction(title: "OK", style: .Default) { (action) in
             // ...
             //ADD SUCCESS STUFF - if successful, clear the amount collected (endpoint) and clear text field
-            ServerRequest.shared.makeContribution(Float(amount), completion:  { (payment) -> Void in
+            let amount = self.donationCard.amount
+            ServerRequest.shared.makeContribution(amount, completion:  { (payment) -> Void in
                 activityIndicator.stopAnimating()
                     let alertController = AlertViewController()
                     alertController.delegate = self
                     alertController.setUp(self, title: "Success!", message: "Donated" + self.amountTextField.text! + " to " + self.currentCause, buttonText: "Dismiss")
                     alertController.show()
+                    self.donationCard.amount = 0
              
                 
                 }, failure: {(errorMessage) -> Void in
@@ -214,12 +216,8 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     //MARK: - DonationCardViewDelegate
     func donateButtonPressed(donationAmount: Int) {
         
-        
-        let moneyString = self.amountTextField.text
-        let amount = validMoneyText(moneyString!)
-        
-        if(amount != nil){
-            donateMoney(amount!)
+        if(self.donationCard.amount != 0){
+            donateMoney()
         }else{
             let alertController = AlertViewController()
             alertController.setUp(self, title: "Error", message: "Invalid amount, please try again", buttonText: "Dismiss")
