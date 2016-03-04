@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CauseBlogPostViewController" customModule="Impact" customModuleProvider="target">
@@ -39,14 +39,26 @@
                                 <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="4Ep-D6-COX"/>
                             </connections>
                         </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uo5-iM-Xva">
+                            <rect key="frame" x="248" y="22" width="105" height="38"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="105" id="38G-ue-aUA"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
+                        <constraint firstItem="uo5-iM-Xva" firstAttribute="centerY" secondItem="Udf-3P-L0O" secondAttribute="centerY" id="7IH-YZ-XNQ"/>
                         <constraint firstAttribute="height" constant="64" id="9wI-rg-Wod"/>
                         <constraint firstItem="Udf-3P-L0O" firstAttribute="leading" secondItem="75O-Ps-hY1" secondAttribute="leading" constant="8" id="Bt7-Mg-bYH"/>
+                        <constraint firstItem="uo5-iM-Xva" firstAttribute="top" secondItem="75O-Ps-hY1" secondAttribute="top" constant="22" id="EmR-bR-34q"/>
                         <constraint firstAttribute="bottom" secondItem="Udf-3P-L0O" secondAttribute="bottom" constant="8" id="Fx9-tk-JcP"/>
                         <constraint firstItem="Udf-3P-L0O" firstAttribute="top" secondItem="75O-Ps-hY1" secondAttribute="top" constant="26" id="Q0A-f9-qa1"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="SKn-zl-Vue"/>
+                        <constraint firstItem="uo5-iM-Xva" firstAttribute="centerX" secondItem="75O-Ps-hY1" secondAttribute="centerX" id="XUD-wN-uTe"/>
                     </constraints>
                 </view>
             </subviews>
