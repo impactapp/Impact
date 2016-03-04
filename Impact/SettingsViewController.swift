@@ -170,6 +170,10 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 let tosvc = TermsOfServiceViewController()
                 self.navigationController?.pushViewController(tosvc, animated: true)
             }
+            if indexPath.row == 4 {
+                let hasvc = HelpAndSupportViewController()
+                self.navigationController?.pushViewController(hasvc, animated: true)
+            }
             if indexPath.row == 5 {
                 logout()
             }
