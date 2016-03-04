@@ -78,6 +78,15 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
         self.header = HeaderView(view: self.view)
         self.header.frame.origin.y = statusBarHeight
+        let screenBound = UIScreen.mainScreen().bounds
+        let label = UILabel(frame: CGRectMake(self.view.bounds.size.width/2, 0,screenBound.size.width, 30))
+        label.frame.origin.y = 3.0
+        label.frame.origin.x = 0
+        label.textAlignment = NSTextAlignment.Center
+        label.textColor = UIColor.whiteColor()
+        label.font = UIFont(name: "AvenirNext-Regular", size: 24.0)!
+        label.text = "Stats"
+        self.header.addSubview(label)
         self.view.addSubview(self.header)
     }
     

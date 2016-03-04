@@ -139,8 +139,6 @@
 		B8B8AA6D1B8FF69D006E689C /* PageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B8AA6B1B8FF69D006E689C /* PageViewController.xib */; };
 		B8B8AA701B8FFBD1006E689C /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8B8AA6E1B8FFBD1006E689C /* ContentViewController.swift */; };
 		B8B8AA711B8FFBD1006E689C /* ContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8B8AA6F1B8FFBD1006E689C /* ContentViewController.xib */; };
-		B8C7586B1C3F8EF40063D028 /* TempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C758691C3F8EF40063D028 /* TempViewController.swift */; };
-		B8C7586C1C3F8EF40063D028 /* TempViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C7586A1C3F8EF40063D028 /* TempViewController.xib */; };
 		B8C77E131B8ABEFA00000927 /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */; };
 		B8C77E141B8ABEFA00000927 /* InitialScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */; };
 		B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E181B8AC2E700000927 /* SignInViewController.swift */; };
@@ -311,8 +309,6 @@
 		B8B8AA6B1B8FF69D006E689C /* PageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageViewController.xib; sourceTree = "<group>"; };
 		B8B8AA6E1B8FFBD1006E689C /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		B8B8AA6F1B8FFBD1006E689C /* ContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentViewController.xib; sourceTree = "<group>"; };
-		B8C758691C3F8EF40063D028 /* TempViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TempViewController.swift; sourceTree = "<group>"; };
-		B8C7586A1C3F8EF40063D028 /* TempViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TempViewController.xib; sourceTree = "<group>"; };
 		B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
 		B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialScreenViewController.xib; sourceTree = "<group>"; };
 		B8C77E181B8AC2E700000927 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -708,8 +704,6 @@
 				B8585C1D1B8642E900AB091A /* ViewController.swift */,
 				4D2256E81B8A8E5E00727A4C /* TabBarController.swift */,
 				4DE94A821C59E90700850363 /* Profile */,
-				B8C758691C3F8EF40063D028 /* TempViewController.swift */,
-				B8C7586A1C3F8EF40063D028 /* TempViewController.xib */,
 				4DE411721C72B26400D7B675 /* Donate */,
 				B8D498251C5E1366001EE8BE /* Transactions */,
 				4D89C1341C456D8100D6B1F0 /* Blog Posts */,
@@ -898,7 +892,7 @@
 				TargetAttributes = {
 					B8585C121B8642E800AB091A = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = SBD89XZSYG;
+						DevelopmentTeam = 9F93MPU327;
 					};
 					B8585C2A1B8642E900AB091A = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -939,7 +933,6 @@
 				4D6BC9981BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib in Resources */,
 				4DA63D581C5B1B070019219F /* SettingsTableViewCell.xib in Resources */,
 				4DF3876C1C6019E9008FFAF7 /* EditInformationViewController.xib in Resources */,
-				B8C7586C1C3F8EF40063D028 /* TempViewController.xib in Resources */,
 				4D6BC9911BE4FED6000C89C8 /* CategoriesViewController.xib in Resources */,
 				B8B8AA711B8FFBD1006E689C /* ContentViewController.xib in Resources */,
 				B8EEA9491C64C7E4003A362F /* FooterCollectionReusableView.xib in Resources */,
@@ -1178,7 +1171,6 @@
 				B8A5CF571B8FF4A500D71D2C /* FinalIntroViewController.swift in Sources */,
 				4D9B85411C46AFE500C4F720 /* CauseBlogPostViewController.swift in Sources */,
 				B85F3F641BDD6C130029F83E /* ContributionsViewController.swift in Sources */,
-				B8C7586B1C3F8EF40063D028 /* TempViewController.swift in Sources */,
 				4D2256FA1B8AD62300727A4C /* RoundedCollectionViewCell.swift in Sources */,
 				B8989E191C885819002C5327 /* TermsOfServiceViewController.swift in Sources */,
 				4D55E5911C792B7900480A18 /* Payment.swift in Sources */,
@@ -1324,9 +1316,8 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = Impact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ImpactApp.Impact;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ImpactApp.ImpactAnthony;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Impact/Bridging-Header.h";
@@ -1341,9 +1332,8 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = Impact/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ImpactApp.Impact;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ImpactApp.ImpactAnthony;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Impact/Bridging-Header.h";
