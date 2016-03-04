@@ -37,7 +37,7 @@ class DoneButton: UIButton {
         self.inFrame = CGRectMake(0,view.frame.size.height - buttonHeight,buttonWidth,buttonHeight)
         self.outFrame = CGRectMake(0, view.frame.size.height - buttonHeight, 0, buttonHeight);
         let currentFrame = hidden ? self.outFrame : self.inFrame;
-        super.init(frame:currentFrame);
+        super.init(frame: currentFrame)
     }
     
     func animateDoneButton(show:Bool) {
