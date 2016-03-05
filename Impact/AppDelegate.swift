@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 import FBSDKCoreKit
+import AWSCore
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
+        
+        //AWS
+        let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USEast1,
+            identityPoolId:"us-east-1:6f7d575b-bbff-4507-bf95-70608e82bd47")
+        
+        let configuration = AWSServiceConfiguration(region:.USEast1, credentialsProvider:credentialsProvider)
+        
+        AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
         
         //we'll change the initial view controller based on whether the user is logged in or not
         var initialViewController = UIViewController();

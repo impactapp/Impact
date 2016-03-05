@@ -54,6 +54,13 @@
                         <constraint firstItem="g1l-Ft-a1O" firstAttribute="leading" secondItem="PuH-Ji-fFa" secondAttribute="leadingMargin" id="sNG-mD-v8a"/>
                     </constraints>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PgT-47-gvK">
+                    <rect key="frame" x="175" y="175" width="250" height="250"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="6rD-1g-EXr"/>
+                        <constraint firstAttribute="width" constant="250" id="Csc-dQ-sI7"/>
+                    </constraints>
+                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3P-Z4-IRJ">
                     <rect key="frame" x="49" y="130" width="503" height="32"/>
                     <constraints>
@@ -70,21 +77,32 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PgT-47-gvK">
-                    <rect key="frame" x="175" y="175" width="250" height="250"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="250" id="6rD-1g-EXr"/>
-                        <constraint firstAttribute="width" constant="250" id="Csc-dQ-sI7"/>
-                    </constraints>
-                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rXl-18-fZH" customClass="RoundedButton" customModule="Impact" customModuleProvider="target">
+                    <rect key="frame" x="175" y="443" width="250" height="30"/>
+                    <color key="backgroundColor" red="0.92941176469999998" green="0.4823529412" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Save Changes">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="7"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="saveChangesButtonPressed:" destination="-1" eventType="touchUpInside" id="E0e-79-Zct"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="T3P-Z4-IRJ" firstAttribute="top" secondItem="PuH-Ji-fFa" secondAttribute="bottom" constant="66" id="4Jf-bP-EU7"/>
                 <constraint firstItem="PuH-Ji-fFa" firstAttribute="centerX" secondItem="T3P-Z4-IRJ" secondAttribute="centerX" id="Hmh-Nq-zpv"/>
                 <constraint firstAttribute="trailing" secondItem="PuH-Ji-fFa" secondAttribute="trailing" id="MGB-Bs-x2l"/>
+                <constraint firstItem="rXl-18-fZH" firstAttribute="top" secondItem="PgT-47-gvK" secondAttribute="bottom" constant="18" id="Rwk-H2-QVd"/>
                 <constraint firstItem="PuH-Ji-fFa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WOU-aF-heu"/>
                 <constraint firstItem="PgT-47-gvK" firstAttribute="top" secondItem="T3P-Z4-IRJ" secondAttribute="bottom" constant="13" id="YCK-1Z-jIW"/>
+                <constraint firstItem="rXl-18-fZH" firstAttribute="leading" secondItem="PgT-47-gvK" secondAttribute="leading" id="bEL-k2-2Sy"/>
+                <constraint firstItem="rXl-18-fZH" firstAttribute="trailing" secondItem="PgT-47-gvK" secondAttribute="trailing" id="gLy-fD-UYt"/>
                 <constraint firstItem="PgT-47-gvK" firstAttribute="centerX" secondItem="T3P-Z4-IRJ" secondAttribute="centerX" id="nQP-zd-G1E"/>
                 <constraint firstItem="PuH-Ji-fFa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="r4T-ET-JEr"/>
                 <constraint firstItem="T3P-Z4-IRJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="49" id="vwG-ov-32N"/>

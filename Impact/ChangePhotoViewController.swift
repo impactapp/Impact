@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AWSCore
+import AWSS3
 
 class ChangePhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIActionSheetDelegate {
 
@@ -114,5 +116,43 @@ class ChangePhotoViewController: UIViewController, UIImagePickerControllerDelega
     }
 
     
+    @IBAction func saveChangesButtonPressed(sender: AnyObject) {
+        
+    
+        let transferManager = AWSS3TransferManager.defaultS3TransferManager()
+        
+        let testFileURL1 = NSURL().URLByAppendingPathComponent("image.png")
+        
+        let uploadRequest1 : AWSS3TransferManagerUploadRequest = AWSS3TransferManagerUploadRequest()
+        
+       
+        
+        let urlString = NSURL(string: "https://ichemepresident.files.wordpress.com/2014/08/impact.jpg")
+        let data = NSData(contentsOfURL: urlString!) //make sure your image in this url does exist, otherwise unwrap in a if let check
+
+        let img: UIImage = UIImage(data: data!)!
+        let imageData: NSData = UIImagePNGRepresentation(img)!
+       
+        imageData.writeToURL(testFileURL1, atomically: true)
+        
+        uploadRequest1.contentType = "image/png"
+        // and finally set the body to the local file path
+        uploadRequest1.body = testFileURL1;
+        uploadRequest1.key =  "image.png"
+        uploadRequest1.bucket = "impactapp/test"
+        let task = transferManager.upload(uploadRequest1)
+        task.continueWithBlock { (task) -> AnyObject! in
+            if task.error != nil {
+                print("Error: \(task.error)")
+            } else {
+                print("Upload successful")
+                
+            }
+            return nil
+        }
+        
+
+        
+    }
 
 }

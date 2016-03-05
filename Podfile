@@ -4,11 +4,15 @@
 target 'Impact' do
 	pod 'Alamofire'
 	pod 'CardIO', '~> 5.1.0'
-    pod 'SwiftyJSON', '~> 2.2.1'
+    pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
     pod 'Stripe'
     pod 'FBSDKCoreKit'
     pod 'FBSDKLoginKit'
     pod 'KeychainSwift', '~> 3.0'
+	pod 'AWSCore'
+	pod 'AWSS3'
+	pod 'AWSSimpleDB'
+	pod 'AWSCognito'
 	use_frameworks!
 end
 
