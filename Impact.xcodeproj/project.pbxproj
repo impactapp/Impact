@@ -127,6 +127,8 @@
 		B860957B1C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86095791C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib */; };
 		B860957E1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B860957C1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift */; };
 		B860957F1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B860957D1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib */; };
+		B8989E191C885819002C5327 /* TermsOfServiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8989E171C885819002C5327 /* TermsOfServiceViewController.swift */; };
+		B8989E1A1C885819002C5327 /* TermsOfServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8989E181C885819002C5327 /* TermsOfServiceViewController.xib */; };
 		B8A5CF4F1B8FF48600D71D2C /* FirstIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5CF4D1B8FF48600D71D2C /* FirstIntroViewController.swift */; };
 		B8A5CF501B8FF48600D71D2C /* FirstIntroViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8A5CF4E1B8FF48600D71D2C /* FirstIntroViewController.xib */; };
 		B8A5CF531B8FF49A00D71D2C /* ThirdIntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A5CF511B8FF49A00D71D2C /* ThirdIntroViewController.swift */; };
@@ -150,6 +152,8 @@
 		B8D4982E1C633D3C001EE8BE /* MyCreditCardsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D4982C1C633D3C001EE8BE /* MyCreditCardsViewController.xib */; };
 		B8D498311C634308001EE8BE /* CreditCardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D4982F1C634308001EE8BE /* CreditCardCollectionViewCell.swift */; };
 		B8D498321C634308001EE8BE /* CreditCardCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8D498301C634308001EE8BE /* CreditCardCollectionViewCell.xib */; };
+		B8DF1A7E1C89C7AC00E9AA82 /* HelpAndSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DF1A7C1C89C7AC00E9AA82 /* HelpAndSupportViewController.swift */; };
+		B8DF1A7F1C89C7AC00E9AA82 /* HelpAndSupportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8DF1A7D1C89C7AC00E9AA82 /* HelpAndSupportViewController.xib */; };
 		B8EEA9401C63D0ED003A362F /* NewCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEA93E1C63D0ED003A362F /* NewCreditCardViewController.swift */; };
 		B8EEA9411C63D0ED003A362F /* NewCreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8EEA93F1C63D0ED003A362F /* NewCreditCardViewController.xib */; };
 		B8EEA9441C63D9AB003A362F /* EditCreditCardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8EEA9421C63D9AB003A362F /* EditCreditCardViewController.swift */; };
@@ -295,6 +299,8 @@
 		B86095791C7DC93C00AEDB74 /* DonationHelperCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationHelperCollectionViewCell.xib; sourceTree = "<group>"; };
 		B860957C1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonthlyMaximumViewController.swift; sourceTree = "<group>"; };
 		B860957D1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MonthlyMaximumViewController.xib; sourceTree = "<group>"; };
+		B8989E171C885819002C5327 /* TermsOfServiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermsOfServiceViewController.swift; sourceTree = "<group>"; };
+		B8989E181C885819002C5327 /* TermsOfServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsOfServiceViewController.xib; sourceTree = "<group>"; };
 		B8A5CF4D1B8FF48600D71D2C /* FirstIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstIntroViewController.swift; sourceTree = "<group>"; };
 		B8A5CF4E1B8FF48600D71D2C /* FirstIntroViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstIntroViewController.xib; sourceTree = "<group>"; };
 		B8A5CF511B8FF49A00D71D2C /* ThirdIntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdIntroViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +324,8 @@
 		B8D4982C1C633D3C001EE8BE /* MyCreditCardsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCreditCardsViewController.xib; sourceTree = "<group>"; };
 		B8D4982F1C634308001EE8BE /* CreditCardCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCardCollectionViewCell.swift; sourceTree = "<group>"; };
 		B8D498301C634308001EE8BE /* CreditCardCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreditCardCollectionViewCell.xib; sourceTree = "<group>"; };
+		B8DF1A7C1C89C7AC00E9AA82 /* HelpAndSupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpAndSupportViewController.swift; sourceTree = "<group>"; };
+		B8DF1A7D1C89C7AC00E9AA82 /* HelpAndSupportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpAndSupportViewController.xib; sourceTree = "<group>"; };
 		B8EEA93E1C63D0ED003A362F /* NewCreditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCreditCardViewController.swift; sourceTree = "<group>"; };
 		B8EEA93F1C63D0ED003A362F /* NewCreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewCreditCardViewController.xib; sourceTree = "<group>"; };
 		B8EEA9421C63D9AB003A362F /* EditCreditCardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCreditCardViewController.swift; sourceTree = "<group>"; };
@@ -622,6 +630,8 @@
 		4DE94A821C59E90700850363 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				B8DF1A7C1C89C7AC00E9AA82 /* HelpAndSupportViewController.swift */,
+				B8DF1A7D1C89C7AC00E9AA82 /* HelpAndSupportViewController.xib */,
 				4DF387691C6019E9008FFAF7 /* EditInformationViewController.swift */,
 				4DF3876A1C6019E9008FFAF7 /* EditInformationViewController.xib */,
 				4DA63D551C5B1B070019219F /* SettingsTableViewCell.swift */,
@@ -630,6 +640,8 @@
 				4DE94A901C59EDAC00850363 /* SettingsViewController.xib */,
 				4DE94A831C59E92800850363 /* ProfileViewController.swift */,
 				4DE94A841C59E92800850363 /* ProfileViewController.xib */,
+				B8989E171C885819002C5327 /* TermsOfServiceViewController.swift */,
+				B8989E181C885819002C5327 /* TermsOfServiceViewController.xib */,
 			);
 			name = Profile;
 			sourceTree = "<group>";
@@ -922,6 +934,7 @@
 				4DD2FDFD1C25FEBE00CF3F4C /* SearchCauseTableViewCell.xib in Resources */,
 				B8C77E1B1B8AC2E700000927 /* SignInViewController.xib in Resources */,
 				4D9B85421C46AFE500C4F720 /* CauseBlogPostViewController.xib in Resources */,
+				B8989E1A1C885819002C5327 /* TermsOfServiceViewController.xib in Resources */,
 				B82E47831BB747E600D3C90B /* Main.storyboard in Resources */,
 				4D6BC9981BE50B4E000C89C8 /* ChooseCategoryHeaderView.xib in Resources */,
 				4DA63D581C5B1B070019219F /* SettingsTableViewCell.xib in Resources */,
@@ -964,6 +977,7 @@
 				4D6DC3601B8BEBAC0017BF29 /* BankPinViewController.xib in Resources */,
 				B8B8AA6D1B8FF69D006E689C /* PageViewController.xib in Resources */,
 				B8EEA9451C63D9AB003A362F /* EditCreditCardViewController.xib in Resources */,
+				B8DF1A7F1C89C7AC00E9AA82 /* HelpAndSupportViewController.xib in Resources */,
 				4D6BC9961BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib in Resources */,
 				4DE4117A1C72B2D900D7B675 /* DonationCardView.xib in Resources */,
 				4D0FDE4E1B8BB646002877CE /* BankSignInViewController.xib in Resources */,
@@ -1138,6 +1152,7 @@
 				4DB8CB171B8ED5CE00A6031D /* ForgetLoginViewController.swift in Sources */,
 				4D02EC171BD0887200701C75 /* ExploreViewController.swift in Sources */,
 				4D962E9D1B8BFB780026E84D /* BankSecurityQuestionViewController.swift in Sources */,
+				B8DF1A7E1C89C7AC00E9AA82 /* HelpAndSupportViewController.swift in Sources */,
 				B860956E1C7D109700AEDB74 /* DonateTableViewCell.swift in Sources */,
 				4D14C87C1C4D816100D7089B /* UserCollectionViewCell.swift in Sources */,
 				B838899B1C4F3D6800A65A99 /* RoundUpsTableViewCell.swift in Sources */,
@@ -1165,6 +1180,7 @@
 				4D9B85411C46AFE500C4F720 /* CauseBlogPostViewController.swift in Sources */,
 				B85F3F641BDD6C130029F83E /* ContributionsViewController.swift in Sources */,
 				4D2256FA1B8AD62300727A4C /* RoundedCollectionViewCell.swift in Sources */,
+				B8989E191C885819002C5327 /* TermsOfServiceViewController.swift in Sources */,
 				4D55E5911C792B7900480A18 /* Payment.swift in Sources */,
 				4D9621F41BA9A16F005EBCDD /* UserCredentials.swift in Sources */,
 				4DE94A851C59E92800850363 /* ProfileViewController.swift in Sources */,

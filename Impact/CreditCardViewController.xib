@@ -58,7 +58,7 @@
                         <constraint firstAttribute="centerY" secondItem="IRB-CK-qrm" secondAttribute="centerY" constant="-6" id="yVw-s8-kRX"/>
                     </constraints>
                 </view>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000 0000 0000" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y60-hK-b6q">
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="0000 0000 0000 0000" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y60-hK-b6q">
                     <rect key="frame" x="21" y="100" width="559" height="42"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="GSD-Aj-5Ig"/>
