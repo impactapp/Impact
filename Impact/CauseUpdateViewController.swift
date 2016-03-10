@@ -22,6 +22,7 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     var contributorsHeaderView : FriendsCollectionViewHeader = FriendsCollectionViewHeader(frame: CGRectZero)
     var joinCauseButton : UIButton? = nil;
     var currentCauseId : Int? = nil
+    var joinedLabel : UILabel? = nil
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -37,6 +38,7 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
             amountDonatedHeaderView.joinCauseDelegate = self
             self.tableView.tableHeaderView = amountDonatedHeaderView
             self.joinCauseButton = amountDonatedHeaderView.joinCauseButton;
+            self.joinedLabel = amountDonatedHeaderView.contributingLabel
             ServerRequest.shared.getCauseBlogPostsAndContributors(cause, success: { (blogPosts, contributors) -> Void in
                 self.blogPosts = blogPosts
                 self.contributors = contributors
@@ -55,6 +57,7 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
         ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
             self.currentCauseId = currentUser.current_cause_id
             self.joinCauseButton?.selected = self.cause?.id == self.currentCauseId && self.currentCauseId != nil
+            self.joinedLabel!.text = self.cause?.id == self.currentCauseId ? "You're Contributing!" : "Click to Contribute"
         }
     }
     
@@ -129,8 +132,12 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     
     func joinCause() {
         if let cause = self.cause {
+            if let joinedLabel = self.joinedLabel{
+                joinedLabel.text = "You're Contributing!"
+            }
             if let joinCauseButton = self.joinCauseButton {
                 joinCauseButton.selected = true
+                
             }
             ServerRequest.shared.joinCause(cause, success: { (successful) -> Void in
                 }, failure: { (errorMessage) -> Void in
