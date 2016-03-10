@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var sectionHash: [SettingsSection : [String]] = [.UserInfo: [], .PaymentInfo:[], .SecurityInfo:[]]
     var cellIdentifier : String = "SettingsTableViewCell"
     var creditCards : [CreditCard] = []
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -166,6 +166,14 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 eivc.userInfoDelegate = self
                 self.navigationController?.pushViewController(eivc, animated: true)
             }
+            if indexPath.row == 3 {
+                let tosvc = TermsOfServiceViewController()
+                self.navigationController?.pushViewController(tosvc, animated: true)
+            }
+            if indexPath.row == 4 {
+                let hasvc = HelpAndSupportViewController()
+                self.navigationController?.pushViewController(hasvc, animated: true)
+            }
             if indexPath.row == 5 {
                 logout()
             }
@@ -212,15 +220,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
