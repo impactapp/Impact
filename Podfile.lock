@@ -24,16 +24,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - KeychainSwift (~> 3.0)
   - Stripe
-  - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
-
-EXTERNAL SOURCES:
-  SwiftyJSON:
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
-
-CHECKOUT OPTIONS:
-  SwiftyJSON:
-    :commit: 42bdb102d2624b143c07850ebdc1537d5b6579b6
-    :git: https://github.com/SwiftyJSON/SwiftyJSON.git
+  - SwiftyJSON (~> 2.3.2)
 
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
@@ -45,6 +36,6 @@ SPEC CHECKSUMS:
   Stripe: 275524137e6c4cc1058f6d32ece248adf30a21f9
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 4c33e2c821a30a34d27961b05ef4af4989ff9beb
+PODFILE CHECKSUM: aa5406b08e934146953951099c6b5053e6245b35
 
 COCOAPODS: 1.0.0.beta.2
