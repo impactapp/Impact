@@ -15,6 +15,7 @@ class TabBarViewController: UITabBarController {
     var contributeButton : UIButton = UIButton()
     let contributeButtonWidth = CGFloat(80)
     
+    
     //MARK: Initialization
     override func viewDidLoad() {
         super.viewDidLoad();
