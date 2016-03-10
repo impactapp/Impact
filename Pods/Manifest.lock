@@ -1,12 +1,5 @@
 PODS:
-  - Alamofire (3.2.0)
-  - AWSCognito (2.3.5):
-    - AWSCore (= 2.3.5)
-  - AWSCore (2.3.5)
-  - AWSS3 (2.3.5):
-    - AWSCore (= 2.3.5)
-  - AWSSimpleDB (2.3.5):
-    - AWSCore (= 2.3.5)
+  - Alamofire (3.2.1)
   - Bolts (1.6.0):
     - Bolts/AppLinks (= 1.6.0)
     - Bolts/Tasks (= 1.6.0)
@@ -26,10 +19,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - AWSCognito
-  - AWSCore
-  - AWSS3
-  - AWSSimpleDB
   - CardIO (~> 5.1.0)
   - FBSDKCoreKit
   - FBSDKLoginKit
@@ -47,11 +36,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
-  AWSCognito: f12700b4781897b2913544b36d6283f04ae72a44
-  AWSCore: 8022eda5778fd7b87c9182709d8a27388e1a31fb
-  AWSS3: 967f4ad3c91f1ed2c9dca09a9dcf905111232a87
-  AWSSimpleDB: a523844c8b027c850688ffa6f79f33b06abbef9d
+  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
   Bolts: f52a250053bb517ca874523c3913776359ab3def
   CardIO: 2c3a8ef9b9add4bd664c83bb653b83b2f32d9d7f
   FBSDKCoreKit: 13bec8373fb3af94d44daf2aa1e0958687897fbd
@@ -60,6 +45,6 @@ SPEC CHECKSUMS:
   Stripe: 275524137e6c4cc1058f6d32ece248adf30a21f9
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: 9e2454b9656249e20db0494e77d7ac3012d08796
+PODFILE CHECKSUM: 4c33e2c821a30a34d27961b05ef4af4989ff9beb
 
 COCOAPODS: 1.0.0.beta.2

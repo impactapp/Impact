@@ -84,10 +84,6 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "Pods-Impact/AWSCognito.framework"
-  install_framework "Pods-Impact/AWSCore.framework"
-  install_framework "Pods-Impact/AWSS3.framework"
-  install_framework "Pods-Impact/AWSSimpleDB.framework"
   install_framework "Pods-Impact/Alamofire.framework"
   install_framework "Pods-Impact/Bolts.framework"
   install_framework "Pods-Impact/FBSDKCoreKit.framework"
@@ -97,10 +93,6 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Impact/SwiftyJSON.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "Pods-Impact/AWSCognito.framework"
-  install_framework "Pods-Impact/AWSCore.framework"
-  install_framework "Pods-Impact/AWSS3.framework"
-  install_framework "Pods-Impact/AWSSimpleDB.framework"
   install_framework "Pods-Impact/Alamofire.framework"
   install_framework "Pods-Impact/Bolts.framework"
   install_framework "Pods-Impact/FBSDKCoreKit.framework"

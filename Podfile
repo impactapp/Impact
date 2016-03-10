@@ -9,10 +9,6 @@ target 'Impact' do
     pod 'FBSDKCoreKit'
     pod 'FBSDKLoginKit'
     pod 'KeychainSwift', '~> 3.0'
-	pod 'AWSCore'
-	pod 'AWSS3'
-	pod 'AWSSimpleDB'
-	pod 'AWSCognito'
 	use_frameworks!
 end
 
