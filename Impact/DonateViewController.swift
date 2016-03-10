@@ -166,7 +166,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.amountTextField.resignFirstResponder()
         self.amountTextField.enabled = false
         let activityIndicator:ActivityIndicator = ActivityIndicator(view: self.view)
-        activityIndicator.startAnimating()
+        activityIndicator.startCustomAnimation()
         
         let firstMessageString:String =  "You are about to contribute: " + self.amountTextField.text! + " to " + self.currentCause
         let secondMessageString:String =  " click OK to confirm your payment"
@@ -264,7 +264,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func clearPendingContribution(){
         let activityIndicator: ActivityIndicator = ActivityIndicator(view: self.view)
-        activityIndicator.startAnimating()
+        activityIndicator.startCustomAnimation()
         
         ServerRequest.shared.clearUserPendingContribution{(currentUser) -> Void in
             activityIndicator.stopAnimating()

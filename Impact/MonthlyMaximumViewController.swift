@@ -227,7 +227,7 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
     func updateMonthlyMax(amount:NSNumber){
         
         let activityIndicator: ActivityIndicator = ActivityIndicator(view: self.view)
-        activityIndicator.startAnimating()
+        activityIndicator.startCustomAnimation()
        
         ServerRequest.shared.updateWeeklyBudget(Float(amount), success: { (successful) -> Void in
             activityIndicator.stopAnimating()

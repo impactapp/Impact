@@ -157,9 +157,7 @@ class ChangePhotoViewController: UIViewController, UIImagePickerControllerDelega
                 
                 let ai = ActivityIndicator(view: self.view)
                 
-                runThisInMainThread { () -> Void in
-                    ai.startAnimating()
-                }
+                ai.startCustomAnimation()
                 
                 
                 

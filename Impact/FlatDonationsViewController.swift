@@ -198,7 +198,7 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
     func donateAmount(amount:NSNumber){
         
         let activityIndicator: ActivityIndicator = ActivityIndicator(view: self.view)
-        activityIndicator.startAnimating()
+        activityIndicator.startCustomAnimation()
         
         ServerRequest.shared.makeFlatDonation(Float(amount), cause_id: self.selectedCause.id, completion:  { (payment) -> Void in
             activityIndicator.stopAnimating()
