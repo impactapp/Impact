@@ -34,14 +34,17 @@ class User: NSObject {
     var automatic_donations: Bool!
     var created_at : NSDate?
     var updated_at : NSDate?
+    var profile_image_url : String!
     
     /**
-    * Instantiate the instance using the passed json values to set the properties values
-    */
+     * Instantiate the instance using the passed json values to set the properties values
+     */
     init(fromJson json: JSON!){
         if json == nil{
             return
         }
+        print("json here")
+        print(json)
         
         id = json["id"].intValue
         name = json["name"].stringValue
@@ -61,7 +64,8 @@ class User: NSObject {
         needsBankInfo = json["needs_bank_information"].bool ?? false
         needsCreditCardInfo = json["needs_credit_card_information"].bool ?? false
         automatic_donations = json["automatic_donations"].bool ?? false
-        
+        profile_image_url = json["profile_image_url"].stringValue
+        print(profile_image_url)
         //dates
         let dateformatter = NSDateFormatter()
         dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -71,7 +75,7 @@ class User: NSObject {
         let last_contribution_date_string = json["last_contribution_date"].stringValue
         
         let current_cause_join_date_string = json["current_cause_join_date"].stringValue
-
+        
         current_cause_join_date = dateformatter.dateFromString(current_cause_join_date_string)
         last_contribution_date = dateformatter.dateFromString(last_contribution_date_string)
         created_at = dateformatter.dateFromString(created_at_string)
@@ -79,8 +83,8 @@ class User: NSObject {
     }
     
     /**
-    * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
-    */
+     * Returns all the available property values in the form of NSDictionary object where the key is the approperiate json key and the value is the value of the corresponding property
+     */
     func toDictionary() -> NSDictionary
     {
         let dictionary = NSMutableDictionary()
@@ -134,6 +138,9 @@ class User: NSObject {
         }
         if automatic_donations != nil{
             dictionary["automatic_donations"] = automatic_donations
+        }
+        if profile_image_url != nil{
+            dictionary["profile_image_url"] = profile_image_url
         }
         if created_at != nil{
             dictionary["created_at"] = created_at

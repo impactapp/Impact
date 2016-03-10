@@ -77,10 +77,28 @@
                         <constraint firstAttribute="width" constant="250" id="Csc-dQ-sI7"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZj-UN-FyE" customClass="RoundedButton" customModule="Impact" customModuleProvider="target">
+                    <rect key="frame" x="175" y="450" width="250" height="30"/>
+                    <color key="backgroundColor" red="0.92941176469999998" green="0.4823529412" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Save Changes">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="saveChangesButtonPressed:" destination="-1" eventType="touchUpInside" id="AcS-iW-ULm"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="T3P-Z4-IRJ" firstAttribute="top" secondItem="PuH-Ji-fFa" secondAttribute="bottom" constant="66" id="4Jf-bP-EU7"/>
+                <constraint firstItem="gZj-UN-FyE" firstAttribute="leading" secondItem="PgT-47-gvK" secondAttribute="leading" id="7fv-3b-SWb"/>
+                <constraint firstItem="gZj-UN-FyE" firstAttribute="trailing" secondItem="PgT-47-gvK" secondAttribute="trailing" id="9gs-1Q-kXX"/>
+                <constraint firstItem="gZj-UN-FyE" firstAttribute="top" secondItem="PgT-47-gvK" secondAttribute="bottom" constant="25" id="Cm1-zk-AtI"/>
                 <constraint firstItem="PuH-Ji-fFa" firstAttribute="centerX" secondItem="T3P-Z4-IRJ" secondAttribute="centerX" id="Hmh-Nq-zpv"/>
                 <constraint firstAttribute="trailing" secondItem="PuH-Ji-fFa" secondAttribute="trailing" id="MGB-Bs-x2l"/>
                 <constraint firstItem="PuH-Ji-fFa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WOU-aF-heu"/>

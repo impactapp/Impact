@@ -105,7 +105,7 @@ class ServerRequest: NSObject {
                     failure(error: json)
                 }
             }
-
+            
             
         }
     }
@@ -202,8 +202,8 @@ class ServerRequest: NSObject {
                 
                 failure(errorMessage: "Unable to logout")
         })
-     
-    
+        
+        
     }
     
     //MARK: User
@@ -281,7 +281,7 @@ class ServerRequest: NSObject {
                     failure(errorMessage: errorMessage.string!)
                 }
         })
-    
+        
     }
     
     func getFacebookFriends(friends:(friends:[AnyObject]) -> Void) {
@@ -292,7 +292,7 @@ class ServerRequest: NSObject {
                 
             })
         }
-
+        
     }
     
     
@@ -308,7 +308,7 @@ class ServerRequest: NSObject {
                 self.postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
                     success(success: true)
                     }, failure: { (error) -> Void in
-                    failure(errorMessage: "Invalid Credit Card Credentials")
+                        failure(errorMessage: "Invalid Credit Card Credentials")
                 })
             } else {
                 var errorMessage = "Invalid Credit Card Credentials"
@@ -342,13 +342,13 @@ class ServerRequest: NSObject {
     }
     
     func deleteCreditCard(cardID:String,success:(success:Bool) -> Void, failure:(errorMessage:String) -> Void) {
-                let parameters = ["card": ["stripe_card_id":cardID]]
-                let endpoint = "stripe/delete/card"
-                self.deleteWithEndoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
-                    success(success: true)
-                    }, failure: { (error) -> Void in
-                        failure(errorMessage: "Invalid delete request")
-                })
+        let parameters = ["card": ["stripe_card_id":cardID]]
+        let endpoint = "stripe/delete/card"
+        self.deleteWithEndoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+            success(success: true)
+            }, failure: { (error) -> Void in
+                failure(errorMessage: "Invalid delete request")
+        })
     }
     
     func updateCreditCard(cardID:String, exp_month:String, exp_year:String, success:(success:Bool) -> Void, failure:(errorMessage:String) -> Void) {
@@ -375,13 +375,13 @@ class ServerRequest: NSObject {
                 }
             }
             success(cards: result)
-
+            
             },failure: { (error) -> Void in })
     }
     
     
     
-//    MARK: Transactions: Plaid
+    //    MARK: Transactions: Plaid
     func getTransactions(completion:(contributions:[Transaction]) -> Void) {
         let endpoint = "plaid/transactions"
         
@@ -423,7 +423,7 @@ class ServerRequest: NSObject {
             completion(payment: payment)
             },failure: { (error) -> Void in
                 let errorMessage = "Error in contributions"
-            
+                
                 failure(errorMessage: errorMessage)
                 
                 
@@ -445,11 +445,22 @@ class ServerRequest: NSObject {
     func updateWeeklyBudget(amount:Float, success:(successful:Bool) -> Void, failure:(errorMessage:String)->Void) {
         let endpoint = "/current_user/update/weekly_budget"
         let params =  ["user": ["value":amount ] ]
-
+        
         postWithEndpoint(endpoint, parameters: params, authenticated: true, success: { (json) -> Void in
             success(successful: true)
             }, failure: { (error) -> Void in
                 failure(errorMessage: "Couldn't update budget")
+        })
+    }
+    
+    func updateProfileImageURL(url:String, success:(successful:Bool) -> Void, failure:(errorMessage:String)->Void) {
+        let endpoint = "/current_user/update/profile_image_url"
+        let params =  ["user": ["profile_image_url":url ] ]
+        
+        putWithEndpoint(endpoint, parameters: params, authenticated: true, success: { (json) -> Void in
+            success(successful: true)
+            }, failure: { (error) -> Void in
+                failure(errorMessage: "Couldn't update profile image")
         })
     }
     
@@ -463,7 +474,7 @@ class ServerRequest: NSObject {
                 failure(errorMessage: "Couldn't update automatic donations")
         })
     }
-
+    
     
     
     
