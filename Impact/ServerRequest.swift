@@ -238,6 +238,16 @@ class ServerRequest: NSObject {
         })
     }
     
+    func sendResetPasswordEmail(email:String, success:(successful:Bool) -> Void, failure:(errorMessage:String) -> Void) {
+        let endpoint = "reset_password"
+        let parameters = ["email":email]
+        postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+            success(successful: true)
+            }, failure: { (error) -> Void in
+                failure(errorMessage: "Couldn't send password reset email")
+        })
+    }
+    
     func changeEmail(newEmail:String, completion:(currentUser:User) -> Void) {
         let endpoint = "current_user/change/email"
         let parameters = ["change": ["email":newEmail]]
@@ -398,6 +408,8 @@ class ServerRequest: NSObject {
         })
     }
     
+    
+    
     //MARK: Contributions
     func getContributions(completion:(contributions:[Contribution]) -> Void) {
         let endpoint = "current_user/contributions"
@@ -474,6 +486,8 @@ class ServerRequest: NSObject {
                 failure(errorMessage: "Couldn't update automatic donations")
         })
     }
+    
+   
     
     
     

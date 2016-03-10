@@ -53,13 +53,31 @@ class ForgetLoginViewController: UIViewController, UITextFieldDelegate {
         shouldEnableSendLinkButton(enable)
     }
     
-    @IBAction func signInButtonPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
+
     @IBAction func closeButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
         
     }
+    @IBAction func sendMeLinkButtonPressed(sender: AnyObject) {
+        self.sendForgotLoginEmail()
+    }
+    
+    func sendForgotLoginEmail(){
+        let activityIndicator = ActivityIndicator(view: self.view)
+        activityIndicator.startCustomAnimation()
+        ServerRequest.shared.sendResetPasswordEmail(self.emailTextField.text!, success: { (success) -> Void in
+            activityIndicator.stopAnimating()
+            let alertController = AlertViewController()
+            alertController.setUp(self, title: "Success!", message: "Reset password email sent", buttonText: "Dismiss")
+            alertController.show()
+            }, failure: { (errorMessage) -> Void in
+                activityIndicator.stopAnimating()
+                let alertController = AlertViewController()
+                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                alertController.show()
+                
+                
+        })    }
     
 
     /*
