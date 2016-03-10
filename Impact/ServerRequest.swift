@@ -453,6 +453,17 @@ class ServerRequest: NSObject {
         })
     }
     
+    func updateProfileImageURL(url:String, success:(successful:Bool) -> Void, failure:(errorMessage:String)->Void) {
+        let endpoint = "/current_user/update/profile_image_url"
+        let params =  ["user": ["profile_image_url":url ] ]
+        
+        putWithEndpoint(endpoint, parameters: params, authenticated: true, success: { (json) -> Void in
+            success(successful: true)
+            }, failure: { (error) -> Void in
+                failure(errorMessage: "Couldn't update profile image")
+        })
+    }
+    
     func updateAutomaticDonations( success:(successful:Bool) -> Void, failure:(errorMessage:String)->Void) {
         let endpoint = "current_user/change/automatic_donations"
         let params = ["test":"hello"]

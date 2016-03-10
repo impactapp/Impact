@@ -19,12 +19,14 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(animated: Bool) {
         ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
             self.user = currentUser
             self.configureProfile(self.user)
         }
-
-        // Do any additional setup after loading the view.
     }
     
     func configureProfile(user:User?) {
@@ -38,18 +40,39 @@ class ProfileViewController: UIViewController {
         self.profileImageView.layer.masksToBounds = true
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width/2
         if let currentUser = user {
-            if currentUser.facebook_id != 0 {
-                let facebookURLString = "http://graph.facebook.com/\(currentUser.facebook_id)/picture?type=large"
-                self.urlString = facebookURLString
-                self.profileImageView.setImageWithUrl(NSURL(string: facebookURLString), placeHolderImage: nil)
-                return
+            print("url: " + currentUser.profile_image_url + "h")
+
+            if currentUser.profile_image_url != nil && currentUser.profile_image_url != ""{
+                print("url: " + currentUser.profile_image_url + "h")
+                let urlString = currentUser.profile_image_url
+                self.urlString = urlString
+                self.profileImageView.setImageWithUrl(NSURL(string:urlString), placeHolderImage: nil)
+                
+            }else{
+                if currentUser.facebook_id != 0 {
+                    let facebookURLString = "http://graph.facebook.com/\(currentUser.facebook_id)/picture?type=large"
+                    self.urlString = facebookURLString
+                    self.profileImageView.setImageWithUrl(NSURL(string: facebookURLString), placeHolderImage: nil)
+                    
+                    //update url
+                    updateURL(facebookURLString)
+                    
+                    return
+                }else{
+                    let urlString = "http://www.myoatmeal.com/media/testimonials/pictures/resized/100_100_empty.gif"
+                    self.urlString = urlString
+                    self.profileImageView.setImageWithUrl(NSURL(string:urlString), placeHolderImage: nil)
+                    
+                    updateURL(urlString)
+
+                }
             }
+            
+            
         }
-        let urlString = "http://www.myoatmeal.com/media/testimonials/pictures/resized/100_100_empty.gif"
-        self.urlString = urlString
-        self.profileImageView.setImageWithUrl(NSURL(string:urlString), placeHolderImage: nil)
-    
+        
     }
+    
     
     @IBAction func settingsPressed(sender: AnyObject) {
         let svc = SettingsViewController()
@@ -61,7 +84,17 @@ class ProfileViewController: UIViewController {
     func tapDetected() {
         let cpvc = ChangePhotoViewController()
         cpvc.urlString = self.urlString
+        cpvc.user = self.user
         self.navigationController?.pushViewController(cpvc, animated: true)
+    }
+    
+    func updateURL(url:String){
+        
+        ServerRequest.shared.updateProfileImageURL(url, success: { (successful) -> Void in
+            
+            }, failure: { (errorMessage) -> Void in
+                
+        })
     }
 
     /*

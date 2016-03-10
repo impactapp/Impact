@@ -42,10 +42,16 @@ class InitialScreenViewController: UIViewController {
         if((FBSDKAccessToken.currentAccessToken()) != nil){
             FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, first_name, last_name, picture.type(large), email"]).startWithCompletionHandler({ (connection, result, error) -> Void in
                 if (error == nil){
+                    
+                    
                     self.dict = result as! NSDictionary
                     print(result)
                     print(self.dict)
                     NSLog(self.dict.objectForKey("picture")?.objectForKey("data")?.objectForKey("url") as! String)
+                    
+                    //update url
+                    let facebookURLString = "http://graph.facebook.com/\(self.dict["id"])/picture?type=large"
+                    self.updateURL(facebookURLString)
                     ServerRequest.shared.loginWithFacebook(self.dict["email"] as! String, facebookAccessToken: fbLoginResult.token.tokenString, facebookID: self.dict["id"] as! String, success: { (user) -> Void in
                         self.navigateToAppropriateViewController(user)
                         },failure: { (errorMessage) -> Void in
@@ -68,6 +74,15 @@ class InitialScreenViewController: UIViewController {
     @IBAction func signUpButtonPressed(sender: AnyObject) {
         let signUpViewController = SignUpViewController(nibName: "SignUpViewController", bundle: nil);
         self.presentViewController(signUpViewController, animated: true, completion: nil)
+    }
+    
+    func updateURL(url:String){
+        
+        ServerRequest.shared.updateProfileImageURL(url, success: { (successful) -> Void in
+            
+            }, failure: { (errorMessage) -> Void in
+                
+        })
     }
     
     func navigateToAppropriateViewController(user:User) {
