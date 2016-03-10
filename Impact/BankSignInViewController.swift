@@ -101,12 +101,8 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
         if let bank = self.bank {
             let bankUserName = self.bankUsernameTextField.text
             let bankPassword = self.bankPasswordTextfield.text
-            let activityIndicator = ActivityIndicator(view: self.view)
-            activityIndicator.startAnimating()
             ServerRequest.shared.submitBankAccountInfo(bankUserName!, bankPassword: bankPassword!, bankType: bank.bankType, pin: nil, success: { (isFinished,user, question,plaidToken) -> Void in
-                activityIndicator.stopAnimating()
                 if isFinished {
-                    
                     if let currentUser = user {
                         
                         if currentUser.needsCreditCardInfo == true {
@@ -122,7 +118,6 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
                 }
                 }, failure: { (errorMessage) -> Void in
                     let alertController = AlertViewController()
-                    activityIndicator.stopAnimating()
                     alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
                     alertController.show()
             })

@@ -4,7 +4,7 @@
 target 'Impact' do
 	pod 'Alamofire'
 	pod 'CardIO', '~> 5.1.0'
-    pod 'SwiftyJSON', '~> 2.2.1'
+    pod 'SwiftyJSON', '~> 2.3.2'
     pod 'Stripe'
     pod 'FBSDKCoreKit'
     pod 'FBSDKLoginKit'
