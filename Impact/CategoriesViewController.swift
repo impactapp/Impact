@@ -12,7 +12,6 @@ import UIKit
 
 class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var collectionView: UICollectionView!
-    let statusBarHeight = CGFloat(20)
     let headerViewIdentifier = "ChooseCategoryHeaderView";
     let cellIdentifier = "CategoriesCollectionViewCell";
     let headerViewHeight = CGFloat(180)
@@ -24,8 +23,9 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setUpCollectionView()
-        self.setStatusBarColor(UIColor.clearColor(), useWhiteText: true)
+        self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
         ServerRequest.shared.getCategories { (categories) -> Void in
             let lastIndex = categories.count - 1
             let leftOverCells = categories.count % self.cellsPerRow
@@ -44,7 +44,6 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         super.viewDidAppear(animated)
         setUpContinueButton()
     }
-    
     
     private func setUpContinueButton() {
         self.continueButton = DoneButton(view: self.view, hidden: true)

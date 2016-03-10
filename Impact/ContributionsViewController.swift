@@ -12,7 +12,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
     
     @IBOutlet var collectionView: UICollectionView!
     var previousCauses : [Cause] = []
-    var transactions : [Transaction] = []
+    var contributions : [Contribution] = []
     var categories : [Category] = []
     var currentUser : User!
     var mostContributedCategory : Category!
@@ -62,15 +62,13 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             self.previousCauses = causes
             self.collectionView.reloadData()
         }
+        ServerRequest.shared.getContributions { (contributions) -> Void in
+            self.contributions = contributions
+            self.collectionView.reloadData()
+        }
         ServerRequest.shared.getCategories { (categories) -> Void in
             self.categories = categories
         }
-        
-        ServerRequest.shared.getTransactions { (transactions) -> Void in
-                self.transactions = transactions
-                self.collectionView.reloadData()
-            }
-        
     }
     
     func initHeader() {
@@ -158,11 +156,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             
         case 1:
             if((self.currentUser) != nil){
-                let numberFormatter = NSNumberFormatter()
-                numberFormatter.numberStyle = .CurrencyStyle
-                
-                let numText = numberFormatter.stringFromNumber(self.currentUser.total_amount_contributed)
-                cell.numberLabel.text = numText
+                cell.numberLabel.text = "$" + String(self.currentUser.total_amount_contributed/100.00);
             }
             cell.numberLabel.adjustsFontSizeToFitWidth = true
 
@@ -206,7 +200,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             cell.finishingLabel.text = category
             
         case 4:
-            cell.numberLabel.text = String(self.transactions.count)
+            cell.numberLabel.text = String(self.contributions.count)
             cell.numberLabel.textColor = UIColor.customRed()
             
         case 5:
@@ -224,7 +218,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
     }
     
     private func getMostContributedCategory() -> String{
-        let defaultString = ""
+        let defaultString = "default string"
         var causeCategories = [String: Int]()
 
         for cause:Cause in self.previousCauses{
