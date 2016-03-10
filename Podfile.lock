@@ -1,5 +1,10 @@
 PODS:
   - Alamofire (3.2.0)
+  - AWSCognito (2.3.5):
+    - AWSCore (= 2.3.5)
+  - AWSCore (2.3.5)
+  - AWSS3 (2.3.5):
+    - AWSCore (= 2.3.5)
   - Bolts (1.6.0):
     - Bolts/AppLinks (= 1.6.0)
     - Bolts/Tasks (= 1.6.0)
@@ -19,6 +24,9 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - AWSCognito
+  - AWSCore
+  - AWSS3
   - CardIO (~> 5.1.0)
   - FBSDKCoreKit
   - FBSDKLoginKit
@@ -28,6 +36,9 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  AWSCognito: f12700b4781897b2913544b36d6283f04ae72a44
+  AWSCore: 8022eda5778fd7b87c9182709d8a27388e1a31fb
+  AWSS3: 967f4ad3c91f1ed2c9dca09a9dcf905111232a87
   Bolts: f52a250053bb517ca874523c3913776359ab3def
   CardIO: 2c3a8ef9b9add4bd664c83bb653b83b2f32d9d7f
   FBSDKCoreKit: 13bec8373fb3af94d44daf2aa1e0958687897fbd
@@ -36,6 +47,6 @@ SPEC CHECKSUMS:
   Stripe: 275524137e6c4cc1058f6d32ece248adf30a21f9
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
-PODFILE CHECKSUM: aa5406b08e934146953951099c6b5053e6245b35
+PODFILE CHECKSUM: 9b0cd23e5b2073d828d5a92d884946de36f67fff
 
 COCOAPODS: 1.0.0.beta.2
