@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var passwordTextField: BottomBorderedTextField!
     @IBOutlet var createAccountButton: RoundedButton!
     @IBOutlet var logoImageView: UIImageView!
+    @IBOutlet var termsSwitch: UISwitch!
     
 
     
@@ -23,7 +24,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         UIApplication.sharedApplication().statusBarHidden = true;
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
         view.addGestureRecognizer(tap)
-        
         initTextFields()
         shouldEnableSignUpButton(false)
     }
@@ -55,7 +55,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidChange() {
-        let enable = emailTextField.text != "" && fullNameTextField.text != "" && passwordTextField.text!.characters.count >= 6;
+        let enable = emailTextField.text != "" && fullNameTextField.text != "" && passwordTextField.text!.characters.count >= 6  && termsSwitch.on
         shouldEnableSignUpButton(enable)
     }
     
@@ -79,6 +79,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
  
+    @IBAction func termsOfUsePressed(sender: AnyObject) {
+        
+        //modal segue here
+        let touvc = TermsOfServiceViewController()
+        touvc.cameFromSignUp = true
+        self.presentViewController(touvc, animated: true, completion: nil)
+    }
     
     @IBAction func createAccountButtonPressed(sender: AnyObject) {
         let payload = ["name":fullNameTextField.text!, "password": passwordTextField.text!, "email": emailTextField.text!]
@@ -90,6 +97,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
                 alertController.show()
         })
     }
+    
+    @IBAction func termsSwitchPressed(sender: AnyObject) {
+        textFieldDidChange()
+        
+    }
+
     
     func navigateToBankViewController() {
         let chooseBankViewController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil)
