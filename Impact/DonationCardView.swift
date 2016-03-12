@@ -12,11 +12,13 @@ protocol DonationCardViewDelegate {
     func donateButtonPressed(donationAmount: Int)
     func clearButtonPressed()
     func manageButtonPressed()
+    func inRoundupsPressed()
 }
 
 class DonationCardView: UIView {
     var delegate : DonationCardViewDelegate? = nil
     @IBOutlet weak var amountTextField: UITextField!
+    @IBOutlet var youHaveCollectedLabel: UILabel!
     var amount:Int = 0{
         willSet(newValue){
             let decimalAmount = CGFloat(newValue) / CGFloat(100.00)
@@ -30,6 +32,7 @@ class DonationCardView: UIView {
         self.amountTextField.enabled = false
         self.addSubview(xibView)
         xibView.frame = self.frame;
+        self.youHaveCollectedLabel.adjustsFontSizeToFitWidth = true
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -45,6 +48,9 @@ class DonationCardView: UIView {
     }
     @IBAction func manageButtonPressed(sender: AnyObject) {
         self.delegate?.manageButtonPressed()
+    }
+    @IBAction func inRoundUpsButtonPressed(sender: AnyObject) {
+        self.delegate?.inRoundupsPressed()
     }
     /*
     // Only override drawRect: if you perform custom drawing.

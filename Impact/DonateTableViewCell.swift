@@ -26,6 +26,17 @@ class DonateTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        for subview in self.contentView.superview!.subviews {
+            print(String(subview.classForCoder))
+            if (NSStringFromClass(subview.classForCoder).hasSuffix("SeparatorView")) {
+                subview.hidden = false;
+            }
+        }
+    }
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

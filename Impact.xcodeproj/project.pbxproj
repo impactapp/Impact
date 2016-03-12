@@ -140,6 +140,8 @@
 		B8C1C8121C91235B00906DD4 /* TermsOfServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C1C8101C91235B00906DD4 /* TermsOfServiceViewController.xib */; };
 		B8C1C8151C91236A00906DD4 /* HelpAndSupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1C8131C91236A00906DD4 /* HelpAndSupportViewController.swift */; };
 		B8C1C8161C91236A00906DD4 /* HelpAndSupportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C1C8141C91236A00906DD4 /* HelpAndSupportViewController.xib */; };
+		B8C1C81C1C94B25D00906DD4 /* UIDevice+ModelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1C81B1C94B25D00906DD4 /* UIDevice+ModelName.swift */; };
+		B8C1C81E1C94B53100906DD4 /* LabelWithAdaptiveTextHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1C81D1C94B53100906DD4 /* LabelWithAdaptiveTextHeight.swift */; };
 		B8C77E131B8ABEFA00000927 /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */; };
 		B8C77E141B8ABEFA00000927 /* InitialScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */; };
 		B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E181B8AC2E700000927 /* SignInViewController.swift */; };
@@ -317,6 +319,8 @@
 		B8C1C8101C91235B00906DD4 /* TermsOfServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TermsOfServiceViewController.xib; sourceTree = "<group>"; };
 		B8C1C8131C91236A00906DD4 /* HelpAndSupportViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpAndSupportViewController.swift; sourceTree = "<group>"; };
 		B8C1C8141C91236A00906DD4 /* HelpAndSupportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpAndSupportViewController.xib; sourceTree = "<group>"; };
+		B8C1C81B1C94B25D00906DD4 /* UIDevice+ModelName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+ModelName.swift"; sourceTree = "<group>"; };
+		B8C1C81D1C94B53100906DD4 /* LabelWithAdaptiveTextHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithAdaptiveTextHeight.swift; sourceTree = "<group>"; };
 		B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
 		B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialScreenViewController.xib; sourceTree = "<group>"; };
 		B8C77E181B8AC2E700000927 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -619,6 +623,8 @@
 		4DE6692F1B86C8C4005CB0AF /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B8C1C81B1C94B25D00906DD4 /* UIDevice+ModelName.swift */,
+				B8C1C81D1C94B53100906DD4 /* LabelWithAdaptiveTextHeight.swift */,
 				4DE6692D1B86C5A9005CB0AF /* UIColor+ImpactColors.swift */,
 				4D545D8B1BF7B99D00F009D5 /* DeviceDetect.swift */,
 				4DE85F661BD188BC002AE4C5 /* UIViewController+CustomStatusBar.swift */,
@@ -1136,12 +1142,14 @@
 				4D9BB1171BFFD32200E5000A /* BlogPostTableViewHeader.swift in Sources */,
 				B8EEA9401C63D0ED003A362F /* NewCreditCardViewController.swift in Sources */,
 				4D9BB11A1BFFD40700E5000A /* CauseStoryViewController.swift in Sources */,
+				B8C1C81E1C94B53100906DD4 /* LabelWithAdaptiveTextHeight.swift in Sources */,
 				4DF27D401C24A11E007D563A /* UIFont+CustomFonts.swift in Sources */,
 				4D2B0FE41BBF4B8100482FF4 /* AlertViewController.swift in Sources */,
 				4DD2FDFC1C25FEBE00CF3F4C /* SearchCauseTableViewCell.swift in Sources */,
 				4DF3876B1C6019E9008FFAF7 /* EditInformationViewController.swift in Sources */,
 				4DC0C9891BF8D37100E2A468 /* CauseUpdateViewController.swift in Sources */,
 				4D05AA7B1C5880D9002B8C9A /* ActivityIndicator.swift in Sources */,
+				B8C1C81C1C94B25D00906DD4 /* UIDevice+ModelName.swift in Sources */,
 				4D92199D1BF815D700A326A8 /* CausePageViewController.swift in Sources */,
 				4D9219A01BF8190E00A326A8 /* CustomSegmentControl.swift in Sources */,
 				4D0FDE491B8B8620002877CE /* UIView+Nib.swift in Sources */,

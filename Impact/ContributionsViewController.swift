@@ -169,9 +169,6 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
                 if(self.currentUser.last_contribution_date != nil){
                     let lastContribution = self.currentUser.last_contribution_date
                     let oneDayLater = lastContribution!.dateByAddingTimeInterval(60*60*24)
-                    print(oneDayLater)
-                    print(lastContribution)
-                    print(currentTime)
                     if(currentTime.compare(oneDayLater)  == .OrderedAscending){
                         cell.numberLabel.text = String(self.currentUser.current_streak);
                     }else{
@@ -180,6 +177,8 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
                         }
                         cell.numberLabel.text = "0"
                     }
+                }else{
+                    cell.numberLabel.text = "0"
                 }
                 
             }
