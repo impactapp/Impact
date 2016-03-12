@@ -27,7 +27,7 @@
                                 <constraint firstAttribute="height" constant="30" id="Ca5-jZ-eST"/>
                                 <constraint firstAttribute="width" constant="31" id="SCJ-lY-t4v"/>
                             </constraints>
-                            <state key="normal" image="ChainIcon"/>
+                            <state key="normal" image="gear"/>
                             <connections>
                                 <action selector="settingsPressed:" destination="-1" eventType="touchUpInside" id="HCI-lJ-Skr"/>
                             </connections>
@@ -110,6 +110,6 @@
         </view>
     </objects>
     <resources>
-        <image name="ChainIcon" width="31" height="30"/>
+        <image name="gear" width="24" height="24"/>
     </resources>
 </document>

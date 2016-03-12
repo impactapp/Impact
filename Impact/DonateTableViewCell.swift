@@ -31,7 +31,6 @@ class DonateTableViewCell: UITableViewCell {
         super.layoutSubviews()
         
         for subview in self.contentView.superview!.subviews {
-            print(String(subview.classForCoder))
             if (NSStringFromClass(subview.classForCoder).hasSuffix("SeparatorView")) {
                 subview.hidden = false;
             }
