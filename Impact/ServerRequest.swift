@@ -34,7 +34,7 @@ class ServerRequest: NSObject {
     private let stagingURL = "https://pacific-wildwood-1045.herokuapp.com/api/"
     private let kUserRequestKey = "user"
     private let kFacebookRequestKey = "facebook"
-    private let kStripePublishableKey = "pk_test_xxr45bpY3r0T5MZ4dGbeTQ7L"
+    private let kStripePublishableKey = "pk_live_6VyDu1E6iLoWfaYZRDNfh9jp"
     static let shared = ServerRequest();
     
     //MARK :  Helper Methods
