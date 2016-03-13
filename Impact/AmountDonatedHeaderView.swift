@@ -14,6 +14,7 @@ protocol AmountDonatedHeaderViewCauseDelegate {
 
 class AmountDonatedHeaderView: UIView {
 
+    @IBOutlet var contributingLabel: UILabel!
     @IBOutlet weak var graphView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var percentageLabel: UILabel!
@@ -31,6 +32,7 @@ class AmountDonatedHeaderView: UIView {
         self.addSubview(xibView)
         self.cause = cause
         
+        self.contributingLabel.adjustsFontSizeToFitWidth = true
         self.titleLabel.text = cause.name
         let currentTotal = cause.currentTotal/100
         let goal = cause.goal/100
@@ -76,6 +78,7 @@ class AmountDonatedHeaderView: UIView {
         self.joinCauseButton.transform = CGAffineTransformMakeScale(0.5,0.5)
         UIView .animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.joinCauseButton.transform = CGAffineTransformIdentity
+
         }, completion: nil)
         
         if let delegate = self.joinCauseDelegate {

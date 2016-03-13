@@ -17,7 +17,6 @@ class SettingsTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.customAccessoryView.transform = CGAffineTransformMakeScale(-1, 1)
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

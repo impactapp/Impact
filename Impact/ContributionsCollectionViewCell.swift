@@ -22,6 +22,10 @@ class ContributionsCollectionViewCell: UICollectionViewCell {
         self.layer.borderColor = UIColor.blackColor().CGColor
         self.backgroundColor = UIColor.customDarkGrey()
         self.bringSubviewToFront(self.imageView)
+        let deviceName = UIDevice.currentDevice().modelName
+        if(deviceName == "iPhone 5" || deviceName == "iPhone 5c" || deviceName == "iPhone 5s"){
+            self.numberLabel.font = UIFont(name: "AvenirNext-UltraLight", size: 75.0)!
+        }
         
     }
 

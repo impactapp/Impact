@@ -11,6 +11,7 @@ import UIKit
 class TermsOfServiceViewController: UIViewController {
 
     @IBOutlet var textView: UITextView!
+    var cameFromSignUp : Bool! = nil
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +34,14 @@ class TermsOfServiceViewController: UIViewController {
     }
     */
     @IBAction func backButtonPressed(sender: AnyObject) {
-        self.navigationController?.popViewControllerAnimated(true)
+        
+        if let cameFromSignUp = self.cameFromSignUp{
+            if cameFromSignUp {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }else{
+                self.navigationController?.popViewControllerAnimated(true)
+            }
+        }
     }
 
 }

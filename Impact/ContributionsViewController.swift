@@ -141,10 +141,11 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
         cell.numberLabel.textColor = UIColor.whiteColor()
         switch itemNum{
         case 0:
-            if(self.previousCauses.count>0){
-                cell.numberLabel.numberOfLines = 2
+            cell.numberLabel.numberOfLines = 2
 
-                cell.numberLabel.text = self.previousCauses[0].name
+            if((self.currentUser) != nil){
+
+                cell.numberLabel.text = self.currentUser.current_cause_name
 
             }else{
                 cell.numberLabel.text = ""
@@ -156,7 +157,11 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             
         case 1:
             if((self.currentUser) != nil){
-                cell.numberLabel.text = "$" + String(self.currentUser.total_amount_contributed/100.00);
+                let formatter = NSNumberFormatter()
+                formatter.numberStyle = .CurrencyStyle
+                //remember total amount is in cents (int)
+                let inDollars = currentUser.total_amount_contributed/100.00
+                cell.numberLabel.text = formatter.stringFromNumber(inDollars)
             }
             cell.numberLabel.adjustsFontSizeToFitWidth = true
 
@@ -169,9 +174,6 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
                 if(self.currentUser.last_contribution_date != nil){
                     let lastContribution = self.currentUser.last_contribution_date
                     let oneDayLater = lastContribution!.dateByAddingTimeInterval(60*60*24)
-                    print(oneDayLater)
-                    print(lastContribution)
-                    print(currentTime)
                     if(currentTime.compare(oneDayLater)  == .OrderedAscending){
                         cell.numberLabel.text = String(self.currentUser.current_streak);
                     }else{
@@ -180,6 +182,8 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
                         }
                         cell.numberLabel.text = "0"
                     }
+                }else{
+                    cell.numberLabel.text = "0"
                 }
                 
             }
