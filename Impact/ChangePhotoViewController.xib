@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangePhotoViewController" customModule="Impact" customModuleProvider="target">
+            <connections>
+                <outlet property="helpLabel" destination="T3P-Z4-IRJ" id="clz-is-fsw"/>
+                <outlet property="image" destination="PgT-47-gvK" id="0SQ-WM-w2N"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PuH-Ji-fFa">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1l-Ft-a1O">
+                            <rect key="frame" x="8" y="26" width="25" height="30"/>
+                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="25" id="UJ0-5c-FAe"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="9" maxY="0.0"/>
+                            <state key="normal" image="BackButton"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="dxX-OK-1A2"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBk-Tl-7RX">
+                            <rect key="frame" x="227" y="26" width="147" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="147" id="5tA-wV-Eim"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="VBk-Tl-7RX" firstAttribute="centerX" secondItem="PuH-Ji-fFa" secondAttribute="centerX" id="MMe-l1-caQ"/>
+                        <constraint firstItem="g1l-Ft-a1O" firstAttribute="top" secondItem="VBk-Tl-7RX" secondAttribute="top" id="Nk5-o1-GMY"/>
+                        <constraint firstItem="VBk-Tl-7RX" firstAttribute="bottom" secondItem="PuH-Ji-fFa" secondAttribute="bottomMargin" id="OYQ-7S-lOg"/>
+                        <constraint firstItem="g1l-Ft-a1O" firstAttribute="bottom" secondItem="VBk-Tl-7RX" secondAttribute="bottom" id="Ory-pZ-56k"/>
+                        <constraint firstAttribute="height" constant="64" id="a1I-eg-oTw"/>
+                        <constraint firstItem="g1l-Ft-a1O" firstAttribute="top" secondItem="PuH-Ji-fFa" secondAttribute="top" constant="26" id="hZ1-4y-awS"/>
+                        <constraint firstItem="g1l-Ft-a1O" firstAttribute="leading" secondItem="PuH-Ji-fFa" secondAttribute="leadingMargin" id="sNG-mD-v8a"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T3P-Z4-IRJ">
+                    <rect key="frame" x="49" y="130" width="503" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="fdX-dZ-yd4"/>
+                    </constraints>
+                    <attributedString key="attributedText">
+                        <fragment content="Tap the image to change your photo">
+                            <attributes>
+                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="17" name="AvenirNext-Regular"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PgT-47-gvK">
+                    <rect key="frame" x="175" y="175" width="250" height="250"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="250" id="6rD-1g-EXr"/>
+                        <constraint firstAttribute="width" constant="250" id="Csc-dQ-sI7"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gZj-UN-FyE" customClass="RoundedButton" customModule="Impact" customModuleProvider="target">
+                    <rect key="frame" x="175" y="450" width="250" height="30"/>
+                    <color key="backgroundColor" red="0.92941176469999998" green="0.4823529412" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="Save Changes">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="8"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="saveChangesButtonPressed:" destination="-1" eventType="touchUpInside" id="AcS-iW-ULm"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="T3P-Z4-IRJ" firstAttribute="top" secondItem="PuH-Ji-fFa" secondAttribute="bottom" constant="66" id="4Jf-bP-EU7"/>
+                <constraint firstItem="gZj-UN-FyE" firstAttribute="leading" secondItem="PgT-47-gvK" secondAttribute="leading" id="7fv-3b-SWb"/>
+                <constraint firstItem="gZj-UN-FyE" firstAttribute="trailing" secondItem="PgT-47-gvK" secondAttribute="trailing" id="9gs-1Q-kXX"/>
+                <constraint firstItem="gZj-UN-FyE" firstAttribute="top" secondItem="PgT-47-gvK" secondAttribute="bottom" constant="25" id="Cm1-zk-AtI"/>
+                <constraint firstItem="PuH-Ji-fFa" firstAttribute="centerX" secondItem="T3P-Z4-IRJ" secondAttribute="centerX" id="Hmh-Nq-zpv"/>
+                <constraint firstAttribute="trailing" secondItem="PuH-Ji-fFa" secondAttribute="trailing" id="MGB-Bs-x2l"/>
+                <constraint firstItem="PuH-Ji-fFa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="WOU-aF-heu"/>
+                <constraint firstItem="PgT-47-gvK" firstAttribute="top" secondItem="T3P-Z4-IRJ" secondAttribute="bottom" constant="13" id="YCK-1Z-jIW"/>
+                <constraint firstItem="PgT-47-gvK" firstAttribute="centerX" secondItem="T3P-Z4-IRJ" secondAttribute="centerX" id="nQP-zd-G1E"/>
+                <constraint firstItem="PuH-Ji-fFa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="r4T-ET-JEr"/>
+                <constraint firstItem="T3P-Z4-IRJ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="49" id="vwG-ov-32N"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="BackButton" width="26" height="45"/>
+    </resources>
+</document>

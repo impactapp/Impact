@@ -8,13 +8,19 @@
 
 import UIKit
 
+protocol BlogPostTableViewHeaderDelegate{
+    func joinCauseButtonPressed()
+}
+
 class BlogPostTableViewHeader: UIView {
 
     var blogPostLabel: UILabel!
     let margins = CGFloat(20)
     var blogPostBody : String = ""
     var blogPostTitle : String = ""
-    
+    var delegate : BlogPostTableViewHeaderDelegate? = nil
+    @IBOutlet var joinLabel: UILabel!
+    @IBOutlet var joinButton: UIButton!
     
     @IBOutlet weak var causeNameLabel: UILabel!
     @IBOutlet weak var blogPostTitleLabel: UILabel!
@@ -60,17 +66,38 @@ class BlogPostTableViewHeader: UIView {
         self.blogPostLabel.textColor = UIColor.whiteColor()
         
         var newFrame = self.blogPostLabel.frame;
+        //added +50 here
         newFrame.size.height = expectedLabelSize.height;
         self.blogPostLabel.frame = newFrame;
+        self.blogPostLabel.sizeToFit()
+
 
         self.addSubview(self.blogPostLabel)
+    
+        
         let verticalConstraint = NSLayoutConstraint(item: self.blogPostLabel, attribute: NSLayoutAttribute.TopMargin, relatedBy: NSLayoutRelation.Equal, toItem: self.blogPostTitleLabel, attribute: NSLayoutAttribute.CenterY, multiplier: 1, constant: 40)
+        
+        //add extra space at bottom
+        
+        
         self.addConstraint(verticalConstraint)
         self.bringSubviewToFront(self.blogPostLabel)
         
         
     }
 
+    @IBAction func joinCauseButtonPressed(sender: AnyObject) {
+        self.joinButton.transform = CGAffineTransformMakeScale(0.5,0.5)
+        UIView .animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
+            self.joinButton.transform = CGAffineTransformIdentity
+            
+            }, completion: nil)
+        
+        if let delegate = self.delegate {
+            delegate.joinCauseButtonPressed()
+        }
+        
+    }
 
 
 }

@@ -18,8 +18,9 @@ protocol UpdateUserInformationDelegate {
     func updateUserInfo(user:User)
 }
 
-class EditInformationViewController: UIViewController, UITextFieldDelegate {
+class EditInformationViewController: UIViewController, UITextFieldDelegate, AlertViewControllerDelegate {
 
+    @IBOutlet var bottomTextField: UITextField!
     @IBOutlet weak var confirmTextField: UITextField!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var editTextField: UITextField!
@@ -40,29 +41,42 @@ class EditInformationViewController: UIViewController, UITextFieldDelegate {
             } else if editType == .Email {
                 self.editTextField.text = user.email
             } else if editType == .Password {
+                self.editTextField.placeholder = "Enter Old Password"
                 self.editTextField.text = ""
-                self.editTextField.placeholder = "Enter New Password"
+                self.confirmTextField.placeholder = "Enter New Password"
                 self.confirmTextField.text = ""
-                self.confirmTextField.placeholder = "Confirm New Password"
+                self.bottomTextField.text = ""
+                self.bottomTextField.placeholder = "Confirm New Password"
             }
             
+        }else{
+            ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
+                self.user = currentUser
+                self.configureTextField()
+                return
+            }
         }
         
         self.editTextField.secureTextEntry = editType == .Password
         self.editTextField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
+
         if editType == .Password {
             self.editTextField.returnKeyType = .Next
+            self.confirmTextField.returnKeyType = .Next
         } else {
             self.editTextField.returnKeyType = .Done
         }
         self.editTextField.delegate = self
-        
+        self.bottomTextField.secureTextEntry = self.editType == .Password
+        self.bottomTextField.hidden = self.editType != .Password
         self.confirmTextField.hidden = self.editType != .Password
-        self.confirmTextField.returnKeyType = .Done
+        self.bottomTextField.returnKeyType  = .Done
         self.confirmTextField.secureTextEntry = editType == .Password
         self.confirmTextField.delegate = self
         self.confirmTextField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
         self.confirmTextField.delegate = self
+        self.bottomTextField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
+        self.bottomTextField.delegate = self
 
         
     }
@@ -71,35 +85,70 @@ class EditInformationViewController: UIViewController, UITextFieldDelegate {
         if editType == .Password && textField == self.editTextField {
             self.confirmTextField.becomeFirstResponder()
             return true
+        }else if editType == .Password && textField == self.confirmTextField {
+            self.bottomTextField.becomeFirstResponder()
+            return true
         }
         if self.editType == .Email {
             if let text = textField.text {
                 changeEmail(text)
             }
         }
-        if self.editType == .Password {
-            if let password = self.editTextField.text {
-                if let confirmPassword = self.confirmTextField.text {
-                    changePassword(password,newPasswordConfirm: confirmPassword)
-                }
-                
+        if self.editType == .Name {
+            if let text = textField.text {
+                changeName(text)
             }
+        }
+        if self.editType == .Password {
+            if let oldPassword = self.editTextField.text{
+                if let password = self.confirmTextField.text {
+                    if let confirmPassword = self.bottomTextField.text {
+                        changePassword(oldPassword, newPassword: password,newPasswordConfirm: confirmPassword)
+                    }
+                    
+                }
+            }
+            
         }
         
         return true
     }
     
     func changeName(newName:String) {
+        
+        ServerRequest.shared.changeName(newName, completion:  { (currentUser) -> Void in
+            if let delegate = self.userInfoDelegate {
+                delegate.updateUserInfo(currentUser)
+            }
+            let alertController = AlertViewController()
+            alertController.delegate = self
+            alertController.setUp(self, title: "Updated Name", message: "You have successfully updated your name", buttonText: "Dismiss")
+            alertController.show()
+            },failure: {(errorMessage) -> Void in
+                let alertController = AlertViewController()
+                alertController.setUp(self, title: "Error!", message: errorMessage, buttonText: "Dismiss")
+                alertController.show()
+        })
+        
+        
+        
     }
     
     func changeEmail(newEmail:String) {
         if (isValidEmail(newEmail)) {
-            ServerRequest.shared.changeEmail(newEmail) { (currentUser) -> Void in
+            ServerRequest.shared.changeEmail(newEmail, completion: { (currentUser) -> Void in
                 if let delegate = self.userInfoDelegate {
                     delegate.updateUserInfo(currentUser)
                 }
-                self.navigationController?.popViewControllerAnimated(true)
-            }
+                let alertController = AlertViewController()
+                alertController.delegate = self
+                alertController.setUp(self, title: "Updated Email", message: "You have successfully updated your email", buttonText: "Dismiss")
+                alertController.show()
+            },failure: {(errorMessage) -> Void in
+                let alertController = AlertViewController()
+                alertController.setUp(self, title: "Error!", message: errorMessage, buttonText: "Dismiss")
+                alertController.show()
+            })
         } else {
             let alertController = AlertViewController()
             alertController.setUp(self, title: "Error!", message: "Please Enter a Valid Email", buttonText: "Dismiss")
@@ -108,30 +157,60 @@ class EditInformationViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-    func changePassword(newPassword:String, newPasswordConfirm:String) {
-        if newPassword != newPasswordConfirm {
-            let alertController = AlertViewController()
-            alertController.setUp(self, title: "Error!", message: "Please Ensure the two password inputs are the same", buttonText: "Dismiss")
-            alertController.show()
-        } else {
-            let alertController = UIAlertController(title: "Warning", message: "Are you sure you want to change your password?", preferredStyle: .Alert)
-            alertController.view.tintColor = UIColor.customRed()
-            
-            let cancelAction = UIAlertAction(title: "NO", style: .Cancel) { (action) in
-            }
-            alertController.addAction(cancelAction)
-            
-            let OKAction = UIAlertAction(title: "YES", style: .Default) { (action) in
-                ServerRequest.shared.changePassword(newPassword) { (currentUser) -> Void in
-                    self.navigationController?.popViewControllerAnimated(true)
+    func changePassword(oldPassword:String, newPassword:String, newPasswordConfirm:String) {
+        var email = ""
+        if let user = self.user{
+            email = user.email
+        }
+        
+        let activityIndicator = ActivityIndicator(view: self.view)
+        ServerRequest.shared.loginWithEmail(email, password: oldPassword, success: { (user) -> Void in
+            activityIndicator.stopAnimating()
+            if newPassword != newPasswordConfirm {
+                let alertController = AlertViewController()
+                alertController.setUp(self, title: "Error!", message: "Please Ensure the two password inputs are the same", buttonText: "Dismiss")
+                alertController.show()
+            } else {
+                let alertController = UIAlertController(title: "Warning", message: "Are you sure you want to change your password?", preferredStyle: .Alert)
+                alertController.view.tintColor = UIColor.customRed()
+                
+                let cancelAction = UIAlertAction(title: "NO", style: .Cancel) { (action) in
+                }
+                alertController.addAction(cancelAction)
+                
+                let OKAction = UIAlertAction(title: "YES", style: .Default) { (action) in
+                    activityIndicator.startCustomAnimation()
+                    ServerRequest.shared.changePassword(newPassword, completion:  { (currentUser) -> Void in
+                        activityIndicator.stopAnimating()
+                        let alertController = AlertViewController()
+                        alertController.delegate = self
+                        alertController.setUp(self, title: "Updated Password", message: "You have successfully updated your password", buttonText: "Dismiss")
+                        alertController.show()
+                        
+                        },failure: {(errorMessage) -> Void in
+                            activityIndicator.stopAnimating()
+                            let alertController = AlertViewController()
+                            alertController.setUp(self, title: "Error!", message: errorMessage, buttonText: "Dismiss")
+                            alertController.show()
+                    })
+                }
+                alertController.addAction(OKAction)
+                self.presentViewController(alertController, animated: true) {
+                    
                 }
             }
-            alertController.addAction(OKAction)
-            self.presentViewController(alertController, animated: true) {
-                
-            }
-        }
 
+            
+            },failure: { (errorMessage) -> Void in
+                activityIndicator.stopAnimating()
+                let alertViewController = AlertViewController()
+                alertViewController.setUp(self, title: "Error", message: "Invalid Password", buttonText: "Dismiss")
+                alertViewController.show()
+        })
+        
+        
+        
+        
     }
     
     @IBAction func backPressed(sender: AnyObject) {
@@ -146,6 +225,10 @@ class EditInformationViewController: UIViewController, UITextFieldDelegate {
         
         return emailTest.evaluateWithObject(testStr)
         
+    }
+    
+    func popupDismissed() {
+        self.navigationController?.popViewControllerAnimated(true)  
     }
 
     /*

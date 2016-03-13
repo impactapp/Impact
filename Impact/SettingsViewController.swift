@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var sectionHash: [SettingsSection : [String]] = [.UserInfo: [], .PaymentInfo:[], .SecurityInfo:[]]
     var cellIdentifier : String = "SettingsTableViewCell"
     var creditCards : [CreditCard] = []
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -166,6 +166,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                 eivc.userInfoDelegate = self
                 self.navigationController?.pushViewController(eivc, animated: true)
             }
+            if indexPath.row == 3 {
+                let tosvc = TermsOfServiceViewController()
+                tosvc.cameFromSignUp = false
+                self.navigationController?.pushViewController(tosvc, animated: true)
+            }
+            if indexPath.row == 4 {
+                let hasvc = HelpAndSupportViewController()
+                self.navigationController?.pushViewController(hasvc, animated: true)
+            }
             if indexPath.row == 5 {
                 logout()
             }
@@ -173,10 +182,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func logout() {
+        let activityIndicator = ActivityIndicator(view: self.view)
+        activityIndicator.startCustomAnimation()
         ServerRequest.shared.logout({ (json) -> Void in
+            activityIndicator.stopAnimating()
             let initialViewController = InitialScreenViewController()
             self.presentViewController(initialViewController, animated: true, completion: nil)
             },failure: { (errorMessage) -> Void in
+                activityIndicator.stopAnimating()
+
                 
         })
     }
@@ -212,15 +226,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         self.navigationController?.popViewControllerAnimated(true)
     }
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
