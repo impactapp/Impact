@@ -78,6 +78,7 @@ class AmountDonatedHeaderView: UIView {
         self.joinCauseButton.transform = CGAffineTransformMakeScale(0.5,0.5)
         UIView .animateWithDuration(0.2, delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: { () -> Void in
             self.joinCauseButton.transform = CGAffineTransformIdentity
+
         }, completion: nil)
         
         if let delegate = self.joinCauseDelegate {

@@ -52,6 +52,9 @@ class DonationCardView: UIView {
     @IBAction func inRoundUpsButtonPressed(sender: AnyObject) {
         self.delegate?.inRoundupsPressed()
     }
+    @IBAction func helperLinkPressed(sender: AnyObject) {
+        self.delegate?.inRoundupsPressed()
+    }
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

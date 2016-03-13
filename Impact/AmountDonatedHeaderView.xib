@@ -88,8 +88,8 @@
                         <constraint firstAttribute="height" constant="45" id="7Y5-gB-Uuc"/>
                         <constraint firstAttribute="width" constant="45" id="img-B9-9Dt"/>
                     </constraints>
-                    <state key="normal" image="Heart"/>
-                    <state key="selected" image="colored-heart-small"/>
+                    <state key="normal" image="ClicktoImpact"/>
+                    <state key="selected" image="YoureImpacting"/>
                     <state key="highlighted" image="colored-heart"/>
                     <connections>
                         <action selector="joinCausePressed:" destination="-1" eventType="touchUpInside" id="OlK-8k-0zC"/>
@@ -127,8 +127,8 @@
         </view>
     </objects>
     <resources>
-        <image name="Heart" width="25" height="21"/>
+        <image name="ClicktoImpact" width="102" height="102"/>
+        <image name="YoureImpacting" width="92" height="92"/>
         <image name="colored-heart" width="48" height="48"/>
-        <image name="colored-heart-small" width="26" height="26"/>
     </resources>
 </document>

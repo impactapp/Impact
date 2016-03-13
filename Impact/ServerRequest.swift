@@ -248,25 +248,38 @@ class ServerRequest: NSObject {
         })
     }
     
-    func changeEmail(newEmail:String, completion:(currentUser:User) -> Void) {
+    func changeEmail(newEmail:String, completion:(currentUser:User) -> Void, failure:(errorMessage:String) -> Void) {
         let endpoint = "current_user/change/email"
         let parameters = ["change": ["email":newEmail]]
         updateWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
             let result:User =  User(fromJson:json)
             completion(currentUser: result)
             }, failure: { (error) -> Void in
-                
+                failure(errorMessage: "Couldn't update your email")
+
         })
     }
     
-    func changePassword(newPassword:String, completion:(currentUser:User) -> Void) {
+    func changeName(newName:String, completion:(currentUser:User) -> Void, failure:(errorMessage:String) -> Void) {
+        let endpoint = "current_user/change/name"
+        let parameters = ["change": ["name":newName]]
+        updateWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
+            let result:User =  User(fromJson:json)
+            completion(currentUser: result)
+            }, failure: { (error) -> Void in
+                failure(errorMessage: "Couldn't update your name")
+        })
+    }
+    
+    func changePassword(newPassword:String, completion:(currentUser:User) -> Void, failure:(errorMessage:String) -> Void) {
         let endpoint = "current_user/change/password"
         let parameters = ["change":["password":newPassword]]
         updateWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
             let result:User =  User(fromJson:json)
             completion(currentUser: result)
             },failure: { (error) -> Void in
-                
+                failure(errorMessage: "Couldn't update your password")
+
         })
     }
     
@@ -442,7 +455,7 @@ class ServerRequest: NSObject {
         })
     }
     
-    func makeFlatDonation(amount:Float, cause_id:Int, completion:(payment:Payment) ->Void, failure:(errorMessage:String) -> Void) {
+    func makeFlatDonation(amount:Int, cause_id:Int, completion:(payment:Payment) ->Void, failure:(errorMessage:String) -> Void) {
         let endpoint = "contributions/flat_donation"
         let params =  ["contribution": ["amount":amount, "cause_id":cause_id ] ]
         postWithEndpoint(endpoint, parameters: params, authenticated: true, success: { (json) -> Void in
