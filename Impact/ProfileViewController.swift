@@ -40,10 +40,8 @@ class ProfileViewController: UIViewController {
         self.profileImageView.layer.masksToBounds = true
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width/2
         if let currentUser = user {
-            print("url: " + currentUser.profile_image_url + "h")
             
             if currentUser.profile_image_url != nil && currentUser.profile_image_url != ""{
-                print("url: " + currentUser.profile_image_url + "h")
                 let urlString = currentUser.profile_image_url
                 self.urlString = urlString
                 self.profileImageView.setImageWithUrl(NSURL(string:urlString), placeHolderImage: nil)

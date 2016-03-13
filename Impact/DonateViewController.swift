@@ -19,12 +19,15 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var currentCause:String!
     var donationCard:DonationCardView!
     var currentUser:User!
+    var footerView:UIView!
+    
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var headerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
         initTableView()
+
 
     }
     
@@ -33,6 +36,8 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.setStatusBarColor(self.headerView.backgroundColor!, useWhiteText: true)
 
         setUpDonationCardView()
+        self.addDoneButtonOnKeyboard()
+
         getCurrentUser()
         
     }
@@ -68,6 +73,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         donationCardView.layer.masksToBounds = true
         donationCardView.layer.cornerRadius = 10
         self.donationCard = donationCardView
+        self.footerView = footer
         ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
             donationCardView.amount = currentUser.pending_contribution_amount
             self.currentCause = currentUser.current_cause_name
@@ -85,6 +91,11 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:DonateTableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! DonateTableViewCell
         let row = indexPath.row
+
+        
+        cell.preservesSuperviewLayoutMargins = false
+        cell.separatorInset = UIEdgeInsetsZero
+        cell.layoutMargins = UIEdgeInsetsZero
         
         cell.detailedTextLabel.lineBreakMode = .ByWordWrapping // or NSLineBreakMode.ByWordWrapping
         cell.detailedTextLabel.numberOfLines = 0
@@ -121,6 +132,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         default:
             _ = 2
         }
+
         
         return cell
     }
@@ -309,6 +321,39 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func popupDismissed() {
+    }
+    
+    func addDoneButtonOnKeyboard()
+    {
+        let doneToolbar: UIToolbar = UIToolbar(frame: CGRectMake(0, 0, 320, 50))
+        doneToolbar.barStyle = UIBarStyle.BlackTranslucent
+        
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: nil, action: nil)
+        let done: UIBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.Done, target: self, action: Selector("doneButtonAction"))
+        done.tintColor = UIColor.customRed()
+        
+        var items = [UIBarButtonItem]()
+        items.append(flexSpace)
+        items.append(done)
+        
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        self.amountTextField.inputAccessoryView = doneToolbar
+        
+    }
+    
+    func doneButtonAction()
+    {
+        self.amountTextField.resignFirstResponder()
+        self.amountTextField.enabled = false
+    }
+    
+    func inRoundupsPressed() {
+        let alertController = AlertViewController()
+        alertController.delegate = self
+        alertController.setUp(self, title: "Round Ups", message: "You have collected this amount in round ups. You are able to manage, clear or donate your round ups." , buttonText: "Dismiss")
+        alertController.show()
     }
     
 //    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

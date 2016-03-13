@@ -79,17 +79,25 @@ class TabBarViewController: UITabBarController {
         self.contributeButton.layer.masksToBounds = true;
         self.contributeButton.layer.borderWidth = 1.0;
         self.contributeButton.setImage(UIImage(named:"colored-heart-unfilled"), forState: .Normal);
+        
         self.contributeButton.setImage(UIImage(named: "colored-heart"), forState: .Highlighted)
+        self.contributeButton.setImage(UIImage(named: "colored-heart"), forState: .Selected)
+
         self.contributeButton.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 0);
         
         self.tabBar.addSubview(contributeButton);
     }
     
     func didPressContributeButton(sender:UIButton!) {
-        self.selectedIndex = 2
-        animateContributeButton { () -> Void in
-            self.contributeButton.highlighted = true
+        if self.selectedIndex != 2 {
+            self.selectedIndex = 2
+            animateContributeButton { () -> Void in
+                self.contributeButton.highlighted = true
+                self.contributeButton.setImage(UIImage(named: "colored-heart"), forState: .Normal)
+
+            }
         }
+        
     }
     
     private func animateContributeButton(completion:() -> Void) {
@@ -116,7 +124,11 @@ class TabBarViewController: UITabBarController {
     
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-        self.contributeButton.highlighted = false
+        if(item != 2){
+            self.contributeButton.highlighted = false
+            self.contributeButton.setImage(UIImage(named:"colored-heart-unfilled"), forState: .Normal);
+
+        }
         if let newIndex = self.tabBar.items?.indexOf(item) {
             animateUndlerineToIndex(newIndex)
         }

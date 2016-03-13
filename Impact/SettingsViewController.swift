@@ -168,6 +168,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             }
             if indexPath.row == 3 {
                 let tosvc = TermsOfServiceViewController()
+                tosvc.cameFromSignUp = false
                 self.navigationController?.pushViewController(tosvc, animated: true)
             }
             if indexPath.row == 4 {
@@ -181,10 +182,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func logout() {
+        let activityIndicator = ActivityIndicator(view: self.view)
+        activityIndicator.startCustomAnimation()
         ServerRequest.shared.logout({ (json) -> Void in
+            activityIndicator.stopAnimating()
             let initialViewController = InitialScreenViewController()
             self.presentViewController(initialViewController, animated: true, completion: nil)
             },failure: { (errorMessage) -> Void in
+                activityIndicator.stopAnimating()
+
                 
         })
     }

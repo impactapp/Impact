@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BankPinViewController" customModule="Impact" customModuleProvider="target">
@@ -22,12 +22,11 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jD1-9Y-K2K">
                             <rect key="frame" x="8" y="19" width="63" height="42"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="63" id="2a0-f5-lVa"/>
                             </constraints>
                             <inset key="contentEdgeInsets" minX="10" minY="10" maxX="40" maxY="10"/>
-                            <state key="normal" image="BackButton">
+                            <state key="normal" image="BackButtonRed">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
@@ -36,7 +35,6 @@
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Pin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdG-3T-Zme">
                             <rect key="frame" x="150" y="19" width="300" height="42"/>
-                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="42" id="O1i-J3-5AC"/>
                                 <constraint firstAttribute="width" constant="300" id="WaF-vo-8cy"/>
@@ -46,7 +44,6 @@
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
-                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="jD1-9Y-K2K" secondAttribute="bottom" constant="7" id="5hW-GT-Eh6"/>
@@ -59,7 +56,6 @@
                 </view>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XbN-Wg-VFG" customClass="BottomBorderedTextField" customModule="Impact" customModuleProvider="target">
                     <rect key="frame" x="22" y="120" width="556" height="42"/>
-                    <animations/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="kBc-9S-d7j"/>
                     </constraints>
@@ -74,7 +70,6 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
             </subviews>
-            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="XbN-Wg-VFG" firstAttribute="leading" secondItem="CFt-J3-maC" secondAttribute="leading" constant="22" id="5xQ-RW-8RB"/>
@@ -87,7 +82,7 @@
         </view>
     </objects>
     <resources>
-        <image name="BackButton" width="26" height="45"/>
+        <image name="BackButtonRed" width="26" height="45"/>
         <image name="LockIcon" width="20" height="30"/>
     </resources>
 </document>
