@@ -12,12 +12,17 @@ protocol CauseStoryScrollableDelegate {
     func causeStoryControllerIsScrolling(scrollView:UIScrollView)
 }
 
-class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableViewDataSource, BlogPostTableViewHeaderDelegate {
     
     var scrollDelegate : CauseStoryScrollableDelegate? = nil
     
+    let contributeButtonPlusLabelHeight = CGFloat(115)
+    
     var summaryHeaderView = BlogPostTableViewHeader(frame:CGRectZero)
     var cause: Cause? = nil
+    var joinedLabel : UILabel? = nil
+    var joinCauseButton : UIButton? = nil
+    var currentCauseId : Int? = nil
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -29,11 +34,28 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
         blogPost.title = "Test Blog Post"
         blogPost.blog_body =  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
 
-        self.summaryHeaderView = BlogPostTableViewHeader(frame:frame,blogPost:blogPost, cause:self.cause )
-
-        let newHeight = summaryHeaderView.blogPostLabel.frame.origin.y + summaryHeaderView.blogPostLabel.frame.size.height
+        let blogPostHeader =    BlogPostTableViewHeader(frame:frame,blogPost:blogPost, cause:self.cause )
+        self.summaryHeaderView = blogPostHeader
+        self.summaryHeaderView.delegate = self
+        self.joinedLabel = blogPostHeader.joinLabel
+        self.joinCauseButton = blogPostHeader.joinButton
+        //adding 100 for buttons on the bottom
+        let newHeight = summaryHeaderView.blogPostLabel.frame.origin.y + summaryHeaderView.blogPostLabel.frame.size.height + self.contributeButtonPlusLabelHeight
         summaryHeaderView.frame.size.height = newHeight
         self.tableView.tableHeaderView = summaryHeaderView
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
+            self.currentCauseId = currentUser.current_cause_id
+            if self.cause?.id == self.currentCauseId && self.currentCauseId != nil{
+                self.joinCauseButton?.setImage(UIImage(named: "YoureImpacting"), forState: .Normal)
+            }else{
+                self.joinCauseButton?.setImage(UIImage(named: "ClicktoImpact"), forState: .Normal)
+
+            }
+            self.joinedLabel?.text = self.cause?.id == self.currentCauseId ? "You're Contributing!" : "Click to Contribute"
+        }
     }
     
     
@@ -52,6 +74,22 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         self.scrollDelegate?.causeStoryControllerIsScrolling(scrollView)
+    }
+    
+    
+    func joinCauseButtonPressed() {
+        if let cause = self.cause {
+            if let joinedLabel = self.joinedLabel{
+                joinedLabel.text = "You're Contributing!"
+            }
+            if let joinCauseButton = self.joinCauseButton {
+                joinCauseButton.setImage(UIImage(named: "YoureImpacting"), forState: .Normal)
+                
+            }
+            ServerRequest.shared.joinCause(cause, success: { (successful) -> Void in
+                }, failure: { (errorMessage) -> Void in
+            })
+        }
     }
     
     
