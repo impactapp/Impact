@@ -67,6 +67,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func configureCell(tableView:UITableView,indexPath:NSIndexPath) -> SettingsTableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier, forIndexPath: indexPath) as! SettingsTableViewCell
+        cell.separatorInset = UIEdgeInsetsZero
+        cell.layoutMargins = UIEdgeInsetsZero
         let section = sectionArray[indexPath.section]
         let array = sectionHash[section]! as [String]
         let cellTitle = array[indexPath.row]

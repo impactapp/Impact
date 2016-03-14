@@ -200,7 +200,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 activityIndicator.stopAnimating()
                     let alertController = AlertViewController()
                     alertController.delegate = self
-                    alertController.setUp(self, title: "Success!", message: "Donated" + self.amountTextField.text! + " to " + self.currentCause, buttonText: "Dismiss")
+                    alertController.setUp(self, title: "Success!", message: "Donated " + self.amountTextField.text! + " to " + self.currentCause, buttonText: "Dismiss")
                     alertController.show()
                     self.donationCard.amount = 0
              

@@ -30,8 +30,8 @@
                         <state key="normal" image="ForwardButton"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZyV-WC-SSf">
-                        <rect key="frame" x="8" y="29" width="180" height="32"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="11"/>
+                        <rect key="frame" x="8" y="29" width="180" height="28"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="10"/>
                         <color key="textColor" red="0.92941176469999998" green="0.4823529412" blue="0.46666666670000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -60,7 +60,7 @@
                     <constraint firstItem="dic-NK-paB" firstAttribute="trailing" secondItem="OPG-VD-Sx7" secondAttribute="trailing" id="2UR-3d-vSZ"/>
                     <constraint firstItem="Lqy-4R-joi" firstAttribute="leading" secondItem="3Wk-rl-K8Z" secondAttribute="trailing" constant="41" id="3hW-Y6-F7Z"/>
                     <constraint firstItem="3Wk-rl-K8Z" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="7ts-av-uxR"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ZyV-WC-SSf" secondAttribute="bottom" constant="-8.5" id="AKF-HE-mbM"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ZyV-WC-SSf" secondAttribute="bottom" constant="-4.5" id="AKF-HE-mbM"/>
                     <constraint firstItem="Lqy-4R-joi" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="DDO-UN-4ub"/>
                     <constraint firstItem="ZyV-WC-SSf" firstAttribute="top" secondItem="3Wk-rl-K8Z" secondAttribute="bottom" id="DSZ-ix-2ga"/>
                     <constraint firstItem="OPG-VD-Sx7" firstAttribute="centerY" secondItem="dic-NK-paB" secondAttribute="centerY" id="PPJ-ZP-ekc"/>
