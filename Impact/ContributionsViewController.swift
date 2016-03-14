@@ -222,7 +222,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
     }
     
     private func getMostContributedCategory() -> String{
-        let defaultString = "default string"
+        let defaultString = ""
         var causeCategories = [String: Int]()
 
         for cause:Cause in self.previousCauses{

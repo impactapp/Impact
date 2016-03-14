@@ -578,6 +578,15 @@ class ServerRequest: NSObject {
         })
     }
     
+    func leaveCause(cause:Cause, success:(successful:Bool) -> Void, failure:(errorMessage:String)->Void) {
+        let endpoint = "current_user/causes/leave"
+        postWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in
+            success(successful: true)
+            }, failure: { (error) -> Void in
+                failure(errorMessage: "Unable to leave cause")
+        })
+    }
+    
     func getCauseBlogPostsAndContributors(cause:Cause, success:(blogPosts:[BlogPost], contributors: [User]) -> Void, failure:(errorMessage:String)->Void) {
         let endpoint = "causes/show_extra/\(cause.id)"
         getWithEndpoint(endpoint, parameters: nil, authenticated: true, success: { (json) -> Void in

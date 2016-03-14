@@ -78,18 +78,73 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
     
     
     func joinCauseButtonPressed() {
+        let  ai = ActivityIndicator(view: self.view)
         if let cause = self.cause {
-            if let joinedLabel = self.joinedLabel{
-                joinedLabel.text = "You're Contributing!"
-            }
-            if let joinCauseButton = self.joinCauseButton {
-                joinCauseButton.setImage(UIImage(named: "YoureImpacting"), forState: .Normal)
+            
+            
+                if self.currentCauseId == cause.id{
+                    // leaving cause
+                    let alertController = UIAlertController(title: "Warning", message: "Are you sure you want leave this cause?", preferredStyle: .Alert)
+                    alertController.view.tintColor = UIColor.customRed()
+                    
+                    let cancelAction = UIAlertAction(title: "NO", style: .Cancel) { (action) in
+                    }
+                    alertController.addAction(cancelAction)
+                    
+                    let OKAction = UIAlertAction(title: "YES", style: .Default) { (action) in
+                        ai.startCustomAnimation()
+                        ServerRequest.shared.leaveCause(cause, success: { (successful) -> Void in
+                            ai.stopAnimating()
+                            self.currentCauseId = nil
+                            if let joinedLabel = self.joinedLabel{
+                                joinedLabel.text = "Click to Impact!"
+                            }
+                            if let joinCauseButton = self.joinCauseButton {
+                                joinCauseButton.setImage(UIImage(named: "ClicktoImpact"), forState: .Normal)
+                            }
+                            }, failure: { (errorMessage) -> Void in
+                                ai.stopAnimating()
+                                let alertController = AlertViewController()
+                                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                                alertController.show()
+
+                                
+                        })
+                        
+                    }
+                    alertController.addAction(OKAction)
+                    self.presentViewController(alertController, animated: true) {
+                        
+                    }
+                    
+                    
+                }else{
+                    ai.startCustomAnimation()
+                    ServerRequest.shared.joinCause(cause, success: { (successful) -> Void in
+                        ai.stopAnimating()
+                        self.currentCauseId = cause.id
+                        if let joinedLabel = self.joinedLabel{
+                            joinedLabel.text = "You're Contributing!"
+                        }
+                        if let joinCauseButton = self.joinCauseButton {
+                            joinCauseButton.setImage(UIImage(named: "YoureImpacting"), forState: .Normal)
+                        }
+                        }, failure: { (errorMessage) -> Void in
+                            ai.stopAnimating()
+                            let alertController = AlertViewController()
+                            alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                            alertController.show()
+                            
+                    })
+
+                    
+                }
+                
+                
                 
             }
-            ServerRequest.shared.joinCause(cause, success: { (successful) -> Void in
-                }, failure: { (errorMessage) -> Void in
-            })
-        }
+            
+            
     }
     
     
