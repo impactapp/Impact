@@ -30,7 +30,15 @@ class FriendsCollectionViewHeader: UIView, UICollectionViewDelegateFlowLayout, U
         layout.minimumLineSpacing = 10
         layout.scrollDirection = .Horizontal
         layout.itemSize = CGSizeMake(60, 75)
-        layout.sectionInset = UIEdgeInsetsMake(-10, 5, 10, 5)
+        
+        var rightInset:CGFloat? = nil
+        if DeviceType.IS_IPHONE_5{
+            rightInset = CGFloat((self.friends.count-3)*(60))
+        }
+        else{
+            rightInset = CGFloat((self.friends.count-4)*(60))
+        }
+        layout.sectionInset = UIEdgeInsetsMake(-10, 5, 10, rightInset!)
         
         self.collectionView.collectionViewLayout = layout
         self.collectionView.delegate = self
@@ -49,11 +57,11 @@ class FriendsCollectionViewHeader: UIView, UICollectionViewDelegateFlowLayout, U
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        var numberOfCells = min(maxFriendsToShow,self.friends.count)
-        if self.friends.count > maxFriendsToShow {
-            numberOfCells += 1
-        }
-        return numberOfCells
+        //var numberOfCells = min(maxFriendsToShow,self.friends.count)
+//        if self.friends.count > maxFriendsToShow {
+//            numberOfCells += 1
+//        }
+        return self.friends.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -115,31 +123,7 @@ class FriendsCollectionViewHeader: UIView, UICollectionViewDelegateFlowLayout, U
             }
         }
         
-        //
-        //
-        //        if user.facebook_id != 0 {
-        //            let facebookURLString = "http://graph.facebook.com/\(user.facebook_id)/picture?type=normal"
-        //            cell.imageView.setImageWithUrl(NSURL(string:facebookURLString), placeHolderImage: nil)
-        //            cell.initialsLabel.hidden = true
-        //        } else {
-        //            cell.initialsLabel.hidden = false
-        //            let nameComponents = user.name.componentsSeparatedByString(" ")
-        //            var initials = ""
-        //            if let firstName = nameComponents.first {
-        //                if firstName != "" {
-        //                    initials += String(firstName[firstName.startIndex])
-        //                }
-        //            }
-        //            if nameComponents.count > 1 {
-        //                if let lastName = nameComponents.last {
-        //                    if lastName != "" {
-        //                        initials += String(lastName[lastName.startIndex])
-        //                    }
-        //                }
-        //            }
-        //
-        //            cell.initialsLabel.text = initials
-        //        }
+   
         
         return cell
     }
