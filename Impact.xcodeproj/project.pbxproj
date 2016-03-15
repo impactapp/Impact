@@ -731,7 +731,7 @@
 				4D6BC9921BE4FF59000C89C8 /* Categories */,
 				4D02EC191BD0887900701C75 /* Causes */,
 				4D9621F21BA9A151005EBCDD /* Card */,
-				B8D459F81B8FE0A400877310 /* Intro Screens */,
+				B8D459F81B8FE0A400877310 /* Onboarding Screens */,
 				B8C77E151B8ABF2B00000927 /* Initial Screens */,
 				4D2256FE1B8ADC5D00727A4C /* Bank */,
 				4D0FDE451B8B82A1002877CE /* CustomViews */,
@@ -798,7 +798,7 @@
 			name = "Initial Screens";
 			sourceTree = "<group>";
 		};
-		B8D459F81B8FE0A400877310 /* Intro Screens */ = {
+		B8D459F81B8FE0A400877310 /* Onboarding Screens */ = {
 			isa = PBXGroup;
 			children = (
 				B8B8AA6F1B8FFBD1006E689C /* ContentViewController.xib */,
@@ -814,7 +814,7 @@
 				B8D45A031B8FF3E000877310 /* SecondIntroViewController.swift */,
 				B8D45A041B8FF3E000877310 /* SecondIntroViewController.xib */,
 			);
-			name = "Intro Screens";
+			name = "Onboarding Screens";
 			sourceTree = "<group>";
 		};
 		B8D498251C5E1366001EE8BE /* Transactions */ = {
