@@ -35,9 +35,6 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihZ-9k-wbv">
-                        <rect key="frame" x="44" y="44" width="90" height="90"/>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFk-3H-gdS">
                         <rect key="frame" x="8" y="25" width="162" height="21"/>
                         <constraints>
@@ -47,12 +44,15 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ihZ-9k-wbv">
+                        <rect key="frame" x="49" y="54" width="80" height="80"/>
+                    </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" red="0.36078431372549019" green="0.3529411764705882" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstItem="ihZ-9k-wbv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="44" id="5aG-lh-gJH"/>
+                <constraint firstItem="ihZ-9k-wbv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="49" id="5aG-lh-gJH"/>
                 <constraint firstItem="oh6-dV-ugp" firstAttribute="top" secondItem="7ZF-bS-p2A" secondAttribute="bottom" constant="2" id="5vF-uX-OP1"/>
                 <constraint firstItem="7ZF-bS-p2A" firstAttribute="leading" secondItem="IFk-3H-gdS" secondAttribute="leading" constant="9" id="A47-CY-4ud"/>
                 <constraint firstItem="oh6-dV-ugp" firstAttribute="top" secondItem="ihZ-9k-wbv" secondAttribute="bottom" constant="9" id="C5h-jB-f6d"/>
@@ -63,13 +63,13 @@
                 <constraint firstItem="7ZF-bS-p2A" firstAttribute="trailing" secondItem="oh6-dV-ugp" secondAttribute="trailing" constant="-8" id="TfN-IM-cYC"/>
                 <constraint firstItem="IFk-3H-gdS" firstAttribute="trailing" secondItem="7ZF-bS-p2A" secondAttribute="trailing" constant="8" id="ZLX-l9-TgL"/>
                 <constraint firstItem="91w-rQ-FhL" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="topMargin" id="nEm-ne-b7h"/>
-                <constraint firstItem="ihZ-9k-wbv" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="nPk-DI-vWf"/>
+                <constraint firstItem="ihZ-9k-wbv" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="5" id="nPk-DI-vWf"/>
                 <constraint firstItem="7ZF-bS-p2A" firstAttribute="centerX" secondItem="ihZ-9k-wbv" secondAttribute="centerX" id="nhE-Tz-KI2"/>
                 <constraint firstItem="oh6-dV-ugp" firstAttribute="leading" secondItem="7ZF-bS-p2A" secondAttribute="leading" constant="-9" id="oE9-ZU-ro9"/>
                 <constraint firstItem="oh6-dV-ugp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leadingMargin" id="qAh-jm-yah"/>
                 <constraint firstItem="oh6-dV-ugp" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottomMargin" constant="-6" id="sTX-pA-is2"/>
                 <constraint firstItem="7ZF-bS-p2A" firstAttribute="top" secondItem="91w-rQ-FhL" secondAttribute="bottom" constant="25" id="sr9-iN-7Rm"/>
-                <constraint firstItem="7ZF-bS-p2A" firstAttribute="top" secondItem="ihZ-9k-wbv" secondAttribute="top" constant="10" id="t8W-Uz-RES"/>
+                <constraint firstItem="7ZF-bS-p2A" firstAttribute="top" secondItem="ihZ-9k-wbv" secondAttribute="top" id="t8W-Uz-RES"/>
             </constraints>
             <size key="customSize" width="178" height="178"/>
             <connections>

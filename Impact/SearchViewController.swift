@@ -149,7 +149,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let selectedCause = self.causes[indexPath.row]
+        let selectedCause = self.searchResults[indexPath.row]
 
         if(enteredFromDonate){
             if let delegate = self.delegate {

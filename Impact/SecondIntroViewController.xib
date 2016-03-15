@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -15,30 +15,32 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change you can meet" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOu-Wj-pBI">
-                    <rect key="frame" x="179" y="196" width="242" height="120"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZOu-Wj-pBI">
+                    <rect key="frame" x="172" y="192" width="257" height="120"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="120" id="jqj-y2-B9J"/>
-                        <constraint firstAttribute="width" constant="242" id="n1H-ka-K2h"/>
+                        <constraint firstAttribute="width" constant="257" id="n1H-ka-K2h"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="38"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <string key="text">SMALL YET
+SUBSTANTIAL</string>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="38"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join a community of people making a difference" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypU-OG-UAR">
-                    <rect key="frame" x="183" y="306" width="234" height="73"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impact rounds up your purchases to the next dollar and donates the change" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ypU-OG-UAR">
+                    <rect key="frame" x="164" y="296" width="272" height="109"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="234" id="G7S-fD-YuZ"/>
-                        <constraint firstAttribute="height" constant="73" id="IuZ-rb-BMu"/>
+                        <constraint firstAttribute="width" constant="272" id="G7S-fD-YuZ"/>
+                        <constraint firstAttribute="height" constant="109" id="IuZ-rb-BMu"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNextCondensed-DemiBold" family="Avenir Next Condensed" pointSize="21"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="21"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
             <constraints>
-                <constraint firstItem="ZOu-Wj-pBI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="196" id="Qrz-ju-GLu"/>
-                <constraint firstItem="ypU-OG-UAR" firstAttribute="top" secondItem="ZOu-Wj-pBI" secondAttribute="bottom" constant="-10" id="fLP-Pi-xug"/>
+                <constraint firstItem="ZOu-Wj-pBI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="192" id="Qrz-ju-GLu"/>
+                <constraint firstItem="ypU-OG-UAR" firstAttribute="top" secondItem="ZOu-Wj-pBI" secondAttribute="bottom" constant="-16" id="fLP-Pi-xug"/>
                 <constraint firstItem="ypU-OG-UAR" firstAttribute="centerX" secondItem="ZOu-Wj-pBI" secondAttribute="centerX" id="oUr-lb-ua1"/>
                 <constraint firstItem="ypU-OG-UAR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="zBC-mS-kCp"/>
             </constraints>

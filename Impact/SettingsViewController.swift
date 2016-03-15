@@ -18,7 +18,7 @@ enum SettingsSection:String {
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UpdateUserInformationDelegate {
     var user : User? = nil
     let userInfoOptions = ["Name", "Email"]
-    let paymentInfoOptions = ["Credit Card", "Bank", "Automatic Payments"]
+    let paymentInfoOptions = ["Credit Card", "Bank"]
     let securityOptions = ["Location Enabled","Push Notifications","Password","Terms of Service","Help and Support","Logout"]
     let sectionArray : [SettingsSection] = [.UserInfo, .PaymentInfo, .SecurityInfo]
     var sectionHash: [SettingsSection : [String]] = [.UserInfo: [], .PaymentInfo:[], .SecurityInfo:[]]
@@ -67,6 +67,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func configureCell(tableView:UITableView,indexPath:NSIndexPath) -> SettingsTableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier, forIndexPath: indexPath) as! SettingsTableViewCell
+        cell.separatorInset = UIEdgeInsetsZero
+        cell.layoutMargins = UIEdgeInsetsZero
         let section = sectionArray[indexPath.section]
         let array = sectionHash[section]! as [String]
         let cellTitle = array[indexPath.row]

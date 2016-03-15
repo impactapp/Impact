@@ -194,7 +194,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             let category:String = getMostContributedCategory()
             if(self.mostContributedCategory != nil){
                 //gotta figure out colors here
-
+                
                 cell.imageView.setImageWithUrl(NSURL(string: self.mostContributedCategory.icon_url))
                 cell.imageView.image = cell.imageView.image?.imageWithRenderingMode(UIImageRenderingMode.AlwaysTemplate)
                 cell.imageView.tintColor = UIColor.whiteColor()
@@ -242,9 +242,13 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
                 maxCat = category
             }
         }
+        if maxCat.lowercaseString == "sports"{
+            maxCat = "Athletics"
+        }
         
         if(maxCat != defaultString){
             for category in self.categories{
+                
                 if(category.name.lowercaseString == maxCat.lowercaseString){
                     self.mostContributedCategory = category
                 }

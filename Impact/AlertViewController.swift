@@ -43,6 +43,7 @@ class AlertViewController: UIViewController {
             self.messageLabel.text = message
             self.popup.layer.masksToBounds = true
             self.popup.layer.cornerRadius = 7
+            self.button.setTitle(buttonText, forState: .Normal)
             self.view.addSubview(self.popup)
         }
     }

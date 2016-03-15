@@ -10,13 +10,17 @@ import UIKit
 import AWSCore
 import AWSS3
 
+protocol ChangePhotoViewControllerDelegate{
+    func successfulUpdate(image:UIImage)
+}
+
 class ChangePhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate,UIActionSheetDelegate, AlertViewControllerDelegate {
     
     @IBOutlet var helpLabel: UILabel!
     @IBOutlet var image: UIImageView!
     var user : User? = nil
     var urlString : String? = nil
-    
+    var delegate : ChangePhotoViewControllerDelegate? = nil
     let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -172,7 +176,10 @@ class ChangePhotoViewController: UIViewController, UIImagePickerControllerDelega
                         let s3URL = "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest1.key!)"
                         ServerRequest.shared.updateProfileImageURL(s3URL, success: { (successful) -> Void in
                             let alertController = AlertViewController()
-                            alertController.setUp(self, title: "Success", message: "You have successfully updated your profile picture", buttonText: "Dismiss")
+                            alertController.setUp(self, title: "Success", message: "You have successfully updated your profile picture", buttonText: "Continue")
+                            if let delegate = self.delegate{
+                                delegate.successfulUpdate(img)
+                            }
                             alertController.delegate = self
                             alertController.show()
                             }, failure: { (errorMessage) -> Void in

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="95"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="PZT-6d-VWK">
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="PZT-6d-VWK">
                     <rect key="frame" x="0.0" y="25" width="600" height="70"/>
                     <color key="backgroundColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lt0-hO-CS3">
@@ -29,7 +29,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="47 Contributors - 4 Friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQX-Yt-Gd2">
                     <rect key="frame" x="12" y="0.0" width="588" height="25"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="4Pe-FS-ZiC"/>
+                        <constraint firstAttribute="height" constant="25" id="psQ-u5-g0L"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -38,13 +38,13 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="PZT-6d-VWK" secondAttribute="bottom" id="AVd-3b-hzO"/>
-                <constraint firstItem="pQX-Yt-Gd2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="R0D-rB-CTS"/>
-                <constraint firstItem="PZT-6d-VWK" firstAttribute="top" secondItem="pQX-Yt-Gd2" secondAttribute="bottom" id="YZW-Is-MYQ"/>
-                <constraint firstItem="PZT-6d-VWK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dat-Ch-K1q"/>
-                <constraint firstItem="pQX-Yt-Gd2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="i0J-Gg-mAi"/>
-                <constraint firstAttribute="trailing" secondItem="PZT-6d-VWK" secondAttribute="trailing" id="tsA-y3-BKe"/>
-                <constraint firstAttribute="trailing" secondItem="pQX-Yt-Gd2" secondAttribute="trailing" id="zeV-gT-iXt"/>
+                <constraint firstAttribute="bottom" secondItem="PZT-6d-VWK" secondAttribute="bottom" id="BwZ-hY-UcU"/>
+                <constraint firstAttribute="trailing" secondItem="pQX-Yt-Gd2" secondAttribute="trailing" id="IYW-XG-NLH"/>
+                <constraint firstItem="pQX-Yt-Gd2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="PjS-dB-JDN"/>
+                <constraint firstItem="PZT-6d-VWK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UD7-2b-x4c"/>
+                <constraint firstItem="PZT-6d-VWK" firstAttribute="top" secondItem="pQX-Yt-Gd2" secondAttribute="bottom" id="ceL-xU-pGv"/>
+                <constraint firstItem="PZT-6d-VWK" firstAttribute="trailing" secondItem="pQX-Yt-Gd2" secondAttribute="trailing" id="fGM-Br-8rb"/>
+                <constraint firstItem="pQX-Yt-Gd2" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="uG9-a3-8D4"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="393" y="204.5"/>

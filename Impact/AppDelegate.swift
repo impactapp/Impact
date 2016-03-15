@@ -20,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds);
         
+        //Tab Bar
+        UITabBar.appearance().shadowImage = UIImage()
+        UITabBar.appearance().backgroundImage = UIImage()
+        
+        
         //AWS
         let credentialsProvider = AWSCognitoCredentialsProvider(regionType:.USEast1,
             identityPoolId:"us-east-1:6f7d575b-bbff-4507-bf95-70608e82bd47")

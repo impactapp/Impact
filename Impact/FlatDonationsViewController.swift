@@ -205,7 +205,7 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
         ServerRequest.shared.makeFlatDonation(Int(centsAmount), cause_id: self.selectedCause.id, completion:  { (payment) -> Void in
             activityIndicator.stopAnimating()
             let alertController = AlertViewController()
-            alertController.setUp(self, title: "Success", message: "You have successfully contributed to this cause.  Thank you!", buttonText: "Dismiss")
+            alertController.setUp(self, title: "Success", message: "You have successfully contributed to this cause.  Thank you!", buttonText: "Continue")
             alertController.delegate = self
             alertController.show()
             

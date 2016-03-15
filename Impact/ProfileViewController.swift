@@ -8,16 +8,17 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class ProfileViewController: UIViewController, ChangePhotoViewControllerDelegate {
     
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    var didUpdatePicture: Bool? = nil
     var urlString: String? = nil
     var user : User? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.didUpdatePicture = false
         
         // Do any additional setup after loading the view.
     }
@@ -25,7 +26,11 @@ class ProfileViewController: UIViewController {
     override func viewDidAppear(animated: Bool) {
         ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
             self.user = currentUser
-            self.configureProfile(self.user)
+            if let didUpdate = self.didUpdatePicture{
+                if !didUpdate{
+                    self.configureProfile(self.user)
+                }
+            }
         }
     }
     
@@ -39,6 +44,8 @@ class ProfileViewController: UIViewController {
         self.emailLabel.text = user?.email
         self.profileImageView.layer.masksToBounds = true
         self.profileImageView.layer.cornerRadius = self.profileImageView.frame.size.width/2
+        
+        
         if let currentUser = user {
             
             if currentUser.profile_image_url != nil && currentUser.profile_image_url != ""{
@@ -81,6 +88,7 @@ class ProfileViewController: UIViewController {
     
     func tapDetected() {
         let cpvc = ChangePhotoViewController()
+        cpvc.delegate = self
         cpvc.urlString = self.urlString
         cpvc.user = self.user
         self.navigationController?.pushViewController(cpvc, animated: true)
@@ -93,6 +101,11 @@ class ProfileViewController: UIViewController {
             }, failure: { (errorMessage) -> Void in
                 
         })
+    }
+    
+    func successfulUpdate(image:UIImage) {
+        self.didUpdatePicture = true
+        self.profileImageView.image = image
     }
     
     /*
