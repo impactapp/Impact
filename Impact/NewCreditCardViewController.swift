@@ -205,7 +205,7 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
             activityIndicator.stopAnimating()
             let alertController = AlertViewController()
             alertController.delegate = self
-            alertController.setUp(self, title: "Success!", message: "Added credit card", buttonText: "Dismiss")
+            alertController.setUp(self, title: "Success!", message: "Added credit card", buttonText: "Continue")
             alertController.show()
             }, failure: { (errorMessage) -> Void in
                 self.successIndicator = false

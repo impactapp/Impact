@@ -200,7 +200,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 activityIndicator.stopAnimating()
                     let alertController = AlertViewController()
                     alertController.delegate = self
-                    alertController.setUp(self, title: "Success!", message: "Donated " + self.amountTextField.text! + " to " + self.currentCause, buttonText: "Dismiss")
+                    alertController.setUp(self, title: "Success!", message: "Donated " + self.amountTextField.text! + " to " + self.currentCause, buttonText: "Continue")
                     alertController.show()
                     self.donationCard.amount = 0
              
@@ -282,7 +282,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
             activityIndicator.stopAnimating()
             let alertController = AlertViewController()
             alertController.delegate = self
-            alertController.setUp(self, title: "Clear", message: "You cleared your roundups", buttonText: "Dismiss")
+            alertController.setUp(self, title: "Clear", message: "You cleared your roundups", buttonText: "Continue")
             alertController.show()
             self.amountTextField.text = "$0.00"
         }
@@ -296,7 +296,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         ServerRequest.shared.updateAutomaticDonations( { (successful) -> Void in
             activityIndicator.stopAnimating()
             let alertController = AlertViewController()
-            alertController.setUp(self, title: "Success!", message: "You updated your automatic donation preference!", buttonText: "Dismiss")
+            alertController.setUp(self, title: "Success!", message: "You updated your automatic donation preference!", buttonText: "Continue")
             alertController.delegate = self
             alertController.show()
             self.getCurrentUser()
@@ -352,7 +352,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func inRoundupsPressed() {
         let alertController = AlertViewController()
         alertController.delegate = self
-        alertController.setUp(self, title: "Round Ups", message: "You have collected this amount in round ups. You are able to manage, clear or donate your round ups." , buttonText: "Dismiss")
+        alertController.setUp(self, title: "Round Ups", message: "You have collected this amount in round ups. You are able to manage, clear or donate your round ups." , buttonText: "Continue")
         alertController.show()
     }
     

@@ -232,7 +232,7 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
         ServerRequest.shared.updateWeeklyBudget(Float(amount), success: { (successful) -> Void in
             activityIndicator.stopAnimating()
             let alertController = AlertViewController()
-            alertController.setUp(self, title: "Success!", message: "You updated your monthly budget!", buttonText: "Dismiss")
+            alertController.setUp(self, title: "Success!", message: "You updated your monthly budget!", buttonText: "Continue")
             alertController.delegate = self
             alertController.show()
             

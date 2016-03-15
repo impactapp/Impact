@@ -68,7 +68,7 @@ class ForgetLoginViewController: UIViewController, UITextFieldDelegate {
         ServerRequest.shared.sendResetPasswordEmail(self.emailTextField.text!, success: { (success) -> Void in
             activityIndicator.stopAnimating()
             let alertController = AlertViewController()
-            alertController.setUp(self, title: "Success!", message: "Reset password email sent", buttonText: "Dismiss")
+            alertController.setUp(self, title: "Success!", message: "Reset password email sent", buttonText: "Continue")
             alertController.show()
             }, failure: { (errorMessage) -> Void in
                 activityIndicator.stopAnimating()

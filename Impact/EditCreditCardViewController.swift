@@ -210,7 +210,7 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
             let alertController = AlertViewController()
             activityIndicator.stopAnimating()
             alertController.delegate = self
-            alertController.setUp(self, title: "Success!", message: "Successfully deleted this card", buttonText: "Dismiss")
+            alertController.setUp(self, title: "Success!", message: "Successfully deleted this card", buttonText: "Continue")
             alertController.show()
             activityIndicator.stopAnimating()
             
@@ -259,7 +259,7 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
             let alertController = AlertViewController()
             activityIndicator.stopAnimating()
             alertController.delegate = self
-            alertController.setUp(self, title: "Success!", message: "Successfully updated this card", buttonText: "Dismiss")
+            alertController.setUp(self, title: "Success!", message: "Successfully updated this card", buttonText: "Continue")
             alertController.show()
             activityIndicator.stopAnimating()
             

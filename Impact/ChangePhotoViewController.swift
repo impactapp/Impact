@@ -172,7 +172,7 @@ class ChangePhotoViewController: UIViewController, UIImagePickerControllerDelega
                         let s3URL = "http://s3.amazonaws.com/\(S3BucketName)/\(uploadRequest1.key!)"
                         ServerRequest.shared.updateProfileImageURL(s3URL, success: { (successful) -> Void in
                             let alertController = AlertViewController()
-                            alertController.setUp(self, title: "Success", message: "You have successfully updated your profile picture", buttonText: "Dismiss")
+                            alertController.setUp(self, title: "Success", message: "You have successfully updated your profile picture", buttonText: "Continue")
                             alertController.delegate = self
                             alertController.show()
                             }, failure: { (errorMessage) -> Void in

@@ -122,7 +122,7 @@ class EditInformationViewController: UIViewController, UITextFieldDelegate, Aler
             }
             let alertController = AlertViewController()
             alertController.delegate = self
-            alertController.setUp(self, title: "Updated Name", message: "You have successfully updated your name", buttonText: "Dismiss")
+            alertController.setUp(self, title: "Updated Name", message: "You have successfully updated your name", buttonText: "Continue")
             alertController.show()
             },failure: {(errorMessage) -> Void in
                 let alertController = AlertViewController()
@@ -142,7 +142,7 @@ class EditInformationViewController: UIViewController, UITextFieldDelegate, Aler
                 }
                 let alertController = AlertViewController()
                 alertController.delegate = self
-                alertController.setUp(self, title: "Updated Email", message: "You have successfully updated your email", buttonText: "Dismiss")
+                alertController.setUp(self, title: "Updated Email", message: "You have successfully updated your email", buttonText: "Continue")
                 alertController.show()
             },failure: {(errorMessage) -> Void in
                 let alertController = AlertViewController()
@@ -184,7 +184,7 @@ class EditInformationViewController: UIViewController, UITextFieldDelegate, Aler
                         activityIndicator.stopAnimating()
                         let alertController = AlertViewController()
                         alertController.delegate = self
-                        alertController.setUp(self, title: "Updated Password", message: "You have successfully updated your password", buttonText: "Dismiss")
+                        alertController.setUp(self, title: "Updated Password", message: "You have successfully updated your password", buttonText: "Continue")
                         alertController.show()
                         
                         },failure: {(errorMessage) -> Void in
