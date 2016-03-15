@@ -18,7 +18,7 @@ enum SettingsSection:String {
 class SettingsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UpdateUserInformationDelegate {
     var user : User? = nil
     let userInfoOptions = ["Name", "Email"]
-    let paymentInfoOptions = ["Credit Card", "Bank", "Automatic Payments"]
+    let paymentInfoOptions = ["Credit Card", "Bank"]
     let securityOptions = ["Location Enabled","Push Notifications","Password","Terms of Service","Help and Support","Logout"]
     let sectionArray : [SettingsSection] = [.UserInfo, .PaymentInfo, .SecurityInfo]
     var sectionHash: [SettingsSection : [String]] = [.UserInfo: [], .PaymentInfo:[], .SecurityInfo:[]]

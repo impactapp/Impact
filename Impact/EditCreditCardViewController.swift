@@ -210,16 +210,16 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
             let alertController = AlertViewController()
             activityIndicator.stopAnimating()
             alertController.delegate = self
-            alertController.setUp(self, title: "Success!", message: "Successfully deleted this card", buttonText: "Continue")
             alertController.show()
             activityIndicator.stopAnimating()
             
             self.navigationController?.popViewControllerAnimated(true)
             }, failure: { (errorMessage) -> Void in
                 activityIndicator.stopAnimating()
-                //let alertController = AlertViewController()
-                //alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
-                //alertController.show()
+                let alertController = AlertViewController()
+                alertController.delegate = self
+                alertController.setUp(self, title: "Success!", message: "Successfully deleted this card", buttonText: "Continue")
+                alertController.show()
 
         })
         
@@ -265,6 +265,10 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
             
             self.navigationController?.popViewControllerAnimated(true)
             }, failure: { (errorMessage) -> Void in
+                //TODO figure out why it fails even when it actually deletes
+                
+                self.successIndicator = true
+
                 activityIndicator.stopAnimating()
                 let alertController = AlertViewController()
                 alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")

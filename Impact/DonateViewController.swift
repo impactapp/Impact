@@ -8,36 +8,35 @@
 
 import UIKit
 
-class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DonationCardViewDelegate, AlertViewControllerDelegate, DonateTableViewCellDelegate, UITextFieldDelegate {
+class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, DonationCardViewDelegate, AlertViewControllerDelegate, DonateTableViewCellDelegate, DonationCardViewSmallDelegate, UITextFieldDelegate {
     let donateCardViewHeight = CGFloat(225)
+    let donateCardViewSmallHeight = CGFloat(150)
     let statusBarHeight = CGFloat(20)
     let cellIdentifier = "DonateTableViewCell"
     let rowHeight = CGFloat(61)
-    let titlesArray = ["Flat Donation", "Monthly Maximum", "Automatic Donations"]
-    let detailsArray = ["Make a one-time flat donation to the cause of your choice.", "Manage a maximum amount you want to donate per month.", "Have your round ups automatically donated on every purchase"]
+    let titlesArray = ["Flat Donation", "Weekly Maximum", "Automatic Donations"]
+    let detailsArray = ["Make a one-time donation to the cause of your choice.", "Set the maximum amount you want to donate weekly.", "Have your round ups donated on every purchase"]
     var amountTextField:UITextField!
     var currentCause:String!
     var donationCard:DonationCardView!
+    var donationCardSmall:DonationCardViewSmall!
     var currentUser:User!
     var footerView:UIView!
+    var automaticDonationsEnabled: Bool? = nil
     
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet var headerView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView()
         initTableView()
-
-
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         self.setStatusBarColor(self.headerView.backgroundColor!, useWhiteText: true)
-
-        setUpDonationCardView()
-        self.addDoneButtonOnKeyboard()
-
         getCurrentUser()
         
     }
@@ -55,29 +54,62 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
     private func getCurrentUser(){
         ServerRequest.shared.getCurrentUser{ (currentUser) -> Void in
             self.currentUser = currentUser
+            self.automaticDonationsEnabled = currentUser.automatic_donations
             self.tableView.reloadData()
+            self.setUpDonationCardView()
+            self.addDoneButtonOnKeyboard()
+
         }
     }
     
     private func setUpDonationCardView() {
-        let footer = UIView(frame: CGRectMake(0,0,self.view.frame.size.width,420))
-        self.tableView.tableFooterView = footer
-        let inset = CGFloat(8)
-        let cardViewWidth = self.view.frame.size.width - 2*inset
-        let donationCardView = DonationCardView(frame: CGRectZero)
-        donationCardView.delegate = self
-        self.amountTextField = donationCardView.amountTextField
-        self.amountTextField.delegate = self
-        footer.addSubview(donationCardView)
-        donationCardView.frame = CGRectMake(inset,20,cardViewWidth,donateCardViewHeight)
-        donationCardView.layer.masksToBounds = true
-        donationCardView.layer.cornerRadius = 10
-        self.donationCard = donationCardView
-        self.footerView = footer
-        ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
-            donationCardView.amount = currentUser.pending_contribution_amount
-            self.currentCause = currentUser.current_cause_name
+        
+        if let automaticDonations = self.automaticDonationsEnabled{
+            if automaticDonations{
+                let footer = UIView(frame: CGRectMake(0,0,self.view.frame.size.width,420))
+                self.tableView.tableFooterView = footer
+                let inset = CGFloat(8)
+                let cardViewWidth = self.view.frame.size.width - 2*inset
+                let donationCardViewSmall = DonationCardViewSmall(frame: CGRectZero)
+                donationCardViewSmall.delegate = self
+                self.amountTextField = donationCardViewSmall.amountTextField
+                self.amountTextField.delegate = self
+                footer.addSubview(donationCardViewSmall)
+                donationCardViewSmall.frame = CGRectMake(inset,20,cardViewWidth,donateCardViewSmallHeight)
+                donationCardViewSmall.layer.masksToBounds = true
+                donationCardViewSmall.layer.cornerRadius = 10
+                self.donationCardSmall = donationCardViewSmall
+                self.footerView = footer
+                ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
+                    donationCardViewSmall.amount = Int(currentUser.total_amount_contributed)
+                    self.currentCause = currentUser.current_cause_name
+                }
+
+                
+            }else{
+                let footer = UIView(frame: CGRectMake(0,0,self.view.frame.size.width,420))
+                self.tableView.tableFooterView = footer
+                let inset = CGFloat(8)
+                let cardViewWidth = self.view.frame.size.width - 2*inset
+                let donationCardView = DonationCardView(frame: CGRectZero)
+                donationCardView.delegate = self
+                self.amountTextField = donationCardView.amountTextField
+                self.amountTextField.delegate = self
+                footer.addSubview(donationCardView)
+                donationCardView.frame = CGRectMake(inset,20,cardViewWidth,donateCardViewHeight)
+                donationCardView.layer.masksToBounds = true
+                donationCardView.layer.cornerRadius = 10
+                self.donationCard = donationCardView
+                self.footerView = footer
+                ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
+                    donationCardView.amount = currentUser.pending_contribution_amount
+                    self.currentCause = currentUser.current_cause_name
+                }
+
+            }
         }
+        
+        
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

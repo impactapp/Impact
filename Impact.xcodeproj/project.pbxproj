@@ -142,6 +142,8 @@
 		B8C1C8161C91236A00906DD4 /* HelpAndSupportViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C1C8141C91236A00906DD4 /* HelpAndSupportViewController.xib */; };
 		B8C1C81C1C94B25D00906DD4 /* UIDevice+ModelName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1C81B1C94B25D00906DD4 /* UIDevice+ModelName.swift */; };
 		B8C1C81E1C94B53100906DD4 /* LabelWithAdaptiveTextHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1C81D1C94B53100906DD4 /* LabelWithAdaptiveTextHeight.swift */; };
+		B8C1C8201C98AD3200906DD4 /* DonationCardViewSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1C81F1C98AD3200906DD4 /* DonationCardViewSmall.swift */; };
+		B8C1C8221C98AD6000906DD4 /* DonationCardViewSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C1C8211C98AD6000906DD4 /* DonationCardViewSmall.xib */; };
 		B8C77E131B8ABEFA00000927 /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */; };
 		B8C77E141B8ABEFA00000927 /* InitialScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */; };
 		B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E181B8AC2E700000927 /* SignInViewController.swift */; };
@@ -321,6 +323,8 @@
 		B8C1C8141C91236A00906DD4 /* HelpAndSupportViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HelpAndSupportViewController.xib; sourceTree = "<group>"; };
 		B8C1C81B1C94B25D00906DD4 /* UIDevice+ModelName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+ModelName.swift"; sourceTree = "<group>"; };
 		B8C1C81D1C94B53100906DD4 /* LabelWithAdaptiveTextHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithAdaptiveTextHeight.swift; sourceTree = "<group>"; };
+		B8C1C81F1C98AD3200906DD4 /* DonationCardViewSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationCardViewSmall.swift; sourceTree = "<group>"; };
+		B8C1C8211C98AD6000906DD4 /* DonationCardViewSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationCardViewSmall.xib; sourceTree = "<group>"; };
 		B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
 		B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialScreenViewController.xib; sourceTree = "<group>"; };
 		B8C77E181B8AC2E700000927 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -614,6 +618,8 @@
 				4DE411741C72B27500D7B675 /* DonateViewController.xib */,
 				4DE411771C72B2BC00D7B675 /* DonationCardView.swift */,
 				4DE411791C72B2D900D7B675 /* DonationCardView.xib */,
+				B8C1C81F1C98AD3200906DD4 /* DonationCardViewSmall.swift */,
+				B8C1C8211C98AD6000906DD4 /* DonationCardViewSmall.xib */,
 				B86095701C7DB9AE00AEDB74 /* FlatDonationsViewController.swift */,
 				B86095711C7DB9AE00AEDB74 /* FlatDonationsViewController.xib */,
 			);
@@ -967,6 +973,7 @@
 				4D9BB1151BFFD00300E5000A /* BlogPostTableViewHeader.xib in Resources */,
 				4D96D1511BFE282500CDE687 /* FriendsCollectionViewHeader.xib in Resources */,
 				4D2256FB1B8AD62300727A4C /* RoundedCollectionViewCell.xib in Resources */,
+				B8C1C8221C98AD6000906DD4 /* DonationCardViewSmall.xib in Resources */,
 				4D2256F31B8ACBD500727A4C /* ChooseBankHeaderView.xib in Resources */,
 				4D2B0FE91BBF5ADD00482FF4 /* AlertPopupView.xib in Resources */,
 				4D962E9E1B8BFB780026E84D /* BankSecurityQuestionViewController.xib in Resources */,
@@ -1160,6 +1167,7 @@
 				B8EEA9481C64C7E4003A362F /* FooterCollectionReusableView.swift in Sources */,
 				4D5C805A1BA8F2F0001DEDAF /* UITextField+Padding.swift in Sources */,
 				B8B8AA701B8FFBD1006E689C /* ContentViewController.swift in Sources */,
+				B8C1C8201C98AD3200906DD4 /* DonationCardViewSmall.swift in Sources */,
 				4DE411781C72B2BC00D7B675 /* DonationCardView.swift in Sources */,
 				4DC0C98C1BF8D54A00E2A468 /* AmountDonatedHeaderView.swift in Sources */,
 				B8585C191B8642E900AB091A /* AppDelegate.swift in Sources */,
