@@ -201,7 +201,7 @@ class FlatDonationsViewController: UIViewController, UICollectionViewDataSource,
         activityIndicator.startCustomAnimation()
         
         //times 100 for cents
-        let centsAmount = Int(amount) * 100
+        let centsAmount = amount.floatValue * 100
         ServerRequest.shared.makeFlatDonation(Int(centsAmount), cause_id: self.selectedCause.id, completion:  { (payment) -> Void in
             activityIndicator.stopAnimating()
             let alertController = AlertViewController()

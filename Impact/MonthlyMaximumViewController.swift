@@ -102,7 +102,7 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
                 }else{
                     let numberFormatter = NSNumberFormatter()
                     numberFormatter.numberStyle = .CurrencyStyle
-                    cell.moneyTextField.text = numberFormatter.stringFromNumber(monthlyMaximum)
+                    cell.moneyTextField.text = numberFormatter.stringFromNumber(monthlyMaximum/100.00)
                     cell.moneyTextField.textColor = UIColor.customRed()
                 }
             }else{

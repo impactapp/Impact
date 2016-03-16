@@ -146,7 +146,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 if(self.currentUser.weekly_budget != 0){
                     let formatter = NSNumberFormatter()
                     formatter.numberStyle = .CurrencyStyle
-                    cell.moneyTextLabel.text = formatter.stringFromNumber(currentUser.weekly_budget)
+                    cell.moneyTextLabel.text = formatter.stringFromNumber(currentUser.weekly_budget/100.00)
                 }
             }
         case 2:

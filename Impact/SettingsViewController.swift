@@ -30,8 +30,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         initTableView()
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
         ServerRequest.shared.getCreditCards({ (cards) -> Void in
-            print(cards)
             self.creditCards = cards
             self.tableView.reloadData()
             },failure: { (errorMessage) -> Void in

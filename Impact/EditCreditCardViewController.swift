@@ -215,6 +215,8 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
             
             self.navigationController?.popViewControllerAnimated(true)
             }, failure: { (errorMessage) -> Void in
+                //TODO figure out why failing here but still deleting
+                self.successIndicator = true
                 activityIndicator.stopAnimating()
                 let alertController = AlertViewController()
                 alertController.delegate = self
@@ -265,7 +267,6 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
             
             self.navigationController?.popViewControllerAnimated(true)
             }, failure: { (errorMessage) -> Void in
-                //TODO figure out why it fails even when it actually deletes
                 
                 self.successIndicator = true
 
