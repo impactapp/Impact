@@ -55,14 +55,11 @@
                     </constraints>
                 </view>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NNV-OR-QbC">
-                    <rect key="frame" x="0.0" y="64" width="600" height="601"/>
+                    <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="601" id="hbZ-Rs-25u"/>
-                    </constraints>
-                    <string key="text">TERMS OF USE
+                    <mutableString key="text">TERMS OF USE
 Background
-Delavidah, LLC, a Delaware limited liability company (the “Company” or “we” “us” or “our”) has developed, and continues to upgrade and improve, certain applications, software and processes (each, in whatever form, an “Application”) allowing users to round-up purchases or charges on credit cards, debit cards, payment apps or other forms of digital or electronic payment to the next highest dollar (or other monetary) amount and use such rounded up amounts to contribute to Designated Recipients, to fund a designated individual or organization or to allocate their use for other purposes (each, a “Designated Recipient”).   The Company owns and operates the Application for its own account.   
+Deltavidah, LLC, a Delaware limited liability company (the “Company” or “we” “us” or “our”) has developed, and continues to upgrade and improve, certain applications, software and processes (each, in whatever form, an “Application”) allowing users to round-up purchases or charges on credit cards, debit cards, payment apps or other forms of digital or electronic payment to the next highest dollar (or other monetary) amount and use such rounded up amounts to contribute to Designated Recipients, to fund a designated individual or organization or to allocate their use for other purposes (each, a “Designated Recipient”).   The Company owns and operates the Application for its own account.   
 The Application is currently named “Impact,” but we reserve the right to change the name of the Application.   Through the Application the Company may link you, or allow direct contact, with a Designated Recipient.  Use, and disclosure, of donations to the Designated Recipient are governed by the rules and laws applicable to such Designated Recipient.  In its start-up phase the Company does not plan on charging the Designated Recipient any administrative, user or other fees in connection with donations made, or information or data services provided, using the Application.  The Company reserves the right to enter into fee agreements with Designated Recipients in the future.  
 These Terms of Use apply to all uses of the Application and any of the Company’s websites (collectively, the “Sites”) and to any electronic, written or oral communications with the Company regardless of the platform for such communications (each, a “Platform”).  “Platform” includes  web sites and any device on, or through, which an Application is, could be, accessible or used, including, but not limited to, mobile phones, computers, smart tv’s, tablets and any other form of implementation.   
 Your Agreement by using the Application or Sites  
@@ -162,13 +159,14 @@ P.	Changes to these Terms; Termination.  Company reserves the right at any time 
 Q.	Governing Law and Jurisdiction. These Terms of Use represent the entire agreement between you and Company with respect to the subject matter hereof, and supersede any and all prior and contemporaneous written and oral representations, understandings, and agreements, express and implied, and will be governed by and construed in accordance with the laws of the State of Florida, without reference to its conflict of law rules; PROVIDED, HOWEVER, THAT THE TERMS OF ANY APPLICABLE LAW NOW OR HEREAFTER ENACTED THAT IS BASED ON, DERIVED FROM, SIMILAR TO, OR CONNECTED WITH THE UNIFORM COMPUTER INFORMATION TRANSACTIONS ACT DRAFTED BY THE NATIONAL CONFERENCE OF COMMISSIONERS ON UNIFORM STATE LAWS SHALL NOT APPLY EXCEPT TO THE EXTENT THAT THE LAW EXPRESSLY PROHIBITS ALTERATION BY THESE TERMS OF THE APPLICABILITY OF ONE OR MORE SECTIONS OF THE LAW.  By accessing, viewing, or using the services, works, content, or materials on a Site or the Application, you consent and agree to (a) the exclusive jurisdiction of the federal and state courts located in Miami-Dade County, Florida; (b) accept service of process by personal delivery or mail; and (c) irrevocably waive the right to trial by jury and any jurisdictional and venue defenses otherwise available.
  
 R.	Miscellaneous.  The waiver or failure of Company to exercise in any respect any right provided hereunder shall not be deemed a waiver of such right in the future or a waiver of any of other rights established under these Terms of Use. Headings used in these Terms of Use are for reference only and shall not affect the interpretation of these Terms of Use. No person or entity not party to this agreement will be deemed to be a third party beneficiary of these Terms of Use unless expressly provided otherwise herein.  When used herein, the words “includes” and “including” and their syntactical variations shall be deemed followed by the words “without limitation.”
-</string>
+</mutableString>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="NNV-OR-QbC" secondAttribute="bottom" id="7mh-aj-2B7"/>
                 <constraint firstAttribute="trailing" secondItem="Khs-mM-ZPI" secondAttribute="trailing" id="AfV-92-9jr"/>
                 <constraint firstItem="Khs-mM-ZPI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GId-Sj-ieL"/>
                 <constraint firstItem="Khs-mM-ZPI" firstAttribute="leading" secondItem="NNV-OR-QbC" secondAttribute="leading" id="YCs-5P-xce"/>

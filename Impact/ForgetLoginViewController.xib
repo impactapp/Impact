@@ -17,8 +17,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="VRM-Ge-opz">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PinkSpiralBackground" translatesAutoresizingMaskIntoConstraints="NO" id="VRM-Ge-opz">
                     <rect key="frame" x="0.0" y="-5" width="600" height="605"/>
+                    <color key="backgroundColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reset" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bmg-ok-aW0">
                     <rect key="frame" x="216" y="50" width="169" height="42"/>
@@ -115,7 +116,7 @@
         </view>
     </objects>
     <resources>
-        <image name="background" width="750" height="1334"/>
+        <image name="PinkSpiralBackground" width="750" height="1321"/>
         <image name="xButton" width="31" height="31"/>
     </resources>
 </document>

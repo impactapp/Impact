@@ -22,6 +22,7 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     var contributorsHeaderView : FriendsCollectionViewHeader = FriendsCollectionViewHeader(frame: CGRectZero)
     var joinCauseButton : UIButton? = nil;
     var currentCauseId : Int? = nil
+    var currentCauseName : String? = nil
     var joinedLabel : UILabel? = nil
 
     @IBOutlet weak var tableView: UITableView!
@@ -56,6 +57,7 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
     override func viewWillAppear(animated: Bool) {
         ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
             self.currentCauseId = currentUser.current_cause_id
+            self.currentCauseName = currentUser.current_cause_name
             self.joinCauseButton?.selected = self.cause?.id == self.currentCauseId && self.currentCauseId != nil
             self.joinedLabel!.text = self.cause?.id == self.currentCauseId ? "You're Contributing!" : "Click to Contribute"
         }
@@ -162,6 +164,40 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
                                 alertController.show()
                                 
                                 
+                        })
+                        
+                    }
+                    alertController.addAction(OKAction)
+                    self.presentViewController(alertController, animated: true) {
+                        
+                    }
+                    
+                    
+                }else if self.currentCauseId != nil && self.currentCauseName != nil{
+                    
+                    let alertController = UIAlertController(title: "Warning", message: "Are you sure you want switch causes? You are currently Impacting " + self.currentCauseName!, preferredStyle: .Alert)
+                    alertController.view.tintColor = UIColor.customRed()
+                    
+                    let cancelAction = UIAlertAction(title: "NO", style: .Cancel) { (action) in
+                    }
+                    alertController.addAction(cancelAction)
+                    
+                    let OKAction = UIAlertAction(title: "YES", style: .Default) { (action) in
+                        ai.startCustomAnimation()
+                        ServerRequest.shared.joinCause(cause, success: { (successful) -> Void in
+                            ai.stopAnimating()
+                            self.currentCauseId = cause.id
+                            if let joinedLabel = self.joinedLabel{
+                                joinedLabel.text = "You're Contributing!"
+                            }
+                            if let joinCauseButton = self.joinCauseButton {
+                                joinCauseButton.setImage(UIImage(named: "YoureImpacting"), forState: .Normal)
+                            }
+                            }, failure: { (errorMessage) -> Void in
+                                ai.stopAnimating()
+                                let alertController = AlertViewController()
+                                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                                alertController.show()
                         })
                         
                     }

@@ -144,6 +144,8 @@
 		B8C1C81E1C94B53100906DD4 /* LabelWithAdaptiveTextHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1C81D1C94B53100906DD4 /* LabelWithAdaptiveTextHeight.swift */; };
 		B8C1C8201C98AD3200906DD4 /* DonationCardViewSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1C81F1C98AD3200906DD4 /* DonationCardViewSmall.swift */; };
 		B8C1C8221C98AD6000906DD4 /* DonationCardViewSmall.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C1C8211C98AD6000906DD4 /* DonationCardViewSmall.xib */; };
+		B8C1C8271C99776E00906DD4 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C1C8251C99776E00906DD4 /* ModalViewController.swift */; };
+		B8C1C8281C99776E00906DD4 /* ModalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C1C8261C99776E00906DD4 /* ModalViewController.xib */; };
 		B8C77E131B8ABEFA00000927 /* InitialScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */; };
 		B8C77E141B8ABEFA00000927 /* InitialScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */; };
 		B8C77E1A1B8AC2E700000927 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C77E181B8AC2E700000927 /* SignInViewController.swift */; };
@@ -325,6 +327,8 @@
 		B8C1C81D1C94B53100906DD4 /* LabelWithAdaptiveTextHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LabelWithAdaptiveTextHeight.swift; sourceTree = "<group>"; };
 		B8C1C81F1C98AD3200906DD4 /* DonationCardViewSmall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonationCardViewSmall.swift; sourceTree = "<group>"; };
 		B8C1C8211C98AD6000906DD4 /* DonationCardViewSmall.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DonationCardViewSmall.xib; sourceTree = "<group>"; };
+		B8C1C8251C99776E00906DD4 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
+		B8C1C8261C99776E00906DD4 /* ModalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ModalViewController.xib; sourceTree = "<group>"; };
 		B8C77E111B8ABEFA00000927 /* InitialScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialScreenViewController.swift; sourceTree = "<group>"; };
 		B8C77E121B8ABEFA00000927 /* InitialScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = InitialScreenViewController.xib; sourceTree = "<group>"; };
 		B8C77E181B8AC2E700000927 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -410,6 +414,8 @@
 		4D0FDE451B8B82A1002877CE /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				B8C1C8251C99776E00906DD4 /* ModalViewController.swift */,
+				B8C1C8261C99776E00906DD4 /* ModalViewController.xib */,
 				4D05AA7A1C5880D9002B8C9A /* ActivityIndicator.swift */,
 				4D91C4931C28861800A4C0A5 /* AccessoryTableViewCell.swift */,
 				4D91C4941C28861800A4C0A5 /* AccessoryTableViewCell.xib */,
@@ -1000,6 +1006,7 @@
 				B8EEA9451C63D9AB003A362F /* EditCreditCardViewController.xib in Resources */,
 				4D6BC9961BE4FF8D000C89C8 /* CategoriesCollectionViewCell.xib in Resources */,
 				4DE4117A1C72B2D900D7B675 /* DonationCardView.xib in Resources */,
+				B8C1C8281C99776E00906DD4 /* ModalViewController.xib in Resources */,
 				4D0FDE4E1B8BB646002877CE /* BankSignInViewController.xib in Resources */,
 				B8EEA9411C63D0ED003A362F /* NewCreditCardViewController.xib in Resources */,
 				B85F3F651BDD6C130029F83E /* ContributionsViewController.xib in Resources */,
@@ -1137,6 +1144,7 @@
 				4D7659161B8A3A55000862F7 /* BottomBorderedTextField.swift in Sources */,
 				B860957E1C7DDA7A00AEDB74 /* MonthlyMaximumViewController.swift in Sources */,
 				B8049CC01C2F378D005A559B /* User.swift in Sources */,
+				B8C1C8271C99776E00906DD4 /* ModalViewController.swift in Sources */,
 				4D91C4911C28841D00A4C0A5 /* PreviousImpactsViewController.swift in Sources */,
 				4D02EC1C1BD08A0400701C75 /* CausesTableViewCell.swift in Sources */,
 				4D2265841BA7937000A51908 /* CreditCardViewController.swift in Sources */,
@@ -1255,6 +1263,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1304,6 +1314,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -1347,6 +1359,7 @@
 			baseConfigurationReference = 7B177F4FADA711E4EF9BCD15 /* Pods-Impact.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1363,6 +1376,7 @@
 			baseConfigurationReference = 66B6A1D9E8360A373E33D0B4 /* Pods-Impact.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "";
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

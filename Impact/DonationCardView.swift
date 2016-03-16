@@ -22,8 +22,9 @@ class DonationCardView: UIView {
     var amount:Int = 0{
         willSet(newValue){
             let decimalAmount = CGFloat(newValue) / CGFloat(100.00)
-            
-            self.amountTextField.text = newValue == 0 ? "$0.00" : "$\(decimalAmount)"
+            let formatter = NSNumberFormatter()
+            formatter.numberStyle = .CurrencyStyle
+            self.amountTextField.text = newValue == 0 ? "$0.00" : formatter.stringFromNumber(decimalAmount)
         }
     }
     override init(frame:CGRect) {

@@ -19,8 +19,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="REk-Fo-dpc">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PinkSpiralBackground" translatesAutoresizingMaskIntoConstraints="NO" id="REk-Fo-dpc">
                     <rect key="frame" x="0.0" y="-5" width="600" height="605"/>
+                    <color key="backgroundColor" red="0.28235294119999998" green="0.28235294119999998" blue="0.28235294119999998" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7cm-L3-WIs" customClass="RoundedButton" customModule="Impact" customModuleProvider="target">
                     <rect key="frame" x="49" y="269" width="502" height="45"/>
@@ -151,7 +152,7 @@
         </view>
     </objects>
     <resources>
-        <image name="background" width="750" height="1334"/>
+        <image name="PinkSpiralBackground" width="750" height="1321"/>
         <image name="xButton" width="31" height="31"/>
     </resources>
 </document>

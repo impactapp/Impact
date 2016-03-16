@@ -33,7 +33,7 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asi-ec-Onk">
-                            <rect key="frame" x="248" y="22" width="105" height="38"/>
+                            <rect key="frame" x="248" y="16" width="105" height="38"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="105" id="AHy-oE-LQK"/>
                             </constraints>
@@ -47,9 +47,9 @@
                         <constraint firstItem="asi-ec-Onk" firstAttribute="centerX" secondItem="YOE-pm-ce3" secondAttribute="centerX" id="5aQ-Ti-Ioy"/>
                         <constraint firstAttribute="bottom" secondItem="Goh-7E-Tai" secondAttribute="bottom" constant="8" id="A6z-VE-5Gt"/>
                         <constraint firstAttribute="trailing" secondItem="Goh-7E-Tai" secondAttribute="trailing" constant="8" id="Xw7-2F-fA4"/>
-                        <constraint firstItem="asi-ec-Onk" firstAttribute="centerY" secondItem="Goh-7E-Tai" secondAttribute="centerY" id="aZ5-0w-O6N"/>
+                        <constraint firstItem="asi-ec-Onk" firstAttribute="centerY" secondItem="Goh-7E-Tai" secondAttribute="centerY" constant="-6" id="aZ5-0w-O6N"/>
                         <constraint firstAttribute="height" constant="64" id="som-9h-t03"/>
-                        <constraint firstItem="asi-ec-Onk" firstAttribute="top" secondItem="YOE-pm-ce3" secondAttribute="top" constant="22" id="x4B-aX-WHL"/>
+                        <constraint firstItem="asi-ec-Onk" firstAttribute="top" secondItem="YOE-pm-ce3" secondAttribute="top" constant="16" id="x4B-aX-WHL"/>
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Srv-hQ-bKw">

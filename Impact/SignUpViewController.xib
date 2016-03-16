@@ -20,8 +20,9 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="L6l-NL-4qG">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PinkSpiralBackground" translatesAutoresizingMaskIntoConstraints="NO" id="L6l-NL-4qG">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="605"/>
+                    <color key="backgroundColor" red="0.28235294117647058" green="0.28235294117647058" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjh-Va-hgq">
                     <rect key="frame" x="220" y="309" width="182" height="33"/>
@@ -192,7 +193,7 @@
     <resources>
         <image name="CheckedBox" width="52" height="45"/>
         <image name="EmptyCheckBox" width="45" height="45"/>
-        <image name="background" width="750" height="1334"/>
+        <image name="PinkSpiralBackground" width="750" height="1321"/>
         <image name="xButton" width="31" height="31"/>
     </resources>
 </document>

@@ -17,18 +17,6 @@
             <rect key="frame" x="0.0" y="0.0" width="395" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Have Donated:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arb-w2-47z">
-                    <rect key="frame" x="8" y="20" width="238" height="35"/>
-                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CollectedHeart" translatesAutoresizingMaskIntoConstraints="NO" id="Zd7-yT-d2x">
-                    <rect key="frame" x="254" y="16" width="44" height="44"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="44" id="SLs-Wa-qt5"/>
-                    </constraints>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e0N-Za-g7p">
                     <rect key="frame" x="265" y="116" width="112" height="21"/>
                     <constraints>
@@ -58,26 +46,38 @@
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="44"/>
                     <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You Have Donated:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arb-w2-47z">
+                    <rect key="frame" x="52" y="21" width="238" height="35"/>
+                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CollectedHeart" translatesAutoresizingMaskIntoConstraints="NO" id="Zd7-yT-d2x">
+                    <rect key="frame" x="298" y="17" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="SLs-Wa-qt5"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="z0A-up-wGT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="00K-7B-doc"/>
                 <constraint firstAttribute="trailing" secondItem="e0N-Za-g7p" secondAttribute="trailing" constant="18" id="ArJ-7z-anE"/>
                 <constraint firstItem="Zd7-yT-d2x" firstAttribute="centerY" secondItem="Arb-w2-47z" secondAttribute="centerY" id="CzP-ku-NFU"/>
-                <constraint firstItem="e0N-Za-g7p" firstAttribute="top" secondItem="Zd7-yT-d2x" secondAttribute="bottom" constant="56" id="HB3-QR-iCg"/>
-                <constraint firstItem="z0A-up-wGT" firstAttribute="top" secondItem="Zd7-yT-d2x" secondAttribute="bottom" constant="2" id="HTy-ql-Tho"/>
+                <constraint firstItem="e0N-Za-g7p" firstAttribute="top" secondItem="Zd7-yT-d2x" secondAttribute="bottom" constant="55" id="HB3-QR-iCg"/>
+                <constraint firstItem="z0A-up-wGT" firstAttribute="top" secondItem="Zd7-yT-d2x" secondAttribute="bottom" constant="1" id="HTy-ql-Tho"/>
                 <constraint firstItem="Ncz-Rw-5v4" firstAttribute="bottom" secondItem="z0A-up-wGT" secondAttribute="bottom" id="K4v-Hb-tYw"/>
                 <constraint firstItem="Zd7-yT-d2x" firstAttribute="leading" secondItem="Arb-w2-47z" secondAttribute="trailing" constant="8" symbolic="YES" id="KDP-ih-KJ8"/>
                 <constraint firstAttribute="bottom" secondItem="e0N-Za-g7p" secondAttribute="bottom" constant="13" id="OGD-B3-17N"/>
                 <constraint firstAttribute="trailing" secondItem="Ncz-Rw-5v4" secondAttribute="trailing" constant="31" id="VRj-PU-1vm"/>
                 <constraint firstAttribute="bottom" secondItem="z0A-up-wGT" secondAttribute="bottom" constant="14" id="WSv-cw-BJW"/>
                 <constraint firstItem="e0N-Za-g7p" firstAttribute="centerY" secondItem="Ncz-Rw-5v4" secondAttribute="centerY" id="dlF-6T-Xpf"/>
-                <constraint firstItem="z0A-up-wGT" firstAttribute="top" secondItem="Arb-w2-47z" secondAttribute="bottom" constant="7" id="dzQ-zo-mDu"/>
+                <constraint firstItem="z0A-up-wGT" firstAttribute="top" secondItem="Arb-w2-47z" secondAttribute="bottom" constant="6" id="dzQ-zo-mDu"/>
                 <constraint firstItem="Ncz-Rw-5v4" firstAttribute="leading" secondItem="z0A-up-wGT" secondAttribute="trailing" constant="1" id="gWl-Il-goZ"/>
-                <constraint firstItem="Zd7-yT-d2x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="16" id="hnJ-zm-Wgk"/>
-                <constraint firstItem="Arb-w2-47z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" id="rLy-j6-YcN"/>
+                <constraint firstItem="Zd7-yT-d2x" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="17" id="hnJ-zm-Wgk"/>
+                <constraint firstItem="Arb-w2-47z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leadingMargin" constant="44" id="rLy-j6-YcN"/>
                 <constraint firstItem="z0A-up-wGT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="49" id="tIS-ru-1qv"/>
-                <constraint firstAttribute="trailing" secondItem="Zd7-yT-d2x" secondAttribute="trailing" constant="97" id="uxn-pT-1Wh"/>
+                <constraint firstAttribute="trailing" secondItem="Zd7-yT-d2x" secondAttribute="trailing" constant="53" id="uxn-pT-1Wh"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="320.5" y="292"/>

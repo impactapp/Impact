@@ -33,7 +33,7 @@
                                 <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="9za-x8-aGV"/>
                             </connections>
                         </button>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Maximum" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfF-4t-ZnU">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly Maximum" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfF-4t-ZnU">
                             <rect key="frame" x="189" y="26" width="222" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="222" id="Tgg-9s-aDS"/>

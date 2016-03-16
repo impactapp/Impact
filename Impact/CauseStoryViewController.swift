@@ -23,6 +23,7 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
     var joinedLabel : UILabel? = nil
     var joinCauseButton : UIButton? = nil
     var currentCauseId : Int? = nil
+    var currentCauseName : String? = nil
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
@@ -45,9 +46,10 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
         self.tableView.tableHeaderView = summaryHeaderView
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
             self.currentCauseId = currentUser.current_cause_id
+            self.currentCauseName = currentUser.current_cause_name
             if self.cause?.id == self.currentCauseId && self.currentCauseId != nil{
                 self.joinCauseButton?.setImage(UIImage(named: "YoureImpacting"), forState: .Normal)
             }else{
@@ -117,6 +119,40 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
                         
                     }
                     
+                    
+                }else if self.currentCauseId != nil && self.currentCauseName != nil{
+                    
+                    let alertController = UIAlertController(title: "Warning", message: "Are you sure you want switch causes? You are currently Impacting " + self.currentCauseName!, preferredStyle: .Alert)
+                    alertController.view.tintColor = UIColor.customRed()
+                    
+                    let cancelAction = UIAlertAction(title: "NO", style: .Cancel) { (action) in
+                    }
+                    alertController.addAction(cancelAction)
+                    
+                    let OKAction = UIAlertAction(title: "YES", style: .Default) { (action) in
+                        ai.startCustomAnimation()
+                        ServerRequest.shared.joinCause(cause, success: { (successful) -> Void in
+                            ai.stopAnimating()
+                            self.currentCauseId = cause.id
+                            if let joinedLabel = self.joinedLabel{
+                                joinedLabel.text = "You're Contributing!"
+                            }
+                            if let joinCauseButton = self.joinCauseButton {
+                                joinCauseButton.setImage(UIImage(named: "YoureImpacting"), forState: .Normal)
+                            }
+                            }, failure: { (errorMessage) -> Void in
+                                ai.stopAnimating()
+                                let alertController = AlertViewController()
+                                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                                alertController.show()
+                        })
+                        
+                    }
+                    alertController.addAction(OKAction)
+                    self.presentViewController(alertController, animated: true) {
+                        
+                    }
+
                     
                 }else{
                     ai.startCustomAnimation()

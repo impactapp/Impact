@@ -93,7 +93,7 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
             self.moneyTextField = cell.moneyTextField
             cell.moneyTextField.textColor = UIColor.blackColor()
             cell.topLeftLabel.text = "Set Maximum:"
-            cell.bottomRightLabel.text = "Per Month"
+            cell.bottomRightLabel.text = "Per Week"
             
             if((monthlyMaximum) != nil){
                 if(Float(monthlyMaximum) == 0.0){
@@ -135,7 +135,7 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
                     withReuseIdentifier: headerViewIdentifier,
                     forIndexPath: indexPath) as! DonateHeaderCollectionReusableView
                 headerView.textLabel.sizeToFit()
-                headerView.textLabel.text = "With Impact, YOU are in control of the amount you donate. Select the maximum amount you want to donate per month"
+                headerView.textLabel.text = "With Impact, YOU are in control of the amount you donate. Select the maximum amount you want to donate per week"
                 
                 return headerView
                 
@@ -232,7 +232,7 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
         ServerRequest.shared.updateWeeklyBudget(Float(amount), success: { (successful) -> Void in
             activityIndicator.stopAnimating()
             let alertController = AlertViewController()
-            alertController.setUp(self, title: "Success!", message: "You updated your monthly budget!", buttonText: "Continue")
+            alertController.setUp(self, title: "Success!", message: "You updated your weekly budget!", buttonText: "Continue")
             alertController.delegate = self
             alertController.show()
             

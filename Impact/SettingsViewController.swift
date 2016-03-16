@@ -184,17 +184,33 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func logout() {
-        let activityIndicator = ActivityIndicator(view: self.view)
-        activityIndicator.startCustomAnimation()
-        ServerRequest.shared.logout({ (json) -> Void in
-            activityIndicator.stopAnimating()
-            let initialViewController = InitialScreenViewController()
-            self.presentViewController(initialViewController, animated: true, completion: nil)
-            },failure: { (errorMessage) -> Void in
+        let alertController = UIAlertController(title: "Warning", message: "Are you sure you want to logout?", preferredStyle: .Alert)
+        alertController.view.tintColor = UIColor.customRed()
+        
+        let cancelAction = UIAlertAction(title: "NO", style: .Cancel) { (action) in
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "YES", style: .Default) { (action) in
+            let activityIndicator = ActivityIndicator(view: self.view)
+            activityIndicator.startCustomAnimation()
+            ServerRequest.shared.logout({ (json) -> Void in
                 activityIndicator.stopAnimating()
-
-                
-        })
+                let initialViewController = InitialScreenViewController()
+                self.presentViewController(initialViewController, animated: true, completion: nil)
+                },failure: { (errorMessage) -> Void in
+                    activityIndicator.stopAnimating()
+                    
+                    
+            })
+            
+        }
+        alertController.addAction(OKAction)
+        self.presentViewController(alertController, animated: true) {
+            
+        }
+        
+        
     }
     
     func disableFloatingHeaders() {
