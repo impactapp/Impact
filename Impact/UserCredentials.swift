@@ -20,10 +20,11 @@ class UserCredentials: NSObject {
     static let shared = UserCredentials()
     
     func updateUserToken(newToken:String) {
+        
         if keychain.set(newToken, forKey: kAuthenticationTokenKey) {
             
         } else {
-            print("Unable to Update Token in Keychain")
+            print("Unable to Update Authentication Token Token in Keychain")
         }
     }
     
@@ -40,6 +41,7 @@ class UserCredentials: NSObject {
     }
     
     func getUserToken() -> String? {
+        
         return keychain.get(kAuthenticationTokenKey)
     }
     

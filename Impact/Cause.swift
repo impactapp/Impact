@@ -27,7 +27,7 @@ class Cause: NSObject {
     var longitude:Float!
     var latitude:Float!
     
-    private let kDefaultImageURL = "https://credible-content.com/blog/wp-content/uploads/2014/08/content-writing-that-helps.jpg"
+    private let kDefaultImageURL = "https://upload.wikimedia.org/wikipedia/commons/b/be/Beldon_Field.jpg"
     
     /**
     * Instantiate the instance using the passed json values to set the properties values
