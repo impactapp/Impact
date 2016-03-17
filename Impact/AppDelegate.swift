@@ -10,6 +10,7 @@ import UIKit
 import CoreData
 import FBSDKCoreKit
 import AWSCore
+import KeychainSwift
 
 
 @UIApplicationMain
@@ -51,7 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func isLoggedIn() -> Bool {
-        
         if UserCredentials.shared.getUserToken() != nil {
             return true
         } else {

@@ -39,6 +39,7 @@ class BlogPostTableViewHeader: UIView {
         self.cause = cause
         let xibView = NSBundle.mainBundle().loadNibNamed("BlogPostTableViewHeader", owner: self, options: [:]).first as! UIView
         self.addSubview(xibView)
+        self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
         setUpLabel()
         
     }

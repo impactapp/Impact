@@ -77,6 +77,7 @@ class ServerRequest: NSObject {
         let url = useStagingServer ? stagingURL : baseURL
         let path : String = url + endpoint
         let headers = getRequestHeaders(authenticated)
+        
         Alamofire.request(.POST, path, parameters: parameters, headers:headers, encoding: .JSON).responseJSON { response in
             let status = response.response?.statusCode
             if let data = response.data {
@@ -331,9 +332,11 @@ class ServerRequest: NSObject {
                 self.postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
                     success(success: true)
                     }, failure: { (error) -> Void in
+                        
                         failure(errorMessage: "Invalid Credit Card Credentials")
                 })
             } else {
+                
                 var errorMessage = "Invalid Credit Card Credentials"
                 if let reason = error?.localizedDescription {
                     errorMessage = reason
@@ -345,6 +348,7 @@ class ServerRequest: NSObject {
     
     func addCreditCard(card:STPCard,success:(success:Bool) -> Void, failure:(errorMessage:String) -> Void) {
         let apiClient = STPAPIClient(publishableKey: kStripePublishableKey)
+        
         apiClient.createTokenWithCard(card, completion: { (stripeToken, error) -> Void in
             if let token = stripeToken?.tokenId {
                 let parameters = ["contribution": ["stripe_generated_token":token]]
@@ -352,6 +356,7 @@ class ServerRequest: NSObject {
                 self.postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
                     success(success: true)
                     }, failure: { (error) -> Void in
+                        
                         failure(errorMessage: "Invalid Credit Card Credentials")
                 })
             } else {
