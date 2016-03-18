@@ -51,6 +51,8 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
         if self.cause?.id == 2 {
             self.summaryHeaderView.imageView.image = UIImage(named: "miles_covington")
         }
+        
+        self.summaryHeaderView.partnershipLabel.text = "In Partnership with CityLax"
 
     }
     

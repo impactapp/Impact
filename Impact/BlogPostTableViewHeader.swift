@@ -22,6 +22,7 @@ class BlogPostTableViewHeader: UIView {
     @IBOutlet var joinLabel: UILabel!
     @IBOutlet var joinButton: UIButton!
     
+    @IBOutlet weak var partnershipLabel: UILabel!
     @IBOutlet weak var causeNameLabel: UILabel!
     @IBOutlet weak var blogPostTitleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
