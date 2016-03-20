@@ -32,10 +32,11 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
         self.tableView.dataSource = self
         let frame = CGRectMake(0,0,self.tableView.frame.size.width,self.tableView.frame.size.height)
         let blogPost = BlogPost()
-        blogPost.title = "Test Blog Post"
-        blogPost.blog_body =  "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
-
-        let blogPostHeader =    BlogPostTableViewHeader(frame:frame,blogPost:blogPost, cause:self.cause )
+        blogPost.title = "About Me"
+        if let cause = self.cause {
+            blogPost.blog_body =  cause.descriptionField
+        }
+                let blogPostHeader =    BlogPostTableViewHeader(frame:frame,blogPost:blogPost, cause:self.cause )
         self.summaryHeaderView = blogPostHeader
         self.summaryHeaderView.delegate = self
         self.joinedLabel = blogPostHeader.joinLabel
@@ -44,6 +45,15 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
         let newHeight = summaryHeaderView.blogPostLabel.frame.origin.y + summaryHeaderView.blogPostLabel.frame.size.height + self.contributeButtonPlusLabelHeight
         summaryHeaderView.frame.size.height = newHeight
         self.tableView.tableHeaderView = summaryHeaderView
+        if self.cause?.id == 1 {
+            self.summaryHeaderView.imageView.image = UIImage(named: "indiya_baker")
+        }
+        if self.cause?.id == 2 {
+            self.summaryHeaderView.imageView.image = UIImage(named: "miles_covington")
+        }
+        
+        self.summaryHeaderView.partnershipLabel.text = "In Partnership with CityLax"
+
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -22,6 +22,7 @@ class BlogPostTableViewHeader: UIView {
     @IBOutlet var joinLabel: UILabel!
     @IBOutlet var joinButton: UIButton!
     
+    @IBOutlet weak var partnershipLabel: UILabel!
     @IBOutlet weak var causeNameLabel: UILabel!
     @IBOutlet weak var blogPostTitleLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
@@ -39,6 +40,7 @@ class BlogPostTableViewHeader: UIView {
         self.cause = cause
         let xibView = NSBundle.mainBundle().loadNibNamed("BlogPostTableViewHeader", owner: self, options: [:]).first as! UIView
         self.addSubview(xibView)
+        self.imageView.contentMode = UIViewContentMode.ScaleAspectFit
         setUpLabel()
         
     }
