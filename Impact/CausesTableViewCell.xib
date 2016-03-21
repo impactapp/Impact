@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -13,7 +13,7 @@
             <rect key="frame" x="0.0" y="0.0" width="450" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="450" height="199.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="450" height="200"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3hl-Cw-sBS">
@@ -82,6 +82,13 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CityLaxNoBackground" translatesAutoresizingMaskIntoConstraints="NO" id="QvC-1y-reA">
+                                <rect key="frame" x="350" y="0.0" width="100" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="idU-nr-RGg"/>
+                                    <constraint firstAttribute="height" constant="50" id="swk-7l-9rB"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="5yu-HN-ali" firstAttribute="leading" secondItem="yXZ-tC-uKw" secondAttribute="leading" constant="8" id="BfA-xD-ySN"/>
@@ -92,9 +99,11 @@
                             <constraint firstAttribute="bottom" secondItem="GVZ-vF-riQ" secondAttribute="bottom" constant="2" id="asR-DH-g4b"/>
                             <constraint firstItem="GVZ-vF-riQ" firstAttribute="leading" secondItem="5yu-HN-ali" secondAttribute="trailing" constant="8" id="gCI-D1-qMY"/>
                             <constraint firstItem="GVZ-vF-riQ" firstAttribute="top" secondItem="tXN-fe-nCi" secondAttribute="bottom" constant="-9" id="gFW-Cs-3G8"/>
+                            <constraint firstAttribute="trailing" secondItem="QvC-1y-reA" secondAttribute="trailing" id="kmO-7B-rpa"/>
                             <constraint firstItem="3iW-0A-SjY" firstAttribute="top" secondItem="vM9-3s-7Tn" secondAttribute="bottom" constant="-9" id="mUG-sG-hF7"/>
                             <constraint firstItem="vjs-aq-TV0" firstAttribute="leading" secondItem="vM9-3s-7Tn" secondAttribute="trailing" constant="8" id="qaj-hJ-MFH"/>
                             <constraint firstAttribute="bottom" secondItem="5yu-HN-ali" secondAttribute="bottom" constant="12" id="ry5-7R-1K7"/>
+                            <constraint firstItem="QvC-1y-reA" firstAttribute="top" secondItem="yXZ-tC-uKw" secondAttribute="top" id="vMH-Nq-H86"/>
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mikey Stolzenberg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2fq-Ar-F8l">
@@ -106,17 +115,9 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CausesIcon" translatesAutoresizingMaskIntoConstraints="NO" id="QvC-1y-reA">
-                        <rect key="frame" x="350" y="18" width="100" height="50"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="100" id="idU-nr-RGg"/>
-                            <constraint firstAttribute="height" constant="50" id="swk-7l-9rB"/>
-                        </constraints>
-                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="yXZ-tC-uKw" firstAttribute="height" secondItem="3hl-Cw-sBS" secondAttribute="height" id="1HF-JV-ccE"/>
-                    <constraint firstAttribute="trailing" secondItem="QvC-1y-reA" secondAttribute="trailing" id="1uN-gn-ZQv"/>
                     <constraint firstItem="2fq-Ar-F8l" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="2Zg-R9-mLD"/>
                     <constraint firstAttribute="bottom" secondItem="3hl-Cw-sBS" secondAttribute="bottom" constant="4" id="GHj-3D-y8C"/>
                     <constraint firstAttribute="bottomMargin" secondItem="3iW-0A-SjY" secondAttribute="bottom" constant="-3.5" id="I6C-7w-wwm"/>
@@ -128,7 +129,6 @@
                     <constraint firstAttribute="bottom" secondItem="3hl-Cw-sBS" secondAttribute="bottom" constant="3" id="cCK-Yt-X7n"/>
                     <constraint firstItem="2fq-Ar-F8l" firstAttribute="width" secondItem="3hl-Cw-sBS" secondAttribute="width" multiplier="0.6" id="eRr-iW-b9j"/>
                     <constraint firstItem="yXZ-tC-uKw" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jxt-Go-95t"/>
-                    <constraint firstItem="QvC-1y-reA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="18" id="ovD-Wd-NjP"/>
                     <constraint firstItem="3hl-Cw-sBS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="p7s-gV-rgp"/>
                     <constraint firstItem="yXZ-tC-uKw" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="uvr-YW-NuK"/>
                 </constraints>
@@ -153,7 +153,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="CausesIcon" width="30" height="30"/>
+        <image name="CityLaxNoBackground" width="1251" height="534"/>
         <image name="Location" width="38" height="48"/>
     </resources>
 </document>

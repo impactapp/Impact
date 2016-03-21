@@ -56,7 +56,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidChange() {
-        let enable = emailTextField.text != "" && fullNameTextField.text != "" && passwordTextField.text!.characters.count >= 6  
+        let enable = emailTextField.text != "" && fullNameTextField.text != "" && passwordTextField.text!.characters.count >= 6 && self.checkBoxButton.selected
+        
         shouldEnableSignUpButton(enable)
     }
     
@@ -105,12 +106,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func checkBoxButtonPressed(sender: AnyObject) {
-        if self.checkBoxButton.selected{
-           // self.checkBoxButton.frame = CGRectMake(self.checkBoxButton.frame.origin.x , self.checkBoxButton.frame.origin.y, self.checkBoxButton.frame.size.width - self.checkboxChangeWidth , self.checkBoxButton.frame.size.height)
-        }else{
-           // self.checkBoxButton.frame = CGRectMake(self.checkBoxButton.frame.origin.x , self.checkBoxButton.frame.origin.y, self.checkBoxButton.frame.size.width + self.checkboxChangeWidth , self.checkBoxButton.frame.size.height)
-        }
+      
         self.checkBoxButton.selected = !self.checkBoxButton.selected
+        textFieldDidChange()
     }
     
     func navigateToBankViewController() {
