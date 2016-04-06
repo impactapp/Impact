@@ -155,9 +155,7 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.delegate = self
             if(self.currentUser != nil){
                 cell.cellSwitch.hidden = false
-                if(self.currentUser.weekly_budget != 0){
-                   cell.cellSwitch.on = self.currentUser.automatic_donations
-                }
+                cell.cellSwitch.on = self.currentUser.automatic_donations
             }else{
                 cell.cellSwitch.hidden = true
             }
