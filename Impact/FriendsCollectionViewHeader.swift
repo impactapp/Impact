@@ -12,6 +12,8 @@ class FriendsCollectionViewHeader: UIView, UICollectionViewDelegateFlowLayout, U
     @IBOutlet weak var contributorsCountLabel: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    var friendsCellWidth = (60)
+    var friendsCellHeight = (75)
     var friends : [User] = []
     let maxFriendsToShow = 10
     init(frame:CGRect, friends:[User]) {
@@ -29,14 +31,14 @@ class FriendsCollectionViewHeader: UIView, UICollectionViewDelegateFlowLayout, U
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 10
         layout.scrollDirection = .Horizontal
-        layout.itemSize = CGSizeMake(60, 75)
+        layout.itemSize = CGSizeMake(CGFloat(friendsCellWidth), CGFloat(friendsCellHeight))
         
         var rightInset:CGFloat? = nil
         if DeviceType.IS_IPHONE_5{
-            rightInset = CGFloat((self.friends.count-3)*(60))
+            rightInset = CGFloat((self.friends.count-1)*(friendsCellWidth))
         }
         else{
-            rightInset = CGFloat((self.friends.count-4)*(60))
+            rightInset = CGFloat((Float(self.friends.count)-2)*Float(friendsCellWidth))
         }
         layout.sectionInset = UIEdgeInsetsMake(-10, 5, 10, rightInset!)
         
