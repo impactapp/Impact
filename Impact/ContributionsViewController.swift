@@ -26,8 +26,8 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
 
     let cellIdentifier = "ContributionsCollectionViewCell"
     let titles :[String] = ["Currently Impacting", "Total Contributions", "Current Streak", "Donation Breakdown", "Round Up Log", "Previous Impacts"]
-    let details :[String] = ["You're impacting:", "You've donated:", "You've consecutively impacted:", "You've mostly impacted:", "You've made:", "You've helped"]
-    let bottomLabels :[String] = ["Causes", "In Total", "Days", "Armed Services", "Round Ups", "Causes"]
+    let details :[String] = ["You're impacting:", "You've donated:", "You've consecutively impacted:", "You've mostly impacted:", "", "You've helped:"]
+    let bottomLabels :[String] = ["Causes", "In Total", "Days", "Armed Services", "", "Causes"]
     
     var header = HeaderView(view:UIView())
     var previousBarYOrigin = CGFloat(0)
@@ -156,6 +156,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             cell.finishingLabel.hidden = true;
             
         case 1:
+            cell.numberLabel.hidden = false
             if((self.currentUser) != nil){
                 let formatter = NSNumberFormatter()
                 formatter.numberStyle = .CurrencyStyle
@@ -204,6 +205,7 @@ class ContributionsViewController: UIViewController, UICollectionViewDelegate,UI
             cell.finishingLabel.text = category
             
         case 4:
+            
             cell.numberLabel.text = String(self.contributions.count)
             cell.numberLabel.textColor = UIColor.customRed()
             
