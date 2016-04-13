@@ -64,7 +64,6 @@ class RoundUpsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell : RoundUpsTableViewCell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! RoundUpsTableViewCell
-        
         let transaction = transactions[indexPath.row]
         let dateformatter = NSDateFormatter()
         dateformatter.dateFormat = "MMMM dd, yyyy"

@@ -43,8 +43,6 @@ class User: NSObject {
         if json == nil{
             return
         }
-        print("json here")
-        print(json)
         
         id = json["id"].intValue
         name = json["name"].stringValue
@@ -65,7 +63,6 @@ class User: NSObject {
         needsCreditCardInfo = json["needs_credit_card_information"].bool ?? false
         automatic_donations = json["automatic_donations"].bool ?? false
         profile_image_url = json["profile_image_url"].stringValue
-        print(profile_image_url)
         //dates
         let dateformatter = NSDateFormatter()
         dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
