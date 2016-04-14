@@ -91,6 +91,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func createAccountButtonPressed(sender: AnyObject) {
         let payload = ["name":fullNameTextField.text!, "password": passwordTextField.text!, "email": emailTextField.text!]
+        
         ServerRequest.shared.signUpWithPayload(payload, success: { (json) -> Void in
             self.navigateToBankViewController()
             },failure: { (errorMessage) -> Void in

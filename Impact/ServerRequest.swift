@@ -173,6 +173,7 @@ class ServerRequest: NSObject {
         postWithEndpoint("signup", parameters: parameters, authenticated: false,
             success: { (json) -> Void in
                 self.updateAuthenticationToken(json["authentication_token"].string)
+                
                 success(json: json)
             }, failure: { (errorJson) -> Void in
                 let errors = errorJson["errors"][0]
