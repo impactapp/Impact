@@ -638,7 +638,7 @@ class ServerRequest: NSObject {
             }
             success(isFinished: completed,user:user, question:question, plaidToken:plaidToken)
             }, failure: { (error) -> Void in
-                failure(errorMessage: "Invalid Credentials")
+                failure(errorMessage: "Invalid credentials")
         })
     }
     

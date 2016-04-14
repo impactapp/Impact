@@ -78,5 +78,10 @@ class ChooseBankViewController: UIViewController, UICollectionViewDelegate, UICo
         bsvc.bank = self.selectedBank;
         self.navigationController?.pushViewController(bsvc, animated: true);
     }
+    @IBAction func skipToCreditCardAction(sender: AnyObject) {
+        let ccvc = CreditCardViewController()
+        self.navigationController?.pushViewController(ccvc, animated: true)
+        
+    }
 
 }

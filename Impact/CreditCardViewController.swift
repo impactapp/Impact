@@ -163,6 +163,11 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
     @IBAction func backPressed(sender: AnyObject) {
         self.navigationController?.popViewControllerAnimated(true)
     }
+    @IBAction func skipToCategoriesAction(sender: AnyObject) {
+        let cvc = CategoriesViewController()
+        self.navigationController?.pushViewController(cvc, animated: true)
+        
+    }
     /*
     // MARK: - Navigation
 

@@ -186,7 +186,7 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
         
         let amount = validMoneyText(moneyText!)
         if(amount != nil){
-            let messageString:String =  "You are about to update your monthly maximum to " + self.moneyTextField.text! + " press OK to confirm this update"
+            let messageString:String =  "You are about to update your weekly maximum to " + self.moneyTextField.text! + " press OK to confirm this update"
             let alertController = UIAlertController(title: "New Maximum" , message: messageString, preferredStyle: .Alert)
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
