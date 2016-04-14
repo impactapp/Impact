@@ -91,6 +91,7 @@ class InitialScreenViewController: UIViewController {
         
         if user.needsBankInfo == true {
             let chooseBankViewController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil)
+            chooseBankViewController.enteredFromSettings = false
             nvc = UINavigationController(rootViewController: chooseBankViewController)
         } else if user.needsCreditCardInfo  == true {
             let ccvc = CreditCardViewController(nibName: "CreditCardViewController", bundle: nil);

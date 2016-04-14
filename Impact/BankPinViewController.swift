@@ -15,6 +15,7 @@ class BankPinViewController: UIViewController {
     var bank : Bank? = nil;
     var doneButton : DoneButton = DoneButton();
     var keyboardFrame = CGRectZero;
+    var enteredFromSettings : Bool!
     override func viewDidLoad() {
         super.viewDidLoad();
         self.navigationHeaderView.addBottomBorder(UIColor.customGrey());
@@ -49,6 +50,7 @@ class BankPinViewController: UIViewController {
     func donePressed() {
         let bsqvc = BankSecurityQuestionViewController(nibName: "BankSecurityQuestionViewController", bundle: nil);
         bsqvc.bank = self.bank;
+        bsqvc.enteredFromSettings = self.enteredFromSettings
         self.navigationController?.pushViewController(bsqvc, animated: true);
     }
 

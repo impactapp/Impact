@@ -42,6 +42,16 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        ServerRequest.shared.getCategories { (categories) -> Void in
+            let lastIndex = categories.count - 1
+            let leftOverCells = categories.count % self.cellsPerRow
+            self.fullRowCategories = Array(categories[0...(lastIndex-leftOverCells)])
+            if leftOverCells != 0 {
+                self.notFullRowCategories = Array(categories[(lastIndex-leftOverCells+1)...lastIndex])
+            }
+            
+            self.collectionView.reloadData()
+        }
         setUpContinueButton()
     }
     
@@ -175,6 +185,9 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
             }
         }
         
+    }
+    @IBAction func backButtonPressed(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation

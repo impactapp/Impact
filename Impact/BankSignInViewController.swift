@@ -14,6 +14,7 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
     var keyboardFrame : CGRect = CGRectZero
     var question:String? = nil
     var plaidToken:String? = nil
+    var enteredFromSettings : Bool!
     
     
     @IBOutlet var titleLabel: UILabel!
@@ -25,6 +26,8 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad();
+        
+        
         initHeaderView();
         initTextFields();
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil);
@@ -73,6 +76,7 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
         }else if textField == bankUsernameTextField && validInputs{
             let bpvc = BankPinViewController(nibName: "BankPinViewController", bundle: nil);
             bpvc.bank = self.bank;
+            bpvc.enteredFromSettings = self.enteredFromSettings
             self.navigationController?.pushViewController(bpvc, animated: true);
             
         }
@@ -105,7 +109,10 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
                 if isFinished {
                     if let currentUser = user {
                         
-                        if currentUser.needsCreditCardInfo == true {
+                        if self.enteredFromSettings == true {
+                            self.navigateToProfile()
+                        }
+                        else if currentUser.needsCreditCardInfo == true {
                             self.navigateToCreditCard()
                         } else {
                             self.navigateToApp()
@@ -134,12 +141,19 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
         if let plaidToken = self.plaidToken {
             bsqvc.plaidToken = plaidToken
         }
+        bsqvc.enteredFromSettings = true
         self.navigationController?.pushViewController(bsqvc, animated: true);
     }
     
     func navigateToCreditCard() {
         let ccvc = CreditCardViewController(nibName: "CreditCardViewController", bundle: nil);
         self.navigationController?.pushViewController(ccvc, animated: true)
+    }
+    
+    func navigateToProfile() {
+        let tabBarController = TabBarViewController()
+        tabBarController.selectedIndex = 4
+        self.navigationController?.pushViewController(tabBarController, animated: true)
     }
     
     func navigateToApp() {

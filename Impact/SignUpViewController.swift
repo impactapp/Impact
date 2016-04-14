@@ -113,6 +113,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     func navigateToBankViewController() {
         let chooseBankViewController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil)
+        chooseBankViewController.enteredFromSettings = false
         let navigationController = UINavigationController(rootViewController: chooseBankViewController);
         navigationController.navigationBarHidden = true;
         self.presentViewController(navigationController, animated: true, completion: nil)
