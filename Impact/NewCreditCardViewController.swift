@@ -22,11 +22,15 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
     var cvvTextField:UITextField!
     var expTextField:UITextField!
     var successIndicator:Bool = false
+    var currentUser: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpCollectionView()
-        
+        ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
+           self.currentUser = currentUser
+        }
+
         // Do any additional setup after loading the view.
     }
     
@@ -200,20 +204,46 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
         }
         let activityIndicator = ActivityIndicator(view: self.view)
         activityIndicator.startCustomAnimation()
-        ServerRequest.shared.addCreditCard(stripeCard, success: { (success) -> Void in
-            self.successIndicator = true
-            activityIndicator.stopAnimating()
+        
+        if let currentUser = self.currentUser{
+            if currentUser.needsCreditCardInfo == false{
+                ServerRequest.shared.addCreditCard(stripeCard, success: { (success) -> Void in
+                    self.successIndicator = true
+                    activityIndicator.stopAnimating()
+                    let alertController = AlertViewController()
+                    alertController.delegate = self
+                    alertController.setUp(self, title: "Success!", message: "Added credit card", buttonText: "Continue")
+                    alertController.show()
+                    }, failure: { (errorMessage) -> Void in
+                        self.successIndicator = false
+                        activityIndicator.stopAnimating()
+                        let alertController = AlertViewController()
+                        alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                        alertController.show()
+                })
+            }else{
+                ServerRequest.shared.updateStripeCustomer(stripeCard, success: { (success) -> Void in
+                    self.successIndicator = true
+                    activityIndicator.stopAnimating()
+                    let alertController = AlertViewController()
+                    alertController.delegate = self
+                    alertController.setUp(self, title: "Success!", message: "Added credit card", buttonText: "Continue")
+                    alertController.show()
+                    }, failure: { (errorMessage) -> Void in
+                        self.successIndicator = false
+                        activityIndicator.stopAnimating()
+                        let alertController = AlertViewController()
+                        alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
+                        alertController.show()
+                })
+            }
+        }else{
             let alertController = AlertViewController()
-            alertController.delegate = self
-            alertController.setUp(self, title: "Success!", message: "Added credit card", buttonText: "Continue")
+            alertController.setUp(self, title: "No Current User", message: "Check internet connection, and make sure you are logged in", buttonText: "Dismiss")
             alertController.show()
-            }, failure: { (errorMessage) -> Void in
-                self.successIndicator = false
-                activityIndicator.stopAnimating()
-                let alertController = AlertViewController()
-                alertController.setUp(self, title: "Error", message: errorMessage, buttonText: "Dismiss")
-                alertController.show()
-        })
+        }
+        
+        
 
     }
     
