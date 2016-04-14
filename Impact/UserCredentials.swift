@@ -11,11 +11,11 @@ import KeychainSwift
 
 class UserCredentials: NSObject {
     let kUserCredentialsConstant = "UserCredentials"
-    let kAuthenticationTokenKey = "authenticationToken"
-    let kFacebookCredentials = "FacebookCredentials"
-    let kFacebookToken = "facebookToken"
-    let kFacebookID = "facebookID"
-    let kDeviceToken = "deviceToken"
+    let kAuthenticationTokenKey = "authenticationToken_key"
+    let kFacebookCredentials = "FacebookCredentials_key"
+    let kFacebookToken = "facebookToken_key"
+    let kFacebookID = "facebookID_key"
+    let kDeviceToken = "deviceToken_key"
     let keychain = KeychainSwift()
     static let shared = UserCredentials()
     
