@@ -15,6 +15,7 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
     var bank : Bank? = nil
     var nextButton : DoneButton = DoneButton()
     var keyboardFrame = CGRectZero
+    var enteredFromSettings : Bool!
     
     @IBOutlet var navigationHeaderView: UIView!
     @IBOutlet var answerTextField: UITextField!
@@ -101,6 +102,12 @@ class BankSecurityQuestionViewController: UIViewController, UITextFieldDelegate 
     
     func navigateToApp() {
         let tabBarController = TabBarViewController()
+        self.navigationController?.pushViewController(tabBarController, animated: true)
+    }
+    
+    func navigateToProfile() {
+        let tabBarController = TabBarViewController()
+        tabBarController.selectedIndex = 4
         self.navigationController?.pushViewController(tabBarController, animated: true)
     }
     

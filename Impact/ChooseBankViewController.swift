@@ -9,11 +9,13 @@
 import UIKit
 
 class ChooseBankViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    @IBOutlet var skipButton: UIButton!
     @IBOutlet var collectionView: UICollectionView!
     let headerViewIdentifier = "ChooseBankHeaderView";
     let cellIdentifier = "RoundedCollectionViewCell";
     var banks : [Bank] = [];
     var selectedBank : Bank? = nil;
+    var enteredFromSettings : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -74,13 +76,17 @@ class ChooseBankViewController: UIViewController, UICollectionViewDelegate, UICo
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.selectedBank = banks[indexPath.row];
         let bsvc : BankSignInViewController = BankSignInViewController(nibName: "BankSignInViewController", bundle: nil);
-        
+        bsvc.enteredFromSettings = self.enteredFromSettings
         bsvc.bank = self.selectedBank;
         self.navigationController?.pushViewController(bsvc, animated: true);
     }
     @IBAction func skipToCreditCardAction(sender: AnyObject) {
-        let ccvc = CreditCardViewController()
-        self.navigationController?.pushViewController(ccvc, animated: true)
+        if enteredFromSettings{
+            self.navigationController?.popViewControllerAnimated(true)
+        }else{
+            let ccvc = CreditCardViewController()
+            self.navigationController?.pushViewController(ccvc, animated: true)
+        }
         
     }
 

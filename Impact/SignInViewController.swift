@@ -91,6 +91,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
         if user.needsBankInfo == true {
             let chooseBankViewController = ChooseBankViewController(nibName: "ChooseBankViewController", bundle: nil)
             nvc = UINavigationController(rootViewController: chooseBankViewController)
+            chooseBankViewController.enteredFromSettings = false
         } else if user.needsCreditCardInfo  == true {
             let ccvc = CreditCardViewController(nibName: "CreditCardViewController", bundle: nil);
             nvc = UINavigationController(rootViewController: ccvc)

@@ -92,6 +92,21 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             }
             
         }
+        if indexPath.section == 1 {
+            if indexPath.row == 1{
+                if let user = self.user{
+                    if user.needsBankInfo == true{
+                        cell.customAccessoryView.image = UIImage(named: "xButton")
+                        cell.customAccessoryView.tintColor = UIColor.customRed()
+                    }else{
+                        cell.customAccessoryView.image = UIImage(named: "Checkmark-50")
+                        cell.customAccessoryView.tintColor = UIColor.customRed()
+
+                    }
+                }
+                
+            }
+        }
         
         return cell
     }
@@ -162,6 +177,12 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             if indexPath.row == 0 {
                 let ccvc = MyCreditCardsViewController()
                 self.navigationController?.pushViewController(ccvc, animated: true)
+            }
+            if indexPath.row == 1 {
+                
+                let cbvc = ChooseBankViewController()
+                cbvc.enteredFromSettings = true
+                self.navigationController?.pushViewController(cbvc, animated: true)
             }
         } else if indexPath.section == 2 {
             if indexPath.row == 2 {
