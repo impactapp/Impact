@@ -22,6 +22,9 @@ class FooterCollectionReusableView: UICollectionReusableView {
         // Initialization code
     }
     
+    func switchColors() {
+        self.topButton.backgroundColor = UIColor.blackColor()
+    }
     
     @IBAction func topButtonPressed(sender: AnyObject) {
         if let delegate = self.delegate {

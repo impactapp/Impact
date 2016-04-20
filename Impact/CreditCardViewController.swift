@@ -39,6 +39,12 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
         self.creditCardTextField.enablePadding(true)
         self.securityCodeTextField.delegate = self
         self.securityCodeTextField.enablePadding(true)
+        self.securityCodeTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        self.creditCardTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        self.expirationDateTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        
+
+        
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -168,6 +174,11 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
         self.navigationController?.pushViewController(cvc, animated: true)
         
     }
+    
+    func textFieldDidChange(textField: UITextField) {
+        checkAllFormsFilled()
+    }
+    
     /*
     // MARK: - Navigation
 
