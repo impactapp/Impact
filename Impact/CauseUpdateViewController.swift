@@ -147,6 +147,9 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
                     alertController.addAction(cancelAction)
                     
                     let OKAction = UIAlertAction(title: "YES", style: .Default) { (action) in
+                        if let selected = self.joinCauseButton?.selected{
+                            self.joinCauseButton?.selected = !selected
+                        }
                         ai.startCustomAnimation()
                         ServerRequest.shared.leaveCause(cause, success: { (successful) -> Void in
                             ai.stopAnimating()
@@ -173,7 +176,7 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
                     }
                     
                     
-                }else if self.currentCauseId != nil && self.currentCauseName != nil{
+                }else if self.currentCauseId != 0 && self.currentCauseId != nil && self.currentCauseName != "" && self.currentCauseName != nil{
                     
                     let alertController = UIAlertController(title: "Warning", message: "Are you sure you want switch causes? You are currently Impacting " + self.currentCauseName!, preferredStyle: .Alert)
                     alertController.view.tintColor = UIColor.customRed()
@@ -183,6 +186,9 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
                     alertController.addAction(cancelAction)
                     
                     let OKAction = UIAlertAction(title: "YES", style: .Default) { (action) in
+                        if let selected = self.joinCauseButton?.selected{
+                            self.joinCauseButton?.selected = !selected
+                        }
                         ai.startCustomAnimation()
                         ServerRequest.shared.joinCause(cause, success: { (successful) -> Void in
                             ai.stopAnimating()
@@ -208,6 +214,9 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
                     
                     
                 }else{
+                    if let selected = self.joinCauseButton?.selected{
+                        self.joinCauseButton?.selected = !selected
+                    }
                     ai.startCustomAnimation()
                     ServerRequest.shared.joinCause(cause, success: { (successful) -> Void in
                         ai.stopAnimating()
