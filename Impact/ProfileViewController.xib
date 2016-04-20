@@ -65,7 +65,7 @@
                         <constraint firstAttribute="height" constant="32" id="FO8-sk-ReD"/>
                     </constraints>
                     <attributedString key="attributedText">
-                        <fragment content="Label">
+                        <fragment content=" ">
                             <attributes>
                                 <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <font key="NSFont" size="26" name="AvenirNext-Regular"/>
@@ -81,7 +81,7 @@
                         <constraint firstAttribute="height" constant="32" id="NEc-jJ-1Wa"/>
                     </constraints>
                     <attributedString key="attributedText">
-                        <fragment content="Label">
+                        <fragment content=" ">
                             <attributes>
                                 <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <font key="NSFont" size="17" name="AvenirNext-Regular"/>
