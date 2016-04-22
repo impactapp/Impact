@@ -333,9 +333,10 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
         alertController.view.tintColor = UIColor.customRed()
         
         self.presentViewController(alertController, animated: true) {
-            // ...
+            alertController.view.tintColor = UIColor.customRed()
+
         }
-        
+
     }
     
     

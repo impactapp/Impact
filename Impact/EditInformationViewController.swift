@@ -196,7 +196,8 @@ class EditInformationViewController: UIViewController, UITextFieldDelegate, Aler
                 }
                 alertController.addAction(OKAction)
                 self.presentViewController(alertController, animated: true) {
-                    
+                    alertController.view.tintColor = UIColor.customRed()
+
                 }
             }
 

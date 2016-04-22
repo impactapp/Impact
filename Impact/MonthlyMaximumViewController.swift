@@ -206,7 +206,7 @@ class MonthlyMaximumViewController: UIViewController, UICollectionViewDataSource
             alertController.view.tintColor = UIColor.customRed()
             
             self.presentViewController(alertController, animated: true) {
-                // ...
+                alertController.view.tintColor = UIColor.customRed()
             }
 
             

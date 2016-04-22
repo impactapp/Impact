@@ -248,9 +248,10 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         alertController.view.tintColor = UIColor.customRed()
         
         self.presentViewController(alertController, animated: true) {
-            // ...
+            alertController.view.tintColor = UIColor.customRed()
+
         }
-        
+     
 
         
     }
@@ -299,9 +300,10 @@ class DonateViewController: UIViewController, UITableViewDelegate, UITableViewDa
         alertController.view.tintColor = UIColor.customRed()
         
         self.presentViewController(alertController, animated: true) {
-            // ...
+            alertController.view.tintColor = UIColor.customRed()
+
         }
-        
+
     }
     
     func clearPendingContribution(){

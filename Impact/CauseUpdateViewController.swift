@@ -172,6 +172,7 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
                     }
                     alertController.addAction(OKAction)
                     self.presentViewController(alertController, animated: true) {
+                    alertController.view.tintColor = UIColor.customRed()
                         
                     }
                     
@@ -209,9 +210,10 @@ class CauseUpdateViewController: UIViewController, UITableViewDelegate, UITableV
                     }
                     alertController.addAction(OKAction)
                     self.presentViewController(alertController, animated: true) {
-                        
+                        alertController.view.tintColor = UIColor.customRed()
+
                     }
-                    
+        
                     
                 }else{
                     if let selected = self.joinCauseButton?.selected{

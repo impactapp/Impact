@@ -128,7 +128,7 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
                     }
                     alertController.addAction(OKAction)
                     self.presentViewController(alertController, animated: true) {
-                        
+                    alertController.view.tintColor = UIColor.customRed()
                     }
                     
                     
@@ -162,8 +162,10 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
                     }
                     alertController.addAction(OKAction)
                     self.presentViewController(alertController, animated: true) {
-                        
+                        alertController.view.tintColor = UIColor.customRed()
+
                     }
+                    alertController.view.tintColor = UIColor.customRed()
 
                     
                 }else{
