@@ -20,10 +20,8 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
     let cellsPerRow = 3
     var selectedCategories: [Category] = []
     var continueButton:DoneButton = DoneButton()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUpCollectionView()
         UIApplication.sharedApplication().statusBarHidden = true;
         ServerRequest.shared.getCategories { (categories) -> Void in

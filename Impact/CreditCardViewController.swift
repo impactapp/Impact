@@ -15,7 +15,8 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
     @IBOutlet weak var headerView: UIView!
     var doneButton : DoneButton = DoneButton();
     var keyboardFrame : CGRect = CGRectZero;
-    
+
+    @IBOutlet var headerViewLabel: UILabel!
     @IBOutlet weak var creditCardTextField: UITextField!
     @IBOutlet weak var expirationDateTextField: UITextField!
     @IBOutlet weak var securityCodeTextField: UITextField!
@@ -26,9 +27,11 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
         self.headerView.addBottomBorder(UIColor.customGrey())
         super.viewDidLoad()
         getUserCategories()
+        self.headerViewLabel.adjustsFontSizeToFitWidth = true
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.setStatusBarColor(UIColor.whiteColor(), useWhiteText: true)
         CardIOUtilities.preload()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
         configureTextFields()
@@ -178,7 +181,7 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
         self.navigationController?.popViewControllerAnimated(true)
     }
     @IBAction func skipToCategoriesAction(sender: AnyObject) {
-        self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
+        //self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
         self.userHasCategories ? navigateToApp() : navigateToCategories()
     }
     
