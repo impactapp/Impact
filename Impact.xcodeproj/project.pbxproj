@@ -95,6 +95,7 @@
 		4DE94A861C59E92800850363 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE94A841C59E92800850363 /* ProfileViewController.xib */; };
 		4DE94A911C59EDAC00850363 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE94A8F1C59EDAC00850363 /* SettingsViewController.swift */; };
 		4DE94A921C59EDAC00850363 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DE94A901C59EDAC00850363 /* SettingsViewController.xib */; };
+		4DEBBA021CCA986700AF0EA9 /* ChooseBankHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEBBA011CCA986700AF0EA9 /* ChooseBankHeaderView.swift */; };
 		4DF27D401C24A11E007D563A /* UIFont+CustomFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF27D3F1C24A11E007D563A /* UIFont+CustomFonts.swift */; };
 		4DF3876B1C6019E9008FFAF7 /* EditInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF387691C6019E9008FFAF7 /* EditInformationViewController.swift */; };
 		4DF3876C1C6019E9008FFAF7 /* EditInformationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF3876A1C6019E9008FFAF7 /* EditInformationViewController.xib */; };
@@ -270,6 +271,7 @@
 		4DE94A841C59E92800850363 /* ProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		4DE94A8F1C59EDAC00850363 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4DE94A901C59EDAC00850363 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
+		4DEBBA011CCA986700AF0EA9 /* ChooseBankHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseBankHeaderView.swift; sourceTree = "<group>"; };
 		4DF27D3F1C24A11E007D563A /* UIFont+CustomFonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFonts.swift"; sourceTree = "<group>"; };
 		4DF387691C6019E9008FFAF7 /* EditInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInformationViewController.swift; sourceTree = "<group>"; };
 		4DF3876A1C6019E9008FFAF7 /* EditInformationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditInformationViewController.xib; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				4D2256F21B8ACBD500727A4C /* ChooseBankHeaderView.xib */,
+				4DEBBA011CCA986700AF0EA9 /* ChooseBankHeaderView.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1168,6 +1171,7 @@
 				4D92199D1BF815D700A326A8 /* CausePageViewController.swift in Sources */,
 				4D9219A01BF8190E00A326A8 /* CustomSegmentControl.swift in Sources */,
 				4D0FDE491B8B8620002877CE /* UIView+Nib.swift in Sources */,
+				4DEBBA021CCA986700AF0EA9 /* ChooseBankHeaderView.swift in Sources */,
 				4D6DC3641B8BED330017BF29 /* DoneButton.swift in Sources */,
 				4D2256E91B8A8E5E00727A4C /* TabBarController.swift in Sources */,
 				4D02EC271BD0ABF000701C75 /* String+Date.swift in Sources */,
