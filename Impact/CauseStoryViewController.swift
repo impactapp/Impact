@@ -27,6 +27,7 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -60,6 +61,7 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
         ServerRequest.shared.getCurrentUser { (currentUser) -> Void in
             self.currentCauseId = currentUser.current_cause_id
             self.currentCauseName = currentUser.current_cause_name
+            print(self.currentCauseName! + String(self.currentCauseId!))
             if self.cause?.id == self.currentCauseId && self.currentCauseId != nil{
                 self.joinCauseButton?.setImage(UIImage(named: "YoureImpacting"), forState: .Normal)
             }else{
@@ -130,11 +132,11 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
                     }
                     
                     
-                }else if self.currentCauseId != nil && self.currentCauseName != nil{
+                }else if self.currentCauseId != 0 && self.currentCauseId != nil && self.currentCauseName != "" && self.currentCauseName != nil{
                     
                     let alertController = UIAlertController(title: "Warning", message: "Are you sure you want switch causes? You are currently Impacting " + self.currentCauseName!, preferredStyle: .Alert)
                     alertController.view.tintColor = UIColor.customRed()
-                    
+
                     let cancelAction = UIAlertAction(title: "NO", style: .Cancel) { (action) in
                     }
                     alertController.addAction(cancelAction)

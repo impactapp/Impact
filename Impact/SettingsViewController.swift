@@ -96,8 +96,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             if indexPath.row == 1{
                 if let user = self.user{
                     if user.needsBankInfo == true{
-                        cell.customAccessoryView.image = UIImage(named: "xButton")
-                        cell.customAccessoryView.tintColor = UIColor.customRed()
+                        cell.userLabel.hidden = false
+                        cell.userLabel.text = "Add Bank"
                     }else{
                         cell.customAccessoryView.image = UIImage(named: "Checkmark-50")
                         cell.customAccessoryView.tintColor = UIColor.customRed()
