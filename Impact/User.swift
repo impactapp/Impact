@@ -25,6 +25,7 @@ class User: NSObject {
     var pending_contribution_amount: Int!
     var stripe_customer_id: Int!
     var current_payment_id: Int!
+    var bank_name: String!
     var weekly_budget: Float!
     var current_streak: Int!
     var total_contributions: Int!
@@ -56,6 +57,7 @@ class User: NSObject {
         stripe_customer_id = json["stripe_customer_id"].intValue
         current_payment_id = json["current_payment_id"].intValue
         weekly_budget = json["weekly_budget"].floatValue
+        bank_name = json["bank_name"].stringValue
         current_streak = json["current_streak"].intValue
         total_contributions = json["total_contributions"].intValue
         device_token = json["device_token"].stringValue
@@ -63,6 +65,7 @@ class User: NSObject {
         needsCreditCardInfo = json["needs_credit_card_information"].bool ?? false
         automatic_donations = json["automatic_donations"].bool ?? false
         profile_image_url = json["profile_image_url"].stringValue
+        
         //dates
         let dateformatter = NSDateFormatter()
         dateformatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
@@ -138,6 +141,9 @@ class User: NSObject {
         }
         if profile_image_url != nil{
             dictionary["profile_image_url"] = profile_image_url
+        }
+        if bank_name != nil{
+            dictionary["bank_name"] = bank_name
         }
         if created_at != nil{
             dictionary["created_at"] = created_at

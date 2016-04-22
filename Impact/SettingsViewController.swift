@@ -70,6 +70,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     
     func configureCell(tableView:UITableView,indexPath:NSIndexPath) -> SettingsTableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier(self.cellIdentifier, forIndexPath: indexPath) as! SettingsTableViewCell
+        cell.userLabel.adjustsFontSizeToFitWidth = true
+        cell.titleLabel.sizeToFit()
         cell.separatorInset = UIEdgeInsetsZero
         cell.layoutMargins = UIEdgeInsetsZero
         let section = sectionArray[indexPath.section]
@@ -99,8 +101,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                         cell.userLabel.hidden = false
                         cell.userLabel.text = "Add Bank"
                     }else{
-                        cell.customAccessoryView.image = UIImage(named: "Checkmark-50")
-                        cell.customAccessoryView.tintColor = UIColor.customRed()
+                        cell.userLabel.hidden = false
+                        cell.userLabel.text =  user.bank_name
 
                     }
                 }

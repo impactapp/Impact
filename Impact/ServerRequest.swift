@@ -547,7 +547,6 @@ class ServerRequest: NSObject {
     
     func chooseCategories(categories:[Category], completion:(success:Bool) -> Void) {
         let endpoint = "categories/choose"
-        print(categories.map{$0.id})
         let parameters = ["categories":["category_ids":categories.map{$0.id}]]
         postWithEndpoint(endpoint, parameters: parameters, authenticated: true, success: { (json) -> Void in
             
@@ -633,9 +632,10 @@ class ServerRequest: NSObject {
     
     //MARK: Banks
     
-    func submitBankAccountInfo(bankUserName:String, bankPassword:String, bankType:String, pin: String?,success:(isFinished:Bool,user:User?, question:String?, plaidToken:String?) -> Void, failure:(errorMessage:String) -> Void) {
+    func submitBankAccountInfo(bankUserName:String, bankPassword:String, bankName:String, bankType:String, pin: String?,success:(isFinished:Bool,user:User?, question:String?, plaidToken:String?) -> Void, failure:(errorMessage:String) -> Void) {
         let endpoint = "plaid/create"
-        var payload = ["username":bankUserName, "password":bankPassword, "bank_type":bankType]
+        print(bankName)
+        var payload = ["username":bankUserName, "password":bankPassword, "bank_type":bankType, "bank_name": bankName]
         if let bankPin = pin {
             payload["pin"] = bankPin
         }

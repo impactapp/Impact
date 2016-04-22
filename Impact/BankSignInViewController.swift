@@ -105,7 +105,7 @@ class BankSignInViewController: UIViewController, UITextFieldDelegate {
         if let bank = self.bank {
             let bankUserName = self.bankUsernameTextField.text
             let bankPassword = self.bankPasswordTextfield.text
-            ServerRequest.shared.submitBankAccountInfo(bankUserName!, bankPassword: bankPassword!, bankType: bank.bankType, pin: nil, success: { (isFinished,user, question,plaidToken) -> Void in
+            ServerRequest.shared.submitBankAccountInfo(bankUserName!, bankPassword: bankPassword!, bankName:bank.name, bankType: bank.bankType, pin: nil, success: { (isFinished,user, question,plaidToken) -> Void in
                 if isFinished {
                     if let currentUser = user {
                         
