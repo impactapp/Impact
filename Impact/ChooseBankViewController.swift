@@ -35,6 +35,7 @@ class ChooseBankViewController: UIViewController, UICollectionViewDelegate, UICo
         self.collectionView.delegate = self;
         self.collectionView.dataSource = self;
         self.collectionView.alwaysBounceVertical = true;
+        self.collectionView.registerClass(ChooseBankHeaderView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerViewIdentifier)
         self.collectionView.registerNib(UINib(nibName: headerViewIdentifier, bundle: nil), forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerViewIdentifier);
         self.collectionView.registerNib(UINib(nibName: cellIdentifier, bundle: nil), forCellWithReuseIdentifier: cellIdentifier);
     }
@@ -55,7 +56,11 @@ class ChooseBankViewController: UIViewController, UICollectionViewDelegate, UICo
     }
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
-        return collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: headerViewIdentifier, forIndexPath: indexPath) ;
+        let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: headerViewIdentifier, forIndexPath: indexPath) as! ChooseBankHeaderView
+        headerView.configureHeaderButtons(enteredFromSettings)
+        headerView.skipButton.addTarget(self, action: "skipToCreditCardAction:", forControlEvents: .TouchUpInside)
+        headerView.backButton.addTarget(self, action: "skipToCreditCardAction:", forControlEvents: .TouchUpInside)
+        return headerView
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
