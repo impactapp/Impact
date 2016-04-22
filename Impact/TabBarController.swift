@@ -20,6 +20,7 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad();
         UIApplication.sharedApplication().statusBarHidden = false
+        self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
         initTabBarAttributes();
         setUpViewControllers();
         initUnderLine()

@@ -17,7 +17,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mJ1-Mg-z8D">
-                    <rect key="frame" x="0.0" y="20" width="600" height="600"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="2" id="wa3-Ca-64Z">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -28,9 +28,9 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="mJ1-Mg-z8D" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="5Bz-2s-Vch"/>
+                <constraint firstItem="mJ1-Mg-z8D" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="5Bz-2s-Vch"/>
                 <constraint firstAttribute="trailing" secondItem="mJ1-Mg-z8D" secondAttribute="trailing" id="QEX-0G-B2F"/>
-                <constraint firstAttribute="bottom" secondItem="mJ1-Mg-z8D" secondAttribute="bottom" constant="-20" id="cO8-2J-83N"/>
+                <constraint firstAttribute="bottom" secondItem="mJ1-Mg-z8D" secondAttribute="bottom" id="cO8-2J-83N"/>
                 <constraint firstItem="mJ1-Mg-z8D" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="hxU-3X-YRQ"/>
                 <constraint firstAttribute="trailing" secondItem="mJ1-Mg-z8D" secondAttribute="trailing" id="xiB-ed-Gjb"/>
                 <constraint firstItem="mJ1-Mg-z8D" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zr2-6F-aSh"/>

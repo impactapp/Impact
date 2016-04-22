@@ -25,7 +25,7 @@ class CategoriesViewController: UIViewController, UICollectionViewDelegate, UICo
         super.viewDidLoad()
         
         setUpCollectionView()
-        self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
+        UIApplication.sharedApplication().statusBarHidden = true;
         ServerRequest.shared.getCategories { (categories) -> Void in
             let lastIndex = categories.count - 1
             let leftOverCells = categories.count % self.cellsPerRow
