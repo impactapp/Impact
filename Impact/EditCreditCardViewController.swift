@@ -25,6 +25,7 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
     var cvvTextField:UITextField!
     var expTextField:UITextField!
     var successIndicator = false
+    var footerView:FooterCollectionReusableView!
 
     var creditCard: CreditCard!
     var collectionCell: CreditCardCollectionViewCell!
@@ -95,7 +96,7 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
         cell.layer.cornerRadius = 10
         
         
-        cell.cardNumberTextField.text = "**** **** **** " + creditCard.last4
+        cell.cardNumberTextField.text = "**** **** **** " + creditCard.last4 + " "
         
         cell.cardNumberTextField.enabled = false
         cell.cvvTextField.enabled = false
@@ -105,6 +106,10 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
         expTextField = cell.expDateTextField
         cardTextField = cell.cardNumberTextField
         cvvTextField = cell.cvvTextField
+        expTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        cardTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        cvvTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+
         cardTextField.delegate = self
         expTextField.delegate = self
         cvvTextField.delegate = self
@@ -148,6 +153,9 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
                 footerView.topButton.setTitle("Save Changes", forState: UIControlState.Normal)
                 footerView.bottomButton.setTitle("Remove Card", forState: UIControlState.Normal)
                 footerView.delegate = self
+                self.footerView = footerView
+                self.footerView.topButton.backgroundColor = UIColor.customGrey()
+                self.footerView.topButton.enabled = false
                 
                 
                 return footerView
@@ -170,6 +178,7 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
     //TextField
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool{
+        checkAllFormsFilled()
         let allowEditing = formatTextFields(textField, newString: string, range:range)
         return allowEditing
     }
@@ -200,6 +209,18 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
         
         let allowEditing = validInput || deletePressed
         return allowEditing
+    }
+    
+    private func checkAllFormsFilled() {
+        let finishedFillingForm = self.cardTextField.text!.characters.count == 20 && self.expTextField.text!.characters.count > 4 && self.cvvTextField.text!.characters.count >= 2
+        if finishedFillingForm{
+            self.footerView.topButton.backgroundColor = UIColor.customRed()
+            self.footerView.topButton.enabled = true
+        }else{
+            self.footerView.topButton.backgroundColor = UIColor.customGrey()
+            self.footerView.topButton.enabled = false
+            
+        }
     }
     
     func deleteCard(){
@@ -317,6 +338,10 @@ class EditCreditCardViewController:UIViewController, UICollectionViewDelegate,UI
         
     }
     
+    
+    func textFieldDidChange(textField: UITextField) {
+        checkAllFormsFilled()
+    }
     
     
     

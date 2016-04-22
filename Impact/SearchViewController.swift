@@ -223,7 +223,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     @IBAction func backButtonPressed(sender: AnyObject) {
         
-        
+        self.navigationController?.popViewControllerAnimated(true)  
     }
 
     

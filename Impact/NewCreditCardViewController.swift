@@ -23,6 +23,7 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
     var expTextField:UITextField!
     var successIndicator:Bool = false
     var currentUser: User?
+    var footerView: FooterCollectionReusableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +103,11 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
         cardTextField.delegate = self
         expTextField.delegate = self
         cvvTextField.delegate = self
+        expTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        cardTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        cvvTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+
+        
         self.collectionCell = cell
         return cell
     }
@@ -132,7 +138,9 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
                 footerView.bottomButton.hidden = true
                 footerView.topButton.setTitle("Add Card", forState: UIControlState.Normal)
                 footerView.delegate = self
-                
+                self.footerView = footerView
+                self.footerView.topButton.backgroundColor = UIColor.customGrey()
+                self.footerView.topButton.enabled = false
                 
                 return footerView
                 
@@ -151,6 +159,7 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
             
     }
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool{
+        checkAllFormsFilled()
         let allowEditing = formatTextFields(textField, newString: string, range:range)
         return allowEditing
     }
@@ -181,6 +190,18 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
         
         let allowEditing = validInput || deletePressed
         return allowEditing
+    }
+    
+    private func checkAllFormsFilled() {
+        let finishedFillingForm = self.cardTextField.text!.characters.count == 20 && self.expTextField.text!.characters.count > 4 && self.cvvTextField.text!.characters.count >= 2
+        if finishedFillingForm{
+            self.footerView.topButton.backgroundColor = UIColor.customRed()
+            self.footerView.topButton.enabled = true
+        }else{
+            self.footerView.topButton.backgroundColor = UIColor.customGrey()
+            self.footerView.topButton.enabled = false
+
+        }
     }
     
     
@@ -252,7 +273,9 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
     
     
     func footerViewTopButtonPressed() {
+        self.footerView.switchColors()
         addCard()
+        
         
     }
     func footerViewBottomButtonPressed() {
@@ -263,6 +286,10 @@ class NewCreditCardViewController: UIViewController, UICollectionViewDelegate,UI
         if(successIndicator){
             self.navigationController?.popViewControllerAnimated(true)
         }
+    }
+    
+    func textFieldDidChange(textField: UITextField) {
+        checkAllFormsFilled()
     }
     
     

@@ -20,16 +20,24 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
     @IBOutlet weak var expirationDateTextField: UITextField!
     @IBOutlet weak var securityCodeTextField: UITextField!
     var cardInfo : CardIOCreditCardInfo? = nil
+    var userHasCategories = false
     
     override func viewDidLoad() {
         self.headerView.addBottomBorder(UIColor.customGrey())
         super.viewDidLoad()
+        getUserCategories()
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         CardIOUtilities.preload()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
         configureTextFields()
+    }
+    
+    func getUserCategories(){
+        ServerRequest.shared.getUserCategories { (categories) -> Void in
+            self.userHasCategories = categories.count > 0
+        }
     }
     
     private func configureTextFields() {
@@ -39,6 +47,12 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
         self.creditCardTextField.enablePadding(true)
         self.securityCodeTextField.delegate = self
         self.securityCodeTextField.enablePadding(true)
+        self.securityCodeTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        self.creditCardTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        self.expirationDateTextField.addTarget(self, action: "textFieldDidChange:", forControlEvents: UIControlEvents.EditingChanged)
+        
+
+        
     }
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
@@ -149,14 +163,14 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
     
     func navigateToApp() {
         let tbc = TabBarViewController()
-        self.navigationController?.presentViewController(tbc, animated: true, completion: nil)
+        let nvc = UINavigationController(rootViewController: tbc)
+        nvc.navigationBarHidden = true
+        self.navigationController?.presentViewController(nvc, animated: true, completion: nil)
     }
     
     func navigateToCategories() {
         let cvc = CategoriesViewController(nibName:"CategoriesViewController", bundle:nil)
-        let nvc = UINavigationController(rootViewController: cvc)
-        nvc.navigationBarHidden = true
-        self.presentViewController(nvc, animated: true, completion: nil)
+        self.navigationController?.pushViewController(cvc, animated: true)
 
     }
 
@@ -164,10 +178,14 @@ class CreditCardViewController: UIViewController, CardIOPaymentViewControllerDel
         self.navigationController?.popViewControllerAnimated(true)
     }
     @IBAction func skipToCategoriesAction(sender: AnyObject) {
-        let cvc = CategoriesViewController()
-        self.navigationController?.pushViewController(cvc, animated: true)
-        
+        self.setStatusBarColor(UIColor.customRed(), useWhiteText: true)
+        self.userHasCategories ? navigateToApp() : navigateToCategories()
     }
+    
+    func textFieldDidChange(textField: UITextField) {
+        checkAllFormsFilled()
+    }
+    
     /*
     // MARK: - Navigation
 
