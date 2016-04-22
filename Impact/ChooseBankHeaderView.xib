@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseBankViewController" customModule="Impact" customModuleProvider="target"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="UICollectionReusableView">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChooseBankHeaderView" customModule="Impact" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -36,9 +36,16 @@
                     <state key="normal" title="Skip">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="skipToCreditCardAction:" destination="-1" eventType="touchUpInside" id="ybK-Yt-hIS"/>
-                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yzw-ua-V2z">
+                    <rect key="frame" x="8" y="25" width="43" height="30"/>
+                    <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="43" id="3H8-DC-wFl"/>
+                        <constraint firstAttribute="height" constant="30" id="BZQ-e9-hVm"/>
+                    </constraints>
+                    <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                    <state key="normal" image="BackButton"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.96078431369999995" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -47,14 +54,23 @@
                 <constraint firstItem="NHU-bc-cbI" firstAttribute="centerY" secondItem="kgu-sf-tXZ" secondAttribute="centerY" id="6bF-4d-MW0"/>
                 <constraint firstItem="kgu-sf-tXZ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="26" id="DjI-8L-1r9"/>
                 <constraint firstItem="kgu-sf-tXZ" firstAttribute="centerX" secondItem="Kqm-az-ht5" secondAttribute="centerX" id="FUi-n4-CJZ"/>
+                <constraint firstItem="Yzw-ua-V2z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="Gqr-YJ-h65"/>
                 <constraint firstItem="Kqm-az-ht5" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="HmA-Tz-cIA"/>
                 <constraint firstItem="kgu-sf-tXZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="38" id="No3-ba-Xw4"/>
                 <constraint firstItem="NHU-bc-cbI" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailingMargin" id="O4S-QW-OTL"/>
                 <constraint firstAttribute="bottom" secondItem="Kqm-az-ht5" secondAttribute="bottom" constant="30" id="WP2-Wl-LTi"/>
                 <constraint firstItem="NHU-bc-cbI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="er1-YX-kJn"/>
+                <constraint firstItem="Yzw-ua-V2z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="25" id="zVk-Gs-JpW"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="backButton" destination="Yzw-ua-V2z" id="yDr-6T-cWv"/>
+                <outlet property="skipButton" destination="NHU-bc-cbI" id="rea-hi-75U"/>
+            </connections>
         </view>
     </objects>
+    <resources>
+        <image name="BackButton" width="26" height="45"/>
+    </resources>
 </document>
