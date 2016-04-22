@@ -24,19 +24,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="605"/>
                     <color key="backgroundColor" red="0.28235294117647058" green="0.28235294117647058" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjh-Va-hgq">
-                    <rect key="frame" x="220" y="309" width="182" height="33"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="182" id="Qjh-Dq-JL3"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                    <state key="normal" title="I agree to terms of service">
-                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    </state>
-                    <connections>
-                        <action selector="termsOfUsePressed:" destination="-1" eventType="touchUpInside" id="mmf-aX-16u"/>
-                    </connections>
-                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="own-KW-kVN" customClass="RoundedButton" customModule="Impact" customModuleProvider="target">
                     <rect key="frame" x="49" y="350" width="502" height="45"/>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,11 +54,11 @@
                         <action selector="closeButtonPressed:" destination="-1" eventType="touchUpInside" id="c1D-8m-Jmq"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password must be at least 6 characters long" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHL-GB-0Za">
-                    <rect key="frame" x="110" y="281" width="380" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password must be at least 6 characters long" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="UHL-GB-0Za">
+                    <rect key="frame" x="49" y="281" width="502" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="1aQ-c1-XEm"/>
-                        <constraint firstAttribute="width" constant="380" id="wt6-o6-Yes"/>
+                        <constraint firstAttribute="width" constant="502" id="wt6-o6-Yes"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="13"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -143,8 +130,21 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wjh-Va-hgq">
+                    <rect key="frame" x="226" y="309" width="182" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="182" id="Qjh-Dq-JL3"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                    <state key="normal" title="I agree to terms of service">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="termsOfUsePressed:" destination="-1" eventType="touchUpInside" id="mmf-aX-16u"/>
+                    </connections>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeS-JP-pQ0">
-                    <rect key="frame" x="186" y="313" width="26" height="26"/>
+                    <rect key="frame" x="192" y="313" width="26" height="26"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="26" id="bXs-nq-kph"/>
                         <constraint firstAttribute="width" constant="26" id="lV2-G0-mOc"/>
@@ -164,6 +164,7 @@
                 <constraint firstAttribute="trailing" secondItem="KmT-tZ-8or" secondAttribute="trailing" constant="49" id="9BZ-Bk-jU9"/>
                 <constraint firstAttribute="bottom" secondItem="L6l-NL-4qG" secondAttribute="bottom" constant="-5" id="C5f-bd-2d2"/>
                 <constraint firstAttribute="centerX" secondItem="ojP-so-25O" secondAttribute="centerX" id="CWm-xV-e5m"/>
+                <constraint firstItem="UHL-GB-0Za" firstAttribute="width" secondItem="KmT-tZ-8or" secondAttribute="width" id="CXX-Uq-5PJ"/>
                 <constraint firstItem="own-KW-kVN" firstAttribute="top" secondItem="qeS-JP-pQ0" secondAttribute="bottom" constant="11" id="F82-WL-X1r"/>
                 <constraint firstItem="L6l-NL-4qG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Jof-OH-RdI"/>
                 <constraint firstItem="Wjh-Va-hgq" firstAttribute="top" secondItem="UHL-GB-0Za" secondAttribute="bottom" constant="7" id="L44-gW-QB4"/>
@@ -186,7 +187,7 @@
                 <constraint firstItem="Wjh-Va-hgq" firstAttribute="leading" secondItem="qeS-JP-pQ0" secondAttribute="trailing" constant="8" symbolic="YES" id="uv5-7l-nhe"/>
                 <constraint firstItem="9nV-E9-jJz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="49" id="uyT-ff-QRO"/>
                 <constraint firstAttribute="centerX" secondItem="own-KW-kVN" secondAttribute="centerX" id="xbS-37-V6C"/>
-                <constraint firstItem="Wjh-Va-hgq" firstAttribute="centerX" secondItem="UHL-GB-0Za" secondAttribute="centerX" constant="11" id="yy3-xK-nJn"/>
+                <constraint firstItem="Wjh-Va-hgq" firstAttribute="centerX" secondItem="UHL-GB-0Za" secondAttribute="centerX" constant="17" id="yy3-xK-nJn"/>
             </constraints>
         </view>
     </objects>

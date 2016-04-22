@@ -213,6 +213,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let alertController = UIAlertController(title: "Warning", message: "Are you sure you want to logout?", preferredStyle: .Alert)
         let cancelAction = UIAlertAction(title: "NO", style: .Cancel) { (action) in
         }
+        alertController.view.tintColor = UIColor.customRed()
+
         alertController.addAction(cancelAction)
         
         let OKAction = UIAlertAction(title: "YES", style: .Default) { (action) in
