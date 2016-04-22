@@ -41,6 +41,7 @@ class DoneButton: UIButton {
     }
     
     func animateDoneButton(show:Bool) {
+        self.titleLabel!.font = UIFont(name: "AvenirNext-Regular", size: 17.0)!
         UIView.animateWithDuration(0.3, animations: { () -> Void in
             self.frame = show ? self.inFrame : self.outFrame;
         });
