@@ -103,6 +103,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                     }else{
                         cell.userLabel.hidden = false
                         cell.userLabel.text =  user.bank_name
+                        cell.customAccessoryView.image = UIImage(named: "Checkmark")
 
                     }
                 }
