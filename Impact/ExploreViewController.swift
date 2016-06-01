@@ -89,7 +89,7 @@ class ExploreViewController: UIViewController,UITableViewDelegate,UITableViewDat
     private func configureCauseCell(cause:Cause,tableView:UITableView, indexPath:NSIndexPath) -> CausesTableViewCell  {
         let cell:CausesTableViewCell = tableView.dequeueReusableCellWithIdentifier("CausesTableViewCell", forIndexPath: indexPath) as! CausesTableViewCell
         cell.causeNameLabel.text = cause.name
-        cell.causeImageView.setImageWithUrl(NSURL(string: cause.profileImageUrl))
+        cell.causeImageView.setImageWithUrl(NSURL(string: "https://upload.wikimedia.org/wikipedia/commons/b/be/Beldon_Field.jpg"))
         cell.organizationImageView.setImageWithUrl(NSURL(string:cause.organizationLogoUrl))
         cell.goalLabel.text = "Seeking $\(cause.goal/100)"
         cell.addressLabel.text = "\(cause.city), \(cause.state)"

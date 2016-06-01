@@ -166,6 +166,11 @@ class ServerRequest: NSObject {
         return ["Content-Type" : "application/json", "Accept": "application/json"];
     }
     
+    //TODO Refactor baseURL and stagingURL so that we don't just hardcode in strings
+    func getRooURL() -> String {
+        return useStagingServer ? "https://pacific-wildwood-1045.herokuapp.com/" : "https://murmuring-coast-1876.herokuapp.com/"
+    }
+    
     //MARK: UserAuthentication
     func signUpWithPayload(payload:NSDictionary, success:(json:JSON) -> Void, failure:(errorMessage:String) -> Void) {
         let parameters = [kUserRequestKey : payload]

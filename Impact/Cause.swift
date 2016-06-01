@@ -47,9 +47,13 @@ class Cause: NSObject {
         organizationId = json["organization_id"].intValue
         organizationName = json["organization_name"].stringValue
         organizationLogoUrl = json["organization_logo_url"].stringValue
-        profileImageUrl = json["profile_image_url"].stringValue
-        if profileImageUrl.characters.count == 0 {
-            profileImageUrl = kDefaultImageURL
+        if let profileImageObject = json["profile_image_url"].dictionaryObject {
+            if let previewObject = profileImageObject["preview"] as? [String:String] {
+                if let url = previewObject["url"] {
+                    let profileImageUrl = ServerRequest.shared.getRooURL() + String(url.characters.dropFirst())
+                    self.profileImageUrl = url.characters.count != 0 ? profileImageUrl  : kDefaultImageURL
+                }
+            }
         }
         state = json["state"].stringValue
         city = json["city"].stringValue
