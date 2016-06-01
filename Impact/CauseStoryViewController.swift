@@ -46,11 +46,9 @@ class CauseStoryViewController: UIViewController,UITableViewDelegate,UITableView
         let newHeight = summaryHeaderView.blogPostLabel.frame.origin.y + summaryHeaderView.blogPostLabel.frame.size.height + self.contributeButtonPlusLabelHeight
         summaryHeaderView.frame.size.height = newHeight
         self.tableView.tableHeaderView = summaryHeaderView
-        if self.cause?.id == 1 {
-            self.summaryHeaderView.imageView.image = UIImage(named: "indiya_baker")
-        }
-        if self.cause?.id == 2 {
-            self.summaryHeaderView.imageView.image = UIImage(named: "miles_covington")
+        if let profileImageURL = cause?.profileImageUrl {
+            self.summaryHeaderView.imageView.setImageWithUrl(NSURL(string:profileImageURL)!)
+            
         }
         
         self.summaryHeaderView.partnershipLabel.text = "In Partnership with CityLax"
