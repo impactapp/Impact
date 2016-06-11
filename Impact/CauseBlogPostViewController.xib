@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -26,19 +26,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="75O-Ps-hY1">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udf-3P-L0O">
-                            <rect key="frame" x="8" y="26" width="25" height="30"/>
-                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="jry-qN-f8A"/>
-                                <constraint firstAttribute="width" constant="25" id="wXL-Mb-myA"/>
-                            </constraints>
-                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="9" maxY="0.0"/>
-                            <state key="normal" image="BackButton"/>
-                            <connections>
-                                <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="4Ep-D6-COX"/>
-                            </connections>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Impact" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uo5-iM-Xva">
                             <rect key="frame" x="248" y="22" width="105" height="38"/>
                             <constraints>
@@ -48,15 +35,28 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Udf-3P-L0O">
+                            <rect key="frame" x="8" y="14" width="63" height="42"/>
+                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="42" id="jry-qN-f8A"/>
+                                <constraint firstAttribute="width" constant="63" id="wXL-Mb-myA"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="10" minY="10" maxX="40" maxY="10"/>
+                            <state key="normal" image="BackButton"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="4Ep-D6-COX"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="uo5-iM-Xva" firstAttribute="centerY" secondItem="Udf-3P-L0O" secondAttribute="centerY" id="7IH-YZ-XNQ"/>
+                        <constraint firstItem="uo5-iM-Xva" firstAttribute="centerY" secondItem="Udf-3P-L0O" secondAttribute="centerY" constant="6" id="7IH-YZ-XNQ"/>
                         <constraint firstAttribute="height" constant="64" id="9wI-rg-Wod"/>
                         <constraint firstItem="Udf-3P-L0O" firstAttribute="leading" secondItem="75O-Ps-hY1" secondAttribute="leading" constant="8" id="Bt7-Mg-bYH"/>
                         <constraint firstItem="uo5-iM-Xva" firstAttribute="top" secondItem="75O-Ps-hY1" secondAttribute="top" constant="22" id="EmR-bR-34q"/>
                         <constraint firstAttribute="bottom" secondItem="Udf-3P-L0O" secondAttribute="bottom" constant="8" id="Fx9-tk-JcP"/>
-                        <constraint firstItem="Udf-3P-L0O" firstAttribute="top" secondItem="75O-Ps-hY1" secondAttribute="top" constant="26" id="Q0A-f9-qa1"/>
+                        <constraint firstItem="Udf-3P-L0O" firstAttribute="top" secondItem="75O-Ps-hY1" secondAttribute="top" constant="14" id="Q0A-f9-qa1"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="SKn-zl-Vue"/>
                         <constraint firstItem="uo5-iM-Xva" firstAttribute="centerX" secondItem="75O-Ps-hY1" secondAttribute="centerX" id="XUD-wN-uTe"/>
                     </constraints>

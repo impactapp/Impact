@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -21,18 +21,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PuH-Ji-fFa">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1l-Ft-a1O">
-                            <rect key="frame" x="8" y="26" width="25" height="30"/>
-                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="25" id="UJ0-5c-FAe"/>
-                            </constraints>
-                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="9" maxY="0.0"/>
-                            <state key="normal" image="BackButton"/>
-                            <connections>
-                                <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="dxX-OK-1A2"/>
-                            </connections>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Photo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VBk-Tl-7RX">
                             <rect key="frame" x="227" y="26" width="147" height="30"/>
                             <constraints>
@@ -42,15 +30,27 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g1l-Ft-a1O">
+                            <rect key="frame" x="8" y="20" width="63" height="42"/>
+                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="63" id="UJ0-5c-FAe"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="10" minY="10" maxX="40" maxY="10"/>
+                            <state key="normal" image="BackButton"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="dxX-OK-1A2"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstItem="VBk-Tl-7RX" firstAttribute="centerX" secondItem="PuH-Ji-fFa" secondAttribute="centerX" id="MMe-l1-caQ"/>
-                        <constraint firstItem="g1l-Ft-a1O" firstAttribute="top" secondItem="VBk-Tl-7RX" secondAttribute="top" id="Nk5-o1-GMY"/>
+                        <constraint firstItem="g1l-Ft-a1O" firstAttribute="top" secondItem="VBk-Tl-7RX" secondAttribute="top" constant="-6" id="Nk5-o1-GMY"/>
                         <constraint firstItem="VBk-Tl-7RX" firstAttribute="bottom" secondItem="PuH-Ji-fFa" secondAttribute="bottomMargin" id="OYQ-7S-lOg"/>
-                        <constraint firstItem="g1l-Ft-a1O" firstAttribute="bottom" secondItem="VBk-Tl-7RX" secondAttribute="bottom" id="Ory-pZ-56k"/>
+                        <constraint firstItem="g1l-Ft-a1O" firstAttribute="bottom" secondItem="VBk-Tl-7RX" secondAttribute="bottom" constant="6" id="Ory-pZ-56k"/>
                         <constraint firstAttribute="height" constant="64" id="a1I-eg-oTw"/>
-                        <constraint firstItem="g1l-Ft-a1O" firstAttribute="top" secondItem="PuH-Ji-fFa" secondAttribute="top" constant="26" id="hZ1-4y-awS"/>
+                        <constraint firstItem="g1l-Ft-a1O" firstAttribute="top" secondItem="PuH-Ji-fFa" secondAttribute="top" constant="20" id="hZ1-4y-awS"/>
                         <constraint firstItem="g1l-Ft-a1O" firstAttribute="leading" secondItem="PuH-Ji-fFa" secondAttribute="leadingMargin" id="sNG-mD-v8a"/>
                     </constraints>
                 </view>

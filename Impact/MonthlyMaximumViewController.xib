@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -21,18 +21,6 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M2K-9J-Hvy">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sz-oS-dZz">
-                            <rect key="frame" x="8" y="26" width="25" height="30"/>
-                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="25" id="Vcc-Zd-Ppb"/>
-                            </constraints>
-                            <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="9" maxY="0.0"/>
-                            <state key="normal" image="BackButton"/>
-                            <connections>
-                                <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="9za-x8-aGV"/>
-                            </connections>
-                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekly Maximum" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HfF-4t-ZnU">
                             <rect key="frame" x="189" y="26" width="222" height="30"/>
                             <constraints>
@@ -42,16 +30,28 @@
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0sz-oS-dZz">
+                            <rect key="frame" x="8" y="20" width="63" height="42"/>
+                            <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="63" id="Vcc-Zd-Ppb"/>
+                            </constraints>
+                            <inset key="contentEdgeInsets" minX="10" minY="10" maxX="40" maxY="10"/>
+                            <state key="normal" image="BackButton"/>
+                            <connections>
+                                <action selector="backButtonPressed:" destination="-1" eventType="touchUpInside" id="9za-x8-aGV"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.47058823529999999" blue="0.47058823529999999" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstItem="HfF-4t-ZnU" firstAttribute="bottom" secondItem="0sz-oS-dZz" secondAttribute="bottom" id="BVC-lB-A4x"/>
-                        <constraint firstItem="0sz-oS-dZz" firstAttribute="top" secondItem="M2K-9J-Hvy" secondAttribute="top" constant="26" id="R7J-Hg-fJT"/>
+                        <constraint firstItem="HfF-4t-ZnU" firstAttribute="bottom" secondItem="0sz-oS-dZz" secondAttribute="bottom" constant="-6" id="BVC-lB-A4x"/>
+                        <constraint firstItem="0sz-oS-dZz" firstAttribute="top" secondItem="M2K-9J-Hvy" secondAttribute="top" constant="20" id="R7J-Hg-fJT"/>
                         <constraint firstItem="0sz-oS-dZz" firstAttribute="leading" secondItem="M2K-9J-Hvy" secondAttribute="leadingMargin" id="Uau-y1-AZQ"/>
-                        <constraint firstItem="0sz-oS-dZz" firstAttribute="top" secondItem="HfF-4t-ZnU" secondAttribute="top" id="hLd-Yd-Vm8"/>
+                        <constraint firstItem="0sz-oS-dZz" firstAttribute="top" secondItem="HfF-4t-ZnU" secondAttribute="top" constant="-6" id="hLd-Yd-Vm8"/>
                         <constraint firstAttribute="height" constant="64" id="mWR-Vn-VPq"/>
                         <constraint firstItem="HfF-4t-ZnU" firstAttribute="centerX" secondItem="M2K-9J-Hvy" secondAttribute="centerX" id="sBh-3o-Tdg"/>
-                        <constraint firstItem="0sz-oS-dZz" firstAttribute="bottom" secondItem="M2K-9J-Hvy" secondAttribute="bottomMargin" id="x0g-F5-rgK"/>
+                        <constraint firstItem="0sz-oS-dZz" firstAttribute="bottom" secondItem="M2K-9J-Hvy" secondAttribute="bottomMargin" constant="6" id="x0g-F5-rgK"/>
                     </constraints>
                 </view>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Sc5-aK-1PI">
